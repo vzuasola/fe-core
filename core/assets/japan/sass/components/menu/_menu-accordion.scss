@@ -1,0 +1,190 @@
+// Menu accordion style (main menu for mobile/tabelt)
+.menu-header {
+    @include gradient-three-color($header-grad, $header-grad-top, $header-grad-middle, $header-grad-bottom, 50%);
+    position: relative;
+    height: 6rem;
+    text-align: center;
+
+    // Line Top
+    &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        height: 0.2rem;
+        width: 100%;
+        content: '';
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a77917+0,a77917+50,b38436+51,b38436+100 */
+        background: $m-headertop-border-top; /* Old browsers */
+        background: -moz-linear-gradient(top, $m-headertop-border-top 0%, $m-headertop-border-top 50%, $m-headertop-border-bottom 51%, $m-headertop-border-bottom 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, $m-headertop-border-top 0%,$m-headertop-border-top 50%,$m-headertop-border-bottom 51%,$m-headertop-border-bottom 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, $m-headertop-border-top 0%,$m-headertop-border-top 50%,$m-headertop-border-bottom 51%,$m-headertop-border-bottom 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
+
+    // Line bottom
+    &:after {
+        position: absolute;
+        left: 0;
+        bottom: -0.1rem;
+        z-index: 1;
+        height: 0.3rem;
+        width: 100%;
+        content: '';
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bf965e+0,bf965e+33,b38f3b+34,b38f3b+66,bf965e+67,bf965e+100 */
+        background: $m-headerbottom-border-top; /* Old browsers */
+        background: -moz-linear-gradient(top, $m-headerbottom-border-top 0%, $m-headerbottom-border-top 33%, $m-headerbottom-border-middle 34%, $m-headerbottom-border-middle 66%, $m-headerbottom-border-bottom 67%, $m-headerbottom-border-bottom 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, $m-headerbottom-border-top 0%,$m-headerbottom-border-top 33%,$m-headerbottom-border-middle 34%,$m-headerbottom-border-middle 66%,$m-headerbottom-border-bottom 67%,$m-headerbottom-border-bottom 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, $m-headerbottom-border-top 0%,$m-headerbottom-border-top 33%,$m-headerbottom-border-middle 34%,$m-headerbottom-border-middle 66%,$m-headerbottom-border-bottom 67%,$m-headerbottom-border-bottom 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
+
+    img {
+        width: 11.6rem;
+        margin-top: 2rem;
+
+        @include media(">=tablet") {
+            width: 21rem;
+            margin-top: 1rem;
+        }
+    }
+
+    .fa {
+        position: absolute;
+        top: 0;
+        right: 1.3rem;
+        bottom: 0;
+        margin: auto;
+        font-size: 2rem;
+        height: 2rem;
+
+        @include media(">=tablet") {
+            font-size: 3rem;
+            height: 3rem;
+        }
+    }
+}
+
+.menu-accordion {
+    @include translateX(-20rem);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1010;
+    width: 20rem;
+    height: 100%;
+    overflow-y: auto;
+    transition: transform .3s;
+    background: $mobile-menu-bg;
+
+    @include media(">=tablet") {
+        @include translateX(-35rem);
+        width: 35rem;
+    }
+
+    .main-menu {
+        margin-bottom: 0;
+        padding-left: 0;
+        list-style-type: none;
+
+        ul {
+            margin: 0;
+            padding-left: 0;
+            list-style-type: none;
+        }
+    }
+    
+    // List
+    .main-menu-item {
+        position: relative;
+    }
+
+    // Main menu/submenu
+    .main-menu-link,
+    .sub-menu-link {
+        display: block;
+        padding: 1rem 3rem 1rem 1.5rem;
+        line-height: 1.6rem;
+        background: $mobile-menu-link-bg;
+        color: $mobile-menu-link-color;
+        font-weight: bold;
+        font-size: 1.6rem;
+
+        @include media(">=tablet") {
+            padding: 1.5rem 3.5rem 1.5rem 1.5rem;
+            line-height: 1.9rem;
+            font-size: 1.9rem;
+        }
+    }
+
+    // Anchor
+    .main-menu-link {
+        position: relative;
+
+        .fa {
+            position: absolute;
+            top: 0;
+            right: 1.3rem;
+            bottom: 0;
+            margin: auto;
+            font-size: 1.6rem;
+            height: 1.6rem;
+            display: none;
+
+            @include media(">=tablet") {
+                font-size: 2.5rem;
+                height: 2.5rem;
+            }
+        }
+
+        // arrow icon
+        &:before {
+            position: absolute;
+            top: 0.5rem;
+            right: 1rem;
+            display: block;
+            content: "";
+        }
+    }
+
+    // Hover/Active state
+    .active .main-menu-link,
+    .main-menu-link:hover {
+        color: $mobile-menu-link-hover-color;
+        background: $mobile-menu-link-hover-bg;
+    }
+
+    .has-submenu .main-menu-link {
+        span {
+            display: block;
+        }
+    }
+
+    // Submenu
+    .sub-menu-link {
+        padding-left: 2.5rem;
+
+        img {
+            display: none;
+
+            @include media(">=desktop") {
+                display: block;
+            }
+        }
+
+        color: $mobile-submenu-link-color;
+        background: $mobile-submenu-link-bg;
+    }
+
+    .sub-menu-item:first-child {
+
+        .sub-menu-link {
+            padding-left: 1.5rem;
+        }
+    }
+
+    // Hover
+    .active > .sub-menu-link,
+    .sub-menu-link:hover {
+        color: $mobile-submenu-link-hover-color;
+        background: $mobile-submenu-link-hover-bg;
+    }
+}

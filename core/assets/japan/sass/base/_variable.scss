@@ -1,0 +1,231 @@
+// Resonsive Design Break Points ----------------------------------------
+$mobile-breakpoint:         0;
+$mobile-md-breakpoint:      360px; // 360px
+$tablet-md-breakpoint:      520px; // 520px
+$tablet-breakpoint:         768px; // 768px
+$desktop-breakpoint:        1025px; // 1025px
+$desktop-lg-breakpoint:     1280px; // 1280px
+
+// Grids ----------------------------------------
+$grid-gutter-mobile:        20px; // 10px column spacing
+$grid-gutter-mobile-md:     $grid-gutter-mobile;
+$grid-gutter-tablet:        40px; // 20px column spacing
+$grid-gutter-desktop:       50px; // 25px column spacing
+$grid-gutter-desktop-lg:    $grid-gutter-desktop;
+
+// Containers ----------------------------------------
+$container-max-width:         128rem;
+$container-gutter-mobile:     1rem;
+$container-gutter-mobile-md:  1rem;
+$container-gutter-tablet:     2rem;
+$container-gutter-desktop:    4rem;
+$container-gutter-desktop-lg: 4rem;
+
+// Images ----------------------------------------
+$base-sprite:  "../../core/core/assets/images/sprite.png";
+$base-default-image:  "../../core/core/assets/images/default_image.png";
+$base-back-to-top:  "../../core/core/assets/japan/images/back-to-top.png";
+
+// Default Fonts ----------------------------------------
+$default-font-family: "Avenir", "Open Sans", "メイリオ", "Meiryo", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック体", "Yu Gothic", YuGothic, sans-serif;
+$default-code-font-family:  "courier new", monospace, serif;
+
+// Font Size Defaults
+$default-font-size:   1.6rem;
+$default-line-height: normal;
+$h1: 2.8rem;
+$h2: 2.4rem;
+$h3: 2.0rem;
+$h4: 1.8rem;
+$h5: 1.8rem;
+$h6: 1.8rem;
+
+// Colors ----------------------------------------
+$yellow:        #ffb600;
+$red:           #ff0000;
+$dark-red:      #810000;
+$white:         #fff;
+$black:         #000;
+$lightest-gray: #e6e7e8;
+$light-gray:    #d3d3d3;
+$gray:          #5e5e5e;
+$dark-gray:     #373737;
+$light-gold:    #ffd27e;
+$orange:		#edb200;
+$dark-orange:	#c59006;
+
+$background-color: #002600;
+
+// Miscellaneous ----------------------------------------
+$default-element-margin-bottom: 1.5rem; // h1, h2, h3, h4, h5, h6, p, ul, ol, table, dl, form, menu
+
+// Border Radius ----------------------------------------
+$border-radius-default:     0.2rem !default;
+$border-radius-large:       1rem !default;
+$border-radius-small:       0.1rem !default;
+
+// Buttons ----------------------------------------
+@import 'variable-buttons';
+
+// form Elements ----------------------------------------
+$input-color-placeholder:       #999 !default;
+// Horizontal rule
+$hr-color:              $gray;
+
+// Menu Tab ----------------------------------------
+$tab-menu-link-color:               $white;
+$tab-menu-link-bg:                  transparent;
+$tab-menu-hover-bg:                 #020b00;
+$tab-menu-link-border-color:        transparent;
+$tab-menu-link-hover-color:         $tab-menu-link-color;
+$tab-menu-link-hover-bg:            $tab-menu-hover-bg;
+$tab-menu-link-hover-border-color:  #11a350;
+
+// Menu Tab Submenu 
+$submenu-wrapper-bg:        $red;
+$submenu-link-color:        $white;
+$submenu-link-bg:           $submenu-wrapper-bg;
+$submenu-link-hover-color:  $yellow;
+$submenu-link-hover-bg:     $dark-red;
+$submenu-link-active-color: $submenu-link-hover-color;
+$submenu-link-active-bg:    $submenu-link-hover-bg;
+$submenu-font-size:         1.6rem;
+
+// Mobile Menu/Accordion Style ----------------------------------------
+$mobile-menu-link-color:        $black;
+$mobile-menu-link-bg:           transparent;
+$mobile-menu-link-hover-color:  $mobile-menu-link-color;
+$mobile-menu-link-hover-bg:     #cdcdcd;
+$mobile-menu-font-size:         1.6rem;
+$mobile-menu-bg:                $white;
+
+$mobile-submenu-link-color:         $black;
+$mobile-submenu-link-bg:            transparent;
+$mobile-submenu-link-hover-color:   $mobile-submenu-link-color;
+$mobile-submenu-link-hover-bg:      #cdcdcd;
+
+// Banner Slider ----------------------------------------
+$slider-side-gap:       14rem; // slider side gap to next and prev controls
+$slider-inner-gap:      18rem; // slider gap from blurb to its side.
+$slider-pager-color:    #fff; //default pager item color
+
+// Header borders, brackground & components --------------------------------------------------------------------
+
+// header background
+$header-grad:           #020b00; // Fallback color
+$header-grad-top:       #020b00;
+$header-grad-middle:    #020b00;
+$header-grad-bottom:    #002d00;
+
+// Mobile header TOP gradient border
+$m-headertop-border-top:      #a77917;
+$m-headertop-border-bottom:   #b38436;
+
+// Mobile header BOTTOM gradient border
+$m-headerbottom-border-top:      #bf965e;
+$m-headerbottom-border-middle:   #b38f3b;
+$m-headerbottom-border-bottom:   #bf965e;
+
+// Desktop header TOP gradient border
+$d-headertop-border-top1:      #9e7700;
+$d-headertop-border-top2:      #b3912f;
+$d-headertop-border-top3:      #ceb771;
+$d-headertop-border-middle:      #f8f3d6;
+$d-headertop-border-bottom1:      #ccb66d;
+$d-headertop-border-bottom2:      #b2902e;
+
+// Desktop header BOTTOM gradient border
+$d-headerbottom-border-top1:      #086828;
+$d-headerbottom-border-top2:      #11a350;
+$d-headerbottom-border-middle:      #649249;
+$d-headerbottom-border-bottom:      #f0e3af;
+
+// Header account component
+$account-color:         $white;
+$account-border:        $white;
+$account-bg:            transparent;
+$account-amount-color:  #72ff5b;
+$profile-menu-bg:   #cba56f;
+$profile-menu-link-color:   #312004;
+
+// Header download button component
+$download-btn-color:         $white;
+$download-btn-bg:            #55aa43;
+$download-btn-border:        #d9d9d9;
+
+// Header ticker component
+$ticker-btn-color:          $white;
+$ticker-btn-bg:             #55aa43;
+$ticker-btn-border:         #d9d9d9;
+$ticker-holder-grad-top:    #413a1d;
+$ticker-holder-grad-bottom: $black;
+$ticker-icon-grad-top:    #fa9063;
+$ticker-icon-grad-middle: #ab0e00;
+$ticker-icon-grad-bottom: #ff0500;
+
+// Footer borders, brackground & components --------------------------------------------------------------------
+
+// Footer gradient background
+$footer-grad:           #1b1b1b;
+$footer-grad-top:       #262626;
+$footer-grad-bottom:    #030303;
+
+// Mobile footer gradient border top
+$m-footer-border-top:       #a07e13;
+$m-footer-border-middle:    #ebdca5;
+$m-footer-border-bottom:    #a9a9a7;
+
+// Desktop Footer TOP gradient border
+$d-footer-border-top1:      #9e7700;
+$d-footer-border-top2:      #b3912f;
+$d-footer-border-top3:      #ceb771;
+$d-footer-border-middle:      #f8f3d6;
+$d-footer-border-bottom1:      #ccb66d;
+$d-footer-border-bottom2:      #b2902e;
+
+// Footer language button component
+$lang-btn-color:              $white;
+$lang-btn-bg:                 transparent;
+$lang-btn-border:             $gray;
+
+$lang-btn-hover-color:        $white;
+$lang-btn-hover-bg:           $black;
+$lang-btn-hover-border:       $lang-btn-border;
+
+// Footer quicklinks component
+$quicklink-color:           $white;
+$quicklink-hover-color:     $yellow;
+
+// Footer copyright
+$copyright-color:           $white;
+$copyright-grad:            #177f34;
+$copyright-grad-top:        #168539;
+$copyright-grad-bottom:     #20480c;
+
+
+// Main layout borders & background --------------------------------------------------------------------
+
+// Side borders
+$d-side-border-top:     #dbbe00;
+$d-side-border-middle:  #030b00;
+$d-side-border-bottom:  #b48954;
+
+// Side borders (Homepage)
+$d-side-border-home:    #dbbe00;
+
+// Left shadow
+$d-side1-grad-left:     $background-color;
+$d-side1-grad-right:    #021500;
+
+// right shadow
+$d-side2-grad-left:     #021500;
+$d-side2-grad-right:    $background-color;
+
+// Modal -------------------------------------------
+$modal-padding: 20px;
+$modal-width: 800px;
+$modal-bg: #f7f7f7;
+$modal-overlay-bg: rgba(0, 0, 0, 0.8);
+$modal-radius: 15px;
+$modal-header-color: $white;
+$modal-header-bg: $red;

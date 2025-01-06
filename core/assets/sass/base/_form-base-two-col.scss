@@ -1,0 +1,109 @@
+// Two column layout form (Used in my-profile form)
+.form-two-col {
+    // Legend
+    .blurb {
+        clear: both;
+        padding: 0 15px;
+        font-size: 16px;
+        color: #333;
+
+        // HR
+        hr {
+            margin: 10px -15px 30px;
+        }
+    }
+
+    // Form item (1st level)
+    > .form-item {
+        @extend %clearfix;
+        position: relative;
+        float: left;
+        width: 50%;
+        margin: 0 0 20px;
+
+        // form field container & form item (2nd level)
+        > .form-item,
+        > .form-field {
+            float: left;
+            width: 58.33333%;
+            padding: 0 10px;
+        }
+
+        // Form label
+        > .form-label {
+            display: table;
+            float: left;
+            width: 41.66667%;
+            text-align: right;
+            margin: 0;
+            line-height: 14px;
+            height: 31px;
+
+            // Text label
+            .form-label-text {
+                display: table-cell;
+                vertical-align: middle;
+                // margin-right: 5px;
+            }
+
+            .required-field {
+                display: table-cell;
+                width: 13px;
+                vertical-align: middle;
+            }
+        }
+
+        // Form field container
+        // > .form-field {
+
+        // }
+
+        // Field element
+        .form-field-element {
+            width: 100%;
+        }
+
+        // Radios
+        .radio-inline {
+            display: inline-block;
+
+            // Add right margin to every radios except first item of the same parent
+            & + .radio-inline {
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+/*  Validation icons & messages ================================ */
+.form-two-col {
+    > .form-item {
+        // Validation icons
+        .icon {
+            &-validation {
+                @extend %lazy-loaded;
+                top: 5px;
+                right: -14px;
+            }
+        }
+
+        // Error messages
+        .form-help-block {
+            display: none;
+            margin-top: 5px;
+        }
+
+        // Error messages - has-error
+        &.has-error .form-help-block {
+            display: block;
+            color: $red;
+        }
+
+        // form field elements with error
+        &.has-error {
+            .form-field-element {
+                border: 1px solid $fire-red;
+            }
+        }
+    }
+}

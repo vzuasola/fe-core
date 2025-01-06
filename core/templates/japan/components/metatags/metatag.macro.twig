@@ -1,0 +1,16 @@
+{% macro meta(propName, propValue, value) %}
+    {% if value %}
+        <meta {{ propName|default('name') }}="{{ propValue }}" content="{{ value }}">
+    {% endif %}
+{% endmacro %}
+
+{% macro link(propValue, value, type, title, customProp, customPropValue) %}
+    {% if value %}
+        <link rel="{{ propValue }}"
+            href="{{ value }}"
+            {% if type %}type="{{ type }}"{% endif %}
+            {% if title %}type="{{ title }}"{% endif %}
+            {% if customProp %}{{ customProp }}="{{ customPropValue }}"{% endif %}
+        >
+    {% endif %}
+{% endmacro %}

@@ -1,0 +1,607 @@
+$dcoin-wallet-fiat-icon: "../../core/core/assets/images/responsive/header/dcoin-wallet-fiat-icon.svg";
+$dcoin-wallet-token-icon: "../../core/core/assets/images/responsive/header/dcoin-wallet-token-icon.svg";
+$dcoin-wallet-switch-icon: "../../core/core/assets/images/responsive/header/dcoin-wallet-switch-icon.svg";
+$ok-icon: "../../core/core/assets/images/ok-icon.svg";
+$att-icon: "../../core/core/assets/images/att-icon.svg";
+
+.balance-menu-btn {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.up-arrowhead {
+    margin: 0 5px 0 0;
+    position: relative;
+    top: 4px;
+}
+
+.down-arrowhead {
+    margin: 0 5px 0 0;
+    position: relative;
+    top: -2px;
+}
+$small-screen: 768px;
+$large-grid-col: 35%;
+$small-grid-col: 30%;
+$wallet-grid: $large-grid-col $small-grid-col $large-grid-col;
+
+#cashier-balance {
+    position: absolute;
+    z-index: 1010; /* To place it above livechat */
+
+    .cashier-wallet-rows-header {
+        background: #3e3d3d;
+        border-radius: 5px;
+        margin: 0 12px 10px;
+        display: grid;
+        grid-template-columns: $wallet-grid;
+        padding: 5px 0;
+
+        .switch-header,
+        .dafacoin-header,
+        .fiat-header {
+            text-align: center;
+        }
+    }
+
+    .cashier-wallet-row {
+        border-bottom: 1px solid grey;
+        margin: 0 12px 8px;
+        padding-bottom: 2px;
+
+        .balance-details {
+            .label {
+                max-width: $large-grid-col;
+                font-weight: 500;
+                font-size: 12px;
+                text-align: center;
+            }
+
+            .balance_row {
+                display: grid;
+                grid-template-columns: $wallet-grid;
+                font-size: 12px;
+                align-items: center;
+                font-weight: 400;
+
+                .fiat_balance,
+                .token_balance,
+                & > span {
+                    text-align: center;
+                }
+            }
+        }
+
+        /**
+    All currencies toggle
+    */
+        .token_toggle {
+            height: 26px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            > * {
+                pointer-events: none;
+                order: 1;
+                width: 38vw;
+            }
+
+            .switch {
+                order: 0;
+                text-align: center;
+                width: 24vw;
+
+                > svg {
+                    padding: 0 1px;
+                    background: url($dcoin-wallet-switch-icon);
+                    background-size: 100% 100%;
+                }
+            }
+
+            .active {
+                color: $yellow;
+                order: -1;
+                text-align: right;
+                width: 38vw;
+            }
+
+            .checkbox {
+                display: none;
+            }
+        }
+    }
+
+    .cashier-wallet-rows-container {
+        max-height: 450px;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            width: 6px;
+            height: 90%;
+            border-radius: 10px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: rgba(150, 150, 150, 0.4);
+            border-radius: 10px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: rgba(30, 30, 30, 0.4);
+            border-radius: 10px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background: rgb(30, 30, 30);
+        }
+    }
+
+    .cashier-menu-toggle-all-container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 0 12px 10px;
+
+        .cashier-menu-toggle-all-label {
+            margin-right: 10px;
+            max-width: 80%;
+        }
+
+        .btn-holder {
+            width: 50px;
+            height: 26px;
+            border-radius: 18px;
+            background: #5E5E5E;
+            display: flex;
+            align-items: center;
+            padding-left: 5px;
+            padding-right: 5px;
+            cursor: pointer;
+
+            .dafacoin-token-icon,
+            .dafacoin-fiat-icon {
+                transition: opacity 200ms ease-in-out;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+            }
+            .dafacoin-fiat-icon{
+                background: url($dcoin-wallet-fiat-icon) no-repeat;
+                background-size: 100% 100%;
+                height: 15px;
+                width: 15px;
+            }
+            
+            .dafacoin-token-icon{
+                background: url($dcoin-wallet-token-icon) no-repeat;
+                background-size: 100% 100%;
+                height: 21px;
+                width: 21px;
+                opacity: 0;
+
+            }
+            .btn-circle {
+                background: #D3D3D3;
+                transform: translateX(0);
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                transition: 300ms;
+                pointer-events: none;
+            }
+
+            &.active {
+                background-color: #555024;
+
+                .btn-circle {
+                    background-color: $white;
+                    transform: translateX(100%);
+                    transition: 300ms;
+
+                    .dafacoin-fiat-icon {
+                        opacity: 0;
+                    }
+
+                    .dafacoin-token-icon {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .checkbox {
+                display: none;
+            }
+        }
+    }
+}
+
+.balance-refresh {
+    &-icon {
+        background-image: url($sprite-responsive);
+        background-position: -454px -727px;
+        width: 18px;
+        height: 16px;
+        position: absolute;
+        margin: 0 3px;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: $small-screen) {
+    #cashier-balance {
+        width: 95%;
+        position: absolute;
+        top: 45px;
+    }
+}
+
+@media only screen and (min-width: $small-screen) {
+    #cashier-balance {
+        max-width: 375px;
+    }
+}
+
+#balance-menu-div {
+    position: relative;
+    background-color: #2b2829;
+    border: 2px solid #a8a6a7;
+    border-radius: 5px;
+    width: 100%;
+    z-index: 25;
+}
+
+#balance-save-btn {
+    color: #2b2829;
+    background-color: #ffe000;
+    border: 2px solid #ffe000;
+    border-radius: 5px;
+}
+
+#balance-save-btn:disabled {
+    background-color: #968526;
+    border-color: #968526;
+}
+
+#balance-close-btn {
+    color: #ffffff;
+    border: 1px solid #d3d3d3;
+    background-color: #2b2829;
+    margin-right: 12px;
+}
+
+.balance-btn {
+    float: right;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 10pt;
+    padding: 5px 10px;
+}
+
+.popup-btn {
+    font-weight: bold;
+    padding: 6px 40px;
+    border-radius: 15px;
+    display: inline-block;
+}
+
+#popup-no-btn {
+    color: #373737;
+    background-color: #ffe000;
+    border: 1px solid #cbb32f;
+    margin-left: 20px;
+}
+
+#popup-yes-btn {
+    color: #ffffff;
+    background-color: #373737;
+    border: 1px solid #ffffff;
+}
+
+// Dafacoin
+
+#dafacoin-saved-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+}
+
+#dafacoin-warning {
+    background-color: #373737;
+    color: #cdcdcd;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 95%;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1020;
+}
+
+#dafacoin-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+}
+
+#dafacoin-warning-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1015;
+}
+
+.div-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1px);
+    z-index: 80;
+}
+
+#balance-menu-shade::before {
+    content: " ";
+    position: absolute;
+    background: black;
+    width: 10px;
+    height: 10px;
+    right: 15px;
+    transform: rotate(45deg);
+    background-color: #2b2829;
+    border: 2px solid rgba(0, 0, 0, 0);
+    border-top-color: #a8a6a7;
+    border-left-color: #a8a6a7;
+    top: -5px;
+    @include media("<tablet") {
+        right: 38px;
+    }
+    @include media(">=tablet") {
+        right: 39px;
+    }
+}
+
+.dcoin-desktop {
+    #balance-menu-shade::before {
+        @include media(">desktop") {
+            right: 10px;
+        }
+    }
+} 
+
+
+#dafacoin-saved-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 70;
+    display: flex;
+    justify-content: center;
+}
+
+#dafacoin-saved {
+    background-color: #373737;
+    color: #cdcdcd;
+    font-weight: bold;
+    position: absolute;
+    top: 125px;
+    text-align: center;
+    width: 375px;
+    border-radius: 10px;
+    z-index: 100;
+
+    @include media("<desktop") {
+      top: 60px;
+    }
+
+    @include media("<385px") {
+      width: 95%;
+    }
+}
+
+.dafacoin-saved-text {
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+
+    .dafacoin-priority-set-failure:not(.hidden) {
+        display: flex;
+    }
+
+    .dafacoin-priority-set-failure-messages {
+        margin-right: 22px;
+    }
+}
+
+
+.dafacoin-menu-ok {
+    background: url($ok-icon);
+}
+
+.dafacoin-menu-not-ok {
+    background: url($att-icon);
+}
+.dafacoin-saved-icon {
+    display: inline-block;
+    margin: 0 11px;
+    min-width: 22px;
+    background-size: 100% 100%;
+}
+
+// Logo
+
+.dafacoin-logo {
+    display: table;
+    height: 100%;
+    margin-left: 50px;
+
+    &-wrapper {
+        display: table-cell;
+        height: 100%;
+        vertical-align: middle;
+
+        img {
+            width: auto;
+            height: 30px;
+        }
+    }
+}
+
+// Header
+
+.header-dafacoin {
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    background-color: #af0000;
+    color: #fff;
+    left: 0;
+    top: 0;
+}
+
+// Cashier
+
+.cashier-menu-yellow {
+    color: $yellow;
+}
+
+.cashier-information-text {
+    color: $white;
+}
+
+.cashier-menu-gray {
+    color: lightgray;
+}
+
+.cashier-menu {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.cashier-menu-loader {
+    display: table-cell;
+    vertical-align: middle;
+    margin-top: 10px;
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.cashier-menu-loader.hidden {
+    display: none !important;
+}
+
+.cashier-anchor {
+    width: 100%;
+
+    &-mobile,
+    &-desktop {
+        float: right;
+        width: 1px;
+        height: 1px;
+    }
+}
+
+#cashier-menu-top {
+    padding: 15px;
+    text-align: left;
+}
+
+#cashier-menu-total {
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 5px;
+    font-weight: 500;
+
+    #inner-total-balance {
+        margin-left: 5px;
+    }
+}
+
+#cashier-menu-msg {
+    font-size: 14px;
+    line-height: 14px;
+    margin-bottom: 5px;
+}
+
+#cashier-menu-buttons {
+    border-top: 1px solid #828081;
+    padding: 10px;
+}
+
+.cashier-total-balance-label {
+    font-size:14px;
+    margin-right: 0.3em;
+}
+.cashier-account-balance {
+    display: table;
+    height: 100%;
+
+    @include media("<desktop") {
+        position: absolute;
+        top: 0;
+        right: $container-gutter-xs;
+    }
+
+    &-amount, &-formatted {
+        margin-top: 0.3rem;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    // loader
+    &-loader {
+        width: 1.6rem;
+        height: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    img {
+        border-radius: 5px;
+        max-width: 100%;
+        height: auto;
+        vertical-align: middle;
+    }
+}
+
+// Element fixes
+
+.mobile-menu .mobile-menu-header .total-balance-container {
+    left: 50px !important;
+}
+
+.total-balance-container > .cashier-total-balance-label {
+    font-size:12px;
+    font-weight:400;
+}
+
+.total-balance-container > .cashier-account-balance-formatted {
+    font-size:12px;
+    font-weight:600;
+}

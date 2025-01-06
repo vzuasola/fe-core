@@ -1,0 +1,38 @@
+{% extends '@base/page.html.twig' %}
+
+{# Per page CSS #}
+{% block css %}
+    <link href="{{ asset('css/maintenance.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="container text-red">
+        {% for flash in app.session.getAllFlashes() %}
+            <div class="alert alert-info">
+                <h4>{{ flash }}</h4>
+            </div>
+        {% endfor %}
+    </div>
+    
+    {% include '@base/components/floating-banner.html.twig' %}
+    {% include '@base/components/session-modals.html.twig' %}
+    {% include '@base/registration/registration-step2-body.html.twig' %}
+
+    {% block main %}
+    <div class="maintenance-page-content-wrapper">
+        <div class="page-maintenance-banner-area">
+            <img alt="" class="page-maintenance-banner-image lazy-load" src="{{ asset('images/maintenance.png') }}">
+        </div>
+        <div class="container">
+            <div class="page-maintenance-text-area text-center">
+                <h2 class="text-semibold mt-20">{{ title }}</h2>
+                <p class="mb-5">{{ maintenance.content | raw }}</p>
+            </div>
+        </div>
+    </div>
+    {% endblock main %}
+{% endblock body %}
+{% block script %}
+    <script src="{{ asset('js/maintenance.bundle.js') }}"></script>
+{% endblock %}
+

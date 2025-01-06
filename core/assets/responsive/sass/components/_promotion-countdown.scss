@@ -1,0 +1,14 @@
+// Base countdown
+.promo-countdown {
+    margin: 0;
+    color: $lightest-gray;
+    font-size: 16px;
+
+    .icon-clock {
+        width: 23px;
+        height: 23px;
+        margin: -3px 8px 0 0;
+        background-image: url($base-sprite);
+        background-position: -240px -360px;
+    }
+}

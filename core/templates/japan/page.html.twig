@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html class="{{ app.lang }}">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {# Header scripts #}
+    {% block headerScript %}
+    {% endblock %}
+
+    {# Meta tags #}
+    {% block head %}
+        {{ include('@japan/components/metatags/metatags.html.twig') }}
+    {% endblock %}
+
+    {# Per page CSS #}
+    {% block css %}
+        <link href="{{ asset('css/page.css') }}" rel="stylesheet">
+    {% endblock %}
+</head>
+<body class="{{ body_class }}" style="{{ body_style }}">
+
+    {% block notificationStrip %}{% endblock notificationStrip %}
+
+    {% block slider %}{% endblock slider %}
+
+    {% block header %}
+        {{ include('@site/section/header.html.twig') }}
+    {% endblock header %}
+
+    {% block navbar %}
+        {% embed '@japan/section/navbar.html.twig' %}{% endembed %}
+    {% endblock navbar %}
+
+    <main class="main pl-desktop-50 pr-desktop-50">
+        {% block body %}{% endblock body %}
+    </main>
+
+    {% block gallerymodal %}{% endblock gallerymodal %}
+    {% block breadcrumb %}{% endblock breadcrumb %}
+
+    {% block footer %}
+        {{ include('@japan/section/footer.html.twig') }}
+    {% endblock footer %}
+
+    {% block cookies %} {% endblock cookies %}
+
+    {# We use special tokens for the script tokens @see Middleware/Attachments #}
+    {% block scriptAttachments %}
+    {{ '<#SCRIPT#>' }}
+    {{ '<#SCRIPT_INCLUDES#>' }}
+    {% endblock %}
+
+    {# Webpack manifest & vendor script #}
+    {% block vendorScript %}
+        <script src="{{ asset('js/manifest.bundle.js') }}"></script>
+        <script src="{{ asset('js/vendor.bundle.js') }}"></script>
+    {% endblock %}
+
+    {# Default per page JS #}
+    {% block script %}
+        <script src="{{ asset('js/page.bundle.js') }}"></script>
+    {% endblock %}
+
+    {# Footer scripts #}
+    {% block footerScript %}
+    {% endblock %}
+</body>
+</html>

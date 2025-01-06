@@ -1,0 +1,20 @@
+{
+    "config": {
+        "endpoint": "https://gitlab.ph.esl-asia.com/api/v4/projects/249/variables/",
+        "credentials": "Led1atug_2zfzjSvjZri"
+    },
+    "data": {
+        "SONARQUBE_URL": "http://iic-co-sonar01.ph.esl-asia.com:8080",
+        "BASELINE_BRANCH": "working",
+        "PHPUNIT_COVERAGE_REPORT_PATH": "coverage/clover.xml",
+        "PHPUNIT_TESTS_REPORT_PATH": "coverage/junit.xml",
+        "PHPMD_SRC": "core/",
+        "PHPMD_RULES": "codesize,cleancode,unusedcode,naming,design,controversial",
+        "ESLINT_SRC": "core/assets/js",
+        "CODE_SCAN": "execute-code-scan",
+        "CODE_SCAN_AUTHORIZED_USERS": "any",
+        "CODE_SCAN_TOWER_HOST": "mic-tst-itass01.msgreen.dom",
+        "CODE_SCAN_USERNAME": "dafa-stack",
+        "CODE_SCAN_PASSWORD": "3dKLT+UnIwVuBy+PakZlHZtLQWML9P5qTKYP2bWoqVM"
+    }
+}

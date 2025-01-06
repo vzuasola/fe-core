@@ -1,0 +1,17 @@
+<div id="modal-game-ucl" class="modal modal-innermost">
+    <div class="modal-content">
+        <div class="modal-header">{{ game_fish_hunter.unsupported_currencies_title}}</div>
+        <div class="modal-body">{{ game_fish_hunter.unsupported_currencies_message.value|raw }}</div>
+        <span class="modal-close modal-close-button lazy-load" data-src="{{ asset('images/sprite.png') }}"></span>
+        <a class=" modal-close btn btn-yellow"> {{ game_fish_hunter.unsupported_currencies_button }} </a>
+    </div>
+</div>
+
+<div id="modal-fish-hunter-fallback" class="modal modal-innermost">
+    <div class="modal-content">
+        <div class="modal-header">{{ game_fish_hunter.fallback_error_title}}</div>
+        <div class="modal-body">{{ game_fish_hunter.fallback_error_message.value|raw }}</div>
+        <span class="modal-close modal-close-button lazy-load" data-src="{{ asset('images/sprite.png') }}"></span>
+        <a class=" modal-close btn btn-yellow"> {{ game_fish_hunter.fallback_error_button }} </a>
+    </div>
+</div>

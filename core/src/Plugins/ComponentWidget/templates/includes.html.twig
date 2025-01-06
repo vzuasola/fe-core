@@ -1,0 +1,5 @@
+{% if includes is not empty %}
+    {% for item in includes %}
+        <script type="text/javascript" src="{{ item|raw }}"></script>
+    {% endfor %}
+{% endif %}

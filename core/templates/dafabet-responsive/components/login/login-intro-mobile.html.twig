@@ -1,0 +1,11 @@
+{% if (app.session.get('login')) %}
+<div class="mobile-balance hidden-desktop">
+    <a href="{{ url(header.mobile_menu_config.mobile_menu_cashier_links) }}" target="_blank" class="hidden">
+        <svg viewBox="0 0 24 20">
+            <use xlink:href="#cashier-balance" />
+        </svg>
+        <span class="mobile-balance-amount"></span>
+    </a>
+    <img src="{{ asset('images/default_image.png') }}" data-src="{{ asset('images/balance-loader-white.gif') }}" alt="loader" class="lazy-load mobile-balance-loader">
+</div>
+{% endif %}

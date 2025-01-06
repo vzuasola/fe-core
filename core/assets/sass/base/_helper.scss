@@ -1,0 +1,393 @@
+/* stylelint-disable */
+
+// clearfix
+%clearfix:before,
+%clearfix:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+%clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    @extend %clearfix;
+}
+
+.clear {
+    clear: both;
+}
+
+// hide text
+%hide-text {
+    border: 0;
+    background-color: transparent;
+    color: transparent;
+    font: 0;
+    text-shadow: none;
+}
+
+.hide-text {
+    @extend %hide-text;
+}
+
+%input-block-level {
+    @include box-sizing();
+    display: block;
+    width: 100%;
+    min-height: 26px;
+}
+
+.input-block-level {
+    @extend %input-block-level;
+}
+
+@-ms-viewport       {width: device-width;}
+
+// Floats
+.pull-left          {float: left;}
+.pull-right         {float: right;}
+
+// center block element
+.center-block {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// Display
+.block,
+.block.btn          {display: block;}
+.inline             {display: inline;}
+.inline-block       {display: inline-block;}
+
+// Sizing
+.w-25               {width: 25%;}
+.w-50               {width: 50%;}
+.w-75               {width: 75%;}
+.w-100              {width: 100%;}
+
+// Hide element
+.hidden,
+[hidden] {
+    display: none;
+    visibility: hidden;
+}
+
+// Text Position
+.text-left          {text-align: left;}
+.text-right         {text-align: right;}
+.text-center        {text-align: center;}
+
+.text-align-left    {text-align: left;}
+.text-align-right   {text-align: right;}
+.text-align-center  {text-align: center;}
+
+// Text color
+.text-yellow        {color: $yellow;}
+.text-red           {color: $red;}
+.text-dark-red      {color: $dark-red;}
+.text-white         {color: $white;}
+.text-black         {color: $black;}
+.text-lightest-gray {color: $lightest-gray;}
+.text-light-gray    {color: $light-gray;}
+.text-gray          {color: $gray;}
+.text-dark-gray     {color: $dark-gray;}
+.text-light-gold    {color: $light-gold;}
+.text-blue          {color: $blue;}
+
+// Text Size
+.text-12 { font-size: 12px; }
+.text-14 { font-size: 14px; }
+.text-16 { font-size: 16px; }
+.text-18 { font-size: 18px; }
+.text-20 { font-size: 20px; }
+.text-24 { font-size: 24px; }
+.text-28 { font-size: 28px; }
+.text-32 { font-size: 32px; }
+.text-36 { font-size: 36px; }
+.text-48 { font-size: 48px; }
+.text-72 { font-size: 72px; }
+
+// Text/font weight
+.text-light     {font-weight: 300;}
+.text-regular   {font-weight: 400;}
+.text-semibold  {font-weight: 600;}
+.text-bold      {font-weight: 700;}
+.text-extrabold {font-weight: 800;}
+
+// Style
+.text-underline {text-decoration: underline;}
+
+// Background color
+.bg-yellow          {background-color: $yellow;}
+.bg-red             {background-color: $red;}
+.bg-dark-red        {background-color: $dark-red;}
+.bg-white           {background-color: $white;}
+.bg-black           {background-color: $black;}
+.bg-lightest-gray   {background-color: $lightest-gray;}
+.bg-light-gray      {background-color: $light-gray;}
+.bg-gray            {background-color: $gray;}
+.bg-dark-gray       {background-color: $dark-gray;}
+.bg-fire-red        {background-color: $fire-red};
+
+// Text tranformation
+.text-lowercase     {text-transform: lowercase;}
+.text-uppercase     {text-transform: uppercase;}
+.text-capitalize    {text-transform: capitalize;}
+
+// Margins
+@include margin("m", "margin");
+@include margin("mt", "margin-top");
+@include margin("mb", "margin-bottom");
+@include margin("ml", "margin-left");
+@include margin("mr", "margin-right");
+
+// Paddings
+@include padding("p", "padding");
+@include padding("pt", "padding-top");
+@include padding("pb", "padding-bottom");
+@include padding("pl", "padding-left");
+@include padding("pr", "padding-right");
+
+// Lazy loading effect
+%lazy-load {
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+%lazy-loaded {
+    opacity: 1;
+}
+
+// Icons
+[class^="icon-"],
+[class*=" icon-"] {
+    @include image-replacement(
+        $background-url: $base-default-image,
+        $x: center,
+        $y: center,
+        $width: 19px,
+        $height: 14px,
+        $line-height: 14px
+    )
+}
+
+.icon {
+
+    // header notification icon
+    &-notification {
+        background-size: 100%;
+
+        &.lazy-loaded {
+            @extend %lazy-loaded;
+            background-position: -360px 0;
+            background-size: auto;
+        }
+    }
+
+    // Rounded Exclamation/megaphone (used in annoucement bar)
+    &-rounded-exclamation,
+    &-rounded-megaphone {
+        width: 41px;
+        height: 41px;
+    }
+
+    &-rounded-exclamation.lazy-loaded {
+        @extend %lazy-loaded;
+        background-position: -240px -500px;
+    }
+
+    &-rounded-megaphone.lazy-loaded {
+        @extend %lazy-loaded;
+        background-position: -240px -440px;
+    }
+
+    // Social icons
+    &-facebook,
+    &-twitter,
+    &-google,
+    &-youtube,
+    &-linkedin,
+    &-telegram-full,
+    &-instagram {
+        width: 47px;
+        height: 47px;
+        margin: 0 2px;
+    }
+
+    &-facebook.lazy-loaded {
+        background-position: -400px 0;
+        @extend %lazy-loaded;
+
+        &:hover {
+            background-position: -460px 0;
+        }
+    }
+
+    &-twitter.lazy-loaded {
+        background-position: -400px -60px;
+        @extend %lazy-loaded;
+
+        &:hover {
+            background-position: -460px -60px;
+        }
+    }
+
+    &-google.lazy-loaded {
+        background-position: -400px -120px;
+        @extend %lazy-loaded;
+
+        &:hover {
+            background-position: -460px -120px;
+        }
+    }
+
+    &-youtube.lazy-loaded {
+        background-position: -400px -180px;
+        @extend %lazy-loaded;
+
+        &:hover {
+            background-position: -460px -180px;
+        }
+    }
+
+    &-linkedin.lazy-loaded {
+        background-position: -400px -240px;
+        @extend %lazy-loaded;
+
+        &:hover {
+            background-position: -460px -240px;
+        }
+    }
+
+    &-instagram.lazy-loaded {
+        background-position: -180px -280px;
+        @extend %lazy-loaded;
+
+        &:hover {
+            background-position: -180px -340px;
+        }
+    }
+
+    &-telegram-full.lazy-loaded {
+        background-position: -392px -647px;
+        @extend %lazy-loaded;
+
+        &:hover {
+            background-position: -445px -647px;
+        }
+    }
+
+    &-cashier.lazy-loaded {
+        background-position: -360px -200px;
+        width: 28px;
+        height: 23px;
+        @extend %lazy-loaded;
+    }
+
+    &-myaccount.lazy-loaded {
+        background-position: -360px -280px;
+        width: 26px;
+        height: 22px;
+        @extend %lazy-loaded;
+    }
+
+    &-inbox.lazy-loaded {
+        background-position: -360px -240px;
+        width: 26px;
+        height: 18px;
+        @extend %lazy-loaded;
+    }
+
+    &-login-error.lazy-loaded {
+        background-position: -360px -320px;
+        width: 18px;
+        height: 18px;
+        @extend %lazy-loaded;
+    }
+
+    &-warning.lazy-loaded {
+        background-position: -240px -120px;
+        width: 42px;
+        height: 42px;
+        @extend %lazy-loaded;
+    }
+
+    &-info.lazy-loaded {
+        background-position: -240px -180px;
+        width: 42px;
+        height: 42px;
+        @extend %lazy-loaded;
+    }
+}
+
+// Images
+.img-responsive {
+    max-width: 100%; // Part 1: Set a maximum relative to the parent
+    height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+}
+
+// Alerts
+.alert {
+    padding: 20px;
+    margin: 0px 0px 20px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    background-color: $disabled-field-gray;
+    @extend .text-16;
+    @extend .text-center;
+}
+
+.alert,
+.alert h4 {
+    color: $alert-text-color;
+}
+
+.alert h4 {
+    margin: 0;
+}
+
+.alert-success {
+    color: $success-text-color;
+}
+
+.alert-success h4 {
+    color: $success-text-color;
+}
+
+.alert-danger,
+.alert-error {
+    color: $error-text-color;
+}
+
+.alert-danger h4,
+.alert-error h4 {
+    color: $error-text-color;
+}
+
+.alert-block {
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+.alert-block > p,
+.alert-block > ul {
+    margin-bottom: 0;
+}
+
+.alert-block p + p {
+    margin-top: 5px;
+}
+
+.word-wrap {
+    word-wrap: break-word;
+}
+
+.text-bold {
+    font-weight: 800;
+}
+
+.text-semibold {
+    font-weight: 600;
+}

@@ -1,0 +1,23 @@
+{% if not app.session.get('login') %}
+    <div id="loginFormLightBox" class="modal login-lightbox">
+        <div class="modal-content">
+            <div class="login-logo">
+                {{ include('@responsive/components/logo-image.html.twig') }}
+            </div>
+            <div class="modal-body">
+            </div>
+            {% if theme.login_lightbox_icon_color is not empty %}
+                <svg class="modal-close modal-close-button" viewBox="0 0 25.321 25.321">
+                    <use xlink:href="#close-button"></use>
+                </svg>
+            {% else %}
+                {% include '@site/../web/images/responsive/close-icon.svg' ignore missing %}
+            {% endif %}            
+        </div>
+
+        {# Header icons #}
+        <span class="hidden">
+            {% include '@site/../web/images/responsive/login/dafabet-login.svg' ignore missing %}
+        </span>
+    </div>
+{% endif %}

@@ -1,0 +1,88 @@
+.icon {
+    // Social icons
+    &-facebook,
+    &-twitter,
+    &-google,
+    &-youtube,
+    &-linkedin,
+    &-telegram-full,
+    &-instagram {
+        text-indent: -9999px;
+        display: inline-block;
+        background-image: url($sprite-responsive);
+        width: 47px;
+        height: 47px;
+        margin: 0 2px;
+        @extend %lazy-loaded;
+    }
+
+    &-facebook.lazy-loaded {
+        background-image: url($sprite-responsive);
+        background-position: -400px 0;
+        @extend %lazy-loaded;
+
+        &:hover {
+            background-position: -460px 0;
+        }
+    }
+
+    &-twitter.lazy-loaded {
+        background-image: url($sprite-responsive);
+        background-position: -400px -60px;
+        @extend %lazy-loaded;
+
+        &:hover {
+            background-position: -460px -60px;
+        }
+    }
+
+    &-google.lazy-loaded {
+        background-image: url($sprite-responsive);
+        background-position: -400px -120px;
+        @extend %lazy-loaded;
+
+        &:hover {
+            background-position: -460px -120px;
+        }
+    }
+
+    &-youtube.lazy-loaded {
+        background-image: url($sprite-responsive);
+        background-position: -400px -180px;
+        @extend %lazy-loaded;
+
+        &:hover {
+            background-position: -460px -180px;
+        }
+    }
+
+    &-linkedin.lazy-loaded {
+        background-image: url($sprite-responsive);
+        background-position: -400px -240px;
+        @extend %lazy-loaded;
+
+        &:hover {
+            background-position: -460px -240px;
+        }
+    }
+
+    &-instagram.lazy-loaded {
+        background-image: url($sprite-responsive);
+        background-position: -180px -280px;
+        @extend %lazy-loaded;
+
+        &:hover {
+            background-position: -180px -340px;
+        }
+    }
+
+    &-telegram-full.lazy-loaded {
+        background-image: url($base-sprite);
+        background-position: -737px -576px;
+        @extend %lazy-loaded;
+
+        &:hover {
+            background-position: -794px -576px;
+        }
+    }
+}

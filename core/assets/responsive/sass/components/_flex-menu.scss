@@ -1,0 +1,73 @@
+@import "./../vendor/priority-nav-core";
+
+.js-priorityNav {
+
+    // Override main-menu-item
+    nav {
+        .main-menu-item {
+            float: none;
+        }
+        font-size: 14px;
+    }
+
+    .priority-nav__wrapper {
+        display: inline-block;
+    }
+
+    .nav__dropdown-toggle {
+        padding: 0 45px 0 20px;
+        background: transparent;
+        color: #fff;
+        cursor: pointer;
+        border: 0;
+
+        // remove outline on focus
+        &:focus {
+            outline: none;
+        }
+
+        &.is-open,
+        &.active,
+        &:hover {
+            background: $mainmenu-link-active-bg;            
+            color: $mainmenu-link-hover-color;
+        }
+
+        // arrow
+        &:after {
+            @include image-replacement($sprite-responsive, -232px, -721px, 23px, 24px);
+            position: absolute;
+            top: 6px;
+            right: 13px;
+            border-top-width: 8px;
+            content: "";
+        }
+
+        &.active:after {
+            @include triangle(bottom, 5px, $yellow);
+        }
+    }
+
+    .priority-nav__dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 15;
+        width: auto;
+        margin-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+        list-style-type: none;
+        display: grid;
+
+        li {
+            float: none;
+            display: block;
+        }
+
+        a {
+            width: 100%;
+            text-align: left;
+        }
+    }
+}

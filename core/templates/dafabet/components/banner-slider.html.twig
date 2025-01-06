@@ -1,0 +1,30 @@
+{# This slider is for the simple slider only, if you need other markup, create a copy on your site instance #}
+
+{% if slider is not empty %}
+<section class="banner slider" id="casino-main-banner">
+    <div class="banner-slides">
+        {% block slider %}
+        {% for slider_item in slider %}
+        <div class="banner-slides-item">
+            {% if slider_item.field_blurb[0].value is not empty %}
+                <div class="banner-blurb {{slider_item.field_content_position[0].value}}">
+                    <div class="banner-blurb-outer">
+                        <div class="banner-blurb-inner">
+                            {{ slider_item.field_blurb[0].value | raw }}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            {% if slider_item.field_banner_link[0].uri is not empty %}
+                <a href="{{ url(slider_item.field_banner_link[0].uri) }}" target="{{ slider_item.field_banner_link_target[0].value }}">
+                    <img src='{{ asset(slider_item.field_banner_image[0].url) }}' class="lazy-load">
+                </a>
+            {% elseif slider_item.field_banner_image[0].url is not empty %}
+                <img src='{{ asset(slider_item.field_banner_image[0].url) }}' class="lazy-load">
+            {% endif %}
+        </div>
+        {% endfor %}
+        {% endblock slider %}
+    </div>
+</section>
+{% endif %}

@@ -1,0 +1,104 @@
+.game-list-item {
+    position: relative;
+
+    // &:hover .game-hover {
+    //   opacity: 1;
+    // }
+}
+
+.game-list-thumb {
+    width: 100%;
+}
+
+// Game list - on mouse hover
+.game-hover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: opacity 0.5s;
+    background: rgba(0, 0, 0, 0.7);
+    color: $white;
+    font-size: 14px;
+    text-align: center;
+    opacity: 0;
+
+    img {
+        display: block;
+        margin: 20px auto;
+    }
+
+    .game-hover-options {
+        display: block;
+
+        a {
+            color: $white;
+        }
+    }
+
+    .game-hover-jackpot {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.8);
+        color: $yellow;
+    }
+}
+
+// Game list - details
+.game-info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 10px 10px 0;
+    transition: opacity 0.5s;
+    background: rgba(0, 0, 0, 0.7);
+    color: $white;
+    font-size: 13px;
+    opacity: 0;
+    z-index: 1;
+
+    &-name {
+        color: $white;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    ul {
+        padding-left: 0;
+        color: $yellow;
+        text-align: center;
+        list-style-type: none;
+
+        li {
+            display: inline-block;
+            width: 27%;
+            margin: 0 5px;
+            padding: 5px;
+            border-top: 1px solid $yellow;
+            border-bottom: 1px solid $yellow;
+        }
+    }
+
+    dl {
+        @extend %clearfix;
+
+        dt {
+            width: 60%;
+            margin-bottom: 10px;
+            float: left;
+            text-align: right;
+        }
+
+        dd {
+            width: 35%;
+            margin: 0;
+            float: right;
+        }
+    }
+}

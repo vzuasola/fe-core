@@ -1,0 +1,32 @@
+<div class="container">
+    {% if download.data is not empty %}
+    <section class="download-table">
+        <table>
+            <tr class="download-rows">
+                <th class="client-header">{{ download.labels.client }}</th>
+                <th class="step-header"></th>
+                <th class="mobile-header">{{ download.labels.mobile }}</th>
+            </th>
+            {% for data in download.data %}
+            <tr class="download-rows">
+                {% if  data.client.body is not empty %}
+                    <td class="client-column"><div class="content-wrapper">{{ data.client.body|raw }}</div></td>
+                {% else %}
+                    <td></td>
+                {% endif %}
+                <td class="step-column"> 
+                    <div class="indicator-line">
+                        <div class="poker-chip">{{ loop.index }}</div> 
+                    </div>
+                </td>
+                {% if  data.mobile.body is not empty %}
+                    <td class="mobile-column"><div class="content-wrapper">{{ data.mobile.body|raw }}</div></td>
+                {% else %}
+                    <td></td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </table>
+    </section>
+    {% endif %}
+</div>

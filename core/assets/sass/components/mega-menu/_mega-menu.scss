@@ -1,0 +1,160 @@
+@import "../loading-animator";
+@import "../product-tag";
+@import "mega-menu-sports-list";
+@import "mega-menu-slider";
+@import "mega-menu-preserve-ratio";
+@import "../video-player";
+
+.mega-menu {
+    @include box-shadow(6px 6px 35px rgba(0, 0, 0, 0.65));
+    position: absolute;
+    left: 0;
+    z-index: 15;
+    display: none;
+    width: 100%;
+    padding: 20px 0 10px;
+    white-space: initial;
+    background: $red;
+    color: $white;
+    font-size: 14px;
+    line-height: normal;
+
+    // Section Title
+    &-title {
+        position: relative;
+        margin-bottom: 10px;
+        padding: 6px 10px;
+        background-color: $dark-red;
+        color: $white;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    // Button adjustment
+    .btn {
+        min-width: 130px;
+        font-weight: 600;
+    }
+
+    // Border helper
+    .border {
+        border: 1px solid $fire-red;
+    }
+
+    // Hover
+    .hover {
+        position: relative;
+        display: block;
+        color: $white;
+
+        &-overlay {
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            bottom: 1px;
+            right: 1px;
+            background: $dark-gray;
+            background: rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        &-active .hover-overlay,
+        &:hover .hover-overlay {
+            opacity: 1;
+        }
+
+        &-content {
+            @include translateY(-50%);
+            position: absolute;
+            top: 50%;
+            display: block;
+            width: 100%;
+            padding: 0 5px;
+
+            &-label {
+                display: block;
+                font-weight: 600;
+            }
+
+            // Button inside hover
+            .btn {
+                text-transform: uppercase;
+                font-weight: 600;
+            }
+        }
+
+        // Remove min-width of btn inside game-thumbnail
+        .btn {
+            min-width: initial;
+        }
+    }
+
+    // Promotion more link
+    &-promo-more {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: auto;
+        bottom: auto;
+        border-left: 1px solid $red;
+        line-height: 30px;
+        padding: 0 10px;
+        color: $white;
+
+        &:hover {
+            color: $yellow;
+        }
+
+        &:after {
+            @include triangle(right, 4px, $white);
+            border-left-width: 7px;
+            display: inline-block;
+            margin-left: 10px;
+            margin-top: -2px;
+            vertical-align: middle;
+            content: "";
+        }
+
+        &:hover:after {
+            border-left-color: $yellow;
+        }
+    }
+
+    // Promotion ribbon
+    &-promo-ribbon {
+        position: absolute;
+        top: 1px;
+        right: 6px;
+        z-index: 2;
+        min-width: 50px;
+        padding: 2px 6px;
+        text-align: center;
+        font-weight: 600;
+        font-size: 12px;
+    }
+
+    // Error icon
+    .icon-error-fetching {
+        width: 23px;
+        height: 23px;
+        line-height: 23px;
+        background-image: url($base-sprite);
+        background-position: -240px -400px;
+    }
+}
+
+// IE8 fix
+.mega-menu.ie-8 {
+    .hover {
+        &-overlay {
+            display: none;
+        }
+
+        &-active .hover-overlay,
+        &:hover .hover-overlay {
+            display: block;
+        }
+    }
+}

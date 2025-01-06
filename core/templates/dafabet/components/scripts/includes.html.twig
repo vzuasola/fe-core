@@ -1,0 +1,5 @@
+{% if app.scripts.getIncludes() is not empty %}
+    {% for item in app.scripts.getIncludes() %}
+        <script type="text/javascript" src="{{ item|raw }}"></script>
+    {% endfor %}
+{% endif %}

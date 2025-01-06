@@ -1,0 +1,19 @@
+{% if footer.enable_18plus %}
+	<div id="language-gambling-restriction" class="clearfix">
+		<div class="gambling-restriction-container container">
+			<hr>
+			<div class="gambling-restriction-content">
+				<div class="gambling-restriction-image">
+					{% if footer.file_image_18plus_image %}
+						<img src="{{ footer.file_image_18plus_image }}" alt="18+ Responsible Gaming">
+					{% endif %}
+				</div>
+				<div class="gambling-restriction-text">
+					<span>
+						{{ footer.responsible_gaming_message.value | raw }}
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}

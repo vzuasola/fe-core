@@ -1,0 +1,27 @@
+<ul class="main-menu pull-right block-hidden-mobile extra-nav">
+    {% for item in header.secondary_menu %}
+        {% set target = item.attributes.target ? item.attributes.target : "_self" %}
+        {% set class = item.attributes.class ? item.attributes.class : "" %}
+        <li class="main-menu-item  {{ class }} {% if item.active %}active{% endif %}">
+            {% if item.active is empty %}
+                <a href="{{ url(item.alias ? item.alias : item.uri) }}" class="main-menu-link" target="{{ target }}" {% if target == "window" %}data-popup='true'{% endif %}>                                        
+                    {{ item.title ? item.title : item.name }}
+                    {% if item.attributes.menuTag == "new" %}
+                        <span class="new-tag">
+                            <span>{{ header.product_menu_new_tag|default('NEW') }}</span>
+                        </span>
+                    {% endif %}
+                </a>
+            {% else %}
+                <a href="{{ url(item.alias ? item.alias : item.uri) }}" class="main-menu-link" target="{{ target }}" {% if target == "window" %}data-popup='true'{% endif %}>                    
+                    {{ item.title ? item.title : item.name }}
+                    {% if item.attributes.menuTag == "new" %}
+                        <span class="new-tag">
+                            <span>{{ header.product_menu_new_tag|default('NEW') }}</span>
+                        </span>
+                    {% endif %}
+                </a>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

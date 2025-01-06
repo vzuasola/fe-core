@@ -1,0 +1,49 @@
+//Footer social icons
+.footer-language {
+    text-align: center;
+    cursor: pointer;
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    li {
+        display: inline;
+    }
+
+    a {
+        @include box-sizing();
+        border-radius: 0.4rem;
+        display: inline-block;
+        min-width: 11.3rem;
+        margin: 0 3.6%;
+        padding: 0.5rem 0.8rem;
+        border: 0.1rem solid $lang-btn-border;
+        background: $lang-btn-bg;
+        color: $lang-btn-color;
+        font-size: 1.6rem;
+        line-height: normal;
+
+        @include media(">=tablet") {
+            min-width: 15.7rem;
+            margin: 0 7.25%;
+            padding: 0.7rem 1.5rem 0.7rem;
+            font-size: 2.2rem;
+        }
+
+        @include media(">=desktop") {
+            border-radius: 0.6rem;
+            min-width: 21.6rem;
+            padding: 0.7rem 1.5rem 0.6rem;
+            font-size: 2.8rem;
+        }
+
+        &:hover,
+        &:focus {
+            border: 0.1rem solid $lang-btn-hover-border;
+            background: $lang-btn-hover-bg;
+            color: $lang-btn-hover-color;
+        }
+    }
+}

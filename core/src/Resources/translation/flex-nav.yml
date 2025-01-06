@@ -1,0 +1,51 @@
+default:
+  more : 'More'
+translations:
+  en:
+    more : 'More'
+  sc:
+    more : '更多'
+  ch:
+    more : '更多'
+  th:
+    more : 'เพิ่มเติม'
+  vn:
+    more : 'Thêm'
+  kr:
+    more : '더 보기'
+  id:
+    more : 'Lainnya'
+  jp:
+    more : 'もっと'
+  in:
+    more : 'More'
+  gr:
+    more : 'Περισσότερα'
+  po:
+    more : 'Więcej'
+  hi:
+    more: अधिक
+  te:
+    more: మరింత
+  es:
+    more : 'Más'
+  pt:
+    more : 'Mais'
+  lo:
+    more: ເພີ່ມເຕີມ
+  bu:
+    more: ထက္မက
+  km:
+    more: ច្រើនទៀត
+  bn:
+    more : 'More'
+  pk:
+    more : 'More'
+  bg:
+    more : 'আরও'
+  bd:
+    more : 'আরও'
+  kz:
+    more: 'Көбірек'
+  ru:
+    more: 'Более'

@@ -1,0 +1,6 @@
+# Script provider definition file
+
+providers:
+  metrics_log: App\Javascript\Providers\MetricsWorkflow
+  # marketing_scripts: App\Javascript\Providers\MarketScripts
+  # adelement: App\Javascript\Providers\Adelement

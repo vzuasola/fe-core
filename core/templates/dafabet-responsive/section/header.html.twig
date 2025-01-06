@@ -1,0 +1,62 @@
+{% if not(theme.regvia == 7) %}
+    {% if (header.dafacoin_menu) %}
+        {{ include('@responsive/components/dafacoin-menu/header.html.twig') }}
+    {% else %}
+        <header class="header {{theme.theme_code}}">
+            <div class="container clearfix">
+
+                {% if app.player_session.getUsername() %}
+                    <a href="/" class="left-menu-icon hidden-desktop btn-lazy-load"><span class=""></span></a>
+                {% endif %}
+
+                {% block logoSection %}
+                    {{ include('@responsive/components/logo.html.twig') }}
+                {% endblock %}
+                {% block rightSideHeaderSection %}
+                    <div class="pull-right header-right visible-desktop">
+                        {% if app.player_session.getUsername() %}
+                            {{ include('@responsive/components/header-notification.html.twig') }}
+                        {% endif %}
+                        {% block loginSection %}
+                            {% if app.player_session.getUsername() %}
+                                {{ include('@responsive/components/login/login-intro.html.twig') }}
+                            {% else %}
+                                {{ include('@responsive/components/login/login-form.html.twig') }}
+                            {% endif %}
+                        {% endblock %}
+                        {% if not(languageSwitcherDisabled == true or header.language_disabled == true) %}
+                            {{ include('@responsive/components/language-switcher.html.twig') }}
+                        {% endif %}
+                    </div>
+
+                    {{ include('@responsive/components/login/login-intro-mobile.html.twig') }}
+                {% endblock rightSideHeaderSection %}
+                {% if not app.player_session.getUsername() %}
+                    <span class="mobile-action-button">
+                        {% if header.dafacoin_balance_toggle == 1 %}
+                        <a href="{{ header.login.mobile_login_url }}" class="mobile-login-dcoin" data-login="lightbox">
+                            <span>{{ header.login.login_bottom_label }}</span>
+                        </a>
+                        <a href={{ url(header.registration_link) }} class="btn btn-yellow btn-small btn-mobile-join-now-dcoin">
+                            <span>{{ header.login_join_now_text }}</span>
+                        </a>
+                        {% else %}
+                        <a href="{{ header.login.mobile_login_url }}" class="btn btn-gray btn-small btn-mobile-login" data-login="lightbox">
+                            <span class="visible-mobile">{{ header.login.mobile_login_button_label }}</span>
+                            <span class="visible-tablet">{{ header.login.login_bottom_label }}</span>
+                        </a>
+                        <a href={{ url(header.registration_link) }} class="btn btn-yellow btn-small ml-5 btn-mobile-join-now">
+                            {{ header.join_now_text }}
+                        </a>
+                        {% endif %}
+                    </span>
+                {% endif %}
+            </div>
+            {# Header icons #}
+            <span class="hidden">
+                {% include '@site/../web/images/responsive/products/product-icons.svg' ignore missing %}
+                {% include '@site/../web/images/responsive/header/dafabet-header.svg' ignore missing %}
+            </span>
+        </header>
+    {% endif %}
+{% endif %}

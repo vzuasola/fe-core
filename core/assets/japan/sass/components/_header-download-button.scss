@@ -1,0 +1,49 @@
+// Download button
+.download-button {
+    display: none;
+
+    @include media(">=desktop") {
+        @include right-base-container-gutter();
+        position: absolute;
+        top: 3.7rem;
+        display: block;
+        padding: 1.3rem 6.5rem 0.7rem 1.5rem;
+        border: 0.1rem solid $download-btn-border;
+        line-height: 1.8rem;
+        background: $download-btn-bg;
+        color: $download-btn-color;
+        font-size: 1.4rem;
+        border-radius: 1.2rem;
+
+        &:hover {
+            color: $download-btn-color;
+        }
+
+        &-label {
+            font-size: 1.8rem;
+            font-weight: bold;
+
+            small {
+                display: block;
+                font-size: 1.2rem;
+            }
+        }
+
+        &-icon {
+            position: absolute;
+            top: 0.8rem;
+            right: 1.5rem;
+            display: block;
+            width: 4.2rem;
+            height: 4.2rem;
+            line-height: 3.8rem;
+            border: 0.2rem solid #d9d9d9;
+            content: "";
+            background: $black;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 2.7rem;
+            box-shadow: 0 0 1rem rgba(0, 0 ,0 , .5);
+        }
+    }
+}

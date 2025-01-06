@@ -1,0 +1,227 @@
+.page-unsupported-currency-banner-area,
+.page-unsupported-currency-text-area {
+    background: $light-gray;
+}
+
+.page-unsupported-currency-banner-image {
+    width: 100%;
+}
+
+.page-unsupported-currency-text-area {
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+
+.page-unsupported-currency-icons {
+    ul {
+        padding: 0;
+        clear: both;
+        font-size: 0;
+        text-align: center;
+        list-style-type: none;
+    }
+
+    li {
+        float: none;
+        display: inline-block;
+        width: 219px;
+        height: 219px;
+        margin: 50px 25px;
+        font-size: 24px;
+
+        a {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 1px solid $dark-gray;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+
+            &:hover {
+                border-color: $yellow;
+                background: $yellow;
+            }
+        }
+
+        a:before {
+            position: absolute;
+            top: 45px;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            content: "";
+            background-image: url($base-404-error-page);
+        }
+
+        &.sports a {
+            &:before {
+                width: 127px;
+                height: 126px;
+                background-position: 0 0;
+            }
+
+            &:hover:before {
+                background-position: -140px 0;
+            }
+        }
+
+        &.sports-df a {
+            &:before {
+                width: 128px;
+                height: 127px;
+                background-position: 0 -140px;
+            }
+
+            &:hover:before {
+                background-position: -140px -140px;
+            }
+        }
+
+        &.casino a {
+            &:before {
+                width: 127px;
+                height: 127px;
+                background-position: 0 -280px;
+            }
+
+            &:hover:before {
+                background-position: -140px -280px;
+            }
+        }
+
+        &.casino-gold a {
+            &:before {
+                width: 127px;
+                height: 117px;
+                background-position: 0 -420px;
+            }
+
+            &:hover:before {
+                background-position: -140px -421px;
+            }
+        }
+
+        &.live-dealer a {
+            &:before {
+                width: 98px;
+                height: 124px;
+                background-position: 0 -540px;
+            }
+
+            &:hover:before {
+                background-position: -140px -541px;
+            }
+        }
+
+        &.poker a {
+            &:before {
+                width: 127px;
+                height: 108px;
+                background-position: 0 -680px;
+            }
+
+            &:hover:before {
+                background-position: -140px -680px;
+            }
+        }
+
+        &.fish-hunter a {
+            &:before {
+                width: 138px;
+                height: 138px;
+                background-position: 0 -920px;
+            }
+
+            &:hover:before {
+                background-position: -140px -920px;
+            }
+        }
+
+        &.games a {
+            &:before {
+                width: 122px;
+                height: 109px;
+                background-position: 0 -800px;
+            }
+
+            &:hover:before {
+                background-position: -140px -800px;
+            }
+        }
+
+        &.keno a {
+            &:before {
+                width: 127px;
+                height: 127px;
+                background-position: 0 -1060px;
+            }
+
+            &:hover:before {
+                background-position: -140px -1060px;
+            }
+        }
+
+        &.virtual-sports a {
+            &:before {
+                width: 128px;
+                height: 128px;
+                background-position: 0 -1200px;
+            }
+
+            &:hover:before {
+                background-position: -141px -1200px;
+            }
+        }
+
+        &.lottery a {
+            &:before {
+                width: 138px;
+                height: 128px;
+                background-position: -2px -1340px;
+            }
+
+            &:hover:before {
+                background-position: -141px -1340px;
+            }
+        }
+
+        &.exchange a {
+            &:before {
+                width: 133px;
+                height: 133px;
+                background-position: 0 -1480px;
+            }
+
+            &:hover:before {
+                background-position: -140px -1480px;
+            }
+        }
+
+        &.arcade a {
+            &:before {
+                width: 128px;
+                height: 128px;
+                background-position: -3px -1646px;
+            }
+
+            &:hover:before {
+                background-position: -145px -1646px;
+            }
+        }
+
+        &.ptplus a {
+            &:before {
+                width: 135px;
+                height: 130px;
+                background-position: 0 -1796px;
+            }
+
+            &:hover:before {
+                background-position: -140px -1796px;
+            }
+        }
+    }
+}

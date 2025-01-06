@@ -1,0 +1,21 @@
+.header {
+    background-color: $red;
+    color: $white;
+    font-size: 14px;
+
+    .container {
+        height: 109px;
+        padding-top: 1px;
+    }
+}
+
+@import "../components/logo";
+@import "../components/header-notification";
+@import "../components/language-switcher";
+@import "../components/login-form";
+@import "../components/login-form-lightbox";
+@import "../components/refresh-icon";
+@import "../components/header-intro";
+@import "../components/balance-togglable";
+@import "../components/password-mask";
+@import "../components/partner-matrix/header-override";

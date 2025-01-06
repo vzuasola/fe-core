@@ -1,0 +1,57 @@
+<div class="visible-desktop">
+    <div class="player-balance mb-70">
+        <div class="player-balance-left">
+            <p class="welcome-text mb-5 text-right">
+                <a data-popup="true" class="my-profile-link pm-disable" {{ header.profile_link is not null ? "href=" ~ url(header.profile_link) : null }}>
+                    {{ header.welcome_text }}
+                </a>
+                {% if header.balance_toggle %}
+                    <input type="checkbox" id="toggable-checkbox" checked>
+                {% endif %} 
+            </p>
+
+            <div class="account-balance mb-0 balance-wrappers tooltip">
+                {% if (header.dafacoin_menu) %}
+                    <div class="dafacoin-menu-desktop-wrapper">
+                        <div style="float:right;">
+                            {{ include('@responsive/components/dafacoin-menu/cashier-account-balance.html.twig', { 'device' : 'desktop' }) }}
+                        </div>
+                    </div>
+                {% else %}
+                    <div id="product-balance"></div>
+                    <span id="player-balance"></span>
+                    <span id="balance-control"></span>
+                    <div id="balance-tooltip" class="tooltip-content tooltip-balance text-left"></div>
+                {% endif %}
+            </div>
+        </div>
+        {% if header.vip_level %}
+            <div class="player-balance-right">
+                <div class="vip-badge vip-level-{{ header.vip_level }}">
+                    <div id="vip-tooltip" class="vip-tooltip tooltip-content text-center">{{ header.vip_tooltip_text }}</div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    <div class="login-intro-border"></div>
+</div>
+
+<div class="visible-mobile">
+    <div class="player-balance">
+        {% if header.vip_level %}
+            <div class="vip-badge vip-level-{{ header.vip_level }}">
+                <div id="vip-tooltip" class="vip-tooltip tooltip-content text-center">{{ header.vip_tooltip_text }}</div>
+            </div>
+        {% endif %}
+        <p class="welcome-text mb-5 text-right">
+            <a data-popup="true" class="my-profile-link pm-disable" {{ header.profile_link is not null ? "href=" ~ url(header.profile_link) : null }}>
+                {{ header.welcome_text }}
+            </a>
+        </p>
+        <div class="account-balance mb-0 balance-wrappers tooltip">
+            <span id="player-balance"></span>
+            <span id="balance-control"></span>
+            <div id="balance-tooltip" class="tooltip-content tooltip-balance text-left"></div>
+        </div>
+    </div>
+</div>

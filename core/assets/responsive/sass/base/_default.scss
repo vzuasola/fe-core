@@ -1,0 +1,223 @@
+*,
+*:before,
+*:after {
+    @include box-sizing();
+}
+
+html {
+    // font-size: 200%;
+}
+
+body {
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+    background: $background-color;
+    color: $gray;
+    font-family: $default-font-family;
+    font-size: $default-font-size;
+    font-weight: normal;
+    line-height: $default-line-height;
+    text-decoration: none;
+    -webkit-text-size-adjust: 100%; // Stops Mobile Safari from auto-adjusting font-sizes
+    word-wrap: break-word;
+
+    .jp & {
+        font-family: $font-notosans;
+    }
+
+    .sc &,
+    .ch & {
+        font-family: $font-yahei;
+    }
+
+    .th &,
+    .vn & {
+        font-family: $font-tahoma;
+    }
+}
+
+// Links
+a {
+    transition: color 0.3s, background-color 0.3s;
+    color: $red;
+    text-decoration: none;
+}
+
+a:hover {
+    @include transition();
+    color: $red;
+    text-decoration: none;
+}
+
+a:focus {
+    outline: none;
+}
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+table,
+dl,
+form,
+menu {
+    margin: 0 0 $default-element-margin-bottom;
+}
+
+h1,
+.h1 {
+    color: $gray;
+    font-size: $h1;
+    font-weight: normal;
+}
+
+h2,
+.h2 {
+    color: $gray;
+    font-size: $h2;
+    font-weight: normal;
+}
+
+h3,
+.h3 {
+    color: $gray;
+    font-size: $h3;
+    font-weight: normal;
+}
+
+h4,
+.h4 {
+    color: $gray;
+    font-size: $h4;
+    font-weight: normal;
+}
+
+h5,
+.h5 {
+    color: $gray;
+    font-size: $h5;
+    font-weight: normal;
+}
+
+h6,
+.h6 {
+    color: $gray;
+    font-size: $h6;
+    font-weight: normal;
+}
+
+ul {
+    padding-left: 15px;
+}
+
+ol {
+    padding-left: 22px;
+}
+
+.unstyled {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+blockquote {
+    padding-left: 50px;
+    // background: url(../images/quote_white.png) no-repeat left top;
+    background-size: 18px auto;
+    font-size: 17px;
+    line-height: 24px;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+    color: $dark-gray;
+}
+
+// A better looking default horizontal rule
+hr {
+    display: block;
+    height: 1px;
+    margin: 35px 0;
+    padding: 0;
+    border: 0;
+    border-top: 1px solid $hr-color;
+}
+
+// Remove the gap between images and the bottom of their containers
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+// Remove default fieldset styles
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+// Allow only vertical resizing of textareas
+textarea {
+    resize: vertical;
+}
+
+// Placeholder
+::-webkit-input-placeholder {
+    color: $input-color-placeholder;
+    @include media(">=tablet") {
+        color: $white;
+	    opacity: 0.4;
+    }
+
+}
+
+:-moz-placeholder {
+    color: $input-color-placeholder;
+    @include media(">=tablet") {
+        color: $white;
+	    opacity: 0.4;
+    }
+
+}
+
+::-moz-placeholder {
+    color: $input-color-placeholder;
+    @include media(">=tablet") {
+        color: $white;
+	    opacity: 0.4;
+    }
+
+}
+
+:-ms-input-placeholder {
+    color: $input-color-placeholder;
+    @include media(">=tablet") {
+        color: $white;
+	    opacity: 0.4;
+    }
+
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+// Hide fim embed
+embed[name=fim],
+object[name=fim] {
+    display: none;
+}

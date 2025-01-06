@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {# HMLT5 Shiv #}
+    {# <!--[if lte IE 8]>
+        <script src="{{ asset('js/html5shiv.min.js') }}"></script>
+        <script src="{{ asset('js/ie8-eventlistener.min.js') }}"></script>
+        <script src="{{ asset('js/ie8-normalizer.min.js') }}"></script>
+    <![endif]--> #}
+
+    {# Header scripts #}
+    {% block headerScript %}
+    {% endblock %}
+</head>
+<body>
+
+{# ES5 Polyfill #}
+{# <script src="{{ asset('js/es5.min.js') }}"></script> #}
+
+{# We use special tokens for the script tokens @see Middleware/Attachments #}
+{# {{ '<#SCRIPT#>' }}
+{{ '<#SCRIPT_INCLUDES#>' }} #}
+
+{# Webpack manifest & vendor script #}
+{% block vendorScript %}
+    <script src="{{ asset('js/manifest.bundle.js') }}"></script>
+    <script src="{{ asset('js/vendor.bundle.js') }}"></script>
+{% endblock %}
+
+{# Default per page JS #}
+{% block script %}
+    <script src="{{ asset('js/page.bundle.js') }}"></script>
+{% endblock %}
+
+{# Footer scripts #}
+{% block footerScript %}
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+{{#each data.items as |item|}}
+<div
+    class="floating-banner floating-banner--{{ item.field_floating_banner_type.0.value }} floating-banner--lang-{{ ../lang }}"
+    data-device-platform="{{ item.field_platform.0.value }}"
+    data-device-os="{{ item.field_os_excluded.0.value }}"
+>
+
+    {{#condition item.field_floating_banner_type.0.value "===" "right"}}
+        <div class="floating-banner--title-wrapper floating-banner--align__{{ item.field_title_layout.0.value }}{{#if item.field_link }} with-link{{/if}}">
+            <div class="floating-banner--icon">
+                <img
+                    data-src="{{ item.field_image.0.url }}"
+                    alt="{{ item.field_image.0.alt }}"
+                    class="lazy-load"
+                >
+            </div>
+
+            {{#if item.field_link}}
+                <a href="{{ item.field_link.0.value }}"
+                    target="{{ item.field_link_target.0.value }}"
+                    class="floating-banner--title"
+                >
+                    {{ item.field_link_text.0.value }}
+                </a>
+            {{else}}
+                <span class="floating-banner--title">{{ item.field_link_text.0.value }}</span>
+            {{/if}}
+        </div>
+    {{/condition}}
+
+    {{#if item.field_banner_item}}
+        <div class="floating-banner--items">
+            <ul class="banner-list">
+                {{#each item.field_banner_item as |bannerItem|}}
+                    <li class="banner-list--items">
+
+                        {{#if bannerItem.field_link.0.uri}}
+                            <a
+                                href={{ bannerItem.field_link.0.uri }}
+
+                                {{#if bannerItem.field_link_target.0.value}}
+                                    target={{ bannerItem.field_link_target.0.value }}
+                                {{/if}}
+
+                                {{#condition bannerItem.field_link_target.0.value "===" "window"}}
+                                    data-popup="true"
+                                {{/condition}}
+
+                                class="banner-list--content"
+                            >
+                                <span class="banner-list--content-icon">
+                                    <span class="icon-{{ bannerItem.field_link_class.0.value }} lazy-load" data-src="{{ @root.data.sprites }}">
+                                    </span>
+                                </span>
+                                <span class="banner-list--content-text">{{ bannerItem.field_button_text.0.value }}</span>
+                            </a>
+                        {{else}}
+                            {{#if bannerItem.field_lightbox_content.0.value}}
+                                <a
+                                    href="#floating-banner-{{ item.field_floating_banner_type.0.value }}-lightbox--{{ @index }}"
+
+                                    {{#if bannerItem.field_link_target.0.value}}
+                                        target={{ bannerItem.field_link_target.0.value }}
+                                    {{/if}}
+
+                                    {{#condition bannerItem.field_link_target.0.value "===" "window"}}
+                                        data-popup="true"
+                                    {{/condition}}
+
+                                    class="banner-list--content modal-trigger"
+                                >
+                                    <span class="banner-list--content-icon">
+                                        <span class="icon-{{ bannerItem.field_link_class.0.value }} lazy-load" data-src="{{ @root.data.sprites }}">
+                                        </span>
+                                    </span>
+                                    <span class="banner-list--content-text">{{ bannerItem.field_button_text.0.value }}</span>
+                                </a>
+                            {{else}}
+                                <span class="banner-list--content">
+                                    <span class="banner-list--content-icon">
+                                        <span class="icon-{{ bannerItem.field_link_class.0.value }} lazy-load" data-src="{{ @root.data.sprites }}">
+                                        </span>
+                                    </span>
+                                    <span class="banner-list--content-text">{{ bannerItem.field_button_text.0.value }}</span>
+                                </span>
+                            {{/if}}
+                        {{/if}}
+                    </li>
+
+                {{/each}}
+            </ul>
+        </div>
+    {{/if}}
+
+    {{#condition item.field_floating_banner_type.0.value "===" "left"}}
+        <div class="floating-banner--title-wrapper floating-banner--align__{{ item.field_title_layout.0.value }}{{#if item.field_link }} with-link{{/if}}">
+            <div class="floating-banner--icon">
+                <img 
+                    data-src="{{ item.field_image.0.url }}"
+                    alt="{{ item.field_image.0.alt }}"
+                    class="lazy-load"
+                >
+            </div>
+        
+            {{#if item.field_link}}
+            <a href="{{ item.field_link.0.value }}" target="{{ item.field_link_target.0.value }}" class="floating-banner--title">
+                {{ item.field_link_text.0.value }}
+            </a>
+            {{else}}
+            <span class="floating-banner--title">{{ item.field_link_text.0.value }}</span>
+            {{/if}}
+        </div>
+    {{/condition}}
+</div>
+{{/each}}
+
+{{#each data.items as |item|}}
+    {{#if item.field_banner_item}}
+        {{#each item.field_banner_item as |bannerItem|}}
+            {{#if bannerItem.field_lightbox_content.0.value}}
+                <div
+                    id="floating-banner-{{ item.field_floating_banner_type.0.value }}-lightbox--{{ @index }}"
+                    class="modal modal-inner floating-banner-{{ item.field_floating_banner_type.0.value }}-lightbox"
+                >
+                    <div class="modal-overlay"></div>
+                    <div class="modal-content">
+                        {{#if bannerItem.field_lightbox_title.0.value}}
+                            <div class="modal-header">{{ bannerItem.field_lightbox_title.0.value }}</div>
+                        {{/if}}
+                        <div class="modal-body">
+                            {{{ bannerItem.field_lightbox_content.0.value }}}
+                        </div>
+                        <a href="#" class="modal-close modal-close-button lazy-load" data-src="{{ @root.data.sprites }}"></a>
+                    </div>
+                </div>
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/each}}

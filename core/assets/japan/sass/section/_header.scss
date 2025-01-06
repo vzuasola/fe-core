@@ -1,0 +1,89 @@
+@import "../components/menu/menu-mobile";
+@import "../components/menu/menu-accordion";
+@import "../components/menu/menu-tab";
+@import "../components/logo";
+@import "../components/header-ticker";
+@import "../components/jackpot";
+@import "../components/graph";
+@import "../components/header-account";
+@import "../components/header-download-button";
+@import "../components/header-login-lightbox";
+
+body {
+    padding-top: 5.5rem;
+
+    @include media(">=desktop") {
+        padding-top: 16.6rem;
+    }
+}
+
+.header {
+    @include gradient-three-color($header-grad, $header-grad-top, $header-grad-middle, $header-grad-bottom, 50%);
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    width: 100%;
+    height: auto;
+    min-height: 53px;
+    color: $white;
+
+    .container {
+        position: relative;
+        padding-top: 0.1rem;
+    }
+
+    // Line Top
+    &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        height: 0.2rem;
+        width: 100%;
+        content: '';
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a77917+0,a77917+50,b38436+51,b38436+100 */
+        background: $m-headertop-border-top; /* Old browsers */
+        background: -moz-linear-gradient(top, $m-headertop-border-top 0%, $m-headertop-border-top 50%, $m-headertop-border-bottom 51%, $m-headertop-border-bottom 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, $m-headertop-border-top 0%,$m-headertop-border-top 50%,$m-headertop-border-bottom 51%,$m-headertop-border-bottom 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, $m-headertop-border-top 0%,$m-headertop-border-top 50%,$m-headertop-border-bottom 51%,$m-headertop-border-bottom 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
+
+    // Line bottom
+    &:after {
+        position: absolute;
+        left: 0;
+        bottom: -0.2rem;
+        z-index: 1;
+        height: 0.3rem;
+        width: 100%;
+        content: '';
+        @include media(">=desktop") {
+            bottom: -0.2rem;
+        }
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bf965e+0,bf965e+33,b38f3b+34,b38f3b+66,bf965e+67,bf965e+100 */
+        background: $m-headerbottom-border-top; /* Old browsers */
+        background: -moz-linear-gradient(top, $m-headerbottom-border-top 0%, $m-headerbottom-border-top 33%, $m-headerbottom-border-middle 34%, $m-headerbottom-border-middle 66%, $m-headerbottom-border-bottom 67%, $m-headerbottom-border-bottom 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, $m-headerbottom-border-top 0%,$m-headerbottom-border-top 33%,$m-headerbottom-border-middle 34%,$m-headerbottom-border-middle 66%,$m-headerbottom-border-bottom 67%,$m-headerbottom-border-bottom 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, $m-headerbottom-border-top 0%,$m-headerbottom-border-top 33%,$m-headerbottom-border-middle 34%,$m-headerbottom-border-middle 66%,$m-headerbottom-border-bottom 67%,$m-headerbottom-border-bottom 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
+
+    @include media(">=desktop") {
+        &:before {
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#9e7700+0,9e7700+14,b3912f+15,b3912f+28,ceb771+29,ceb771+42,f8f3d6+43,f8f3d6+70,ccb66d+71,ccb66d+84,b2902e+85,b2902e+100 */
+            background: $d-headertop-border-top1; /* Old browsers */
+            background: -moz-linear-gradient(top, $d-headertop-border-top1 0%, $d-headertop-border-top1 14%, $d-headertop-border-top2 15%, $d-headertop-border-top2 28%, $d-headertop-border-top3 29%, $d-headertop-border-top3 42%, $d-headertop-border-middle 43%, $d-headertop-border-middle 70%, $d-headertop-border-bottom1 71%, $d-headertop-border-bottom1 84%, $d-headertop-border-bottom2 85%, $d-headertop-border-bottom2 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top, $d-headertop-border-top1 0%,$d-headertop-border-top1 14%,$d-headertop-border-top2 15%,$d-headertop-border-top2 28%,$d-headertop-border-top3 29%,$d-headertop-border-top3 42%,$d-headertop-border-middle 43%,$d-headertop-border-middle 70%,$d-headertop-border-bottom1 71%,$d-headertop-border-bottom1 84%,$d-headertop-border-bottom2 85%,$d-headertop-border-bottom2 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom, $d-headertop-border-top1 0%,$d-headertop-border-top1 14%,$d-headertop-border-top2 15%,$d-headertop-border-top2 28%,$d-headertop-border-top3 29%,$d-headertop-border-top3 42%,$d-headertop-border-middle 43%,$d-headertop-border-middle 70%,$d-headertop-border-bottom1 71%,$d-headertop-border-bottom1 84%,$d-headertop-border-bottom2 85%,$d-headertop-border-bottom2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            height: 0.6rem;
+        }
+
+        &:after {
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#086828+0,086828+20,11a350+21,11a350+40,649249+41,649249+60,f0e3af+61,f0e3af+100 */
+            background: $d-headerbottom-border-top1; /* Old browsers */
+            background: -moz-linear-gradient(top, $d-headerbottom-border-top1 0%, $d-headerbottom-border-top1 20%, $d-headerbottom-border-top2 21%, $d-headerbottom-border-top2 40%, $d-headerbottom-border-middle 41%, $d-headerbottom-border-middle 60%, $d-headerbottom-border-bottom 61%, $d-headerbottom-border-bottom 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top, $d-headerbottom-border-top1 0%,$d-headerbottom-border-top1 20%,$d-headerbottom-border-top2 21%,$d-headerbottom-border-top2 40%,$d-headerbottom-border-middle 41%,$d-headerbottom-border-middle 60%,$d-headerbottom-border-bottom 61%,$d-headerbottom-border-bottom 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom, $d-headerbottom-border-top1 0%,$d-headerbottom-border-top1 20%,$d-headerbottom-border-top2 21%,$d-headerbottom-border-top2 40%,$d-headerbottom-border-middle 41%,$d-headerbottom-border-middle 60%,$d-headerbottom-border-bottom 61%,$d-headerbottom-border-bottom 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            height: 0.5rem;
+        }
+    }
+}

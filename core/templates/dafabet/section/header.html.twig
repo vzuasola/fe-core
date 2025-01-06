@@ -1,0 +1,28 @@
+<header class="header">
+    <div class="container clearfix">
+        {% block logoSection %}
+            {{ include('@base/components/logo.html.twig') }}
+        {% endblock %}
+        {% block rightSideHeaderSection %}
+            <div class="pull-right">
+                <div class="top-option text-right">
+                    {% if (headerNotificationDisabled == null or headerNotificationDisabled == false) %}
+                        {{ include('@base/components/header-notification.html.twig') }}
+                    {% endif %}
+                    {% if not(languageSwitcherDisabled == true or header.language_disabled == true) %}
+                        {{ include('@base/components/language-switcher.html.twig') }}
+                    {% endif %}
+                </div>
+                {% block loginSection %}
+                    {% if app.player_session.getUsername() %}
+                        {{ include('@base/components/login/login-intro.html.twig') }}
+                    {% else %}
+                        {{ include('@base/components/login/login-form.html.twig') }}
+                    {% endif %}
+                    
+                {% endblock %}
+            </div>
+        {% endblock rightSideHeaderSection %}
+    </div>
+    {% block dafacoin %}{% endblock %}
+</header>

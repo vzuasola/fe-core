@@ -1,0 +1,109 @@
+.language-switcher {
+    display: inline-block;
+    position: relative;
+
+    // Dropdown
+    ul {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 170px;
+        padding: 0;
+        background: $dark-red;
+        text-align: left;
+        z-index: 3;
+        list-style-type: none;
+    }
+
+    li {
+        display: inline;
+    }
+
+    a {
+        display: block;
+        padding: 4px 6px;
+        color: $white;
+
+        &:hover {
+            background: $lang-swithcer-hover;
+        }
+    }
+
+    a:before {
+        @include image-replacement($base-sprite, -320px, 0, 28px, 17px);
+        margin-right: 5px;
+        content: "";
+    }
+
+    .eu a:before {
+        background-position: -320px -40px;
+    }
+
+    .zh-hans a:before {
+        background-position: -320px -80px;
+    }
+
+    .zh-hant a:before {
+        background-position: -320px -120px;
+    }
+
+    .th a:before {
+        background-position: -320px -160px;
+    }
+
+    .vi a:before {
+        background-position: -320px -200px;
+    }
+
+    .id a:before {
+        background-position: -320px -240px;
+    }
+
+    .ja a:before {
+        background-position: -320px -280px;
+    }
+
+    .ko a:before {
+        background-position: -320px -320px;
+    }
+
+    .hi a:before {
+        background-position: -320px -360px;
+    }
+
+    .el a:before {
+        background-position: -320px -400px;
+    }
+
+    .pl a:before {
+        background-position: -320px -440px;
+    }
+
+    // Switcher
+    > a {
+        padding: 6px;
+        border: 0;
+        border-radius: 0 0 3px 3px;
+        background: $dark-red;
+        color: transparent;
+        font: 0;
+        text-shadow: none;
+
+        &:after {
+            @include triangle(bottom, 8px, $white);
+            display: inline-block;
+            border-right-width: 5px;
+            border-left-width: 5px;
+            content: "";
+        }
+
+        &:hover {
+            background: $dark-red;
+        }
+    }
+
+    li:last-child,
+    li:last-child a {
+        border-bottom: 0;
+    }
+}

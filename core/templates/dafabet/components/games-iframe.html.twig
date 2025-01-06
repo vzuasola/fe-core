@@ -1,0 +1,50 @@
+{% extends '@base/page.html.twig' %}
+{% block css %}
+    <link href="{{ asset('css/launcher_iframe.css') }}" rel="stylesheet">
+{% endblock %}
+{% block header %}
+{% if app.player_session %}
+    {% embed '@base/section/header.html.twig' %}
+        {% block logoSection %}
+            <p class="logo {{ app.lang }}">
+                {{ include('@base/components/logo-image.html.twig') }}
+            </p>
+    {% endblock %}
+ {% endembed %} 
+ {% else %}
+    <header class="header">
+            <div class="container clearfix">
+                {% block logoSection %}
+                    {{ include('@base/components/logo.html.twig') }}
+                {% endblock %}
+            </div>
+    </header>
+ {% endif %}
+{% endblock header %}
+{% block navbar %}
+{% endblock navbar %}
+{% block announcementLightbox %}
+{% endblock announcementLightbox %}
+{% block pushNotificationLightbox %}
+{% endblock pushNotificationLightbox %}
+{% block body %}
+    <lottoland-app
+        data-version="{{ lottolandConfig['data-version'] }}"
+        data-operator-id="{{ lottolandConfig['data-operator-id'] }}"
+        data-host="{{ lottolandConfig['data-host'] }}"
+        data-query-currency="{{ lottolandConfig['data-query-currency'] }}"
+        data-query-locale="{{ lottolandConfig['data-query-locale'] }}"
+        data-query-user-token="{{ lottolandConfig['data-query-user-token'] }}"
+        >
+    </lottoland-app>
+{% endblock body %}
+{% block footerScript %}{{ snippet_js('footer') }}
+{% endblock %}
+{% block vendorScript %}
+    {{  parent() }}
+{% endblock %}
+{% block script %}
+    <script src="{{ asset('js/launcher_iframe.bundle.js') }}"></script>
+{% endblock %}
+{% block footer %}
+{% endblock footer %}

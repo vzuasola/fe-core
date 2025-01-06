@@ -1,0 +1,36 @@
+{% if header.login %}
+<div class="account">
+    <div class="account-details">
+        <div class="account-label">
+            <span class="account-id-label">{{ header.header_config.user_id_label }}</span>
+            {{ header.username|raw }}</div>
+        <div class="account-amount">
+            <span class="account-balance-label">{{ header.header_config.balance_label }}</span>
+            <span class="account-balance">{{ header.balance }}</span>
+            <span class="account-balance-loader"><i class="fa fa-refresh"></i></span>
+        </div>
+    </div>
+    <div class="account-menu-wrapper">
+        <span class="account-button"></span>
+        <ul id="account-menu" class="account-menu">
+            {% for item in header.profile_menu %}
+                {% set class = item.attributes.class %}
+                {% set target = item.attributes.target %}
+                {% set urlAlias = item.alias ? item.alias : item.uri %}
+                <li>
+                    <a href="{{ url(urlAlias) }}" class="{{ class }}" target="{{ target }}" {% if target == "window" %}data-popup='true'{% endif %}
+                    title="{{ item.attributes.title }}">{{ item.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% else %}
+<div class="login-button">
+    <a href="#modal-id" class="login-lightbox-trigger">
+        <span class="login-button-label-main">{{ login_config.login_button_label_main }}</span>
+        <span class="login-button-label-sub">{{ login_config.login_button_label_sub }}</span>
+    </a>
+</div>
+{% endif %}
+<a href="#change-pass" class="change-pass-trigger hidden"></a>

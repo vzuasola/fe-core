@@ -1,0 +1,15 @@
+{{ include('@japan/components/metatags/node.html.twig') }}
+{{ include('@japan/components/metatags/attributes.html.twig') }}
+
+{% if is_front %}
+
+    {# Canonical #}
+    <link rel="canonical" href="{{ canonicals.canonical_uri|trim('/', 'right') }}"/>
+
+    {# hreflang #}
+    {% for canonical in canonicals.items if canonical %}
+        {% if canonical is iterable %}
+            <link rel="alternate" href="{{ canonical.path|trim('/', 'right') }}" hreflang="{{ canonical.id }}" />
+        {% endif %}
+    {% endfor %}
+{% endif %}

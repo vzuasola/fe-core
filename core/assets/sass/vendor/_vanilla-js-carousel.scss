@@ -1,0 +1,94 @@
+.b-carousel {
+    background: rgba(0, 0, 0, .25);
+    height: 240px;
+    margin: 0 auto 2em;
+    position: relative;
+    width: 600px;
+}
+
+.b-carousel__frame {
+    height: 320px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.b-carousel__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 9999px;
+
+    li {
+        display: inline-block;
+        float: left;
+        transition: margin-left 0.25s linear;
+        width: 600px;
+
+        img {
+            max-width: 100%;
+        }
+    }
+}
+
+
+.b-carousel__nav-arrow_prev,
+.b-carousel__nav-arrow_next {
+    background: transparent;
+    border: 0;
+    color: #555;
+    cursor: pointer;
+    font: 400 10em sans-serif;
+    outline: 0;
+    position: absolute;
+        top: 100px;
+
+    &:hover {
+        color: #999;
+    }
+}
+
+.b-carousel__nav-arrow_prev { left: 100px; }
+.b-carousel__nav-arrow_next { right: 100px; }
+
+
+.b-carousel__nav-dots {
+    display: inline-block;
+    margin: 0;
+    position: absolute;
+    bottom: 30px;
+    right: 29.2%;
+
+    li {
+        border-radius: $border-radius-default;
+        cursor: pointer;
+        display: inline-block;
+        height: 16px;
+        margin: 0 3px;
+        width: 16px;
+        border: 1px solid $white;
+
+        &.active {
+            background: #fff;
+        }
+
+        &:hover {
+            background: #f5f5f5;
+        }
+    }
+}
+
+
+.b-carousel__button_stop,
+.b-carousel__button_play {
+    height: 2.25em;
+    position: absolute;
+        bottom: .33em;
+        left: 2em;
+    text-align: center;
+    width: 5em;
+}
+
+.b-carousel__button_stop {
+    left: 100px;
+}

@@ -1,0 +1,235 @@
+.account-section {
+    .player-balance,
+    .player-options {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .player-balance {
+        margin-top: -15px;
+        margin-right: 15px;
+
+        .account-balance {
+            position: relative;
+            height: 14px;
+
+            .refresh-icon,
+            .refresh-loading {
+                position: absolute;
+                margin-left: 8px;
+            }
+        }
+
+        .welcome-text {
+            display: inline-block;
+
+            a {
+                color: white;
+                cursor: pointer;
+            }
+        }
+
+        .vip-badge {
+            content: " ";
+            display: inline-block;
+            background-image: url($base-sprite);
+            vertical-align: middle;
+            width: 40px;
+            height: 27px;
+
+            &.vip-level-bronze {
+                background-position: -360px -520px;
+            }
+
+            &.vip-level-silver {
+                background-position: -400px -520px;
+            }
+
+            &.vip-level-gold {
+                background-position: -360px -560px;
+            }
+
+            &.vip-level-platinum {
+                background-position: -400px -560px;
+                width: 47px;
+            }
+
+            &:hover > .tooltip-content {
+                display: block;
+            }
+        }
+
+        .vip-tooltip {
+            background-color: $yellow;
+            color: $dark-gray;
+
+            &.tooltip-content {
+                display: none;
+                position: relative;
+                top: 35px;
+                left: -98px;
+                width: 225px;
+                z-index: 9999;
+                padding: 5px 10px;
+            }
+
+            &:before {
+                @include triangle(top, 6px, $yellow);
+                position: absolute;
+                top: 4px;
+                left: 50%;
+                content: "";
+            }
+        }
+    }
+
+    #player-balance {
+        .refresh-icon {
+            margin-left: -15px;
+        }
+    }
+
+    .player-options {
+        margin-left: 15px;
+
+        ul {
+            padding: 0;
+        }
+
+        li {
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            background: $dark-red;
+            margin-right: 5px;
+            width: 34px;
+            height: 34px;
+            cursor: pointer;
+
+            span {
+                position: absolute;
+                margin: auto;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+
+            &.last {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .tooltip {
+        &:hover > .tooltip-content {
+            display: block !important;
+        }
+    }
+
+    .tooltip-content {
+        display: none;
+        position: absolute;
+        top: 44px;
+        right: 0;
+        min-width: 100px;
+        z-index: 9999;
+
+        &:before {
+            content: "";
+            display: block;
+            height: 12px;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            margin-top: -10px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+
+            &:before {
+                @include triangle(top, 6px, $dark-red);
+                position: absolute;
+                top: -6px;
+                right: 11px;
+                content: "";
+            }
+
+            li {
+                display: block;
+                width: auto;
+                height: auto;
+                margin: 0;
+                white-space: nowrap;
+
+                a,
+                span.balance-labels {
+                    display: block;
+                    height: 30px;
+                    padding: 0 10px;
+                    background: $dark-red;
+                    color: $white;
+                    line-height: 29px;
+
+                    &:hover {
+                        background: $red;
+                    }
+                }
+            }
+
+            .view-all {
+                a {
+                    background: $red;
+                    color: $yellow;
+                    line-height: 25px;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .tooltip-balance {
+        top: 25px;
+
+        ul {
+            padding: 5px 10px;
+            background: $dark-red;
+
+            li {
+                white-space: normal;
+            }
+        }
+    }
+
+    .balance-details {
+        display: table;
+        width: 330px;
+        margin: 0;
+        padding: 5px 0;
+        height: auto;
+        position: relative;
+
+        .label {
+            display: table-cell;
+            width: 130px;
+        }
+
+        .balance {
+            display: table-cell;
+            width: 180px;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .refresh-loading {
+            right: 10px;
+        }
+
+        .refresh-icon {
+            right: 10px;
+            top: 7px;
+        }
+    }
+}

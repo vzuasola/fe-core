@@ -1,0 +1,19 @@
+.copyright {
+    position: relative;
+    line-height: 18px;
+    font-size: 11px;
+    background: $dark-red;
+
+    .container {
+        position: relative;
+    }
+
+
+    p {
+        margin-bottom: 0;
+    }
+
+    @include media(">=tablet") {
+        background: $copyright-bg;
+    }
+}

@@ -1,0 +1,54 @@
+<div id="language-lightbox" class="modal language-lightbox">
+
+    <div class="modal-content">
+        <div class="modal-body">
+            <h3>{{ header.mobile_menu_config.mobile_menu_language_lightbox_title }}</h3>
+            {% set count = header.language|length - 1 %}
+            {% set quickitemsPerColumn = (count / 2)|round(0, 'ceil') %}
+
+            {% if count <= 5 %}
+                <ul>
+                    {% for key,lang in header.language %}
+                        {% set isActive = lang.prefix == app.lang ? "active" : "" %}
+                        {% set classAgent = (('es' in lang.prefix) or ('pt' in lang.prefix)) ? 'pm-hide' : "" %}
+
+                        {% if key != 'default' and lang.hide != true %}
+                            <li class="{{ lang.id }} {{ classAgent }} {{ isActive }}" data-lang="{{ lang.prefix }}">
+                                <a class="language-link">
+                                    {{ lang.name }}
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            {% else %}
+
+                    {% for key,lang in header.language %}
+                        {% set isActive = lang.prefix == app.lang ? "active" : "" %}
+                        {% set classAgent = (('es' in lang.prefix) or ('pt' in lang.prefix)) ? 'pm-hide' : "" %}
+
+                        {% if quickitemsPerColumn == 1 or loop.index % quickitemsPerColumn == 1 %}
+                            {% spaceless %}
+                                <ul class="batch-{{ loop.index }}">
+                            {% endspaceless %}
+                        {% endif %}
+
+                        {% if key != 'default' and lang.hide != true %}
+                            <li class="{{ lang.id }} {{ classAgent }} {{ isActive }}" data-lang="{{ lang.prefix }}">
+                                <a class="language-link">
+                                    {{ lang.name }}
+                                </a>
+                            </li>
+                        {% endif %}
+
+                        {% if loop.last or loop.index % quickitemsPerColumn == 0 %}
+                            {% spaceless %}
+                                </ul>
+                            {% endspaceless %}
+                        {% endif %}
+                    {% endfor %}
+            {% endif %}
+        </div>
+        {% include '@site/../web/images/responsive/close-icon.svg' ignore missing %}
+    </div>
+</div>

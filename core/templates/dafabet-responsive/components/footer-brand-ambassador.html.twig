@@ -1,0 +1,18 @@
+{% if footer.file_image_ambassador_image is not empty %}
+	<section class="{% if device == 'mobile' %}mobile-brandambassador{% else %}col-4{% endif %} brandambassador">
+		{% set ambassadorTitle = (footer.ambassador_title)  ? footer.ambassador_title : 'Brand Ambassadors'%}
+
+		<h4 class="mb-10">{{ ambassadorTitle }}</h4>
+		<p class="mb-10">
+			{% if device == 'mobile' %}
+			<a href="{{ url(footer.ambassador_redirection_link)}}" target="{{footer.ambassador_link_target}}">
+				<img alt="{{ ambassadorTitle }}" src="{{footer.file_image_ambassador_image}}">
+			</a>
+			{% else %}
+			<a href="{{ url(footer.ambassador_redirection_link)}}" target="{{footer.ambassador_link_target}}">
+				<img alt="{{ ambassadorTitle }}" src="{{ asset('images/default_image.png') }}" data-src="{{ asset(footer.file_image_ambassador_image) }}" class="lazy-load">
+			</a>
+			{% endif %}
+		</p>
+	</section>
+{% endif %}

@@ -1,0 +1,131 @@
+
+<div id="floatingBannerLightbox" class="modal modal-outer floating-banner--lightbox">
+    <div class="modal-overlay"></div>
+	<div class="modal-content">
+		<div class="modal-body">
+			<div class="floating-banner-lightbox--container scrollbot hidden"></div>
+			<div class="floating-banner-lightbox-container">
+                <a href="#" class="modal-close modal-close-button">
+                    <svg viewBox="0 0 29.232 29.232">
+                        <use xlink:href="#close" />
+                    </svg>
+                </a>
+                <div class="floating-banner-lightbox-title">
+                    <h1>
+                        {{#each data.items as |item| }}
+                            {{#condition item.field_platform.0.value "===" "desktop"}}
+                                {{#condition item.field_floating_banner_type.0.value "===" "left"}}
+                                    {{#if item.field_banner_item}}
+                                        <span class="downloads-banner-title">{{ item.field_link_text.0.value }}&nbsp;</span>
+                                    {{/if}}
+                                {{/condition}}
+                                {{#condition item.field_floating_banner_type.0.value "===" "right"}}
+                                    {{#if item.field_banner_item}}
+                                        <span class="downloads-banner-title">&nbsp;{{ item.field_link_text.0.value }}</span>
+                                    {{/if}}
+                                {{/condition}}
+                            {{/condition}}
+                        {{/each }}
+                    </h1>
+                    <hr />
+                </div>
+                <div class="floating-banner-lightbox-content">
+                    {{#each data.items as |item|}}
+                        {{#condition item.field_platform.0.value "===" "desktop"}}
+                            {{!-- Iterate and display DOWNLOAD ITEMS --}}
+                            {{#condition item.field_floating_banner_type.0.value "===" "left"}}
+                                {{#if item.field_banner_item}}
+                                    <div class="floating-banner-lightbox-content-downloads floating-banner-item"
+                                            data-device-platform="{{ item.field_platform.0.value }}"
+                                            data-device-os="{{ item.field_platform.0.value }}">
+                                        {{#each item.field_banner_item as |download-item|}}
+                                            <a {{#if download-item.field_lightbox_content.0.value}}
+                                                    href="#floating-banner-{{ item.field_floating_banner_type.0.value }}-lightbox--{{ @index }}"
+                                                    class="download-item modal-trigger"
+                                                {{else}}
+                                                    href="{{download-item.field_link.0.uri}}"
+                                                    class="download-item"
+                                                {{/if}}
+                                                {{#if download-item.field_link_target.0.value}}
+                                                    target={{ download-item.field_link_target.0.value }}
+                                                {{/if}}
+                                                {{#condition download-item.field_link_target.0.value "===" "window" }} data-popup="true" {{/condition}}>
+                                                <span class="download-item-product-icon-wrapper">
+                                                    <svg viewbox="0 0 20 20">
+                                                        <use xlink:href="#{{ download-item.field_link_class.0.value }}" />
+                                                    </svg>
+                                                </span>
+                                                <span class="download-item-title">{{download-item.field_button_text.0.value}}</span>
+                                                <span class="download-icon-wrapper">
+                                                    <svg viewbox="0 0 20 20">
+                                                        <use xlink:href="#download" />
+                                                    </svg>
+                                                </span>
+                                            </a>
+                                        {{/each}}
+                                    </div>
+                                {{/if}}
+                            {{/condition}}
+                            {{!-- Iterate and display HELP CENTER ITEMS --}}
+                            {{#condition item.field_floating_banner_type.0.value "===" "right" }}
+                                {{#if item.field_banner_item }}
+                                    <div class="floating-banner-lightbox-content-help-center">
+                                        {{#each item.field_banner_item as |help-center-item|}}
+                                            {{#if help-center-item.field_link }}
+                                                <a href="{{ help-center-item.field_link.0.uri }}"
+                                                    {{#if help-center-item.field_link_target.0.value}}
+                                                        target={{ help-center-item.field_link_target.0.value }}
+                                                    {{/if}}
+                                                        class="help-center-item webrtc-{{ help-center-item.field_link_class.0.value }}"
+                                                    {{#condition help-center-item.field_link_target.0.value "===" "window" }} data-popup="true" {{/condition}}
+                                                        data-device-platform="{{ ../item.field_platform.0.value }}"
+                                                        data-device-os="{{ ../item.field_platform.0.value }}">
+                                                    <svg viewbox="0 0 20 20">
+                                                        <use xlink:href="#{{ help-center-item.field_link_class.0.value }}" />
+                                                    </svg>
+                                                    <span>
+                                                        {{help-center-item.field_button_text.0.value}}
+                                                    </span>
+                                                </a>
+                                            {{else}}
+                                                <div class="help-center-item">
+                                                    <svg viewbox="0 0 20 20">
+                                                        <use xlink:href="#{{ help-center-item.field_link_class.0.value }}" />
+                                                    </svg>
+                                                    <span>{{help-center-item.field_button_text.0.value}}</span>
+                                                </div>
+                                            {{/if}}
+                                        {{/each}}
+                                    </div>
+                                {{/if}}
+                            {{/condition}}
+                        {{/condition }}
+                    {{/each}}
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+{{#each data.items as |item|}}
+    {{#if item.field_banner_item}}
+        {{#each item.field_banner_item as |bannerItem|}}
+            {{#if bannerItem.field_lightbox_content.0.value}}
+                <div
+                    id="floating-banner-{{ item.field_floating_banner_type.0.value }}-lightbox--{{ @index }}"
+                    class="modal modal-inner floating-banner-{{ item.field_floating_banner_type.0.value }}-lightbox"
+                >
+                    <div class="modal-overlay"></div>
+                    <div class="modal-content">
+                        {{#if bannerItem.field_lightbox_title.0.value}}
+                            <div class="modal-header">{{ bannerItem.field_lightbox_title.0.value }}</div>
+                        {{/if}}
+                        <div class="modal-body">
+                            {{{ bannerItem.field_lightbox_content.0.value }}}
+                        </div>
+                        <a href="#" class="modal-close modal-close-button lazy-load" data-src="{{ @root.data.sprites }}"></a>
+                    </div>
+                </div>
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/each}}

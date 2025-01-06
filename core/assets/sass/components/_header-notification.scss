@@ -1,0 +1,29 @@
+.header-notification {
+    display: inline-block;
+    margin: 0;
+    color: $white;
+    font-size: 12px;
+
+    .notification-wrapper {
+        position: relative;
+        display: inline-block;
+        margin-right: 8px;
+        cursor: pointer;
+    }
+
+    .icon-notification {
+        margin: -2px -2px 0 0;
+    }
+
+    .notification-counter {
+        position: relative;
+        top: -5px;
+        display: none;
+        margin: 0 0 0 -10px;
+        padding: 2px 3px;
+        border-radius: $border-radius-default;
+        background: $yellow;
+        color: $dark-red;
+        font: bold 12px/11px Verdana, Geneva, sans-serif;
+    }
+}

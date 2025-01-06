@@ -1,0 +1,59 @@
+.sponsors {
+    ul {
+        padding: 0;
+        clear: both;
+        overflow: hidden;
+        font-size: 0;
+        text-align: center;
+        list-style-type: none;
+
+        &:first-child {
+            border-bottom: 1px solid $dark-red;
+
+            @include media(">=tablet") {
+                border: none;
+            }
+        }
+    }
+
+    li {
+        display: inline-block;
+        margin: 0 6px;
+        vertical-align: top;
+
+        @include media(">=desktop") {
+            margin-left: 12px;
+            margin-right: 12px;
+        }
+    }
+
+    .sponsors-description {
+        display: block;
+        margin: 10px auto 0;
+        max-width: 90px;
+        font-size: 12px;
+        color: $white;
+    }
+
+    @include media(">=tablet") {
+        .sponsors-description,
+        .sponsors-subtitle {
+            display: none;
+        }
+    }
+
+    // Main Club sponsor
+    &-main-desc {
+        font-size: 12px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #2f2c2d;
+    }
+
+    @include media(">=tablet") {
+        text-align: center;
+
+        ul {
+            display: inline;
+        }
+    }
+}

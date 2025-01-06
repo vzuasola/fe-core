@@ -1,0 +1,410 @@
+routes:
+    /debug:
+        method: GET
+        action: App\Controller\DefaultController:debug
+        # middlewares:
+        #     App\Middleware\HeaderCache: ['@container', 'public', 1200]
+
+    # Server SSO Routes
+
+    /api/sso/xdm:
+        method: ANY
+        action: App\Controller\SSOServerController:getXDM
+
+    /api/sso/redirect:
+        method: GET
+        action: App\Controller\SSOServerController:doRedirect
+
+    # Component Widgets
+
+    # /api/plugins/component/route/{id}/{method}:
+    #     method: ANY
+    #     action: App\Plugins\ComponentWidget\ComponentWidgetController:route
+
+    # /api/plugins/module/route/{id}/{method}:
+    #     method: ANY
+    #     action: App\Plugins\ComponentWidget\ComponentWidgetController:module
+
+    # /api/plugins/module:
+    #     method: ANY
+    #     action: App\Plugins\ComponentWidget\ComponentWidgetController:moduleList
+
+    # Menu Widgets
+
+    # /api/menu/widgets:
+    #     method: GET
+    #     action: App\Controller\MenuWidgetController:widgets
+
+    /api/drawer/{id}:
+        method: GET
+        action: App\Controller\DrawerController:drawer
+
+    # Client SSO Routes
+
+    /api/sso/validate:
+        method: POST
+        action: App\Controller\SSOClientController:validateSessionId
+
+    # Login
+
+    /login:
+        method: POST
+        action: App\Controller\LoginController:login
+
+    /logout:
+        method: GET
+        action: App\Controller\LoginController:logout
+
+    /ajax/login:
+        method: POST
+        action: App\Controller\AjaxLoginController:ajaxLogin
+
+    /api/login/renew:
+        method: GET
+        action: App\Controller\LoginController:renew
+
+    # Legacy Authentication
+
+    /legacy/authentication:
+        method: GET
+        action: App\Controller\LegacyAuthController:auth
+
+    # Balances
+
+    # Deprecated
+    /ajax/total-balance:
+        method: GET
+        action: App\Controller\BalanceController:getTotalBalance
+
+    # Dafacoin Menu
+
+    /ajax/detailed-total-balance:
+        method: GET
+        action: App\Controller\BalanceController:getDetailedTotalBalance
+
+    /ajax/set-wallet-priority:
+      method: POST
+      action: App\Controller\BalanceController:setWalletPriority
+
+    # User Details
+
+    /ajax/user/login:
+        method: GET
+        action: App\Controller\UserDetailsController:getLogin
+
+    /ajax/user/details:
+        method: GET
+        action: App\Controller\UserDetailsController:getDetails
+
+    # User Preferences
+    /ajax/userpref/geoip/language:
+        method: GET
+        action: App\Controller\AjaxUserPreferenceController:saveGeoIpLanguage
+
+    # Push NX
+
+    /ajax/pushnx/config:
+        method: GET
+        action: App\Controller\PushNotificationController:getPushConfig
+
+    /ajax/announcements:
+        method: GET
+        action: App\Controller\AjaxAnnouncementsController:getAnnouncements
+
+    /ajax/v2/announcements:
+        method: GET
+        action: App\Controller\AjaxAnnouncementsController:getFilteredAnnouncements
+
+    /ajax/slider:
+        method: GET
+        action: App\Controller\AjaxBannerController:getBanners
+
+    /ajax/floating-banners:
+        method: GET
+        action: App\Controller\FloatingBannerController:getItems
+
+    /ajax/content-sliders:
+        method: GET
+        action: App\Controller\AjaxBannerController:getContentSliders
+
+    /download/[{name}]:
+        method: GET
+        action: App\Controller\DownloadPageController:getDownloadEntities
+        page_cache:
+            enabled: true
+
+    # Registration Step2
+
+    # /make-deposit:
+    #     method: GET
+    #     action: App\Controller\RegistrationController:makeDeposit
+
+    # Opus Game Launch API
+    #
+    /game/loader:
+        method: GET
+        action: App\Controller\OpusGameController:showLoader
+
+    /game/opus/authenticate:
+        method: GET
+        action: App\Controller\OpusGameController:createCookie
+
+    /game/opus/redirect:
+        method: GET
+        action: App\Controller\OpusGameController:createRedirect
+
+    # Skywind game url/lobby api
+    # resource: lobby|url
+    /ajax/game/{resource}/skywind[/{gameid}]:
+        method: GET
+        action: App\Controller\GameControllers\Skywind:fetchResource
+        case_insensitive:
+            enabled: false
+
+    # GD Lobby url
+    /game/gold-deluxe/lobby:
+        method: GET
+        action: App\Controller\GoldDeluxeGameController:getGameLobby
+
+    # GD Fishing world game url api
+    /game/gold-deluxe/{gameid}:
+        method: GET
+        action: App\Controller\GoldDeluxeGameController:getGameUrl
+        case_insensitive:
+            enabled: false
+
+    # Video Racing game url api
+    /ajax/games/video_racing:
+        method: GET
+        action: App\Controller\VideoRacingGameController:getGameLobby
+
+    # AllBet game lobby url api
+    /game/allbet/lobby:
+        method: GET
+        action: App\Controller\AllBetGameController:getGameLobby
+
+    # Evolution game url/lobby api
+    # resource: lobby|url
+    /ajax/game/{resource}/evo-gaming[/{gameid}]:
+        method: GET
+        action: App\Controller\GameControllers\EvoGaming:fetchResource
+        case_insensitive:
+            enabled: false
+
+    # eBet game url/lobby api
+    # resource: lobby|url
+    /game/ebet/{resource}[/{gameid}]:
+        method: GET
+        action: App\Controller\EBetGameController:fetchResource
+        case_insensitive:
+            enabled: false
+
+    # TGP gaming lobby url api
+    /game/tgp/lobby:
+        method: GET
+        action: App\Controller\TGPGameController:getGameLobby
+
+    # Exhange Game Launch API
+    /game/exchange/cookie:
+        method: GET
+        action: App\Controller\ExchangeGameController:cookieCreate
+
+    #GPI Keno API
+    /game/gpikeno/lobby:
+        method: GET
+        action: App\Controller\GpiGameController:createKenoGameLobby
+
+    #GPI Pk10 API
+    /game/gpipk/lobby:
+        method: GET
+        action: App\Controller\GpiGameController:createPkGameLobby
+
+    #GPI Sode API
+    /game/gpisode/lobby:
+        method: GET
+        action: App\Controller\GpiGameController:createSodeGameLobby
+
+    #GPI Thai API
+    /game/gpithai/lobby:
+        method: GET
+        action: App\Controller\GpiGameController:createThaiGameLobby
+
+    #GPI Live Dealer API
+    /game/gpi-live-dealer/lobby:
+        method: GET
+        action: App\Controller\GpiGameController:createLiveDealerLobby
+
+    #GPI Ladder API
+    /game/gpi-arcade/{gameid}:
+        method: GET
+        action: App\Controller\GpiGameController:getArcadeGameUrl
+
+    # ICore Lottoland lobby url
+    /game/lottoland/lobby:
+        method: GET
+        action: App\Controller\LottolandController:getLottolandGameLobby
+
+    #CQ9 game resource API
+    /ajax/game/{resource}/cq9/{gameid}:
+        method: GET
+        action: App\Controller\GameControllers\CQ9:fetchResource
+        case_insensitive:
+            enabled: false
+
+    #Solid gaming resource API
+    /ajax/game/url/solid-gaming/{gameid}:
+        method: GET
+        action: App\Controller\GameControllers\SolidGaming:getGameUrl
+        case_insensitive:
+            enabled: false
+
+    #Fun Gaming resource API
+    /ajax/game/{resource}/fun-gaming/{gameid}:
+        method: GET
+        action: App\Controller\GameControllers\FunGaming:fetchResource
+        case_insensitive:
+            enabled: false
+
+    #Deprecated Flow Gaming resource API
+    /ajax/game/url/flow-gaming/{gameid}:
+        method: GET
+        action: App\Controller\GameControllers\FlowGaming:getGameUrl
+        case_insensitive:
+            enabled: false
+
+    #KY Gaming resource API
+    /ajax/game/{resource}/ky-gaming/{gameid}:
+        method: GET
+        action: App\Controller\GameControllers\KYGaming:fetchResource
+        case_insensitive:
+            enabled: false
+
+    #PGSoft resource API
+    # resource: lobby|url
+    /ajax/game/{resource}/pgsoft/{gameid}:
+        method: GET
+        action: App\Controller\GameControllers\PGSoft:fetchResource
+        case_insensitive:
+            enabled: false
+
+    # SA gaming get game url/lobby api
+    # resource: lobby|url
+    /ajax/game/{resource}/sa-gaming[/{gameid}]:
+        method: GET
+        action: App\Controller\GameControllers\SAGaming:fetchResource
+        case_insensitive:
+            enabled: false
+
+    # Micro Gaming get game url/lobby api
+    # resource: lobby|url
+    /ajax/game/{resource}/micro-gaming[/{gameid}]:
+        method: GET
+        action: App\Controller\GameControllers\MicroGaming:fetchResource
+        case_insensitive:
+            enabled: false
+
+    # AG gaming lobby url api
+    /ajax/game/{resource}/asia-gaming[/{gameid}]:
+        method: GET
+        action: App\Controller\GameControllers\AsiaGaming:fetchResource
+        case_insensitive:
+            enabled: false
+
+    # Ruby Play get game url/lobby api
+    # resource: lobby|url
+    /ajax/game/{resource}/ruby-play[/{gameid}]:
+        method: GET
+        action: App\Controller\GameControllers\RubyPlay:fetchResource
+        case_insensitive:
+            enabled: false
+
+    # Ezugi get game url/lobby api
+    # resource: lobby|url
+    /ajax/game/{resource}/ezugi-gaming[/{gameid}]:
+        method: GET
+        action: App\Controller\GameControllers\EzugiGaming:fetchResource
+        case_insensitive:
+            enabled: false
+
+    # ICore Playtech game url api
+    # resource: lobby|url
+    /ajax/game/{resource}/playtech[/{gameid}]:
+        method: GET
+        action: App\Controller\GameControllers\Playtech:fetchResource
+        case_insensitive:
+            enabled: false
+
+    # Voidbridge resource API
+    # resource: lobby|url
+    /ajax/game/{resource}/voidbridge[/{gameid}]:
+        method: GET
+        action: App\Controller\GameControllers\Voidbridge:fetchResource
+        case_insensitive:
+            enabled: false
+
+    # OneGame resource API
+    # resource: lobby|url
+    /ajax/game/{resource}/onegame[/{gameid}]:
+        method: GET
+        action: App\Controller\GameControllers\OneGame:fetchResource
+        case_insensitive:
+            enabled: false
+
+    # JSystem resource API
+    # resource: lobby|url
+    /ajax/game/{resource}/jsystem[/{gameid}]:
+        method: GET
+        action: App\Controller\GameControllers\JSystem:fetchResource
+        case_insensitive:
+            enabled: false
+
+    # PTPlus resource API
+    # resource: lobby|url
+    /ajax/game/{resource}/ptplus[/{gameid}]:
+      method: GET
+      action: App\Controller\GameControllers\PTPlus:fetchResource
+      case_insensitive:
+        enabled: false
+
+    # Sitemap
+    /sitemap.xml:
+        method: GET
+        action: App\Controller\SitemapController:showXML
+
+    # Gameworx Lottery game lobby url
+    /ajax/games/gameworx-lottery:
+        method: GET
+        action: App\Controller\GameworxGameController:getLotteryGameLobby
+
+    # Gameworx Quick lotto game lobby url
+    /ajax/games/gameworx-quicklotto:
+        method: GET
+        action: App\Controller\GameworxGameController:getQuickLottoGameLobby
+
+    # BetConstruct lobby url
+    /ajax/games/betconstruct:
+        method: GET
+        action: App\Controller\BetConstructController:getBetConstructLobby
+
+    # /robots.txt:
+    #     method: GET
+    #     action: App\Controller\RobotsController:getRobotsConfig
+
+    #WAC resource API
+    /ajax/game/{resource}/wac[/{gameid}]:
+        method: GET
+        action: App\Controller\GameControllers\WAC:fetchResource
+        case_insensitive:
+            enabled: false
+
+    # Avaya JWT
+    /ajax/avaya/jwt:
+        method: GET
+        action: App\Controller\AjaxAvayaController:jwt
+
+    #FGHub Gaming resource API
+    /ajax/game/url/fghub-gaming/{gameid}:
+        method: GET
+        action: App\Controller\GameControllers\FGHubGaming:getGameUrl
+        case_insensitive:
+            enabled: false

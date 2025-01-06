@@ -1,0 +1,10 @@
+.copyright {
+    max-height: 32px;
+    line-height: 32px;
+    font-size: $copyright-font-size;
+    background: $copyright-bg;
+
+    p {
+        margin-bottom: 0;
+    }
+}

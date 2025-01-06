@@ -1,0 +1,63 @@
+.cs-details {
+
+    ul {
+        list-style: none;
+
+        li {
+            display: inline;
+
+            a {
+                font-size: 11px;
+                width: 50%;
+                text-align: left;
+                margin-bottom: 15px;
+                word-break: break-all;
+                height: 30px
+            }
+
+            &.cs-icon-email a::before {
+                content: "";
+                width: 30px;
+                height: 20px;;
+                display: inline;
+                line-height: 18px;
+                float: left;
+                margin-right: 2px;
+                background: transparent url($sprite-responsive) -520px -100px;
+            }
+
+            &.cs-icon-phone a::before {
+                content: "";
+                width: 30px;
+                height: 25px;
+                display: inline;
+                line-height: 18px;
+                float: left;
+                margin-right: 2px;
+                background: transparent url($sprite-responsive) -555px -100px;
+            }
+
+            &.cs-icon-chat a::before {
+                content: "";
+                width: 30px;
+                height: 25px;
+                display: inline;
+                line-height: 18px;
+                float: left;
+                margin-right: 2px;
+                background: transparent url($sprite-responsive) -600px -100px;
+            }
+
+            &.cs-icon-mobile a::before {
+                content: "";
+                width: 30px;
+                height: 25px;
+                display: inline;
+                line-height: 18px;
+                float: left;
+                margin-right: 2px;
+                background: transparent url($sprite-responsive) -350px -60px;
+            }
+        }
+    }
+}

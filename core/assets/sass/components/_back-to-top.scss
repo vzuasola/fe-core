@@ -1,0 +1,26 @@
+.back-to-top {
+    background-image: url($base-sprite);
+    background-position: -240px -560px;
+    width: 55px;
+    height: 55px;
+    text-indent: -9999px;
+    position: fixed;
+    bottom: 50px;
+    right: 10px;
+    cursor: pointer;
+    transition: all 1.2s;
+
+    &:after {
+        content: " ";
+        display: block;
+        overflow: hidden;
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
+
+    &.hide {
+        opacity: 0;
+        display: none\9;
+    }
+}

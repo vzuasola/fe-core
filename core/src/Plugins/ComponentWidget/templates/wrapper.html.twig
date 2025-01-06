@@ -1,0 +1,21 @@
+{% set head_components = ["seo", "marketing", "pageload"] %}
+
+{# Only add <div> container if component is not intended inside <head> tag #}
+{% if component_widget_class not in head_components %}
+	<div
+	    class="component-widget-wrapper"
+
+	    data-component-widget-class="{{ component_widget_class }}"
+	    data-component-widget-alias="{{ component_widget_alias }}"
+	    data-component-widget-mode="{{ component_widget_class_mode }}"
+	    data-component-widget-attachments='{{ component_widget_attachments|json_encode()|raw }}'
+	>
+{% endif %}
+
+    {% if component_widget_template %}
+        {{ include(component_widget_template) }}
+    {% endif %}
+
+{% if component_widget_class not in head_components %}
+	</div>
+{% endif %}

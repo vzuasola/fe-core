@@ -1,0 +1,57 @@
+<?php
+
+$product = $settings['settings']['product'];
+
+$settings['settings']['debug'] = true;
+
+$settings['settings']['cache']['handler'] = 'native';
+$settings['settings']['session_handler']['handler'] = 'native';
+
+// Cache handler
+// Uncomment lines below if you want Redis based caching on local
+
+$settings['settings']['cache']['handler'] = 'predis';
+
+$settings['settings']['cache']['handler_options'] = [
+    'clients' => 'tcp://10.5.0.7:6379',
+    'options' => [
+        'parameters' => ['database' => 2],
+        'prefix' => "cache:front:$product:page:",
+    ],
+];
+
+// Cache Signature 
+
+$settings['settings']['cache_signature']['redis_options'] = [
+    'clients' => 'tcp://10.5.0.7:6379',
+    'options' => [
+        'parameters' => ['database' => 1],
+    ],
+];
+
+// Session Settings
+// Uncomment lines below if you want Redis based sessions on local
+
+// $settings['settings']['session_handler']['handler'] = 'predis';
+
+// $settings['settings']['session_handler']['handler_options'] = [
+//     'clients' => 'tcp://10.5.0.7:6379',
+//     'options' => [
+//         'parameters' => ['database' => 2],
+//         'prefix' => "session:front:",
+//     ],
+//     'parameters' => [
+//         'gc_probability' => 1,
+//         'gc_divisor' => 100,
+//         'gc_maxlifetime' => 200000,
+//     ]
+// ];
+
+// Log settings
+
+$settings['settings']['logger']['path'] = BASE_ROOT . "/logs/$product.log";
+$settings['settings']['metrics_log']['path'] = BASE_ROOT . "/logs/metrics.log";
+
+// Asset settings
+
+$settings['settings']['asset']['prefixed'] = false;

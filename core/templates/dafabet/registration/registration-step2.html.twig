@@ -1,0 +1,42 @@
+{% extends '@base/page.html.twig' %}
+
+{% block css %}
+    <link href="{{ asset('css/registration_step2.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block headerScript %}
+    {{ parent() }}
+    {{ snippet_js('header') }}
+{% endblock %}
+
+{% block header %}
+    {{ include('@base/section/header.html.twig') }}
+{% endblock header %}
+
+{% block body %}
+    <div class="container text-red">
+        {% for flash in app.session.getAllFlashes() %}
+            <div class="alert alert-info">
+                <h4>{{ flash }}</h4>
+            </div>
+        {% endfor %}
+    </div>
+    
+    {% include '@base/components/floating-banner.html.twig' %}
+    {% include '@base/components/session-modals.html.twig' %}
+    {% include '@base/registration/registration-step2-body.html.twig' %}
+
+    {% block main %}{% endblock main %}
+{% endblock body %}
+
+{% block script %}
+    <script type="text/javascript" src="{{ asset('js/registration_step2.bundle.js') }}"></script>
+    {{ snippet_js('footer') }}
+{% endblock script %}
+
+{% block vendorScript %}
+    <!--[if lte IE 9]>
+        <script src="{{ asset('js/history.min.js') }}"></script>
+    <![endif]-->
+    {{  parent() }}
+{% endblock %}

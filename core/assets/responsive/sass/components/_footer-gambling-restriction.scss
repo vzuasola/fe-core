@@ -1,0 +1,174 @@
+#language-gambling-restriction {
+    background-color: $light-gray;
+
+    hr {
+        margin: 1.5rem 0;
+    }
+
+    a {
+        text-decoration: none;
+        color: #5E5E5E;
+    }
+
+    .gambling-restriction-container {
+        margin-bottom: 40px;
+    }
+
+    .gambling-restriction-content {
+        display: flex;
+        align-items: center;
+
+        .gambling-restriction-image {
+            display: inline-block;
+            margin-right: 8px;
+            max-width: 64px;
+            max-height: 64px;
+
+            img {
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        .gambling-restriction-text {
+            margin: 0;
+
+            p {
+                margin: 0;
+            }
+        }
+    }
+
+    // Chrome-specific margin
+    @supports (-webkit-appearance:none) {
+        .gambling-restriction-image {
+            margin-left: 220px;
+        }
+    }
+
+    // Firefox-specific margin
+    @supports (-moz-appearance:none) {
+        .gambling-restriction-image {
+            margin-left: 80px;
+        }
+    }
+
+    .gambling-restriction-text {
+        color: #5e5e5e;
+        font: normal 16px Roboto;
+        line-height: 18px;
+        margin-right: 250px;
+        margin-top: 30px;
+    }
+
+    // Responsive styles for mobile devices
+    @media screen and (max-width: 767px) {
+        .gambling-restriction-content {
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
+
+        .gambling-restriction-image {
+            margin: 0 auto 10px;
+            max-width: 48px;
+            max-height: 48px;
+
+            img {
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        .gambling-restriction-text {
+            margin-top: 10px;
+            font-size: 14px;
+            line-height: 16px;
+            max-width: 80%;
+        }
+    }
+
+    // Tablet-specific styles (768px to 1024px)
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+        .gambling-restriction-content {
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
+
+        .gambling-restriction-image {
+            margin: 0 auto;
+            max-width: 56px;
+            max-height: 56px;
+
+            img {
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        .gambling-restriction-text {
+            font-size: 15px;
+            line-height: 18px;
+            max-width: 85%;
+        }
+    }
+
+    // Styles for larger screens (over 1024px)
+    @media screen and (min-width: 1025px) {
+        .gambling-restriction-content {
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
+
+        .gambling-restriction-image {
+            margin-left: 60px;
+        }
+
+        .gambling-restriction-text {
+            margin-right: 60px;
+            margin-top: 20px;
+        }
+    }
+
+    // Style for screen between 1280px and 1366px
+    @media screen and (min-width: 1281px) and (max-width: 1366px) {
+        .gambling-restriction-text {
+            margin-right: 20px;
+            margin-top: 20px;
+            width: 980px;
+            max-width: 85%;
+        }
+
+        .gambling-restriction-image {
+            margin-left: 60px;
+        }
+    }
+
+    // Style for screen between 1367px and 1440px
+    @media screen and (min-width: 1367px) and (max-width: 1440px) {
+        .gambling-restriction-text {
+            margin-right: 60px;
+            margin-top: 20px;
+            width: 1000px;
+        }
+
+        .gambling-restriction-image {
+            margin-left: 60px;
+        }
+    }
+
+    // Style for screen between 1441px and 1600px
+    @media screen and (min-width: 1441px) and (max-width: 1600px) {
+        .gambling-restriction-text {
+            margin-right: 50px;
+            margin-top: 30px;
+            width: 1200px;
+        }
+
+        .gambling-restriction-image {
+            margin-left: 50px;
+        }
+    }
+}

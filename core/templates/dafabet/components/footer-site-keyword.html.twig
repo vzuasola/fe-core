@@ -1,0 +1,8 @@
+{% if footer.about_dafabet_content is not empty %}
+    <section class="col-4 site-keyword">
+        <h4 class="mb-10"> {{ footer.about_dafabet_title }} </h4>
+        {{ footer.about_dafabet_content.value | raw }}
+    </section>
+{% endif %}
+
+

@@ -1,0 +1,117 @@
+<section class="hidden-desktop">
+    <span class="mobile-menu-icon"></span>
+    <svg class="mobile-menu-burger-icon" viewBox="0 90 24 15.197">
+        <use xlink:href="#burger-menu" />
+    </svg>
+    <nav class="mobile-menu">
+        <h2 class="mobile-menu-header">
+            {% include '@site/../web/images/responsive/header/user-profile.svg' ignore missing %}
+            <span class="username-container">{username}</span>
+            <span class="mobile-menu-close-button">
+            </span>
+            <span class="total-balance-container">
+                {% if (header.dafacoin_menu) %}
+                    <span class="cashier-total-balance-label">{{ header.dafacoin_menu.total_balance_label }}</span>
+                    <span class="cashier-account-balance-formatted"></span>
+                {% endif %}
+            </span>
+        </h2>
+        <div class="mobile-menu-body">
+
+            {% if header.mobile_menu_config.mobile_menu_cashier_links_label and header.mobile_menu_config.mobile_menu_promotion_label %}
+            <ul class="mobile-menu-button clearfix">
+                {% if header.mobile_menu_config.mobile_menu_cashier_links_label %}
+                <li class="{{ header.mobile_menu_config.mobile_menu_cashier_links_class }}">
+                    <a href="{{ url(header.mobile_menu_config.mobile_menu_cashier_links) }}" target="_blank" class="btn btn-small btn-yellow">
+                        {{ header.mobile_menu_config.mobile_menu_cashier_links_label }}
+                    </a>
+                </li>
+                {% endif %}
+
+                {% if header.mobile_menu_config.mobile_menu_promotion_label %}
+                <li class="{{ header.mobile_menu_config.mobile_menu_promotion_class }}">
+                    <a href="{{ url(header.mobile_menu_config.mobile_menu_promotion_url) }}" class="btn btn-small btn-yellow">
+                        {{ header.mobile_menu_config.mobile_menu_promotion_label }}
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+            {% endif %}
+
+            {% for menuGroup in header.mobile_main_menu if menuGroup %}
+                {# Product Menu #}
+                {% if menuGroup.field_menu_id[0].value == "mobile_menu_product" %}
+                    <ul class="mobile-menu-product clearfix">
+                        {% for item in menuGroup.field_mobile_menu_item if item %}
+                            {% set target = item.field_mobile_menu_target[0].value ? item.field_mobile_menu_target[0].value : "_self" %}
+                            {% if item.field_mobile_menu_enabled[0].value %}
+                                <li class="mobile-menu-item {{ item.field_mobile_menu_class[0].value }}">
+                                    <a
+                                        href="{{ url(item.field_mobile_menu_link[0].uri) }}"
+                                        class="mobile-menu-link"
+                                        target="{{ target }}"
+                                        {% if target == "window" %}data-popup='true'{% endif %}
+                                    >
+                                        <span class="mobile-menu-label">{{ item.field_mobile_menu_label[0].value }}</span>
+                                        {% if item.field_mobile_menu_new_tag[0].value %}
+                                            <span class="mobile-menu-new-tag">
+                                                <span>{{ header.product_menu_new_tag|default('NEW') }}</span>
+                                            </span>
+                                        {% endif %}
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+                {# Internal Links #}
+                {% if menuGroup.field_menu_id[0].value == "mobile_menu_link" %}
+                    <h3 class="mobile-menu-internal-header"><span>{{ menuGroup.name[0].value }}</span></h3>
+                        <ul class="mobile-menu-internal clearfix">
+                            {% for item in menuGroup.field_mobile_menu_item if item %}
+                                {% set target = item.field_mobile_menu_target[0].value ? item.field_mobile_menu_target[0].value : "_self" %}
+                                {% if item.field_mobile_menu_enabled[0].value %}
+                                    <li class="mobile-menu-item {{ item.field_mobile_menu_class[0].value }}">
+                                        <a
+                                            href="{{ url(item.field_mobile_menu_link[0].uri) }}"
+                                            class="mobile-menu-link"
+                                            target="{{ target }}"
+                                            {% if target == "window" %}data-popup='true'{% endif %}
+                                        >
+                                            <span class="mobile-menu-label">{{ item.field_mobile_menu_label[0].value }}</span>
+                                            {% if item.field_mobile_menu_new_tag[0].value %}
+                                                <span class="mobile-menu-new-tag">
+                                                    <span>{{ header.product_menu_new_tag|default('NEW') }}</span>
+                                                </span>
+                                            {% endif %}
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+
+                            {# Login link #}
+                            <li class="mobile-menu-item  menu-logout ">
+                                <a href="{{ url('logout', {'query': {'from': header.uri}}) }}" class="mobile-menu-link">
+                                    <span class="mobile-menu-label">{{ header.profile_logout_text | default('Logout') }}</span>
+                                </a>
+                            </li>
+                        </ul>
+                {% endif %}
+            {% endfor %}
+
+            {# Mobile menu footer #}
+            {% if header.mobile_menu_footer is not empty %}
+                <ul class="mobile-menu-footer clearfix">
+                    {% for item in header.mobile_menu_footer if item %}
+                        {% set target = item.attributes.target ? item.attributes.target : "_self" %}
+                        {% set subClass = item.attributes.class ? item.attributes.class : "" %}
+                        <li class="mobile-menu-item {{ subClass }}">
+                            <a href="{{ url(item.alias ? item.alias : item.uri) }}" class="mobile-menu-link" target="{{ target }}" {% if target == "window" %}data-popup='true'{% endif %}><span>{{ item.title }}</span></a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </nav>
+</section>

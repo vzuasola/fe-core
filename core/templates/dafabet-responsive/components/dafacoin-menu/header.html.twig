@@ -1,0 +1,11 @@
+<header class="header {{theme.theme_code}}">
+    <div class="container clearfix visible-desktop">
+        {{ include('@responsive/components/dafacoin-menu/menu-desktop.html.twig') }}
+    </div>
+    <div class="container clearfix hidden-desktop">
+        {{ include('@responsive/components/dafacoin-menu/menu-mobile.html.twig') }}
+    </div>
+
+    {{ include('@responsive/components/dafacoin-menu/cashier-balance.html.twig') }}
+
+</header>

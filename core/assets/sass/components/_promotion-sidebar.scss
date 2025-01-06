@@ -1,0 +1,74 @@
+// promotion-sidebar
+
+.promo-sidebar {
+    max-width: 574px;
+
+    &-header {
+        background: $red;
+
+        h3 {
+            margin: 0 auto;
+            padding: 15px;
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 1;
+            color: $yellow;
+            text-align: center;
+        }
+    }
+
+    &-list {
+        padding: 20px;
+        background: $light-gray;
+    }
+
+    &-thumb {
+        display: block;
+        max-width: 225px;
+        max-height: 225px;
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+            background: $gray;
+        }
+    }
+
+    &-title {
+        font-size: 22px;
+        font-weight: 600;
+        color: $black;
+        line-height: 32px;
+        margin-bottom: 5px;
+
+        a {
+            color: $black;
+            text-decoration: underline;
+        }
+    }
+
+    &-blurb {
+        font-size: 18px;
+        color: $black;
+        line-height: 32px;
+    }
+}
+
+.promo-banner {
+    &-header {
+        background: $red;
+        margin: 0 auto;
+        padding: 12px 30px 4px;
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 1;
+        color: $white;
+        text-align: left;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}

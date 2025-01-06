@@ -1,0 +1,277 @@
+@include media(">=desktop") {
+
+    .login-form-border {
+        position: relative;        
+        display: inline-block;
+        border-left: 2px dotted $white;
+        height: 33px;
+        margin: 0 11px 0 15px;
+        bottom: 23px;
+    }
+
+    .login {
+        position: relative;
+        display: inline-block;
+        margin-top:15px;
+
+        .pull-right {
+            .header-notification {
+                display: inline-block;
+                color: #fff;
+                font-size: 12px;
+                margin-top: 20px;
+                float: left;
+                width: 68px;
+
+                .notification-wrapper {
+                    margin-right: 24px;
+
+                    .icon-notification {
+                        margin: -32px 5px 0;
+                    }
+                }
+
+                .login-form-border {
+                    margin-left: 52px;
+                    bottom: 39px;
+                }
+            }
+        }
+    }
+}
+
+.login-form {
+    min-width: 490px;
+    font-size: 12px;
+    float: left;
+
+    @include media(">=desktop") {
+        font-size: 11px;
+        height: 50px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 140px;
+        height: 27px;
+        margin: 0 10px 5px 0;
+        padding: 5px 15px;
+        float: left;
+        border: 0;
+        font-size: 14px;
+        line-height: 1;
+        vertical-align: middle;
+
+        @include media(">=desktop") {
+            padding: 5px 0px;
+            background: transparent;
+            border-bottom: 1px solid $beige;
+            outline: none;
+            color: $white;
+        }
+    }
+
+    @include media(">=desktop") {
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+            transition: background-color 5000s ease-in-out 0s;
+            -webkit-text-fill-color: $white !important;
+    }
+
+    .btn {
+        min-width: 90px;
+        margin-right: 10px;
+        margin-bottom: 5px;
+        float: left;
+
+        + .btn {
+            margin-right: 0;
+        }
+
+        &.join-now {
+            margin-right: 0;
+        }
+
+        @include media(">=desktop") {
+            border-radius: 20px;
+            font-weight: bold;
+            padding: 6px 13px;
+            color: $darkest-gray;
+            line-height: 14px;
+
+            &.join-now {
+                float: right;
+            }
+        }
+    }
+
+    // error message
+    .login-error,
+    .capslock-notification {
+        display: inline-table;
+        clear: both;
+        line-height: 15px;
+        text-align: left;
+
+        &:before {
+            float: left;
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            background-image: url($sprite-responsive);
+            background-position: -360px -320px;
+            content: "";
+        }
+
+        + .login-issue {
+            margin-left: 10px;
+        }
+        
+        @include media(">=desktop") {
+            float: right;
+            max-width: 360px;
+            min-width: 80px;            
+            position: relative;
+            padding-right: 9px;
+            text-align: right;
+            white-space: nowrap;
+            margin-top: -2px;
+            margin-right: 1px;            
+
+            &:before {
+                width: 16px;
+                height: 16px;
+                background-position: -115px -728px;
+                float: left;
+                position: absolute;
+                margin-left: -18px;
+                margin-top: -1px;
+            }
+
+            // support for safari browser issue
+            .caps-lock-enabled::-webkit-caps-lock-indicator,
+            .password-mask-enabled::-webkit-caps-lock-indicator {
+                content: none;
+            }
+
+            // support for ie browser issue
+            .caps-lock-enabled::-ms-clear,
+            .caps-lock-enabled::-ms-reveal,
+            .password-mask-enabled::-ms-clear,
+            .password-mask-enabled::-ms-reveal {
+                display: none;
+            }
+        }
+    }
+
+    .login-issue {
+        color: $white;
+
+        &:hover {
+            color: $yellow;
+        }
+    }
+
+    .loginform-textfield-wrapper,
+    .loginform-button-wrapper {
+        display: inline-block;
+        float: left;
+    }
+
+    .loginform-textfield-wrapper {
+        max-width: 300px;
+
+        @include media(">=desktop") {
+            max-width: none;
+            margin-right: 4px;
+            
+            .pull-right {
+                height: 35px;
+            }
+
+            .header-notification {
+                bottom: 0;
+            }
+        }
+    }
+
+    .loginform-button-wrapper {
+        min-width: 190px;
+        position: relative;
+
+        hr {
+            display: none;
+        }
+
+        .login-issue {
+            position: absolute;
+            left: 0;
+            bottom: -15px;
+        }
+        
+        @include media(">=desktop") {            
+            margin-top: -1px;
+            margin-right: 2px;
+
+            .login-issue {
+                    bottom: 0;
+                    top: 35px;
+                }
+            }
+
+            .btn {
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+
+    .username-field-wrapper,
+    .password-field-wrapper {
+        position: relative;
+        float: left;
+
+        @include media(">=desktop") {
+            display: inline-block;
+            float: none;
+        }
+    }
+
+    .ie8_username_placeholder,
+    .ie8_password_placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        width: 140px;
+        height: 27px;
+        padding: 6px 15px 5px;
+        font-size: 14px;
+        color: #999;
+        background: #fff;
+        cursor: text;
+
+        @include media(">=desktop") {
+            color: $white;
+            background: transparent;
+        }
+    }
+}
+
+@include media(">=desktop") {
+    .sc, 
+    .ch
+    {
+        .login-error,
+        .capslock-notification {
+            line-height: normal;
+            
+            &:before {
+                margin-top: 2px;
+            }
+        }
+    }
+}

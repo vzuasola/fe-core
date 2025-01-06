@@ -1,0 +1,23 @@
+<div id="modal-session-timeout" data-on-timeout="{{ header.uri }}" class="modal modal-outerextreme">
+    <div class="modal-content">
+        <div class="modal-header">{{ session.autologout_box_title }}</div>
+        <div class="modal-body">
+            {{ session.autologout_box_content.value|replace({'{seconds}': '<span class="count"></span>'})|raw }}
+            <div>
+                <a class="btn btn-yellow modal-close">{{ session.affirmative_button_text }}</a>
+                <a class="btn btn-gray modal-close confirm">{{ session.negative_button_text }}</a>
+            </div>
+        </div>
+        <a href="#" class="modal-close modal-close-button lazy-load" data-src="{{ asset('images/sprite.png') }}"></a>
+    </div>
+</div>
+
+<div id="modal-confirmation-timeout" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">{{ session.notification_title }}</div>
+        <div class="modal-body">
+            {{ session.notification_content.value|raw }}
+        </div>
+        <a href="#" class="modal-close modal-close-button lazy-load" data-src="{{ asset('images/sprite.png') }}"></a>
+    </div>
+</div>

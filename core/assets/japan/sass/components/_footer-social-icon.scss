@@ -1,0 +1,16 @@
+//Footer social icons
+.social-buttons {
+    max-width: 84rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    span {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    span a:hover {
+        webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+}

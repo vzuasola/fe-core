@@ -1,0 +1,18 @@
+<div class="page-unsupported-currency-banner-area">
+    <img alt="" class="page-unsupported-currency-banner-image mt-80 lazy-load" src="{{ asset('images/ucp-1920x183.png') }}">
+</div>
+<div class="page-unsupported-currency-text-area text-center">
+    <h2 class="text-semibold">{{ title }}</h2>
+    <p class="mb-5">{{ apology_message }}</p>
+    <p class="mb-5">{{ offer_message }}</p>
+</div>
+<div class="page-unsupported-currency-icons mt-20 mb-20">
+    <ul style="overflow:visible;">
+        {% for item in product_tiles %}
+            <li class="{{ item.class }}">
+                <a class="mb-25" href="{{ item.alias }}"></a>
+                <span>{{ item.title }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,27 @@
+<div class="language-switcher">
+
+    {% set langId = "" %}
+    {% set langPrefix = "" %}
+
+    {% for lang in header.language %}
+        {% if lang.prefix == app.lang %}
+            {% set langId =  lang.id %}
+            {% set langPrefix =  lang.prefix %}
+        {% endif %}
+    {% endfor %}
+
+    <a href="#" class="{{ langId }} active lang-btn" data-current-lang="{{ langPrefix }}"></a>
+
+    <ul>
+        {% for key,lang in header.language %}
+            {% set isActive = lang.prefix == app.lang ? "active" : "" %}
+            {% set classAgent = (('es' in lang.prefix) or ('pt' in lang.prefix)) ? 'pm-hide' : "" %}
+
+            {% if key != 'default' and not isActive %}
+                <li class="{{ lang.id }} {{ classAgent }} {{isActive}}" data-lang="{{ lang.prefix }}">
+                    <a class="language-link">{{ lang.name }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>

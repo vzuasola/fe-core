@@ -1,0 +1,54 @@
+// Floating Banner
+.floating-banner {
+    color: $soda-pink;
+
+    &--items {
+        background-color: $soda-blue;
+    }
+
+    &--title-wrapper {
+        color: $soda-pink;
+    }
+
+    &--icon {
+        color: $soda-pink;
+    }
+
+    &--title {
+        color: $soda-pink;
+        background-color: $soda-blue;
+
+        &:hover {
+            color: $soda-pink;
+        }
+    }
+}
+
+.banner-list {
+    &--items {
+        border: 1px solid $soda-pink;
+
+        a:hover {
+            color: $soda-blue;
+            background-color: $soda-pink;
+            background-image: linear-gradient(#FF5F6D, #FF646D, #FF746D, #FF8F6E, #FFB370, #FFC371);
+            border-radius: 5px;
+        }
+
+        &:hover {
+            border-color: $soda-blue;
+        }
+    }
+
+    &--content {
+        color: $soda-pink;
+
+        &:hover {
+            color: $soda-blue;
+            background-color: $soda-pink;
+            background-image: linear-gradient(#FF5F6D, #FF646D, #FF746D, #FF8F6E, #FFB370, #FFC371);
+            border-radius: 5px;
+            border-color: $soda-blue;
+        }
+    }
+}

@@ -1,0 +1,61 @@
+.sponsors {
+    .footer-revamp {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        text-align: center;
+
+        li {
+            border: 1px solid #a2a2a3;
+            border-radius: 4px;
+            color: $gray;
+            text-align: center;
+            @include media("<tablet") {
+                flex: 0 0 calc(30.33333333333333%);
+                padding: 2%;
+                margin: 1%;
+            }
+            @include media(">=tablet", "<desktop") {
+                flex: 0 0 calc(24%);
+                padding: 1.5%;
+                margin: 0.5%;
+            }
+            @include media(">=desktop") {
+                flex: 0 0 calc(19%);
+                padding: 1.5%;
+                margin: 0.5%;
+            }
+
+            svg {
+                width: 5rem;
+            }
+
+            p {
+                max-width: none;
+                margin: 10px 0 0;
+                font-weight: 600;
+            }
+
+            p, span {
+                font-size: 12px;
+            }
+        }
+
+        .durham {
+            svg {
+                margin-left: auto;
+            }
+        }
+
+        .cadiz {
+            svg {
+                margin-left: auto;
+            }
+        }
+    }
+}

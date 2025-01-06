@@ -1,0 +1,27 @@
+{{ include('@base/components/metatags/node.html.twig') }}
+{{ include('@base/components/metatags/attributes.html.twig') }}
+
+{# Flag to disable the default canonicals based on the page's URI #}
+{% if not header.canonical.disable %}
+	{# Canonical #}
+	{% if header.canonical.uri %}
+	    <link rel="canonical" href="{{ header.canonical.uri|trim('/', 'right') }}" />
+	{% else %}
+	    <link rel="canonical" href="{{ header.uri }}" />
+	{% endif %}
+	{# hreflang #}
+{% endif %}
+
+{% for canonical in canonicals if canonical %}
+    {% if canonical is iterable %}
+        <link rel="alternate" href="{{ canonical.path|trim('/', 'right') }}" hreflang="{{ canonical.id }}" />
+    {% endif %}
+{% endfor %}
+
+{% for canonical in canonicals_media if canonical %}
+    <link rel="alternate"  media="{{ canonical.media }}"  href="{{ canonical.mobile }}" />
+{% endfor %}
+
+{% if is_front %}
+    <link rel="mask-icon" href="{{ asset('images/dafabet-emblem.svg') }}" color="red" />
+{% endif %}

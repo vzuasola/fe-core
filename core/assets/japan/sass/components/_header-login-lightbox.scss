@@ -1,0 +1,176 @@
+.login-lightbox-form {
+    color: #000;
+
+    .modal-content {
+        background: #fff9ed;
+        width: 80%;
+        border-radius: 5px;
+    }
+
+    .modal-header {
+        background: none;
+        color: #000;
+        font-size: 16px;
+        text-transform: uppercase;
+        padding: 0;
+        margin-top: 0px;
+        margin-bottom: 15px;
+        font-weight: bold;
+
+    }
+
+    .form-item {
+        margin-bottom: 18px;
+        .form-field {
+            .username-icon {
+                position: absolute;
+                background: url(/images/icon-user.png) no-repeat;
+                height: 27px;
+                width: 21px;
+                margin-top: 5px;
+                margin-left: 12px;
+            }
+
+            .password-icon {
+                position: absolute;
+                background: url(/images/icon-unlock.png) no-repeat;
+                height: 27px;
+                width: 21px;
+                margin-top: 5px;
+                margin-left: 12px;
+            }
+        }
+    }
+
+    .form-text {
+        border: 1px solid #a3a3a3;
+        border-radius: 5px;
+        font-size: 16px;
+        height: 37px;
+        padding-left: 40px;
+        padding-right: 15px;
+        width: 100%;
+        max-width: 370px;
+    }
+
+    .form-submit {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        display: block;
+        width: 80%;
+        max-width: 370px;
+        min-width: 205px !important;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 7px 10px 6px;
+        border: 1px;
+        border-radius: 5px;
+        font-size: 14px;
+        color: #fff;
+        margin-top: 17px;
+    }
+
+    .secondary-button {
+        background: transparent;
+        background: -moz-linear-gradient(top, transparent 0%, transparent 100%);
+        background: -webkit-linear-gradient(top, transparent 0%, transparent 100%);
+        background: linear-gradient(to bottom, transparent 0%, transparent 100%);
+        margin-top: 17px;
+        border: 1px solid #361f1f;
+        color: #000;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        display: block;
+        width: 80%;
+        max-width: 370px;
+        min-width: 205px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 7px 10px 6px;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    .modal-close-button {
+        color: #484848;
+        background: none;
+        text-indent: 0.05rem;
+        opacity: 1;
+        line-height: 22px;
+        cursor: pointer !important;
+        font-size: 3rem;
+        font-weight: lighter;
+    }
+
+    .login-error-message {
+        font-size: 12px;
+        color: #fe2603;
+    }
+}
+
+.cp-lightbox-form {
+    color: #000;
+
+    label {
+        font-weight: bolder;
+    }
+
+    .modal-content {
+        background: #fff9ed;
+        width: 80%;
+        border-radius: 5px;
+    }
+
+    .modal-header {
+        background: none;
+        color: #000;
+        font-size: 16px;
+        text-transform: uppercase;
+        padding: 0;
+        margin-top: 0px;
+        margin-bottom: 15px;
+        font-weight: bold;
+
+    }
+
+    .form-item {
+        margin-bottom: 18px;
+        text-align: left;
+    }
+
+    .form-text {
+        border: 1px solid #a3a3a3;
+        border-radius: 5px;
+        font-size: 16px;
+        height: 37px;
+        width: 100%;
+        max-width: 370px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .form-submit {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        display: block;
+        width: 80%;
+        max-width: 370px;
+        min-width: 205px !important;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 7px 10px 6px;
+        border: 1px;
+        border-radius: 5px;
+        font-size: 14px;
+        color: #fff;
+        margin-top: 17px;
+    }
+
+    .change-pass-error-message {
+        font-size: 12px;
+        color: #fe2603;
+    }
+}

@@ -1,0 +1,56 @@
+# Define Player language
+# Player language mapping
+# default value is the first item
+player-language:
+  en-US:
+    en
+  en-GB:
+    eu
+  zh-TW:
+    ch
+  zh-CN:
+    sc
+  th:
+    th
+  vi:
+    vn
+  id:
+    id
+  ja:
+    jp
+  ko-KR:
+    kr
+  en-IN:
+    in
+  ru:
+    en
+  el:
+    gr
+  pl:
+    pl
+  af:
+    en
+  pt-BR:
+    pt
+  es:
+    es
+  hi:
+    hi
+  te:
+    te
+  my:
+    bu
+  lo:
+    lo
+  km:
+    km
+  bn:
+    bn
+  pk:
+    pk
+  bn-IN:
+    bg
+  bn-BD:
+    bd
+  kz:
+    en

@@ -1,0 +1,23 @@
+<header id="header" class="header pl-desktop-50 pr-desktop-50">
+    <div class="container clearfix">
+        {% include '@japan/components/header/logo.html.twig' %}
+        {% include '@japan/components/menu-mobile.html.twig' %}
+        {% include '@japan/components/header/ticker.html.twig' %}
+        {% include '@japan/components/header/account.html.twig' %}
+        {% include '@japan/components/header/login.html.twig' %}
+        {% include '@japan/components/header/changepass.html.twig' %}
+        {% include '@japan/components/header/download-button.html.twig' %}
+    </div>
+
+    <div class="hidden-desktop menu-accordion">
+        <div class="menu-header">
+            <img src="{{ asset('images/logo_casino_jamboree.png') }}" alt="Jamboree">
+            <span class="fa fa-chevron-right"></span>
+        </div>
+        {% include '@japan/components/main-menu.html.twig' %}
+    </div>
+
+    <div class="visible-desktop menu-tab">
+        {% include '@japan/components/main-menu.html.twig' %}
+    </div>
+</header>

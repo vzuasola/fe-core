@@ -1,0 +1,106 @@
+// Mobile/Tablet buttons
+.mobile-action-button {
+    @include translateY(-50%);
+    position: absolute;
+    top: 50%;
+    right: $container-gutter-xs;
+    text-transform: uppercase;
+    line-height: normal;
+
+    @include media(">=tablet") {
+        right: $container-gutter-sm;
+    }
+
+    @include media(">=desktop") {
+        display: none;
+    }
+
+    .btn-mobile-login {
+        max-width: 60px;
+        padding: 5px;
+        white-space: inherit;
+
+        span:first-child {
+            line-height: 15px;
+            font-size: 13px;
+        }
+
+        @include media(">=tablet") {
+            max-width: inherit;
+            padding: 2px 13px;
+        }
+
+        @include media("<tablet") {
+            .sc &,
+            .ch & {
+                max-width: 55px;
+            }
+
+            .th & {
+                max-width: 80px;
+            }
+
+            .id & {
+                max-width: 70px;
+                margin-top: 6px;
+            }
+
+            .jp &,
+            .gr & {
+                max-width: 75px;
+            }
+
+            .kr & {
+                max-width: 65px
+            }
+        }
+    }
+
+    .btn-mobile-join-now {
+        @include media("<tablet") {
+            display: none;
+        }
+    }
+
+    @include media("<tablet") {
+        right: 10px;
+
+        .btn-mobile-login,
+        .btn-mobile-join-now-dcoin {
+            max-width: 95px;
+            padding: 2px 3px;
+            border-color: $yellow;
+            background: $yellow;
+            white-space: inherit;
+            font-size: 12px;
+            color: #af0000;
+            border-radius: 3px;
+
+            span:first-child {
+                font-size: 12px;
+                font-weight: 600;
+                line-height: 17px;
+
+                .pl & {
+                    font-size: 10px;
+                    line-height: 14.2857px;
+                }
+            }
+        }
+
+        .btn-mobile-join-now-dcoin {
+            border-radius: 3px;
+            color: $dark-gray;
+        }
+    }
+
+    .mobile-login-dcoin {
+        color: $white;
+
+        span:first-child {
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 17px;
+        }
+    }
+}

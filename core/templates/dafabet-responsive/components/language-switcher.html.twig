@@ -1,0 +1,34 @@
+<div class="language-switcher">
+
+    {% set langId = "" %}
+    {% set langPrefix = "" %}
+    {% set langClass =  header.language|length <= 8 ? "" : "switcher-cols-2" %}
+
+    {% for lang in header.language %}
+        {% if lang.prefix == app.lang %}
+            {% set langId =  lang.id %}
+            {% set langPrefix =  lang.prefix %}
+        {% endif %}
+    {% endfor %}
+
+    <a href="#" class="{{ langId }} active lang-btn" data-current-lang="{{ langPrefix }}"></a>
+
+    <ul class="{{ langClass }}">
+        {% for key,lang in header.language %}
+            {% set isActive = lang.prefix == app.lang ? "active" : "" %}
+            {% set classAgent = (('es' in lang.prefix) or ('pt' in lang.prefix)) ? 'pm-hide' : "" %}
+
+            {% if key != 'default' and not isActive and lang.hide != true %}
+                <li class="{{ lang.id }} {{lang.hide}} {{ classAgent }} {{isActive}}" data-lang="{{ lang.prefix }}">
+                    <a class="language-link">
+                        {% if is_vip_page %}
+                            {{ lang.name }}
+                        {% else %}
+                            <div class="language-name">{{ lang.name }}</div>
+                        {% endif %}
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>

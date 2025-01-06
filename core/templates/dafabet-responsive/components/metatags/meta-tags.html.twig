@@ -1,0 +1,71 @@
+{% import "@base/macro/metatag.html.twig" as metatag %}
+
+{# Title tag #}
+<title>
+    {% for item in data.metatag if item.title %}
+        {{ item.title }}
+    {% else %}
+        {{ title }}
+    {% endfor %}
+</title>
+{% if data.field_meta_tags is not empty or data.metatag is not empty %}
+    {% set merge_meta = [] %}
+
+    {% if data.metatag is not empty %}
+        {% set merge_meta = merge_meta | merge(data.metatag.value) %}
+    {% endif %}
+
+    {% if data.field_meta_tags is not empty  %}
+        {% set merge_meta = merge_meta | merge(data.field_meta_tags.0) %}
+    {% endif %}
+
+    {{ metatag.meta(null, 'description', merge_meta.description) }}
+    {{ metatag.meta(null, 'keywords', merge_meta.keywords) }}
+    {{ metatag.meta(null, 'abstract', merge_meta.abstract) }}
+
+    {# Advanced #}
+    {{ metatag.meta(null, 'robots', merge_meta.robots) }}
+    {{ metatag.meta(null, 'generator', merge_meta.generator) }}
+    {{ metatag.link('shortlink', merge_meta.shortlink) }}
+
+    {# Open Graph #}
+    {{ metatag.meta('property', 'og:title', merge_meta.og_title) }}
+    {{ metatag.meta('property', 'og:type', merge_meta.og_type) }}
+    {{ metatag.meta('property', 'og:url', merge_meta.og_url) }}
+    {{ metatag.meta('property', 'og:image', merge_meta.og_image) }}
+{% else %}
+    {% if metatags is not empty %}
+        {% for item in metatags %}
+            {% if item.field_description.0.value is not empty %}
+                <meta name="description" content="{{item.field_description.0.value}}">
+            {% endif %}
+
+            {% if item.field_keywords.0.value is not empty %}
+                <meta name="keywords" content="{{item.field_keywords.0.value}}">
+            {% endif %}
+
+            {% if item.field_abstract.0.value is not empty %}
+                <meta name="abstract" content="{{item.field_abstract.0.value}}">
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endif %}
+
+{# Canonical #}
+{% if header.canonical.uri %}
+    <link rel="canonical" href="{{ header.canonical.uri|trim('/', 'right') }}" />
+{% else %}
+    <link rel="canonical" href="{{ header.uri }}" />
+{% endif %}
+{# hreflang #}
+
+{# hreflang #}
+{% for canonical in canonicals if canonical %}
+    {% if canonical is iterable %}
+        <link rel="alternate" href="{{ canonical.path|trim('/', 'right') }}" hreflang="{{ canonical.id }}" />
+    {% endif %}
+{% endfor %}
+
+{% if is_front %}
+    <link rel="mask-icon" href="{{ asset('images/dafabet-emblem.svg') }}" color="red">
+{% endif %}

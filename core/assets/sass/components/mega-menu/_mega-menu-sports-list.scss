@@ -1,0 +1,160 @@
+.mega-menu-list {
+    margin: 0;
+    padding-left: 0;
+    list-style-type: none;
+
+    &-item {
+        margin-bottom: 8px;
+
+        a {
+            color: $white;
+
+            &:hover {
+                color: $yellow;
+            }
+        }
+
+        a:before {
+            @include image-replacement($mega-menu-sprite, 0, 0, 20px, 20px);
+            content: "";
+            margin-right: 6px;
+        }
+
+        &.active a:before,
+        a:hover:before {
+            background-position: 0 0;
+        }
+    }
+
+    &-item.soccer-item {
+        a:before {
+            background-position: -20px 0;
+        }
+
+        &.active a:before,
+        a:hover:before {
+            background-position: 0 0;
+        }
+    }
+
+    &-item.esports-item {
+        a:before {
+            background-position: -20px -20px;
+        }
+
+        &.active a:before,
+        a:hover:before {
+            background-position: 0 -20px;
+        }
+    }
+
+    &-item.basketball-item {
+        a:before {
+            background-position: -20px -40px;
+        }
+
+        &.active a:before,
+        a:hover:before {
+            background-position: 0 -40px;
+        }
+    }
+
+    &-item.tennis-item {
+        a:before {
+            background-position: -20px -60px;
+        }
+
+        &.active a:before,
+        a:hover:before {
+            background-position: 0 -60px;
+        }
+    }
+
+    &-item.football-item {
+        a:before {
+            background-position: -20px -80px;
+        }
+
+        &.active a:before,
+        a:hover:before {
+            background-position: 0 -80px;
+        }
+    }
+
+    &-item.baseball-item {
+        a:before {
+            background-position: -20px -100px;
+        }
+
+        &.active a:before,
+        a:hover:before {
+            background-position: 0 -100px;
+        }
+    }
+
+    &-item.virtuals-item {
+        a:before {
+            background-position: -20px -120px;
+        }
+
+        &.active a:before,
+        a:hover:before {
+            background-position: 0 -120px;
+        }
+    }
+
+    &-item.number-game-item {
+        a:before {
+            background-position: -20px -140px;
+        }
+
+        &.active a:before,
+        a:hover:before {
+            background-position: 0 -140px;
+        }
+    }
+
+    &-item.racing-item {
+        a:before {
+            background-position: -20px -160px;
+        }
+
+        &.active a:before,
+        a:hover:before {
+            background-position: 0 -160px;
+        }
+    }
+
+    &-item.rugby-item {
+        a:before {
+            background-position: -20px -180px;
+        }
+
+        &.active a:before,
+        a:hover:before {
+            background-position: 0 -180px;
+        }
+    }
+
+    &-item.snooker-item {
+        a:before {
+            background-position: -20px -200px;
+        }
+
+        &.active a:before,
+        a:hover:before {
+            background-position: 0 -200px;
+        }
+    }
+
+    &-item.cricket-item {
+        a:before {
+            background-position: -20px -220px;
+        }
+
+        &.active a:before,
+        a:hover:before {
+            background-position: 0 -220px;
+        }
+    }
+}

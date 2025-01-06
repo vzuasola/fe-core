@@ -1,0 +1,8 @@
+// Margins
+@mixin padding($class, $position) {
+    @for $i from 0 through 20 {
+        $iClass: $i * 5;
+        $i: ($i * 5) * 0.1;
+        .#{$class}-#{$iClass} { #{$position}: #{$i}rem !important; }
+    }
+}

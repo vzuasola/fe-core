@@ -1,0 +1,7 @@
+{% set logoTag = is_front ? 'h1' : 'p' %}
+
+<{{logoTag}} class="logo {{ app.lang }}">
+    <span rel="{{ header.logo_title }}" title="{{ header.logo_title }}">
+        {{ include('@responsive/components/logo-image.html.twig') }}
+    </span>
+</{{logoTag}}>

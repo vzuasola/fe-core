@@ -1,0 +1,14 @@
+<section 
+    class="col-4"
+
+    data-dropdown-callback="promotion"
+    data-promotion-endoint="{{ promotion_endpoint }}"
+    data-promotion-error-message="{{ promotion_error_message }}"
+>
+    <h3 class="mega-menu-title">{{ title }} {% if promotion_link_text is not empty %}<a href="{{ asset(promotion_link) }}" class="mega-menu-promo-more">{{ promotion_link_text }}</a>{% endif %}</h3>
+    <div class="grid grid-gap-10 mb-10 menu-widget-promotion-container">
+        <p class="loader text-center mt-50">
+            <img width="10%" src="{{ asset('images/balance-loader-white.gif') }}">
+        </p>
+    </div>
+</section>

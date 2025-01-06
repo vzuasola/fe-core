@@ -1,0 +1,79 @@
+.footer-mobile-menu {
+    ul {
+        display: flex;
+        max-width: $tablet-breakpoint;
+        list-style-type: none;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    li {
+        flex-grow: 1;
+        flex-basis: 0;
+        text-align: center;
+
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border: 1px solid #cc0505;
+            border-left-color: #cc0505;
+            border-right-color: #560202;
+            background: $dark-red;
+            color: #fff;
+            font-size: 12px;
+            text-decoration: none;
+
+            &:before {
+                display: block;
+                height: 20px;
+                margin: 0 auto 2px;
+                content: "";
+                background: url($sprite-responsive) no-repeat;
+            }
+        }
+
+        // Remove border on first anchor tag
+        &:first-child a {
+            border-left: none;
+        }
+    }
+
+    .language a:before {
+        width: 20px;
+        background-position: -560px -80px;
+    }
+
+    .live-chat a:before {
+        width: 21px;
+        background-position: -600px -80px;
+    }
+
+    .whats-app a:before {
+        width: 21px;
+        background-position: -780px -420px;
+    }
+
+    // Only show whats app icon on ES/PT language
+    .whats-app {
+        display: none;
+
+        .es &,
+        .pt & {
+            display: block;
+        }
+    }
+}
+
+// For agent players
+body.agent-player {
+    .footer-mobile-menu {
+        // Hide live chat
+        .live-chat {
+            display: none;
+        }
+    }
+}
+

@@ -1,0 +1,9 @@
+{% import "@base/macro/metatag.html.twig" as metatag %}
+
+{% if metatags is not empty %}
+    {% for item in metatags %}
+        {% if item.field_meta is not empty %}
+            <{{ item.field_tag.0.value is not empty ? item.field_tag.0.value : 'meta' }} {% for tag in item.field_meta %}{{ tag.field_meta_name.0.value }}="{{ tag.field_attribute_value.0.value }}" {% endfor %}>
+        {% endif %}
+    {% endfor %}
+{% endif %}

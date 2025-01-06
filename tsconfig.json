@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitAny": false,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "baseUrl": ".",
+        "paths": {
+            "@core/*": ["./core/*"],
+            "@plugins/*": ["./core/src/Plugins/*"]
+        }
+    },
+    "include": [
+        "core/assets/**/*.js",
+        "core/assets/**/*.ts",
+        "core/src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

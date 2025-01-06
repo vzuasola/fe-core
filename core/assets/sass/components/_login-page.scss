@@ -1,0 +1,159 @@
+body {
+    min-width: 100%;
+    background: $gray;
+}
+
+.login-page-logo {
+    overflow: hidden;
+    background: $red;
+}
+
+.logo {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    img {
+        position: relative;
+        display: block;
+        margin: 15px auto 12px;
+        width: auto;
+        height: 40px;
+        opacity: 1;
+    }
+
+    &.sc,
+    &.ch {
+        width: 331px;
+    }
+}
+
+.login-page {
+    width: 100%;
+    min-width: 100%;
+    margin-bottom: 0;
+
+    .login-form {
+        float: none;
+        min-width: 350px;
+        margin: 0 auto;
+        padding: 15px 42px 0;
+        overflow: hidden;
+        width: 350px;
+    }
+
+    .loginform-textfield-wrapper {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+
+        .username-field-wrapper,
+        .password-field-wrapper {
+            position: relative;
+            display: block;
+            width: 100%;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            display: block;
+            width: 100%;
+            height: 52px;
+            margin-bottom: 20px;
+            padding: 0 15px 0 50px;
+            line-height: 52px;
+            font-size: 20px;
+            border-radius: 2px;
+            border: 0 none;
+        }
+
+        .username-icon,
+        .password-icon {
+            @include image-replacement(
+                $background-url: $base-sprite,
+                $x: center,
+                $y: center,
+                $width: 25px,
+                $height: 25px,
+                $line-height: 1
+            );
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        .username-icon {
+            top: 15px;
+            width: 28px;
+            height: 24px;
+            background-position: -240px -280px;
+        }
+
+        .password-icon {
+            width: 26px;
+            height: 30px;
+            background-position: -280px -280px;
+        }
+    }
+
+    .loginform-button-wrapper {
+        width: 100%;
+
+        button {
+            text-transform: uppercase;
+            float: none;
+        }
+
+        .btn-links {
+            display: block;
+            font-size: 15px;
+            color: $lightest-gray;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .login-form-page-blurb,
+        .login-form-lightbox-blurb {
+            margin-top: 10px;
+            font-size: 15px;
+            color: $lightest-gray;
+            text-align: center;
+        }
+    }
+
+    .login-error {
+        min-height: 30px;
+        margin-bottom: 10px;
+        color: $white;
+        text-align: center;
+    }
+
+    .login-blurb {
+        margin: 0 0 20px;
+        color: $white;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    hr {
+        border-top-color: $white;
+        margin: 15px -25px 10px;
+    }
+
+    .ie8_username_placeholder,
+    .ie8_password_placeholder {
+        position: absolute;
+        top: 0;
+        left: 50px;
+        z-index: 10;
+        width: 216px;
+        height: 52px;
+        padding: 15px 15px 15px 0;
+        font-size: 20px;
+        color: $input-color-placeholder;
+        background: $white;
+        cursor: text;
+        text-align: left;
+    }
+}

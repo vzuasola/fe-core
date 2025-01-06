@@ -1,0 +1,18 @@
+{% if footer.mobile_footer_button is not empty %}
+<div class="footer-mobile-menu visible-mobile">
+    <ul class="menu">
+        {% for item in footer.mobile_footer_button %}
+            {% set target = item.attributes.target ? item.attributes.target : "_self" %}
+            {% set class = item.attributes.class ? item.attributes.class : "" %}
+            {% set url = item.alias ? item.alias : item.uri %}
+            {# Set url to #language-ligthbox if it is language menu #}
+            {% set urlUpdated = item.attributes.class == "language menu-language" ? "#language-lightbox" : url %}
+            <li class="{{ class }}">
+                <a href="{{ url(urlUpdated) }}">
+                    {{ item.title ? item.title : item.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}

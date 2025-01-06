@@ -1,0 +1,232 @@
+.language-lightbox {
+    .modal-overlay {
+        background: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-content {
+        @include translate(0, 0);
+        top: 0;
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        max-width: 100%;
+        margin-bottom: 8px;
+        padding: 0;
+        border: 0;
+        background: #2B2829;
+        border-radius: 0;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
+
+    }
+
+    .modal-body {
+        margin: 16px 0;
+    }
+
+    // close button
+    .modal-close-button {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        z-index: 1025;
+        width: 25px;
+        height: 25px;
+        border: 1px solid #8c8c8c;
+        background: none;
+        outline: none;
+        cursor: pointer;
+        border-radius: 4px;
+
+        path {
+            fill: #8c8c8c;
+        }
+    }
+
+    // Heading text
+    h3 {
+        margin: 0 10px 10px;
+        padding-bottom: 13px;
+        border-bottom: 1px solid $gray;
+        color: #d9d9d9;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 18px;
+    }
+
+    // Dropdown
+    ul {
+        float: left;
+        width: 50%;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        z-index: 20;
+        list-style-type: none;
+    }
+
+    li {
+        display: inline;
+
+        a {
+            position: relative;
+            display: block;
+            height: 29px;
+            line-height: 25px;
+            margin: 7px 4px;
+            padding: 0 0 0 4px;
+            border: 1px solid #5f5e5e;
+            background: #333031;
+            color: $light-gray;
+            cursor: pointer;
+            font-size: 13px;
+            border-radius: 4px;
+        }
+
+        // active state
+        &.active a {
+            border-color: $yellow;
+            color: $yellow;
+        }
+
+        // Arrow icon
+        a:after {
+            @include image-replacement($sprite-responsive, -180px, -480px, 20px, 20px);
+            position: absolute;
+            top: 1px;
+            right: 2px;
+            display: none;
+            content: "";
+        }
+
+        &.active a:after {
+            display: inline-block;
+        }
+    }
+
+    // Flag icons
+    a:before {
+        @include image-replacement($sprite-responsive, -100px, -280px, 22px, 17px);
+        content: "";
+    }
+
+    .eu a:before,
+    a.eu:before {
+        background-position: -100px -320px;
+    }
+
+    .zh-hans a:before,
+    a.zh-hans:before {
+        background-position: -100px -360px;
+    }
+
+    .zh-hant a:before,
+    a.zh-hant:before {
+        background-position: -100px -400px;
+    }
+
+    .th a:before,
+    a.th:before {
+        background-position: -100px -440px;
+    }
+
+    .vi a:before,
+    a.vi:before {
+        background-position: -100px -480px;
+    }
+
+    .id a:before,
+    a.id:before {
+        background-position: -100px -520px;
+    }
+
+    .ja a:before,
+    a.ja:before {
+        background-position: -100px -560px;
+    }
+
+    .ko a:before,
+    a.ko:before {
+        background-position: -100px -600px;
+    }
+
+    .hi a:before,
+    a.hi:before {
+        background-position: -141px -280px;
+    }
+
+    .in a:before,
+    a.in:before {
+        background-position: -141px -280px;
+    }
+
+    .te a:before,
+    a.te:before {
+        background-position: -141px -280px;
+    }
+
+    .el a:before,
+    a.el:before {
+        background-position: -140px -320px;
+    }
+
+    .pl a:before,
+    a.pl:before {
+        background-position: -140px -360px;
+    }
+
+    .es a:before,
+    a.es:before {
+        background-position: -140px -480px;
+    }
+
+    .pt-br a:before,
+    a.pt-br:before {
+        background-position: -140px -520px;
+    }
+
+    .lo a:before,
+    a.lo:before {
+        background-position: -177px -520px;
+
+    }
+
+    .bu a:before,
+    a.bu:before {
+        background-position: -140px -559px;
+    }
+
+    .km a:before,
+    a.km:before {
+        background-position: -178px -559px;
+    }
+
+    .bn a:before,
+    a.bn:before {
+        background-position: -140px -580px;
+    }
+
+    .pk a:before,
+    a.pk:before {
+        background-position: -140px -600px;
+    }
+
+    .bg a:before,
+    a.bg:before {
+        background-position: -141px -280px;
+    }
+
+    .bd a:before,
+    a.bd:before {
+        background-position: -140px -580px;
+    }
+
+    .kk a:before,
+    a.kk:before {
+        background-position: -140px -440px;
+    }
+
+    .ru a:before,
+    a.ru:before {
+        background-position: -140px -440px;
+    }
+}

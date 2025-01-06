@@ -1,0 +1,41 @@
+{{#if faq_list}}
+    <div class="faq-question-list-wrapper">
+        {{#each faq_list as |item key|}}
+            {{#each item}}
+                {{#if questions}}
+                    <div class="faq-category">
+                        <h3 class="faq-category-name">{{{ category_name }}}</h3>
+                        <div class="faq-question-list">
+                            <ul class="faq-question">
+                                {{#each questions}}
+                                    <li><a href="#block{{ key }}{{ id.0.value }}">{{{ question }}}</a></li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                {{/if}}
+            {{/each}}
+        {{/each}}
+    </div>
+
+    <div class="faq-detail-list">
+        {{#each faq_list as |item key|}}
+            {{#each item}}
+                {{#if questions}}
+                    <div class="faq-details">
+                        <h3 class="faq-category-name">{{{ category_name }}}</h3>
+                        <div class="faq-question-list">
+                            {{#each questions}}
+                                <h2 id="block{{ key }}{{ id.0.value }}" class="faq-question">{{{ question }}}</h2>
+                                <div class="faq-answer">{{{ answer }}}</div>
+                            {{/each}}
+                        </div>
+                    </div>
+                {{/if}}
+            {{/each}}
+        {{/each}}
+    </div>
+{{else}}
+    <div>{{ config.error_message }}</div>
+{{/if}}
+

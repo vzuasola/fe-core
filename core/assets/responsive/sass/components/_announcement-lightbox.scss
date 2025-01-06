@@ -1,0 +1,76 @@
+.announcement {
+    &--lightbox {
+        .modal-header {
+            margin: -20px -10px 20px;
+            font-weight: bold;
+        }
+
+        .modal-content {
+            padding: 20px 10px 10px;
+            overflow: hidden;
+        }
+
+        .modal-close-button {
+            cursor: pointer;
+        }
+
+        .modal-body {
+            overflow: hidden;
+        }
+
+        .scrollbot-scrollbar-holder {
+            position: absolute;
+            display: block;
+            top: 0;
+            width: 1px;
+            height: 100%;
+            right: 3px;
+            background-color: $scroll-holder-bg;
+            border-radius: 0;
+        }
+
+        .scrollbot-scrollbar {
+            position: absolute;
+            top: 0%;
+            right: -2px;
+            width: 5px;
+            height: 50%;
+            background-color: $scrollbar-bg;
+            border-radius: 15px;
+        }
+
+        .scrollbot {
+            width: auto;
+            max-height: none;
+        }
+    }
+
+    &--list {
+        padding: 15px;
+        margin-bottom: 10px;
+        background: #fff;
+        text-align: left;
+
+        p {
+            margin: 15px;
+        }
+    }
+
+    &--content {
+        margin-bottom: 20px;
+        color: $dark-gray;
+        text-align: left;
+    }
+
+    &--timestamp {
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: $gray;
+        text-align: right;
+    }
+
+    &--default-message {
+        margin-bottom: 14px;
+        text-align: center;
+    }
+}

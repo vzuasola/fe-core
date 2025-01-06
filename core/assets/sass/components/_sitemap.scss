@@ -1,0 +1,130 @@
+.sitemap {
+    margin: 0 auto;
+
+    &--title {
+        @extend %clearfix;
+        margin: 0 auto 10px;
+        color: $red;
+        font-weight: bold;
+    }
+
+    &--blurb {
+        @extend %clearfix;
+        margin-bottom: 5px;
+        color: $gray;
+    }
+
+    ul {
+        margin: 0 auto;
+        padding: 10px 0 0;
+        padding-left: 25px;
+        list-style: none;
+    }
+
+    .parent_ul {
+        padding-left: 20px;
+        padding-top: 0;
+    }
+
+    & > .parent_ul {
+        & > .parent_li {
+            &:first-child:before {
+                top: 5px;
+                height: 8px;
+            }
+        }
+    }
+
+    li {
+        position: relative;
+        padding-bottom: 10px;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: -22px;
+            left: -10px;
+            height: 100%;
+            border-left: 1px dashed $gray;
+        }
+
+        &.expanded:last-child {
+            &:before {
+                content: "";
+                height: 35px;
+            }
+        }
+    }
+
+    span {
+        vertical-align: middle;
+    }
+
+    a {
+        color: $gray;
+
+        &:hover,
+        &:focus {
+            color: $gray;
+        }
+
+        &.active {
+            color: $red;
+        }
+    }
+
+    .icon {
+        @include image-replacement(
+            $background-url: $base-default-image,
+            $x: center,
+            $y: center,
+            $width: 25px,
+            $height: 25px,
+            $line-height: 25px
+        );
+        position: relative;
+        z-index: 10;
+        display: inline-block;
+        margin-right: 5px;
+        cursor: pointer;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 12px;
+            right: 100%;
+            display: block;
+            width: 10px;
+            border-top: 1px dashed $gray;
+        }
+    }
+
+    .icon-folder {
+        &.open {
+            &.lazy-loaded {
+                @extend %lazy-loaded;
+                background-position: -260px -313px;
+                background-size: auto;
+            }
+        }
+
+        &.close {
+            &.lazy-loaded {
+                @extend %lazy-loaded;
+                background-position: -260px -333px;
+                background-size: auto;
+            }
+        }
+    }
+
+    .icon-document {
+        width: 20px;
+        margin-right: 2px;
+
+        &.lazy-loaded {
+            @extend %lazy-loaded;
+            background-position: -235px -315px;
+            background-size: auto;
+        }
+    }
+}

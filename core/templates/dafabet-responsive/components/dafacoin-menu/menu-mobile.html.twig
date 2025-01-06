@@ -1,0 +1,17 @@
+<div class="header-dafacoin clearfix">
+    <div class="dafacoin-logo">
+        <div class="dafacoin-logo-wrapper">
+            {% set logoUri = header.logo_uri is defined ? header.logo_uri : url('/') %}
+            <a href="{{ logoUri }}" hreflang="{{ app.lang }}" rel="{{ header.logo_title }}" title="{{ header.logo_title }}">
+                {% if app.lang == "ch" or app.lang == "sc" and app.product_resolver.getProduct != "mobile-casino-gold" %}
+                    <img src="{{ asset('images/dafabet_logo_chinese.png') }}" alt="{{ header.logo_title }}" class="logo-img" id="header-logo-img">
+                {% elseif app.product_resolver.getProduct == "mobile-casino-gold" %}
+                    <img src="{{ asset('images/dafabet-gold-sc.png') }}" alt="{{ header.logo_title }}" class="logo-img" id="header-logo-img">
+                {% else %}
+                    <img src="{{ asset('images/dafabet_logo.png') }}" alt="{{ header.logo_title }}" class="logo-img" id="header-logo-img">
+                {% endif %}
+            </a>
+        </div>
+    </div>
+    {{ include('@responsive/components/dafacoin-menu/cashier-account-balance.html.twig', { 'device' : 'mobile' }) }}
+</div>

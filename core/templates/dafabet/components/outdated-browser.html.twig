@@ -1,0 +1,7 @@
+<div id="outdated-browser-notification" class="hidden">
+    <div id="notification-content">
+        {% if outdated_browser.message.value %}
+            {{ outdated_browser.message.value | raw }}
+        {% endif %}
+    </div>
+</div>

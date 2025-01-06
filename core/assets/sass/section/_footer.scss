@@ -1,0 +1,15 @@
+.footer {
+    margin-top: 80px;
+    background: $lightest-gray;
+
+    h4 {
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 24px;
+    }
+}
+
+@import "../components/footer-sponsor";
+@import "../components/footer-site-keyword";
+@import "../components/footer-partner";
+@import "../components/footer-copyright";

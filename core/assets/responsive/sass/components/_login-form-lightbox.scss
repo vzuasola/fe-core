@@ -1,0 +1,244 @@
+.login-lightbox {
+    // Reduce opacity same as mobile-entrypage
+    .modal-overlay {
+        opacity: 0.5;
+    }
+
+    // Content
+    .modal-content {
+        width: 340px;
+        padding: 40px 60px;
+        border-radius: 5px;
+        background: $red url($login-lightbox-background) no-repeat top center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        color: $white;
+        font-size: 14px;
+
+        .loginform-textfields {
+            float: none;
+        }
+    }
+
+    // Logo
+    .login-logo {
+        margin: 18px auto 15px;
+
+        img {
+            width: 100%;
+            max-height: 57px;
+            position: static;
+            vertical-align: middle;
+        }
+    }
+
+    .modal-close-button {
+        top: 5px;
+        right: 25px;
+        width: 20px;
+        height: 20px;
+        border: 0;
+        cursor: pointer;
+        background: none;
+
+        path {
+            fill: $white;
+            cursor: pointer;
+        }
+    }
+
+    // button override
+    .btn {
+        min-height: 40px;
+        line-height: 35px;
+        padding-top: 0;
+        padding-bottom: 0;
+        font-size: 16px;
+        border-radius: 3px;
+        color: $dark-red;
+        font-weight: 600;
+
+    }
+
+    // Login button
+    button.btn {
+        margin-bottom: 10px;
+    }
+
+    // Link/anchor except with .btn class
+    a:not(.btn) {
+        color: $white;
+
+        &:hover {
+            color: $yellow;
+        }
+    }
+
+    // Input fields
+    .username-field-wrapper,
+    .password-field-wrapper {
+        position: relative;
+        display: block;
+        margin-bottom: 20px;
+
+        input {
+            display: block;
+            width: 100%;
+            padding: 6px;
+            border: none;
+            border-bottom: 2px solid $white;
+            border-radius: 1px;
+            background-color: transparent;
+            font-size: 14px;
+            outline: none;
+            color: $white;
+            text-shadow: none;
+        }
+
+        input::placeholder {
+            color: $white;
+        }
+
+        @-webkit-keyframes autofill {
+            to {
+                color: $white;
+                background: transparent;
+            }
+        }
+
+        input:-webkit-autofill {
+            -webkit-animation-name: autofill;
+            -webkit-animation-fill-mode: both;
+        }
+
+        .invalid::placeholder {
+            color: $white;
+        }
+
+        .invalid {
+            background-color: transparent;
+        }
+    }
+
+    .password-field-wrapper {
+        margin-bottom: 5px;
+    }
+
+    // Button wrapper
+    .loginform-button-wrapper {
+        margin-bottom: 15px;
+    }
+
+    // Error message
+    .login-error {
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+
+    // Login issue/ forgot password
+    .login-issue {
+        display: block;
+        margin-bottom: 30px;
+    }
+
+    // Blurb
+    .login-form-lightbox-blurb {
+        margin-bottom: 10px !important;
+    }
+
+    // Overlay
+    &:before {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 15;
+        display: block;
+        content: "";
+        background: rgba(0, 0, 0, 0.75);
+    }
+
+    // Override placeholder color/opacity for tablet
+    // Placeholder
+    ::-webkit-input-placeholder {
+        color: $input-color-placeholder;
+        @include media(">=tablet", "<desktop") {
+            opacity: 1;
+        }
+
+    }
+
+    :-moz-placeholder {
+        color: $input-color-placeholder;
+        @include media(">=tablet", "<desktop") {
+            opacity: 1;
+        }
+
+    }
+
+    ::-moz-placeholder {
+        color: $input-color-placeholder;
+        @include media(">=tablet", "<desktop") {
+            opacity: 1;
+        }
+
+    }
+
+    :-ms-input-placeholder {
+        color: $input-color-placeholder;
+        @include media(">=tablet", "<desktop") {
+            opacity: 1;
+        }
+    }
+}
+
+// Casino Soda ===============================
+.soda-casino {
+    .login-lightbox .modal-content {
+        padding: 40px 50px;
+        border-radius: 8px;
+    }
+
+    .login-lightbox .modal-close-button {
+        top: 12px;
+        right: 13px;
+    }
+
+    .login-lightbox .login-logo img {
+        max-height: 69px;
+    }
+
+    .login-lightbox .login-field-icon {
+        top: -3px;
+        left: 0;
+        width: 26px;
+        height: auto;
+    }
+
+    .login-lightbox .password-field-wrapper .login-field-icon {
+        top: -8px;
+    }
+
+    .login-lightbox .username-field-wrapper input,
+    .login-lightbox .password-field-wrapper input {
+        padding: 5px 10px 5px 38px;
+        font-size: 17px;
+    }
+
+    #loginFormLightBox .login-form-lightbox .password-mask-icon {
+        top: -2px;
+        right: -2px;
+    }
+
+    .login-lightbox .btn {
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    #loginFormLightBox .loginform-button-wrapper .join-now {
+        font-weight: 700;
+    }
+}

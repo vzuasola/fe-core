@@ -1,0 +1,33 @@
+{% if footer.quicklinks is not empty %}
+	{% set quicklinksClass = (device == 'mobile') ? 'quicklinks-mobile-revamp' : 'quicklinks-revamp' %}
+	<section class="col-sm-12 {{quicklinksClass}}">
+		{% set quicklinksTitle = (footer.quicklinks_title)  ? footer.quicklinks_title : 'Quick Links'%}
+
+		<h4 class="mb-10 text-center">{{ quicklinksTitle }}</h4>
+		{% if footer.quicklinks|length %}
+			<div class="table">
+				<ul class="col-sm-12 {{ footer.quicklinks|length <= 5 ? "footer-quicklinks-small" : "footer-quicklinks-large" }}">
+					{% for item in footer.quicklinks %}
+						{% set target = item.attributes.target ? item.attributes.target : "_self" %}
+						{% set class = item.attributes.class ? item.attributes.class : "" %}
+						{% set urlAlias = item.alias ? item.alias : item.uri %}
+						<li>
+							<a
+								href="{{ url(urlAlias) }}"
+								class="{{ class }}"
+								target="{{ target }}"
+								{% if target == "window" %} data-popup='true' {% endif %}
+								{% if device == 'mobile'%}
+								data-router="true"
+								data-router-refresh="['main', 'tab_navigation', 'language']"
+								{% endif %}
+							>
+								{{ item.title }}
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		{% endif %}
+	</section>
+{% endif %}

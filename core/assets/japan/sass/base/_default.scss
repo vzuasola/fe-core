@@ -1,0 +1,183 @@
+*,
+*:before,
+*:after {
+    @include box-sizing();
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+    background: $background-color;
+    color: $white;
+    font-family: $default-font-family;
+    font-size: $default-font-size;
+    font-weight: normal;
+    line-height: $default-line-height;
+    text-decoration: none;
+    -webkit-text-size-adjust: 100%; // Stops Mobile Safari from auto-adjusting font-sizes
+    word-wrap: break-word;
+}
+
+// Links
+a {
+    transition: color 0.3s, background-color 0.3s;
+    color: $red;
+    text-decoration: none;
+}
+
+a:hover {
+    @include transition();
+    color: $red;
+    text-decoration: none;
+}
+
+a:focus {
+    outline: none;
+}
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+table,
+dl,
+form,
+menu {
+    margin: 0 0 $default-element-margin-bottom;
+}
+
+h1,
+.h1 {
+    color: $yellow;
+    font-size: $h1;
+    font-weight: bold;
+}
+
+h2,
+.h2 {
+    color: $yellow;
+    font-size: $h2;
+    font-weight: bold;
+}
+
+h3,
+.h3 {
+    color: $yellow;
+    font-size: $h3;
+    font-weight: bold;
+}
+
+h4,
+.h4 {
+    color: $yellow;
+    font-size: $h4;
+    font-weight: bold;
+}
+
+h5,
+.h5 {
+    color: $yellow;
+    font-size: $h5;
+    font-weight: bold;
+}
+
+h6,
+.h6 {
+    color: $yellow;
+    font-size: $h6;
+    font-weight: bold;
+}
+
+ul {
+    padding-left: 1.5rem;
+}
+
+ol {
+    padding-left: 2.2rem;
+}
+
+.unstyled {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+blockquote {
+    padding-left: 5rem;
+    // background: url(../images/quote_white.png) no-repeat left top;
+    background-size: 1.8rem auto;
+    font-size: 1.7rem;
+    line-height: 2.4rem;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+    color: $dark-gray;
+}
+
+// A better looking default horizontal rule
+hr {
+    display: block;
+    height: 0.1rem;
+    margin: 3.5rem 0;
+    padding: 0;
+    border: 0;
+    border-top: 0.1rem solid $hr-color;
+}
+
+// Remove the gap between images and the bottom of their containers
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+// Remove default fieldset styles
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+// Allow only vertical resizing of textareas
+textarea {
+    resize: vertical;
+}
+
+// Placeholder
+::-webkit-input-placeholder {
+    color: $input-color-placeholder;
+}
+
+:-moz-placeholder {
+    color: $input-color-placeholder;
+}
+
+::-moz-placeholder {
+    color: $input-color-placeholder;
+}
+
+:-ms-input-placeholder {
+    color: $input-color-placeholder;
+}
+
+pre {
+    white-space: pre-wrap;
+}

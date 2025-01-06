@@ -1,0 +1,15 @@
+{% if promotion_right.items is not empty or inner_right_side is not empty %}
+    <div class="col-4">
+        {% if promotion_right is not empty and promotion_right.show and promotion_right.items is not empty %}
+            {{ include('@base/components/sidebar-promotion.html.twig') }}
+        {% endif %}
+
+        {% if news_right_side is not empty and news_right_side.show and news_right_side.items is not empty %}
+            {{ include('@base/components/sidebar-news.html.twig') }}
+        {% endif %}
+
+        {% if inner_right_side is not empty %}
+            {{ include('@base/components/sidebar-innerpage.html.twig') }}
+        {% endif %}
+    </div>
+{% endif %}

@@ -1,0 +1,39 @@
+sections:
+  # Default
+  promotion_right: App\Section\PromotionRight
+  opus_ucl: App\Section\OpusUcl
+
+  # Aggregated Sections
+  header_common: App\Section\Common\Header
+  footer_common: App\Section\Common\Footer
+  session_timeout_common: App\Section\Common\Session
+  livechat_common: App\Section\Common\Livechat
+  metatags_common: App\Section\Common\Metatags
+  legacy_browser_common: App\Section\Common\LegacyBrowser
+  announcement_lightbox_common: App\Section\Common\AnnouncementLightbox
+
+  # Async
+  header_async: App\Section\Async\HeaderAsync
+  footer_async: App\Section\Async\FooterAsync
+  dropdown_menu_async: App\Section\Async\DropdownMenuAsync
+  session_timeout_async: App\Section\Async\SessionTimeoutAsync
+  announcement_async: App\Section\Async\AnnouncementAsync
+  announcement_lightbox_async: App\Section\Async\AnnouncementLightboxAsync
+  inner_right_side_async: App\Section\Async\InnerPageRightAsync
+  legacy_browser_async: App\Section\Async\LegacyBrowserAsync
+  metatags_async: App\Section\Async\MetatagsAsync
+  downloadable_async: App\Section\Async\DownloadableAsync
+  opus_ucl_async: App\Section\Async\OpusUclAsync
+  sitemap_async: App\Section\Async\Sitemap
+  canonicals_async: App\Section\Async\CanonicalsAsync
+  exception_404: App\Section\Async\Exception404
+  unsupported_currency_async: App\Section\Async\UnsupportedCurrency
+  livechat_async: App\Section\Async\LivechatAsync
+  ucl_rcl_async: App\Section\Async\UnsupportedCountryCurrencyAsync
+
+  header_responsive_async: App\Section\Async\Responsive\Header
+  footer_responsive_async: App\Section\Async\Responsive\Footer
+
+  # Responsive
+  header_responsive: App\Section\HeaderResponsive
+  footer_responsive: App\Section\FooterResponsive

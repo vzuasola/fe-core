@@ -1,0 +1,87 @@
+{% set copy = {
+	en: 'Copyright',
+	eu: 'Copyright',
+	sc: '版权',
+	ch: '版權',
+	th: 'ลิขสิทธิ์',
+	vn: 'Bản Quyền',
+	id: 'Hak cipta',
+	jp: 'Copyright',
+	kr: 'Copyright',
+	in: 'Copyright',
+	gr: 'Πνευματική Ιδιοκτησία',
+	pl: 'Copyright',
+	es: 'Copyright',
+	pt: 'Copyright',
+	ke: 'Copyright',
+	hi: 'कॉपीराइट',
+	te: 'కాపీరైట్',
+	lo: 'ລິຂະສິດ',
+	bu: 'မူပိုင်',
+	km: 'រក្សាសិទ្ធិ',
+	bn: 'Copyright',
+	pk: 'Copyright',
+	bg: 'কপিরাইট',
+	bd: 'কপিরাইট',
+	kz: 'Авторлық құқық',
+	ru: 'Авторские права',
+} %}
+
+{% set all_rights_reserved = {
+	en: 'All Rights Reserved',
+	eu: 'All Rights Reserved',
+	sc: '版权所有',
+	ch: '版權所有',
+	th: 'สงวนลิขสิทธิ์',
+	vn: 'Tất Cả Các Quyền Được Bảo Hộ',
+	id: 'Semua hak dilindungi',
+	jp: 'All Rights Reserved',
+	kr: 'All Rights Reserved',
+	in: 'All Rights Reserved',
+	gr: 'Όλα τα Δικαιώματα Κατοχυρωμένα',
+	pl: 'Wszystkie prawa zastrzeżone',
+	es: 'Todos los Derechos Reservados',
+	pt: 'Todos os Direitos Reservados',
+	ke: 'All Rights Reserved',
+	hi: 'सभी अधिकार आरक्षित',
+	te: 'అన్ని హక్కులూ ప్రత్యేకించుకోవడమైనది',
+	lo: 'ລິຂະສິດ:',
+	bu: 'မူပိုင်ခွင့်များရယူပြီး',
+	km: 'រក្សា​រ​សិទ្ធ​គ្រប់យ៉ាង',
+	bn: 'All Rights Reserved',
+	pk: 'All Rights Reserved',
+	bg: 'সকল অধিকার সংরক্ষিত',
+	bd: 'সকল অধিকার সংরক্ষিত',
+	kz: 'Барлық құқықтар қорғалған',
+	ru: 'Все права защищены',
+} %}
+<div class="copyright clear">
+	<div class="container">
+		<p class="text-center">
+			{% if footer.use_cms_copyright_label %}
+				{{ footer.copyright }} &copy; {{ now | date('Y') }} | Dafabet | {{ footer.all_rights_reserved }}
+			{% else %}
+				{{ copy[app.lang] ?? copy['en'] }} &copy; {{ now | date('Y') }} | Dafabet | {{ all_rights_reserved[app.lang] ??  all_rights_reserved['en']}}
+			{% endif %}
+		</p>
+		<div class="floating-banners-container float-banner-desktop">
+			<div class="floating-banners-content">
+				<span class="floating-banners-title">
+					<h1>
+					</h1>
+				</span>
+				<span class="floating-banners-icon">
+						<svg viewbox="0 0 20 20" class="download">
+							<use xlink:href="#download" />
+						</svg>
+						<svg viewbox="0 1 20 40" class="slash">
+							<use xlink:href="#slash" />
+						</svg>
+						<svg viewbox="0 0 20 20" class="phone">
+							<use xlink:href="#phone" />
+						</svg>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>

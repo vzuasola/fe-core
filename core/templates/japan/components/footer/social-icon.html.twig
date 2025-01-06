@@ -1,0 +1,13 @@
+<div class="social-buttons row text-center mb-20">
+    {% if footer.socialmedia is not empty %} 
+        {% for social in footer.socialmedia %}
+            {% if social.field_socialmedia_cmi_enable[0].value %}
+                {% set rem = loop.length % 4 %}
+                {% set col = loop.index <= (loop.length - rem) ? 4 : rem %}
+                <span class="col-{{ 12 / col }}">
+                    <a href="{{ url(social.field_socialmedia_cmi_links[0].value) }}" class="icon-{{ social.field_socialmedia_cmi_link_class[0].value }} lazy-load" data-src="{{ asset('images/sprite-japan.png') }}" target="{{ social.field_socialmedia_cmi_linktarget[0].value }}">{{ social.field_socialmedia_cmi_link_class[0].value }}</a>
+                </span>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>

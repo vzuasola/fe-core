@@ -1,0 +1,121 @@
+// for reference we can use online tool http://www.pxtovw.com/
+// Banner with converted unit from px to vw
+.banner {
+    font-size: 0.8333333333333334vw;
+
+    &-blurb {
+        padding: 1.0416666666666667vw 5.208333333333334vw;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ul,
+    ol,
+    table,
+    dl,
+    form,
+    menu {
+        margin-bottom: 0.78vw;
+    }
+
+    // Heading Tags
+    h1 {
+        font-size: 1.4583333333333335vw;
+    }
+
+    h2 {
+        font-size: 1.25vw;
+    }
+
+    h3 {
+        font-size: 1.0416666666666667vw;
+    }
+
+    h4 {
+        font-size: 0.9375vw;
+    }
+
+    h5 {
+        font-size: 0.9375vw;
+    }
+
+    h6 {
+        font-size: 0.9375vw;
+    }
+
+    // Text Size
+    .text-12 {
+        font-size: 0.625vw;
+    }
+
+    .text-14 {
+        font-size: 0.7291666666666667vw;
+    }
+
+    .text-16 {
+        font-size: 0.8333333333333334vw;
+    }
+
+    .text-18 {
+        font-size: 0.9375vw;
+    }
+
+    .text-20 {
+        font-size: 1.0416666666666667vw;
+    }
+
+    .text-36 {
+        font-size: 1.875vw;
+    }
+
+    .text-48 {
+        font-size: 2.5vw;
+    }
+
+    .text-72 {
+        font-size: 3.75vw;
+    }
+
+    // Countdown with converted unit from px to vw
+    .promo-countdown {
+        bottom: 1.8229166666666667vw;
+        right: 5.208333333333334vw;
+        font-size: 0.8333333333333334vw;
+
+        .icon-clock {
+            width: 1.1979166666666667vw;
+            height: 1.1979166666666667vw;
+            margin: -0.15625vw 0.4166666666666667vw 0 0;
+            // background-position: -240px -360px;
+            // sprite width=520px, height=640px
+            background-position: -12.5vw -18.75vw;
+            background-size: 27.083333333333336vw 33.333333333333336vw;
+        }
+    }
+
+    // button resizing
+    .btn {
+        font-size: 1.25vw;
+        padding: 0.2604166666666667vw 1.1979166666666667vw;
+    }
+
+    .btn-small {
+        font-size: 0.7291666666666667vw;
+        padding: 0.10416666666666667vw 0.6770833333333334vw;
+    }
+
+    .btn-medium {
+        font-size: 1.5625vw;
+        padding: 0.2604166666666667vw 1.3541666666666667vw;
+    }
+
+    .btn-large {
+        font-size: 1.9791666666666667vw;
+        padding: 0.4166666666666667vw 2.7083333333333335vw;
+    }
+}

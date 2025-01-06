@@ -1,0 +1,74 @@
+{% extends '@base/page.html.twig' %}
+
+{# Per page CSS #}
+{% block css %}
+    <link href="{{ asset('css/sitemap.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+{% include '@base/components/session-modals.html.twig' %}
+<div class="container">
+    <div class="grid grid-gap-30 mt-40">
+        {% set gridclass = inner_right_side is not empty and inner_right_side[0].field_innerpage_right_side_block ? "col-8" : "col-12" %}
+            <div class={{ gridclass }}>
+                <div class="sitemap">
+                    <h1 class="sitemap--title">{{ sitemap_configuration.sitemap_title|raw }}</h1>
+                    <div class="sitemap--blurb">{{ sitemap_configuration.sitemap_content.value|raw }}</div>
+                    <ul>
+                        <li><span class="icon lazy-load" data-src="{{ asset('images/sprite.png') }}"></span><span><a href="{{ sitemap_configuration.sitemap_home_link }}">{{ sitemap_configuration.sitemap_home_label|raw }}</a></span>
+                        </li>
+                        <li><span class="icon lazy-load" data-src="{{ asset('images/sprite.png') }}"></span><span><a href="{{ sitemap_configuration.sitemap_promotions_link }}">{{ sitemap_configuration.sitemap_promotions_label|raw }}</a></span>
+                        </li>
+                        <li><span class="icon lazy-load" data-src="{{ asset('images/sprite.png') }}"></span><span><a href="{{ sitemap_configuration.sitemap_mobile_link }}">{{ sitemap_configuration.sitemap_mobile_label|raw }}</a></span>
+                        </li>
+                        {# List of Basic pages #}
+                        <li><span class="icon lazy-load" data-src="{{ asset('images/sprite.png') }}"></span><span>{{ sitemap_configuration.sitemap_basic_pages_label|raw }}</span>
+                            <ul>
+                                {% for item in basic_pages %}
+                                    {% if loop.last %}
+                                        <li>
+                                            <span class="icon lazy-load" data-src="{{ asset('images/sprite.png') }}"></span>
+                                            <a href="{{ url(item.alias[0].value) }}"><span>{{item.title[0].value|raw }}</span></a>
+                                        </li>
+                                        <li>
+                                            <span class="icon lazy-load" data-src="{{ asset('images/sprite.png') }}"></span>
+                                            <a href="" class="active"><span>{{ title }}</span></a>
+                                        </li>
+                                    {% else %}
+                                        <li>
+                                            <span class="icon lazy-load" data-src="{{ asset('images/sprite.png') }}"></span>
+                                            <a href="{{ url(item.alias[0].value) }}"><span>{{ item.title[0].value|raw }}</span></a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        {# List of QuickLinks item #}
+                        {% if footer.quicklinks is not empty %}
+                            {% set quicklinksTitle = (footer.quicklinks_title)  ? footer.quicklinks_title : 'Quick Links'%}
+                            <li><span class="icon lazy-load" data-src="{{ asset('images/sprite.png') }}"></span><span>{{ quicklinksTitle|raw}}</span>
+                                <ul>
+                                    {% for item in footer.quicklinks %}
+                                        <li>
+                                            <span class="icon lazy-load" data-src="{{ asset('images/sprite.png') }}"></span>
+                                            {% set class = item['alias'] in (current_path) ? 'active' : '' %}
+                                            <a class="{{ class }}" href="{{ url(item.alias ? item.alias : item.uri) }}" target="{{item.attributes.target }}" ><span>{{ item.title }}</span></a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        {{ include('@base/section/sidebar.html.twig') }}
+        {% include '@base/components/floating-banner.html.twig' %}
+        {% include '@base/components/session-modals.html.twig' %}
+    </div>
+</div>
+{% endblock body %}
+
+{# Default per page JS #}
+{% block script %}
+    <script src="{{ asset('js/sitemap.bundle.js') }}"></script>
+{% endblock %}

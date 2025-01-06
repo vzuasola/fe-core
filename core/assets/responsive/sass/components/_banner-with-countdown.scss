@@ -1,0 +1,11 @@
+@import "banner";
+@import "../../core/core/assets/sass/components/promotion-countdown";
+
+.banner {
+    .promo-countdown {
+        position: absolute;
+        bottom: 35px;
+        right: $container-gap;
+        display: block;
+    }
+}

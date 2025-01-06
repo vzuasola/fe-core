@@ -1,0 +1,5 @@
+# Game providers Definition file
+
+providers:
+  # playtech_pas: App\GameProvider\Playtech\Provider
+  # opus_provider: App\GameProvider\Opus\Provider

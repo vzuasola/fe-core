@@ -1,0 +1,9 @@
+{% if page_not_found.page_not_found_image_url is not empty %}
+    <div class="page-404-banner-area">
+        {% if page_not_found.page_not_found_image is not empty %}
+          <img class="page-404-banner-image mt-80 lazy-load" src="{{ asset('images/default_image.png') }}" data-src="{{ asset(page_not_found.page_not_found_image_url) }}">
+        {% endif  %}
+
+    </div>
+{% endif  %}
+{{ page_not_found.page_not_found_content.value | raw}}

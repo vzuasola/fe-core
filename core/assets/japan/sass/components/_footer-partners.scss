@@ -1,0 +1,27 @@
+.footer-partners {
+    .link {
+        cursor: pointer;
+    }
+    > a {
+        display: inline-block;
+        margin-bottom: 1rem;
+    }
+
+    @include media("<tablet") {
+        min-height: 16em;
+    }
+
+    @include media(">=tablet") {
+        padding: 0 10rem;
+        min-height: 12em;
+    }
+
+    @include media(">=tablet", "landscape") {
+        padding: 0 20rem;
+    }
+}
+
+#apg-seal-container {
+    display: inline-block;
+    vertical-align: middle;
+}

@@ -1,0 +1,72 @@
+{% set lightbox_title = login_config.login_lightbox_title|raw %}
+{% set username = login_config.login_username|raw %}
+{% set password = login_config.login_password|raw %}
+{% set rememberUsername = login_config.login_remember_username|raw %}
+{% set submit = login_config.login_submit_button|raw %}
+{% set forgotPassword = login_config.login_forgot_password|raw %}
+{% set forgotPasswordLink = login_config.login_forgot_password_link|raw %}
+{% set register = login_config.login_registration|raw %}
+{% set registerLink = login_config.login_registration_link|raw %}
+<div id="modal-id" class="modal login-lightbox-form">
+    <div class="modal-content">
+        <div class="modal-header">{{ lightbox_title }}</div>
+        <div class="modal-body">
+            {% if login %}
+                {{ form_start(login, {'attr': {'class': 'pure-form form-vertical form-login text-14', 'id': 'login-form'}}) }}
+
+                    <div class="form-item">
+                        <div class="form-field field-username">
+                            <label class="ie8_username_placeholder hidden">{{ username }}</label>
+                            <span class="username-icon"></span>
+                            {{ form_widget(login.username, {'attr': {'class': 'field form-text', 'placeholder': username }}) }}
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-field field-password">
+                            <label class="ie8_password_placeholder hidden">{{ password }}</label>
+                            <span class="password-icon"></span>
+                            {{ form_widget(login.password, {'attr': {'class': 'field form-text', 'placeholder': password }}) }}
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-field field-remember-username">
+                            {{ form_widget(login.rememberUsername) }}
+                            <label>{{ rememberUsername }}</label>
+                        </div>
+                    </div>
+
+                    <div class="form-item">
+                        <div class="form-field error-message">
+                            <span class="login-error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-item">
+                        <div class="form-field field-submit">
+                            {{ form_widget(login.submit, {'attr': {'class': 'form-submit btn btn-small', 'value': 'Login'}, "label": submit|default('Submit') }) }}
+                        </div>
+                    </div>
+
+                    <div class="form-item">
+                        <div class="form-field field-forgot-passowrd">
+                            <a href="{{ url(forgotPasswordLink) }}" class="secondary-button">
+                                {{ forgotPassword }}
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="form-item">
+                        <div class="form-field field-registration">
+                            <a href="{{ url(registerLink) }}" class="secondary-button">
+                                {{ register }}
+                            </a>
+                        </div>
+                    </div>
+
+                    {{ form_widget(login.destination) }}
+                {{ form_end(login) }}
+            {% endif %}
+        </div>
+        <i class="fa fa-times-circle-o modal-close modal-close-button"></i>
+    </div>
+</div>

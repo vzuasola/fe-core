@@ -1,0 +1,85 @@
+{% if header %}
+    <div id="loginForm" class="login">
+    {{ form_start(header.login_form, {'attr': {'class': 'login-form mt-10 mb-0', 'id': 'login-form'}}) }}
+        <div class="loginform-textfield-wrapper">
+	<div class="loginform-textfields pull-right">
+        {{ include('@responsive/components/header-notification.html.twig') }}
+                {% set username = header.login.username_placeholder|default('Username') %}
+                {% set password = header.login.password_placeholder|default('Password') %}
+        <span class="username-field-wrapper">
+            <label class="ie8_username_placeholder hidden">{{ username }}</label>
+            {% if theme.login_lightbox_icon_color is not empty %}
+                <svg class="login-field-icon" viewBox="0 0 52.806 52.813">
+                    <use xlink:href="#username-icon"></use>
+                </svg>
+            {% else %}
+                <span class="username-icon lazy-load" data-src="{{ asset('images/sprite.png') }}"></span>
+            {% endif %}
+            {{ form_widget(header.login_form.username, {'attr': {'class': 'field', 'placeholder': username }}) }}
+        </span>
+        <span class="password-field-wrapper">
+            <label class="ie8_password_placeholder hidden">{{ password }}</label>
+            {% if theme.login_lightbox_icon_color is not empty %}
+                <svg class="login-field-icon" viewBox="0 0 46.116 57.254">
+                    <use xlink:href="#password-icon"></use>
+                </svg>
+                <span class="password-mask-icon mask">
+                    <svg class="password-icon-mask" viewBox="0 0 45.33 36.255">
+                        <use xlink:href="#hide-password"></use>
+                    </svg>
+                    <svg class="password-icon-unmask" viewBox="0 0 45.308 27.412">
+                        <use xlink:href="#show-password"></use>
+                    </svg>
+                </span>
+            {% else %}
+                <span class="password-mask-icon mask">
+                    <svg class="password-icon-mask" viewBox="0 150 24 17.445">
+                        <use xlink:href="#password-mask" id="password-mask-svg" />
+                    </svg>
+                    <svg class="password-icon-unmask" viewBox="0 180 24 14.017">
+                        <use xlink:href="#password-unmask" id="password-unmask-svg" />
+                    </svg>
+                </span>
+            {% endif %}
+            {% set capsLockClass = header.caps_lock_toggle ? " caps-lock-enabled" : "" %}
+            {% set passwordClasse = header.password_mask_toggle ? " password-mask-enabled" : "" %}
+            {{ form_widget(header.login_form.password, {'attr': {'class': 'field' ~ passwordClasse ~ capsLockClass, 'placeholder': password }}) }}
+	      
+        </div>
+        </span>            
+        {% if app.session.hasFlash('login.error') %}
+        <div class="login-error">
+            {{ app.session.getFlash('login.error') }}
+        </div>
+    {% endif %}
+      </div>     
+      {% if header.login.rememberme_label is not empty %}
+        <label class="remember-username block mt-15 mb-20 text-left hidden">
+            <input class="remember-username-field" type="checkbox" name="remember"><span class="remember-username-text">{{ header.login.rememberme_label }}</span>
+        </label>
+      {% endif %}
+
+      <div class="loginform-button-wrapper">
+
+    
+        {{ form_widget(header.login_form.submit, {'attr': {'class': 'btn btn-gray btn-small', 'value': 'Login'}, "label": header.login.login_bottom_label|default('Submit') }) }}
+        <a data-popup="true"
+           data-popup-position="center"
+           data-popup-width="820"
+           data-popup-height="810"
+           href={{ url(header.login_issue_link) }}
+           class="login-issue btn-links visible-desktop">{{ header.login_issue_text }}</a>
+
+        {% if header.login.mobile_cant_login_url is not empty %}
+          <a href={{ url(header.login.mobile_cant_login_url) }}
+             class="login-issue btn-links hidden-desktop">{{ header.login_issue_text }}</a>
+        {% endif %}
+
+
+        <div class="login-form-lightbox-blurb hidden mb-20">{{ header.login.lightbox_blurb|default('Not yet a Dafabet member?') }}</div>
+        <a href={{ url(header.registration_link) }} class="btn btn-yellow btn-small join-now">{{ header.join_now_text }}</a>
+      </div>
+
+    {{ form_end(header.login_form) }}
+    </div>
+{% endif %}

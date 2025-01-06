@@ -1,0 +1,46 @@
+.scrollbot {
+    width: 625px;
+    max-height: 450px;
+}
+
+.scrollbot-inner {
+    .scrollbot-outer-parent {
+        z-index: 0 !important;
+    }
+}
+
+.scrollbot-scrollbar-holder {
+    position: absolute;
+    display: block;
+    top: 0;
+    width: 11px;
+    height: 100%;
+    right: 0;
+
+    &:after {
+        content: '';
+        display: block;
+        width: 1px;
+        height: 100%;
+        margin-left: 5px;
+        background: $scroll-holder-bg;
+    }
+}
+
+.scrollbot-scrollbar {
+    position: absolute;
+    top: 0%;
+    right: 0;
+    width: 11px;
+    height: 50%;
+
+    &:after {
+        content: '';
+        display: block;
+        width: 5px;
+        height: 100%;
+        margin-left: 3px;
+        background: $scrollbar-bg;
+        border-radius: 15px;
+    }
+}

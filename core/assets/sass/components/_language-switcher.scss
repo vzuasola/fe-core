@@ -1,0 +1,156 @@
+.language-switcher {
+    display: inline-block;
+    position: relative;
+
+    // Dropdown
+    ul {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 170px;
+        padding: 0;
+        background: $dark-red;
+        text-align: left;
+        z-index: 20;
+        list-style-type: none;
+        opacity: 0; // Hide lang switcher initially
+    }
+
+    li {
+        display: inline;
+    }
+
+    a {
+        display: block;
+        padding: 4px 6px;
+        color: $white;
+        cursor: pointer;
+
+        &:hover {
+            background: $lang-swithcer-hover;
+        }
+    }
+
+    a:before {
+        @include image-replacement($base-sprite, -320px, 0, 28px, 17px);
+        margin-right: 5px;
+        content: "";
+    }
+
+    .eu a:before,
+    a.eu:before {
+        background-position: -320px -40px;
+    }
+
+    .zh-hans a:before,
+    a.zh-hans:before {
+        background-position: -320px -80px;
+    }
+
+    .zh-hant a:before,
+    a.zh-hant:before {
+        background-position: -320px -120px;
+    }
+
+    .th a:before,
+    a.th:before {
+        background-position: -320px -160px;
+    }
+
+    .vi a:before,
+    a.vi:before {
+        background-position: -320px -200px;
+    }
+
+    .id a:before,
+    a.id:before {
+        background-position: -320px -240px;
+    }
+
+    .ja a:before,
+    a.ja:before {
+        background-position: -320px -280px;
+    }
+
+    .ko a:before,
+    a.ko:before {
+        background-position: -320px -320px;
+    }
+
+    .hi a:before,
+    a.hi:before {
+        background-position: -320px -360px;
+    }
+
+    .el a:before,
+    a.el:before {
+        background-position: -320px -400px;
+    }
+
+    .pl a:before,
+    a.pl:before {
+        background-position: -320px -440px;
+    }
+
+    .es a:before,
+    a.es:before {
+        background-position: -320px -560px;
+    }
+
+    .pt-br a:before,
+    a.pt-br:before {
+        background-position: -320px -600px;
+    }
+
+    .in a:before,
+    a.in:before {
+        background-position: -320px -360px;
+    }
+
+    .te a:before,
+    a.te:before {
+        background-position: -320px -360px;
+    }
+
+    .kk a:before,
+    a.kk:before {
+        background-position: -440px -672px;
+    }
+
+    .ru a:before,
+    a.ru:before {
+        background-position: -440px -672px;
+    }
+
+    // Switcher
+    > a {
+        padding: 6px;
+        border: 0;
+        border-radius: 0 0 3px 3px;
+        background: $dark-red;
+        color: transparent;
+        font: 0;
+        text-shadow: none;
+
+        &:before {
+            // margin-right: 0;
+        }
+
+        &:after {
+            @include triangle(bottom, 8px, $white);
+            display: inline-block;
+            border-right-width: 5px;
+            border-left-width: 5px;
+            content: "";
+        }
+
+        &:hover {
+            background: $dark-red;
+        }
+    }
+
+    li:last-child,
+    li:last-child a {
+        border-bottom: 0;
+    }
+}

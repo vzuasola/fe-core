@@ -1,0 +1,5 @@
+{% if header.favicon is not empty %}
+    <link rel="shortcut icon" type="image/x-icon" test="not-empty" href="{{ asset(header.favicon.url) }}"/>
+{% else %}
+    <link rel="shortcut icon" type="image/x-icon" test="empty" href="{{ asset('images/favicon.ico') }}"/>
+{% endif %}

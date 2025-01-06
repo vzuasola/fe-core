@@ -1,0 +1,36 @@
+<div class="promo-sidebar mb-20 ">
+    <div class="promo-sidebar-header"><h3>{{ promotion_right.title }}</h3></div>
+    <div class="promo-sidebar-list">
+        <div class="promo-sidebar-list-item">
+            {% for item in promotion_right.items %}
+                {% if loop.last %}
+                    <div class="grid grid-gap-20 mb-0">
+                        <div class="col-5">
+                            <a href="{{ url(item.field_right_side_block_link[0]['uri']) }}" class="promo-sidebar-thumb" target="{{ item.field_link_target[0]['value'] }}">
+                                <img class="lazy-load" src="{{ asset('images/default_image.png') }}" data-src="{{ asset(item.field_thumbnail_image[0].url) }}" alt="{{ item.field_thumbnail_image.alt }}">
+                            </a>
+                        </div>
+                        <div class="col-7">
+                            <h5 class="promo-sidebar-title">
+                                <a href="{{ url(item.field_right_side_block_link[0]['uri']) }}" target="{{ item.field_link_target[0]['value'] }}">{{ item.title[0].value }}</a></h5>
+                            <div class="promo-sidebar-blurb">{{ item.field_thumbnail_summary[0].value|raw }}</div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="grid grid-gap-20 mb-20">
+                        <div class="col-5">
+                            <a href="{{ url(item.field_right_side_block_link[0]['uri']) }}" class="promo-sidebar-thumb" target="{{ item.field_link_target[0]['value'] }}">
+                                <img class="lazy-load" src="{{ asset('images/default_image.png') }}" data-src="{{ asset(item.field_thumbnail_image[0].url) }}" alt="{{ item.field_thumbnail_image.alt }}">
+                            </a>
+                        </div>
+                        <div class="col-7">
+                            <h5 class="promo-sidebar-title">
+                                <a href="{{ url(item.field_right_side_block_link[0]['uri']) }}" target="{{ item.field_link_target[0]['value'] }}">{{ item.title[0].value }}</a></h5>
+                            <div class="promo-sidebar-blurb">{{ item.field_thumbnail_summary[0].value|raw }}</div>
+                        </div>
+                    </div>
+               {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

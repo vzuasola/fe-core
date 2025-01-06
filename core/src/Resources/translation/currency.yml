@@ -1,0 +1,8 @@
+default: null
+translations:
+  sc:
+    RMB: 元
+    mBTC: m比特币
+  ch:
+    RMB: 元
+    mBTC: m比特幣

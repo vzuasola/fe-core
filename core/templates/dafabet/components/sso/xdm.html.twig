@@ -1,0 +1,19 @@
+{% extends '@base/minimal/script.html.twig' %}
+
+{% block vendorScript %}
+{% endblock %}
+
+{% block script %}
+    <script src="{{ asset('js/easyXDM.min.js') }}"></script>
+{% endblock %}
+
+{% block footerScript %}
+    {{ parent() }}
+
+    <script type="text/javascript">
+        var socket = new window.easyXDM.Socket({});
+
+        socket.postMessage('{{ session|json_encode()|raw }}');
+    </script>
+{% endblock %}
+

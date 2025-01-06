@@ -1,0 +1,24 @@
+.promotion-page-banner-image {
+    width: 100%;
+}
+
+.promotion-page-text-area {
+    h2 {
+        display: block;
+        padding: 20px 60px;
+        background: $light-gray;
+    }
+}
+
+.promotion-page-banner-area {
+    a {
+        color: inherit;
+    }
+}
+
+.promotion-banner-blurb {
+    position: absolute;
+    top: 180px;
+    width: 100%;
+    padding: 0 100px;
+}

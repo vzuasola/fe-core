@@ -1,0 +1,35 @@
+{#
+    This file is used in following products
+    entrypage (promotions page banner image)
+#}
+{% if data.field_image[0]['url'] %}
+    <section class="banner">
+
+        {# Banner Blurb #}
+        {% if data.field_banner_content is not empty %}
+            <div class="banner-blurb {{ data.banner_content_position[0].value }}">
+                <div class="banner-blurb-outer">
+                    <div class="banner-blurb-inner">
+                        {{ data.field_banner_content[0].value | raw }}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        {# Banner Image #}
+        {% if data.field_banner_link[0].uri is not null %}
+        <a {{ "href=" ~ url(data.field_banner_link[0].uri)}} target="{{ data.field_banner_link_target[0].value }}">
+            <img class="lazy-load" src="{{ asset('images/default_image.png') }}" data-src="{{ asset(data.field_image[0]['url']) }}" alt="{{ data.field_image[0]['alt'] }}" >
+        </a>
+        {% else %}
+            <img class="lazy-load" src="{{ asset('images/default_image.png') }}" data-src="{{ asset(data.field_image[0]['url']) }}" alt="{{ data.field_image[0]['alt'] }}" >
+        {% endif %}
+
+        {# Promotion countdown #}
+        {% if not data.field_hide_countdown[0].value and promotion_countdown.remaining is not null %}
+            <span class="promo-countdown">
+                <span class="icon icon-clock lazy-load" data-src="{{ asset('images/sprite.png') }}"></span>{{ promotion_countdown.remaining | raw }}</span>
+        {% endif %}
+
+    </section>
+{% endif %}

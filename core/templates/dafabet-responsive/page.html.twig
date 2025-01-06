@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html class="{{ app.lang }}">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block head %}
+        {{ include('@responsive/components/favicon.html.twig') }}
+        {{ include('@responsive/components/metatags/meta-tags.html.twig') }}
+    {% endblock %}
+
+    {# HMLT5 Shiv #}
+    <!--[if lte IE 8]>
+        <script src="{{ asset('js/html5shiv.min.js') }}"></script>
+        <script src="{{ asset('js/ie8-eventlistener.min.js') }}"></script>
+        <script src="{{ asset('js/ie8-normalizer.min.js') }}"></script>
+    <![endif]-->
+
+    {# Outdated browser #}
+    <script>
+        {{ include('@asset/js/outdated-browser.min.js') }}
+    </script>
+
+    {# Polyfill for HTML5 <picture> tag #}
+    <script src="{{ asset('js/picturefill.min.js') }}" async></script>
+
+    {# Per page CSS #}
+    {% block css %}
+        <link href="{{ asset('css/page.css') }}" rel="stylesheet">
+    {% endblock %}
+
+    {% block theme %}
+    {% endblock %}
+
+    {# Media queries polyfill for IE8 #}
+    <!--[if lte IE 8]>
+        <script src="{{ asset('js/respond.min.js') }}"></script>
+    <![endif]-->
+
+    {# Header scripts #}
+    {% block headerScript %}
+    {% endblock %}
+</head>
+<body
+    class="{{ body_class }}"
+    style="{{ body_style }}"
+    data-geoip="{geoip}"
+    data-device-view="{device.view}"
+    data-device-os="{device.os}"
+>
+{% block header %}
+    {{ include('@responsive/section/header.html.twig') }}
+{% endblock header %}
+
+{% block navbar %}
+    {% embed '@responsive/section/navbar.html.twig' %}{% endembed %}
+{% endblock navbar %}
+
+{% block annoucement %}
+    {% embed '@responsive/components/annoucement-bar.html.twig' %}{% endembed %}
+{% endblock annoucement %}
+
+{% block announcementLightbox %}
+    {% embed '@responsive/components/announcement-lightbox.html.twig' %}{% endembed %}
+{% endblock announcementLightbox %}
+
+{% block languageLightbox %}
+    {% embed '@responsive/components/language-lightbox.html.twig' %}{% endembed %}
+{% endblock languageLightbox %}
+
+{% block loginLightbox %}
+    {% embed '@responsive/components/login/login-lightbox.html.twig' %}{% endembed %}
+{% endblock loginLightbox %}
+
+{% block pushNotificationLightbox %}
+    {% embed '@base/components/push-notification-lightbox.html.twig' %}{% endembed %}
+    {% embed '@base/components/push-notification-dismiss-lightbox.html.twig' %}{% endembed %}
+{% endblock pushNotificationLightbox %}
+
+<main class="main"
+      style="{{ main_style }}"
+>
+    {% block body %}{% endblock body %}
+</main>
+
+{% block floatingBannerLightbox %}
+    {% embed '@base/components/floating-banner-revamp.html.twig' %}{% endembed %}
+{% endblock floatingBannerLightbox %}
+
+{% block footer %}
+    {{ include('@responsive/section/footer.html.twig') }}
+{% endblock footer %}
+
+{{ include('@base/components/profiler.html.twig') }}
+
+{# ES5 Polyfill #}
+<script src="{{ asset('js/es5.min.js') }}"></script>
+
+{# ClassList Polyfill #}
+<!--[if lte IE 9]>
+    <script src="{{ asset('js/classList.min.js') }}"></script>
+<![endif]-->
+
+<!--[if (IE 8)|(IE 9)]>
+    <script src="/js/xdomain.min.js"></script>
+<![endif]-->
+
+{# We use special tokens for the script tokens @see Middleware/Attachments #}
+{% block scriptAttachments %}
+{{ '<#SCRIPT#>' }}
+{{ '<#SCRIPT_INCLUDES#>' }}
+{% endblock %}
+
+{# Webpack manifest & vendor script #}
+{% block vendorScript %}
+    <script src="{{ asset('js/manifest.bundle.js') }}"></script>
+    <script src="{{ asset('js/vendor.bundle.js') }}"></script>
+{% endblock %}
+
+{# Default per page JS #}
+{% block script %}
+    <script src="{{ asset('js/page.bundle.js') }}"></script>
+{% endblock %}
+
+{# Footer scripts #}
+{% block footerScript %}
+{% endblock %}
+
+</body>
+</html>

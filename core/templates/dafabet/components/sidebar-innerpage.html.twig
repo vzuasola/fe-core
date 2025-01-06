@@ -1,0 +1,15 @@
+{#
+    This file is used in following products
+    entrypage (promotions page right side bar block)
+    casinio (page right side bar block)
+#}
+{% for block_item in inner_right_side %}
+    {% for item in block_item.field_innerpage_right_side_block %}
+    <h3 class="promo-banner-header">{{ item['field_title'][0]['value'] }}</h3>
+    <div class="promo-banner mb-20">
+        <a href="{{ url(item['field_link'][0]['uri']) }}" target="{{ item['field_link_target'][0]['value'] }}">
+            <img class="lazy-load" src="{{ asset('images/default_image.png') }}" data-src="{{ asset(item['field_image'][0]['url']) }}" alt="{{ item['field_image']['alt'] }}">
+        </a>
+    </div>
+    {% endfor %}
+{% endfor %}

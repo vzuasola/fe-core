@@ -1,0 +1,24 @@
+{{#if banners }}
+    <div class='banner-slides'>
+        {{#each banners as |item key|}}
+            <div class='banner-slides-item'>
+                {{#if item.bannerBlurb}}
+                    <div class='banner-blurb {{ item.contentPosition }}'>
+                        <div class='banner-blurb-outer'>
+                            <div class='banner-blurb-inner'>
+                                {{{ item.bannerBlurb }}}
+                            </div>
+                        </div>
+                    </div>
+                {{/if}}
+                {{#if item.bannerLink}}
+                    <a href='{{ item.bannerLink }}' target='{{ item.bannerLinkTarget }}'>
+                        <img src='{{ item.bannerImageUrl }}' alt='{{ item.bannerImageAlt }}'>
+                    </a>
+                {{else}}
+                    <img src='{{ item.bannerImageUrl }}' alt='{{ item.bannerImageAlt }}'> 
+                {{/if}}
+            </div>
+        {{/each}}
+    </div>
+{{/if}}

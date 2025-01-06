@@ -1,0 +1,79 @@
+<?php
+
+$product = $settings['settings']['product'];
+
+// Dynamic redis parameters
+
+$clients = \App\Utils\Sentinel::resolve($_SERVER['REDIS_SERVER']);
+$redisService = $_SERVER['REDIS_SERVICE'] ?? 'pushnx';
+
+// Redis variables for session
+
+$redisSessionClients = $clients;
+$redisSessionService = $redisService;
+
+if (isset($_SERVER['REDIS_SESSION_SERVER'])) {
+    $redisSessionClients = \App\Utils\Sentinel::resolve($_SERVER['REDIS_SESSION_SERVER']);
+}
+
+if (isset($_SERVER['REDIS_SESSION_SERVICE'])) {
+    $redisSessionService = $_SERVER['REDIS_SESSION_SERVICE'];
+}
+
+// Twig
+
+$settings['settings']['renderer']['cache_path'] = BASE_ROOT . '/cache/';
+
+// Cache handler
+
+$settings['settings']['cache']['handler'] = 'predis';
+
+$settings['settings']['cache']['handler_options'] = [
+    'clients' => $clients,
+    'options' => [
+        'replication' => 'sentinel',
+        'service' => $redisService,
+        'parameters' => ['database' => 2, 'persistent' => 1],
+        'prefix' => "cache:front:$product:page:",
+        'persistent' => 1
+    ],
+];
+
+// Cache Signature
+
+$settings['settings']['cache_signature']['enable'] = true;
+
+$settings['settings']['cache_signature']['redis_options'] = [
+    'clients' => $clients,
+    'options' => [
+        'replication' => 'sentinel',
+        'service' => $redisService,
+        'parameters' => ['database' => 1, 'persistent' => 1],
+        'persistent' => 1
+    ],
+];
+
+// Session settings
+
+$settings['settings']['session_handler']['handler'] = 'predis';
+
+$settings['settings']['session_handler']['handler_options'] = [
+    'clients' => $redisSessionClients,
+    'options' => [
+        'replication' => 'sentinel',
+        'service' => $redisSessionService,
+        'parameters' => ['database' => 2, 'persistent' => 1],
+        'prefix' => "session:front",
+        'persistent' => 1
+    ],
+    'parameters' => [
+        'gc_probability' => 1,
+        'gc_divisor' => 100,
+        'gc_maxlifetime' => 10800,
+    ]
+];
+
+// Log settings
+
+$settings['settings']['logger']['path'] = "/var/log/cms/$product.log";
+$settings['settings']['metrics_log']['path'] = "/var/log/cms/metrics.log";

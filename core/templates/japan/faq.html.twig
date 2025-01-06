@@ -1,0 +1,40 @@
+{% extends '@site/page.html.twig' %}
+
+{% block css %}
+    <link href="{{ asset('css/faq.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+    <div class="container side-line">
+        <div class="page-details">
+            {% if faq.config.page_title %}
+                <h1 class="page-title">{{ faq.config.page_title }}</h1>
+            {% endif %}
+            {% if faq.config.page_description %}
+                <div class="page-desc">{{ faq.config.page_description.value|raw }}</div>
+            {% endif %}
+            <div class="page-search">
+                <input type="text" id="faq-search" class="faq-search" placeholder="{{ faq.config.search_placeholder }}">
+                <span id="page-search-btn" class="page-search-btn"></span>
+            </div>
+        </div>
+        <div id="faq-list" class="faq-list"></div>
+        <div class="gradient-left"></div>
+        <div class="gradient-right"></div>
+    </div>
+{% endblock main %}
+
+{% block breadcrumb %}
+    <div class="breadcrumb">
+        <div class="breadcrumb_inner">
+            <ul>
+                <li><a href="/{{lang}}">{{home}}</a></li>
+                <li>{{activePage}}</li>
+            </ul>
+        </div>
+    </div>
+{% endblock breadcrumb %}
+
+{% block script %}
+    <script src="{{ asset('js/faq.bundle.js') }}"></script>
+{% endblock %}

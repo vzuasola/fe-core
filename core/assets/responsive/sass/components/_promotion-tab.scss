@@ -1,0 +1,156 @@
+$tab-height: 38px;
+$tab-kebab-width: 20px;
+$tab-spacing: 4px;
+
+.promotion-tab {
+    position: relative;
+    padding-right: $tab-kebab-width + $tab-spacing;
+    border-bottom: 3px solid $red;
+
+    & > ul {
+        display: table;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    &-item {
+        display: table-cell;
+        padding: 0 $tab-spacing / 2;
+
+        a {
+            display: block;
+            width: 100%;
+            height: $tab-height;
+            line-height: $tab-height;
+            text-align: center;
+            font-size: 14px;
+            color: $black;
+            background: $light-gray;
+        }
+
+        &.active a,
+        a:hover {
+            color: $yellow;
+            background: $red;
+        }
+
+        // First item
+        &:first-child {
+            padding-left: 0;
+        }
+
+        // Last item
+        &.last {
+            padding-right: 0;
+        }
+    }
+
+    // No Kebab styles
+    &.no-kebab {
+        // Remove padding right
+        padding-right: 0;
+
+        // Hide kebab icon
+        .promotion-kebab {
+            display: none;
+        }
+    }
+}
+
+// Kebab
+.promotion-kebab {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: $tab-kebab-width;
+    height: $tab-height;
+    line-height: $tab-height;
+    background: $light-gray;
+    color: $black;
+    text-align: center;
+
+    // Kebab Button/Icon
+    & > a {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color: $dark-gray;
+
+        &:hover,
+        &.highlight {
+            background: $red;
+            color: $yellow;
+        }
+
+        &.active {
+            background: $dark-gray;
+            color: $light-gray;
+        }
+
+        span {
+            display: inline-block;
+            width: 100%;
+            padding: 6px;
+            word-break: break-all;
+            word-wrap: break-word;
+            font-size: 19px;
+            line-height: 8px;
+            height: 100%;
+        }
+    }
+
+    // Kebab dropdown
+    & > ul {
+        position: absolute;
+        right: 0;
+        top: 100%;
+        z-index: 15;
+        width: 250px;
+
+        li {
+            display: inline;
+        }
+
+        a {
+            display: block;
+            padding: 0 ($tab-kebab-width + 10) 0 10px;
+            height: $tab-height;
+            line-height: $tab-height;
+            border-top: 1px solid $light-gray;
+            background: $dark-gray;
+            color: $light-gray;
+        }
+
+        // Hover and Active state
+        .active a,
+        a:hover {
+            color: $yellow;
+        }
+
+        // Remove border-top on first item
+        & li:first-child a {
+            border-top: none;
+        }
+    }
+}
+
+// Filter
+.promotion-filter {
+    padding: 15px;
+    background: $light-gray;
+
+    &-title {
+        margin-bottom: 0;
+        color: $dark-gray;
+        font-weight: bold;
+    }
+
+    &-dropdown {
+        padding: 5px;
+    }
+}

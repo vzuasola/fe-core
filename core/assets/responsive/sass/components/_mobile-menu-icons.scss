@@ -1,0 +1,416 @@
+.mobile-menu-product,
+.mobile-menu-internal {
+    li {
+        // Icons
+        a:before {
+            @include image-replacement(
+                $background-url: $sprite-responsive,
+                $x: center,
+                $y: center,
+                $width: 30px,
+                $height: auto,
+                $line-height: auto
+            );
+            content: "";
+        }
+
+        // Icons text
+        .mobile-menu-label {
+            display: block;
+            width: 96%;
+            margin: 10px auto 0;
+        }
+
+        // New tag
+        .mobile-menu-new-tag {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            padding: 3px 5px;
+            background: #ff0000;
+            color: $white;
+            font-size: 10px;
+        }
+    }
+}
+
+// Product Menu Icons
+.mobile-menu-product {
+    li {
+        // Icons
+        a:before {
+            margin-top: 15px;
+        }
+
+        // Icons text
+        span {
+            top: 55px;
+        }
+
+        &.menu-sports {
+            a:before {
+                width: 29px;
+                height: 30px;
+                background-position: -520px -160px;
+            }
+            
+            &.active a:before,
+            a:hover:before {
+                background-position: -560px -160px;
+            }
+        }
+
+        &.menu-sports-df {
+            a:before {
+                width: 29px;
+                height: 29px;
+                background-position: -520px -200px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -560px -200px;
+            }
+        }
+
+        &.menu-casino {
+            a:before {
+                width: 29px;
+                height: 29px;
+                background-position: -520px -240px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -560px -240px;
+            }
+        }
+
+        &.menu-casino-gold {
+            a:before {
+                width: 29px;
+                height: 27px;
+                background-position: -520px -280px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -560px -280px;
+            }
+        }
+
+        &.menu-live-dealer {
+            a:before {
+                width: 25px;
+                height: 32px;
+                background-position: -520px -320px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -560px -320px;
+            }
+        }
+
+        &.menu-poker {
+            a:before {
+                width: 29px;
+                height: 25px;
+                background-position: -520px -360px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -560px -360px;
+            }
+        }
+
+        &.menu-games {
+            a:before {
+                width: 37px;
+                height: 25px;
+                background-position: -520px -400px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -560px -400px;
+            }
+        }
+
+        &.menu-virtuals {
+            a:before {
+                width: 29px;
+                height: 31px;
+                background-position: -520px -440px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -560px -440px;
+            }
+        }
+
+        &.menu-keno {
+            a:before {
+                width: 29px;
+                height: 30px;
+                background-position: -520px -480px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -560px -480px;
+            }
+        }
+
+        &.menu-fish-hunter {
+            a:before {
+                width: 32px;
+                height: 32px;
+                background-position: -520px -520px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -560px -520px;
+            }
+        }
+
+        &.menu-exchange {
+            a:before {
+                width: 32px;
+                height: 32px;
+                background-position: -520px -560px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -560px -560px;
+            }
+        }
+
+        &.menu-lottery {
+            a:before {
+                width: 32px;
+                height: 32px;
+                background-position: -520px -600px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -560px -600px;
+            }
+        }
+
+        &.menu-arcade {
+            a:before {
+                width: 28px;
+                height: 33px;
+                background-position: -600px -520px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -640px -520px;
+            }
+        }
+
+        &.menu-new-games {
+            a:before {
+                width: 50px;
+                height: 30px;
+                background-position: -600px -560px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -660px -560px;
+            }
+        }
+
+        &.menu-soda {
+            a:before {
+                width: 32px;
+                height: 32px;
+                background-position: -680px -520px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -720px -520px;
+            }
+        }
+
+        &.menu-ptplus {
+            a:before {
+                width: 28px;
+                height: 28px;
+                background-position: -520px -680px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -560px -680px;
+            }
+        }
+    }
+}
+
+// Internal menu Icons
+.mobile-menu-internal {
+    li {
+        // Icons
+        a:before {
+            margin-top: 13px;
+        }
+
+        // Icons text
+        span {
+            top: 31px;
+        }
+
+        &.menu-download {
+            a:before {
+                width: 15px;
+                height: 20px;
+                background-position: -600px -160px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -640px -160px;
+            }
+        }
+
+        &.menu-promotion {
+            a:before {
+                width: 21px;
+                height: 22px;
+                background-position: -600px -200px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -640px -200px;
+            }
+        }
+
+        &.menu-payment {
+            a:before {
+                width: 28px;
+                height: 19px;
+                background-position: -600px -240px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -640px -240px;
+            }
+        }
+
+        &.menu-faq {
+            a:before {
+                width: 21px;
+                height: 20px;
+                background-position: -600px -260px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -640px -260px;
+            }
+        }
+
+        &.menu-annoucement {
+            a:before {
+                width: 21px;
+                height: 16px;
+                background-position: -600px -300px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -640px -300px;
+            }
+        }
+
+        &.menu-notification {
+            a:before {
+                width: 17px;
+                height: 23px;
+                background-position: -600px -320px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -640px -320px;
+            }
+        }
+
+        &.menu-live-chat {
+            a:before {
+                width: 21px;
+                height: 22px;
+                background-position: -600px -360px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -640px -360px;
+            }
+        }
+
+        &.menu-contact {
+            a:before {
+                width: 21px;
+                height: 22px;
+                background-position: -600px -400px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -640px -400px;
+            }
+        }
+
+        &.menu-language {
+            a:before {
+                width: 21px;
+                height: 21px;
+                background-position: -600px -440px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -640px -440px;
+            }
+        }
+
+        &.menu-logout {
+            a:before {
+                width: 18px;
+                height: 22px;
+                background-position: -600px -480px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -640px -480px;
+            }
+        }
+
+        &.menu-change-pass {
+            a:before {
+                width: 20px;
+                height: 22px;
+                background-position: -600px -600px;
+            }
+
+            &.active a:before,
+            a:hover:before {
+                background-position: -620px -600px;
+            }
+        }
+    }
+}

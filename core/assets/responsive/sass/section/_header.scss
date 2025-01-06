@@ -1,0 +1,69 @@
+header {
+    position: relative;
+    padding: 0 20px;
+    height: 50px;
+    width: 100%;
+    background-color: #af0000;
+    color: $white;
+
+    .container {
+        padding-top: 1px;
+        padding-left: 5% !important;
+        padding-right: 5% !important;
+    }
+}
+
+.login-button-wrapper {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+@import "../components/mobile-action-button";
+@import "../components/logo";
+@import "../components/header-notification";
+@import "../components/language-switcher";
+@import "../components/login-form";
+@import "../components/login-form-lightbox";
+@import "../components/refresh-icon";
+@import "../components/header-intro";
+@import "../components/balance-togglable";
+@import "../components/password-mask";
+@import "../components/partner-matrix/header-override";
+@import "../components/dafacoin";
+
+@include media(">=desktop") {
+    .header-wrapper {
+        width: 100% !important;
+        background: #af0000;
+    }
+
+    header {
+        padding: 0;
+        height: $header-height-desktop;
+        font-size: 14px;
+
+        .container {
+            max-width: inherit;
+            min-width: inherit;
+            height: $header-height-desktop;
+            padding-top: 1px;
+            text-align: center;
+            padding-right: $container-gap;
+            padding-left: $container-gap;
+
+            .header-right {
+                display: block;
+                height: $header-height-desktop;
+            }
+        }
+    }
+}
+
+@media (width: 1024px) {
+    header {
+        .container {
+            padding-left: 50px;
+        }
+    }
+}

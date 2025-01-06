@@ -1,0 +1,31 @@
+# Provide a key value pair of middlewares
+#
+# The key serves as a unique identifier to identify a middleware
+
+middlewares:
+  # Request middlewares are executed before the controllers
+  request:
+    page_cache: App\Middleware\Cache\ResponseCache
+    session: App\Middleware\Request\Session
+    languages: App\Middleware\Request\Languages
+    bootstrap: App\Middleware\Request\Bootstrap
+    sso: App\Middleware\Request\SSO
+    tracking: App\Middleware\Request\Tracking
+    # legacy_auth: App\Middleware\Request\LegacyAuthentication
+
+  # Response middlewares are executed after the controllers
+  response:
+    script_provider: App\Middleware\Response\ScriptProvider
+    game_provider: App\Middleware\Response\GameProvider
+    attachments: App\Middleware\Response\Attachments
+    token: App\Middleware\Response\Token
+    page_cache: App\Middleware\Cache\ResponseCache
+    headers: App\Middleware\Response\Headers
+    lazy_token: App\Middleware\Response\LazyToken
+
+  # Cache are response middlewares that are executed on a cached request
+  cache:
+    bootstrap: App\Middleware\Cache\Bootstrap
+    tracking: App\Middleware\Cache\LazyTracking
+    headers: App\Middleware\Response\Headers
+    lazy_replacement: App\Middleware\Cache\LazyReplacement

@@ -1,0 +1,25 @@
+{% macro sitemap(links) %}
+    {% import _self as macros %}
+    {% for link in links %}
+        {% if link.path is iterable %}
+            <li>
+                <span style="background-image: url('{{ asset('images/sprite.png') }}');" class="icon lazy-loaded icon-document"></span>
+                <span>{{ link.label|raw }}</span>
+                <ul>
+                    {{ macros.sitemap(link.path) }}
+                </ul>
+            </li>
+        {% else %}
+            <li>
+                <span style="background-image: url('{{ asset('images/sprite.png') }}');" class="icon lazy-loaded icon-document"></span>
+
+                {% if link.path|trim('/') == router.path|trim('/') %}
+                    <span><a class="active" href="{{ url(link.path) }}">{{ link.label|raw }}</a></span>
+                {% else %}
+                    <span><a href="{{ url(link.path) }}">{{ link.label|raw }}</a></span>
+                {% endif %}
+
+            </li>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}

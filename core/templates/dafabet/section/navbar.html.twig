@@ -1,0 +1,19 @@
+<section class="navbar">
+    <div class="container clearfix">
+        <div class="pull-left">
+            <nav>
+                {% block navbarMain %}
+                    {% if header.main_menu %}
+                        {{ include('@base/components/main-menu.html.twig') }}
+                    {% endif %}
+                {% endblock navbarMain %}
+            </nav>
+        </div>
+
+        {% block navbarSub %}
+            {% if header.secondary_menu %}
+                {{ include('@base/components/secondary-menu.html.twig') }}
+            {% endif %}
+        {% endblock navbarSub %}
+    </div>
+</section>

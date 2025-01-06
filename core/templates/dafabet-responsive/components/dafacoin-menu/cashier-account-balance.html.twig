@@ -1,0 +1,32 @@
+<div class="cashier-account-balance">
+    <div class="cashier-menu hidden">
+        <div class="balance-menu-btn">
+            {% if device == 'desktop' %}
+                <span class="cashier-total-balance-label">{{ header.dafacoin_menu.total_balance_label }}</span>
+                <span class="cashier-account-balance-formatted"></span>
+            {% endif %}
+            {% if device == 'mobile' %}
+                <span class="cashier-account-balance-amount">0.00</span>
+            {% endif %}
+            <span class="cashier-arrowhead down-arrowhead">&#8964;</span>
+        </div>
+        {% if device == 'desktop' %}
+        <span class="balance-refresh-icon"></span>
+        {% endif %}
+        {% if device == 'mobile' %}
+            <a href="{{ url(header.dafacoin_menu.cashier_mobile_link) }}" target="_blank">
+                <img src="{{ asset('images/yellow-cashier.jpeg') }}" alt="Cashier">
+            </a>
+        {% endif %}
+        <div class="cashier-anchor">
+            {% if device == 'mobile' %}
+            <div class="cashier-anchor-desktop"></div>
+            {% endif %}
+            <div class="cashier-anchor-{{ (device == 'mobile' ? 'mobile' : 'desktop') }}"></div>
+        </div>
+    </div>
+    <div class="cashier-menu-loader">
+        <img src="{{ asset('images/balance-loader-white.gif') }}" alt="Loading Cashier">
+    </div>
+</div>
+

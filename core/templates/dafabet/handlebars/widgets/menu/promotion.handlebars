@@ -1,0 +1,12 @@
+{{#each promotions as |item key|}}
+    <div class="col-6">
+        <a href="#" class="preserve-ratio border mb-5">
+            <span>
+                <img src="{{ item.field_summary_image.0.url }}" class="w-100" alt="{{ item.field_summary_image.0.alt }}">
+            </span>
+        </a>
+        <div class="mega-menu-promo-ribbon tag-sports">{{ item.field_product.0.name.0.value }}</div>
+        <p>{{ item.field_promotion_summary.0.value }}</p>
+    <p class="text-right mega-menu-arrow"><a href="{{ item.alias.0.value }}" class="btn btn-yellow btn-small btn-arrow">Learn More</a></p>
+    </div>
+{{/each}}

@@ -1,0 +1,100 @@
+{% if item.field_res_sponsor_mobile_logo and item.field_enable_sponsor == 1 %}
+    <li class="mb-tablet-10 mb-desktop-10 {% if item.field_res_sponsor_link is not empty %}sponsor-link{% else %}sponsor-no-link{% endif %}">
+        {% if item.field_res_sponsor_link is not empty %}
+            <a href="{{ item.field_res_sponsor_link }}" target="{{ item.field_res_sponsor_link_target }}">
+                <span class="sponsor-logo">
+                    <img
+                        alt="{{ item.field_sponsor_alternative_text }}"
+                        src="{{ item.field_res_sponsor_mobile_logo }}"
+                    >
+                </span>
+                <span class="sponsor-desc visible-mobile">
+                    {% if item.field_mobile_sponsor_text %}
+                        <p class="sponsor-title"
+                            {% if footer.field_mobile_sponsor_text_font_size is not empty %}
+                                style="font-size: {{ footer.field_mobile_sponsor_text_font_size }};"
+                            {% endif %}
+                            >
+                            {{ item.field_mobile_sponsor_text }}
+                        </p>
+                    {% endif %}
+                    {% if item.field_mobile_sponsor_subtext %}
+                        <span class="sponsor-subtitle"
+                            {% if footer.field_mobile_sponsor_subtext_font_size is not empty %}
+                                style="font-size: {{ footer.field_mobile_sponsor_subtext_font_size }};"
+                            {% endif %}
+                            >
+                            {{ item.field_mobile_sponsor_subtext }}
+                        </span>
+                    {% endif %}
+                </span>
+                <span class="sponsor-desc hidden-mobile">
+                    {% if item.field_mobile_sponsor_text %}
+                        <p class="sponsor-title"
+                            {% if footer.field_desktop_sponsor_text_font_size is not empty %}
+                                style="font-size: {{ footer.field_desktop_sponsor_text_font_size }};"
+                            {% endif %}
+                            >
+                            {{ item.field_mobile_sponsor_text }}
+                        </p>
+                    {% endif %}
+                    {% if item.field_mobile_sponsor_subtext %}
+                        <span class="sponsor-subtitle"
+                            {% if footer.field_desktop_sponsor_subtext_font_size is not empty %}
+                                style="font-size: {{ footer.field_desktop_sponsor_subtext_font_size }};"
+                            {% endif %}
+                            >
+                            {{ item.field_mobile_sponsor_subtext }}
+                        </span>
+                    {% endif %}
+                </span>
+            </a>
+        {% else %}
+            <span class="sponsor-no-link-span">
+                <span class="sponsor-logo">
+                    <img src="{{ item.field_res_sponsor_mobile_logo }}" alt="{{ item.field_sponsor_alternative_text }}">
+                </span>
+                <span class="sponsor-desc visible-mobile">
+                    {% if item.field_mobile_sponsor_text %}
+                        <p class="sponsor-title"
+                            {% if footer.field_mobile_sponsor_text_font_size is not empty %}
+                                style="font-size: {{ footer.field_mobile_sponsor_text_font_size }};"
+                            {% endif %}
+                            >
+                            {{ item.field_mobile_sponsor_text }}
+                        </p>
+                    {% endif %}
+                    {% if item.field_mobile_sponsor_subtext %}
+                        <span class="sponsor-subtitle"
+                            {% if footer.field_mobile_sponsor_subtext_font_size is not empty %}
+                                style="font-size: {{ footer.field_mobile_sponsor_subtext_font_size }};"
+                            {% endif %}
+                            >
+                            {{ item.field_mobile_sponsor_subtext }}
+                        </span>
+                    {% endif %}
+                </span>
+                <span class="sponsor-desc hidden-mobile">
+                    {% if item.field_mobile_sponsor_text %}
+                        <p class="sponsor-title"
+                            {% if footer.field_desktop_sponsor_text_font_size is not empty %}
+                                style="font-size: {{ footer.field_desktop_sponsor_text_font_size }};"
+                            {% endif %}
+                            >
+                            {{ item.field_mobile_sponsor_text }}
+                        </p>
+                    {% endif %}
+                    {% if item.field_mobile_sponsor_subtext %}
+                        <span class="sponsor-subtitle"
+                            {% if footer.field_desktop_sponsor_subtext_font_size is not empty %}
+                                style="font-size: {{ footer.field_desktop_sponsor_subtext_font_size }};"
+                            {% endif %}
+                            >
+                            {{ item.field_mobile_sponsor_subtext }}
+                        </span>
+                    {% endif %}
+                </span>
+            </span>
+        {% endif %}
+    </li>
+{% endif %}

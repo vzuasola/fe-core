@@ -1,0 +1,22 @@
+<section class="social-media {% if footer.enable_new_style != 1 %} text-center{% endif %}">
+    {% if footer.socialmedia is not empty %}
+        {% if footer.social_media_title is not empty %}
+        <h4 class="mb-10 mb-mobile-24">{{footer.social_media_title}}</h4>
+        {% endif %}
+        <p class="{% if footer.enable_new_style != 1 %}mb-50{% endif %} mb-mobile-36 text-0">
+            {% for socialitem in footer.socialmedia  %}
+                    <a  
+                        href="{{ url(socialitem.field_socialmedia_cmi_links[0].value)}}"
+                        class="icon-{{socialitem.field_socialmedia_cmi_link_class[0].value}} mb-tablet-5 lazy-load"
+                        data-src="{{ asset('images/sprite-responsive.png') }}" target="{{ socialitem.field_socialmedia_cmi_linktarget[0].value }}"
+                    >
+                        {{socialitem.field_socialmedia_cmi_link_class[0].value}}
+                    </a>
+            {% endfor %}
+        </p>
+    {% endif %}
+
+    <div class="partner-desktop-container visible-desktop"></div>
+    <div class="partner-mobile-container visible-mobile"></div>
+</section>
+ 

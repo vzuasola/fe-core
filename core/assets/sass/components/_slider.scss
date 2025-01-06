@@ -1,0 +1,170 @@
+.Slider {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: auto;
+    overflow: hidden;
+    z-index: 10;
+    color: #fff;
+
+    a {
+        display: inline-block;
+        outline: none;
+
+        &:focus,
+        &:active {
+            outline: none;
+        }
+    }
+
+    &-blurb {
+        position: absolute;
+        z-index: 14;
+        max-width: $container-max-width;
+        width: auto;
+        padding: 40px 200px;
+
+        &.top {
+            top: 0;
+            width: 100%;
+            max-height: 300px;
+            overflow: hidden;
+            min-width: 600px;
+        }
+
+        &.left {
+            @include translateY(-50%);
+            top: 50%;
+            left: 0;
+            width: 50%;
+            height: auto;
+            padding: 20px 0 20px 200px;
+        }
+
+        &.right {
+            @include translateY(-50%);
+            top: 50%;
+            right: 0;
+            width: 50%;
+            height: auto;
+            padding: 20px 200px 20px 0;
+        }
+
+        &.bottom {
+            bottom: 10px;
+            width: 100%;
+            min-width: 600px;
+        }
+    }
+
+    &-list {
+        position: relative;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+    }
+
+    &-item {
+        @include transition(opacity 1s);
+
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 11;
+        width: 100%;
+        height: auto;
+        opacity: 0;
+
+        img {
+            width: 100%;
+        }
+
+        & > a {
+            display: block;
+            width: 100%;
+        }
+
+        &.showing {
+            position: relative;
+            opacity: 1;
+            z-index: 12;
+        }
+    }
+
+    &-pagination {
+        @include pagination-position(center);
+
+        position: absolute;
+        bottom: 30px;
+        z-index: 15;
+    }
+
+    &-dot {
+        @extend %hide-text;
+
+        display: block;
+        width: 15px;
+        height: 15px;
+        margin: 3px;
+        padding: 0;
+        float: left;
+        border: 1px solid $slider-light-gold;
+        border-radius: 2px;
+        text-indent: -9999px;
+
+        /* Web browsers that does not support RGBa */
+        background: $dark-gray;
+
+        /* IE9/FF/chrome/safari supported */
+        background: rgba(0, 0, 0, 0.1);
+
+        /* IE 8 suppoerted. Here some time problem for Hover than you can use background color/image */
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000)";
+        zoom: 1;
+        cursor: pointer;
+
+        &.active {
+            background-color: $slider-light-gold;
+            outline: none;
+        }
+    }
+
+    &-buttonPrevious,
+    &-buttonNext {
+        @extend %hide-text;
+
+        @include translateY(-50%);
+        position: absolute;
+        top: 50%;
+        z-index: 15;
+        width: 23px;
+        height: 56px;
+        font-size: 0;
+        background: transparent url($base-sprite) no-repeat;
+        cursor: pointer;
+
+        &:focus,
+        &:active {
+            outline: none;
+        }
+    }
+
+    &-buttonPrevious {
+        background-position: -240px 0;
+        left: 140px;
+
+        &:hover {
+            background-position: -280px 0;
+        }
+    }
+
+    &-buttonNext {
+        background-position: -240px -60px;
+        right: 140px;
+
+        &:hover {
+            background-position: -280px -60px;
+        }
+    }
+}

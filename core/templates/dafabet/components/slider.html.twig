@@ -1,0 +1,31 @@
+{% if slider is not empty %}
+<section class='main-slider'>
+    <div class="Slider">
+        <div class="Slider-list">
+        {% block slider %}
+            {% for slider_item in slider %}
+            <div class="Slider-item">
+                <div class='Slider-blurb {{ slider_item.field_content_position[0].value }}'>
+                    {{ slider_item.body[0].value | raw }}
+                </div>
+                <a href="{{ url(slider_item.field_banner_link[0].uri) }}" target="{{ slider_item.field_banner_link_target[0].value }}">
+                    <img src='{{ asset(slider_item.field_image[0].url) }}' class="lazy-load">
+                </a>
+            </div>
+            {% endfor %}
+        {% endblock slider %}
+        </div>
+        <div class="Slider-pagination">
+            {% block pagination %}
+                {% for slider_item in slider %}
+                    <button class="Slider-dot"></button>
+                {% endfor %}
+            {% endblock pagination %}
+        </div>
+      <div class="Slider-buttons-wrapper">
+        <span class="Slider-button Slider-buttonPrevious">Previous</span>
+        <span class="Slider-button Slider-buttonNext">Next</span>
+      </div>
+    </div>
+</section>
+{% endif %}

@@ -1,0 +1,36 @@
+<div class="news-sidebar mb-20 ">
+    <div class="news-sidebar-header"><h3>{{ news_right_side.title }}</h3></div>
+    <div class="news-sidebar-list">
+        <div class="news-sidebar-list-item">
+            {% for item in news_right_side.items %}
+                {% if loop.last %}
+                    <div class="grid grid-gap-20 mb-0">
+                        <div class="col-5">
+                            <a href="{{ url(item.field_news_rs_block_link[0]['uri']) }}" class="news-sidebar-thumb" target="{{ item.field_news_rs_block_link_target[0]['value'] }}">
+                                <img class="lazy-load" src="{{ asset('images/default_image.png') }}" data-src="{{ asset(item.field_news_rs_block_thumbnail[0].url) }}" alt="{{ item.field_news_rs_block_thumbnail.alt }}">
+                            </a>
+                        </div>
+                        <div class="col-7">
+                            <h5 class="news-sidebar-title">
+                                <a href="{{ url(item.field_news_rs_block_link[0]['uri']) }}" target="{{ item.field_news_rs_block_link_target[0]['value'] }}">{{ item.title[0].value }}</a></h5>
+                            <div class="news-sidebar-blurb">{{ item.field_news_rs_block_summary[0].value|raw }}</div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="grid grid-gap-20 mb-20">
+                        <div class="col-5">
+                            <a href="{{ url(item.field_news_rs_block_link[0]['uri']) }}" class="news-sidebar-thumb" target="{{ item.field_news_rs_block_link_target[0]['value'] }}">
+                                <img class="lazy-load" src="{{ asset('images/default_image.png') }}" data-src="{{ asset(item.field_news_rs_block_thumbnail[0].url) }}" alt="{{ item.field_news_rs_block_thumbnail.alt }}">
+                            </a>
+                        </div>
+                        <div class="col-7">
+                            <h5 class="news-sidebar-title">
+                                <a href="{{ url(item.field_news_rs_block_link[0]['uri']) }}" target="{{ item.field_news_rs_block_link_target[0]['value'] }}">{{ item.title[0].value }}</a></h5>
+                            <div class="news-sidebar-blurb">{{ item.field_news_rs_block_summary[0].value|raw }}</div>
+                        </div>
+                    </div>
+               {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

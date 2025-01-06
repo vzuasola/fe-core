@@ -1,0 +1,28 @@
+.sponsors {
+    ul {
+        padding: 0;
+        clear: both;
+        overflow: hidden;
+        font-size: 0;
+        text-align: center;
+        list-style-type: none;
+    }
+
+    li {
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    a,
+    span {
+        @extend %hide-text;
+    }
+
+    img {
+        @extend %lazy-load;
+
+        &.lazy-loaded {
+            @extend %lazy-loaded;
+        }
+    }
+}

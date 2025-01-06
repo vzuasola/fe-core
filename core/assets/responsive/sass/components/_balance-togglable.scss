@@ -1,0 +1,252 @@
+/*  Toggable balance
+======================================================================================== */
+.toggable {
+    .player-balance,
+    .player-options{
+        vertical-align: middle;
+    }
+
+    .player-balance {
+        display: inline-block;
+        margin-right: 0;
+        .account-balance {
+            height: auto;
+            font-size: 14px;
+            color: $lightest-gray;
+
+            .balance-amount {
+                font-weight: 600;
+                color: $white;
+            }
+
+            .refresh-icon {
+                background-image: url($sprite-responsive);
+                background-position: -454px -727px;
+                width :18px;
+                height: 16px;
+            }            
+        }
+
+        .welcome-text {
+            position: relative;
+        }
+    }
+
+    .player-balance-left {
+        display: inline-block;
+        padding-right: 16px;
+        vertical-align: middle;
+        line-height: 15px;
+    }
+
+    .player-balance-right {
+        display: inline-block;
+        vertical-align: middle;
+
+        .player-icons {
+            float: left;
+            padding: 0px 15px 0px 10px;
+        }
+    }
+
+    #product-balance > span {
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    #player-balance {
+        display: block;
+        min-height: 17px;
+    }
+
+    .player-options {
+        li {            
+            &.cashier-tooltip {
+                width: auto;
+                background: $yellow;
+                border-radius: 20px;
+                height: 30px;
+                bottom: 28px;
+                top: -21px;
+                margin-right: 0px !important;
+
+                &:hover {
+                    background: #ffe255;
+                }
+
+                .cashier-label {
+                    position: static;
+                    color: $darkest-gray;
+                    padding: 3px 20px;
+                    line-height: 30px;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                }
+
+                .tooltip-content {
+                    top: 36px;
+                    padding-top: 15px;
+                    right: 0px;
+
+                    ul {
+                        &:before {
+                            right: 45px;
+                        }
+                    }
+                }
+            }
+
+            &.myaccount-tooltip {
+                bottom: 25px;
+                margin-right: 5px;
+                margin-left: 14px;
+                margin-top: 2px;
+                .tooltip-content {
+                    right: -16px;
+                    
+                    ul {
+                        &:before {
+                            right: 33px;
+                        }
+                    }
+                }
+            }
+
+            &.mymessage-tooltip {
+                bottom: 65px;
+                position: relative;
+                display: inline-block;
+
+                .message-counter {
+                    position: relative;
+                    top: -7px;
+                    display: none;
+                    margin: 0 0 0 -10px;
+                    padding: 2px 4px;
+                    border-radius: 10px;
+                    background: $yellow;
+                    color: $dark-red;
+                    font: bold 12px/11px Verdana, Geneva, sans-serif;                        
+                }
+            }
+
+            // New My account icon
+            .icon-myaccount.lazy-loaded {
+                background-position: -479px -702px;
+                width: 42px;
+                height: 42px;
+                left: -15px;
+                margin-right: 7px;
+            }
+
+            // New My message icon
+            .icon-mymessage.lazy-loaded {
+                background-position: 0px -730px;
+                height: 24px;
+                width: 25px;
+                top: 35px;
+                margin-right: 15px;
+            }
+        }
+
+        .myaccount-tooltip, .cashier-tooltip {
+            ul {
+                background: $dark-red;
+                border-radius: 3px;
+            }
+        }
+    }
+
+    // Tooltip
+    .tooltip-balance {
+        top: 64px;
+
+        .balance-details {
+            font-size: 14px;
+        }
+    }
+
+    &.has-product-balance-2 {
+        .tooltip-balance {
+            top: 64px;
+        }
+    }
+}
+
+// No product balance
+.no-product-balance {
+    .tooltip-balance {
+        top: 64px;
+    }
+
+    .player-balance {
+        vertical-align: middle;
+    }
+}
+
+// Hide balance
+.hide-balance.no-product-balance,
+.hide-balance {
+    &.has-product-balance-2 {
+        .player-balance,
+        .no-product-balance {
+            margin-top: 0px;
+        }
+    }
+
+    .player-balance {
+        margin-top: 0px;
+
+        .account-balance {
+            display: none;
+        }
+    }
+
+    .balance-checkbox {
+        span {
+            background: #979797;
+        }
+    }
+}
+
+.balance-checkbox {
+    position: absolute;
+    display: inline-block;
+    width: 10px;
+    height: 20px;
+    margin: 0 7px;
+    top: -3px;
+    border-radius: 5px;
+    background: $darkest-red;    
+    right: none;
+
+    span {
+        position: absolute;
+        top: 10px;
+        display: block;
+        width: 10px;
+        height: 10px;
+        content: "";
+        background: $yellow;
+        border-radius: 50%;
+        transition: top 0.05s linear;
+    }
+
+    &.unchecked span {
+        top: 0px;
+        left: 0px;
+    }
+
+    input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        width: 24px;
+        height: 13px;
+        margin: -2px 0 0 -2px;
+        cursor: pointer;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        opacity: 0;
+    }
+}

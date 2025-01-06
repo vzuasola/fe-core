@@ -1,0 +1,16 @@
+// Copyright
+.copyright {
+    @include gradient($copyright-grad, $copyright-grad-top, $copyright-grad-bottom);
+    line-height: 2.7rem;
+    font-size: 1rem;
+    color: $copyright-color;
+
+    @include media(">=desktop") {
+        line-height: 4.6rem;
+        font-size: 2.2rem;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+}

@@ -1,0 +1,68 @@
+<h1 class="mt-15 text-center">{{ sitemap_config.sitemap_title }}</h1>
+
+<div class="base-url text-center mb-20">{{ host }}</div>
+
+<div class="sitemap-wrapper">
+{% for item in dropdown_menu %}
+    {% if item.field_dropdown_menu_enabled[0].value %}
+    {% set id = item.field_dropdown_menu_id[0].value ? item.field_dropdown_menu_id[0].value : "" %}
+        {% if platform == item.field_dropdown_menu_mobile_opt[0].value or item.field_dropdown_menu_mobile_opt[0].value == 'both' %}
+        <ul class="sitemap-inner-wrap {{ item.class }} {{ special }}">
+            <h2>
+                <a href="{{ url(item.field_dropdown_menu_link[0].value ? item.field_dropdown_menu_link[0].value : "") }}"
+                    class="main-menu-link">
+                    {{ item.field_dropdown_menu_link_title[0].value ? item.field_dropdown_menu_link_title[0].value : "" }}
+                </a>
+            </h2>
+            {% if item.field_dropdown_submenu_items %}
+                {% for subItem in item.field_dropdown_submenu_items %}
+                    {% set subTarget = subItem.attributes.target ? subItem.attributes.target : "_self" %}
+                    {% set subId = subItem.field_dropdown_menu_id[0].value ? subItem.field_dropdown_menu_id[0].value : "" %}
+                    {% if subItem.field_dropdown_menu_enabled[0].value %}
+                        {% if subId != "postlogin" and subId != "prelogin" %}
+                            <li class="sitemap-items {{ subItem.class }} {{ subSpecial }}">
+                                <a href="{{ url(subItem.field_dropdown_menu_link[0].value ? subItem.field_dropdown_menu_link[0].value : "") }}" class="sub-menu-link">
+                                    <span>{{ subItem.field_dropdown_menu_link_title[0].value }}</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if header.login == 'TRUE' %}
+                            {% set ses = 'postlogin' %}
+                            {% if ses == subId %}
+                            <li class="sitemap-items {{ subItem.class }} {{ subSpecial }}">
+                                <a href="{{ url(subItem.field_dropdown_menu_link[0].value ? subItem.field_dropdown_menu_link[0].value : "") }}" class="sub-menu-link">
+                                    <span>{{ subItem.field_dropdown_menu_link_title[0].value }}</span>
+                                </a>
+                            </li>
+                            {% endif %}
+                        {% else %}
+                            {% set ses = 'prelogin' %}
+                            {% if ses == subId %}
+                            <li class="sitemap-items {{ subItem.class }} {{ subSpecial }}">
+                                <a href="{{ url(subItem.field_dropdown_menu_link[0].value ? subItem.field_dropdown_menu_link[0].value : "") }}" class="sub-menu-link">
+                                    <span>{{ subItem.field_dropdown_menu_link_title[0].value }}</span>
+                                </a>
+                            </li>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </ul>
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
+{% for i in footer.quicklinks %}
+    <ul class="sitemap-inner-wrap">
+        <h2>
+            <a href="{{ url(i.alias ? i.alias : i.uri) }}"
+                class="main-menu-link">
+                {{ i.title ? i.title : "" }}
+            </a>
+        </h2>
+    </ul>
+{% endfor %}
+</div>
+<div class="gradient-left"></div>
+<div class="gradient-right"></div>

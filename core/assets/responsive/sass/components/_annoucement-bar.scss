@@ -1,0 +1,21 @@
+.annoucement-bar {
+    display: table;
+    width: 100%;
+    background-color: $red;
+
+    // Icon object
+    &-object {
+        display: table-cell;
+        width: 100px;
+        padding: 10px;
+        border-right: 1px solid $white;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    // content body
+    &-body {
+        display: table-cell;
+        padding: 20px 30px 5px;
+    }
+}

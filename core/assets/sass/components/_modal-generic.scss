@@ -1,0 +1,19 @@
+// Modal Generic Style
+.generic-modal-content {
+    display: none;
+    visibility: hidden;
+}
+
+.modal-generic {
+    .scrollbot {
+        width: auto;
+        max-height: none;
+    }
+
+    .modal-close-button {
+        @include image-replacement($base-sprite, -240px, -240px, 25px, 25px);
+        top: 8px;
+        right: 8px;
+        cursor: pointer;
+    }
+}

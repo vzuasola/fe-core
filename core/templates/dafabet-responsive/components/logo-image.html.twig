@@ -1,0 +1,9 @@
+{% if header.logo is not empty %}
+    <img class="lazy-load" src="{{ asset('images/default_image.png') }}" data-src="{{ asset(header.logo.url) }}" alt="{{ header.logo.alt }}">
+{% else %}
+    {% if app.lang == "ch" or app.lang == "sc" %}
+        <img class="lazy-load" src="{{ asset('images/default_image.png') }}" data-src="{{ asset('images/dafabet_logo_chinese.png') }}" alt="{{ header.logo_title }}">
+    {% else %}
+        <img class="lazy-load" src="{{ asset('images/default_image.png') }}" data-src="{{ asset('images/dafabet_logo.png') }}" alt="{{ header.logo_title }}">
+    {% endif %}
+{% endif %}

@@ -1,0 +1,131 @@
+<ul class="main-menu" id="main-menu">
+    {% for item in dropdown_menu %}
+        {% if item.field_dropdown_menu_enabled[0].value %}
+        {% set target = item.attributes.target ? item.attributes.target : "_self" %}
+        {% set classes = item.field_dropdown_menu_class[0].value ? item.field_dropdown_menu_class[0].value : "" %}
+        {% set device = item.field_dropdown_menu_mobile_opt[0].value %}
+        {% set id = item.field_dropdown_menu_id[0].value ? item.field_dropdown_menu_id[0].value : "" %}
+
+        {% if id == "postlogin" or id == "prelogin" %}
+            {% if (header.login and id == "postlogin") or (header.login != true and id == "prelogin") %}
+                {% set special = "" %}
+            {% else %}
+                {% set special = "login-hidden" %}
+            {% endif %}
+        {% else %}
+            {% set special = "" %}
+        {% endif %}
+
+        {% if item.hidden %}
+            {% set special = special ~ " hidden" %}
+        {% endif %}
+
+            {# check if the user logged in is on the block list #}
+            {% if avaya_block == true %}
+                {# check if avaya link #}
+                {% if item.field_dropdown_menu_link[0].value == "/linkto:avaya" or item.field_dropdown_menu_link[0].value == "linkto:avaya" %}
+                        {# dont display avaya link #}
+                    {% else %}
+                        <li class="main-menu-item {{ item.class }} {{ special }} {{device}} {% if item.has_submenu %}has-submenu{% endif %}">
+                        <a href="{{ url(item.field_dropdown_menu_link[0].value ? item.field_dropdown_menu_link[0].value : "") }}"
+                        class="main-menu-link {{ classes }}" id="{{ id }}" title="{{ item.field_dropdown_menu_description[0].value }}">
+                            {{ item.field_dropdown_menu_link_title[0].value ? item.field_dropdown_menu_link_title[0].value : "" }}
+                            <span class="fa fa-chevron-right"></span>
+                        </a>
+                        {# Submenu #}
+                        {% if item.field_dropdown_submenu_items %}
+                        <div id="sub-menu-wrapper" class="sub-menu-wrapper">
+                            <ul class="sub-menu clearfix">
+                                <li class="hidden-desktop sub-menu-item">
+                                    <a href="{{ url(item.field_dropdown_menu_link[0].value ? item.field_dropdown_menu_link[0].value : "") }}" class="sub-menu-link">
+                                        <span>{{ item.field_dropdown_menu_link_title[0].value ? item.field_dropdown_menu_link_title[0].value : "" }}</span>
+                                    </a>
+                                </li>
+                                {% for subItem in item.field_dropdown_submenu_items %}
+                                    {% set subTarget = subItem.attributes.target ? subItem.attributes.target : "_self" %}
+                                    {% set subClasses = subItem.field_dropdown_menu_class[0].value ? subItem.field_dropdown_menu_class[0].value : "" %}
+                                    {% set subDevice = subItem.field_dropdown_menu_mobile_opt[0].value %}
+                                    {% set subId = subItem.field_dropdown_menu_id[0].value ? subItem.field_dropdown_menu_id[0].value : "" %}
+
+                                    {% if subId == "postlogin" or subId == "prelogin" %}
+                                        {% if (header.login and subId == "postlogin") or (header.login != true and subId == "prelogin") %}
+                                            {% set subSpecial = "" %}
+                                        {% else %}
+                                            {% set subSpecial = "login-hidden" %}
+                                        {% endif %}
+                                    {% else %}
+                                        {% set subSpecial = "" %}
+                                    {% endif %}
+
+                                    {% if subItem.hidden %}
+                                        {% set subSpecial = subSpecial ~ " hidden" %}
+                                    {% endif %}
+
+                                    {% if subItem.field_dropdown_menu_enabled[0].value %}
+
+                                    <li class="sub-menu-item {{ subItem.field_dropdown_menu_class[0].value }} {{ subItem.class }} {{ subSpecial }} {{ subDevice }}">
+                                        <a href="{{ url(subItem.field_dropdown_menu_link[0].value ? subItem.field_dropdown_menu_link[0].value : "") }}" class="sub-menu-link {{ subClasses }}" id="{{ subId }}"
+                                        title="{{ subItem.field_dropdown_menu_description[0].value }}">
+                                            <img src="{{ subItem.field_dropdown_menu_icon_image[0].url }}" />
+                                            <span class="hidden-desktop">{{ subItem.field_dropdown_menu_link_title[0].value }}</span>
+                                        </a>
+                                        <span class="visible-desktop">{{ subItem.field_dropdown_menu_link_title[0].value }}</span>
+                                    </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </li>
+                {% endif %}
+            {% else %}
+                <li class="main-menu-item {{ item.class }} {{ special }} {{device}} {% if item.has_submenu %}has-submenu{% endif %}">
+                    <a href="{{ url(item.field_dropdown_menu_link[0].value ? item.field_dropdown_menu_link[0].value : "") }}"
+                    class="main-menu-link {{ classes }}" id="{{ id }}" title="{{ item.field_dropdown_menu_description[0].value }}">
+                        {{ item.field_dropdown_menu_link_title[0].value ? item.field_dropdown_menu_link_title[0].value : "" }}
+                        <span class="fa fa-chevron-right"></span>
+                    </a>
+                    {# Submenu #}
+                    {% if item.field_dropdown_submenu_items %}
+                    <div id="sub-menu-wrapper" class="sub-menu-wrapper">
+                        <ul class="sub-menu clearfix">
+                            {% for subItem in item.field_dropdown_submenu_items %}
+                                {% set subTarget = subItem.attributes.target ? subItem.attributes.target : "_self" %}
+                                {% set subClasses = subItem.field_dropdown_menu_class[0].value ? subItem.field_dropdown_menu_class[0].value : "" %}
+                                {% set subDevice = subItem.field_dropdown_menu_mobile_opt[0].value %}
+                                {% set subId = subItem.field_dropdown_menu_id[0].value ? subItem.field_dropdown_menu_id[0].value : "" %}
+
+                                {% if subId == "postlogin" or subId == "prelogin" %}
+                                    {% if (header.login and subId == "postlogin") or (header.login != true and subId == "prelogin") %}
+                                        {% set subSpecial = "" %}
+                                    {% else %}
+                                        {% set subSpecial = "login-hidden" %}
+                                    {% endif %}
+                                {% else %}
+                                    {% set subSpecial = "" %}
+                                {% endif %}
+
+                                {% if subItem.hidden %}
+                                    {% set subSpecial = subSpecial ~ " hidden" %}
+                                {% endif %}
+
+                                {% if subItem.field_dropdown_menu_enabled[0].value %}
+
+                                <li class="sub-menu-item {{ subItem.field_dropdown_menu_class[0].value }} {{ subItem.class }} {{ subSpecial }} {{ subDevice }}">
+                                    <a href="{{ url(subItem.field_dropdown_menu_link[0].value ? subItem.field_dropdown_menu_link[0].value : "") }}" class="sub-menu-link {{ subClasses }}" id="{{ subId }}"
+                                    title="{{ subItem.field_dropdown_menu_description[0].value }}">
+                                        <img src="{{ subItem.field_dropdown_menu_icon_image[0].url }}" />
+                                        <span class="hidden-desktop">{{ subItem.field_dropdown_menu_link_title[0].value }}</span>
+                                    </a>
+                                    <span class="visible-desktop">{{ subItem.field_dropdown_menu_link_title[0].value }}</span>
+                                </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </li>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</ul>

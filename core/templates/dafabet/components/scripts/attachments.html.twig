@@ -1,0 +1,6 @@
+{% if app.scripts.getScripts() is not empty %}
+    <script type="text/javascript">
+        var app = {};
+        app.settings = {{ app.scripts.getScripts()|json_encode()|raw }};
+    </script>
+{% endif %}

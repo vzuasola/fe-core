@@ -1,0 +1,64 @@
+<div id="cashier-balance" class="dcoin-{{(device == 'mobile' ? 'mobile' : 'desktop') }}">
+    <div id="balance-menu-div" class="hidden">
+        <div id="cashier-menu-top">
+            <div id="cashier-menu-total" class="cashier-menu-yellow">{{ header.dafacoin_menu.total_balance_label }}<div id="inner-total-balance" style="display: inline-block">0.00</div>
+            </div>
+            <div id="cashier-menu-msg" class="cashier-information-text">{{ header.dafacoin_menu.priority_switch_message }}</div>
+        </div>
+        <div class="cashier-menu-wallet-rows"></div>
+        <div class="cashier-menu-toggle-all-container">
+                <span class="cashier-menu-toggle-all-label">
+                {{ header.dafacoin_menu.wallet_switch_all_label }}
+                </span>
+            <div class="btn-holder">
+                <div class="btn-circle">
+                    <div class="dafacoin-fiat-icon"></div>
+                    <div class="dafacoin-token-icon"></div>
+                </div>
+            </div>
+        </div>
+        <div id="cashier-menu-buttons">
+            <button id="balance-save-btn" class="balance-btn" disabled>{{ header.dafacoin_menu.save_button_label }}</button>
+            <button id="balance-close-btn" class="balance-btn">{{ header.dafacoin_menu.close_button_label }}</button>
+            <div style="clear: both"></div>
+        </div>
+        <div id="balance-menu-shade"></div>
+        <!-- Warning Overlay -->
+        <div id="dafacoin-warning" class="hidden">
+            <div>
+                <p>{{ header.dafacoin_menu.unsaved_changes_message }}</p>
+                <button id="popup-yes-btn" class="popup-btn">{{ header.dafacoin_menu.yes_button_label }}</button>
+                <button id="popup-no-btn" class="popup-btn">{{ header.dafacoin_menu.no_button_label }}</button>
+            </div>
+        </div>
+        <div id="dafacoin-warning-overlay" class="hidden"></div>
+    </div>
+    <div id="dafacoin-overlay" class="hidden"></div>
+</div>
+
+
+<div id="dafacoin-saved-overlay" class="hidden">
+    <div id="dafacoin-saved">
+        <div id="dafacoin-saved-close-btn">x</div>
+        <div style="clear: both"></div>
+        <div class="dafacoin-saved-text">
+            <div class="dafacoin-priority-set-success hidden">
+                <svg class="dafacoin-saved-icon dafacoin-menu-ok" width="17" height="17" viewBox="0 0 17 17">
+                </svg>
+                {{ header.dafacoin_menu.saved_popup_message }}
+            </div>
+            <div class="dafacoin-priority-set-failure hidden">
+                <svg class="dafacoin-saved-icon dafacoin-menu-not-ok" width="17" height="22" viewBox="0 0 17 22"></svg>
+                <div class="dafacoin-priority-set-failure-messages">
+                {{ header.dafacoin_menu.not_saved_popup_message|nl2br }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# Header icons #}
+<span class="hidden">
+    {% include '@site/../web/images/responsive/products/product-icons.svg' ignore missing %}
+    {% include '@site/../web/images/responsive/header/dafabet-header.svg' ignore missing %}
+</span>

@@ -1,0 +1,154 @@
+@import "banner";
+
+// Pagination map
+//Stores the map-name and map-value in $name: $value format respectively.
+$pagination-map: (center: center, left: left, right: right);
+
+// Pagination position
+// Mixin for getting the pagination position based on the parameter passed via '$side'
+@mixin pagination-position($side: center) {
+    @if $side == center {
+        @include translateX(-50%);
+        left: 50%;
+    } @else if $side == right {
+        @include translateX(0);
+        left: inherit;
+        right: 1.5rem;
+    } @else if $side == left {
+        @include translateX(0);
+        left: 1.5rem;
+    } @else {
+        @include translateX(-50%);
+        left: 50%;
+    }
+}
+
+.slider {
+    // Hide slider (slider JS will remove this once initialized)
+    display: none;
+}
+
+.banner {
+    z-index: 10;
+
+    .btn-collapse {
+        @extend %hide-text;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        width: 3rem;
+        height: 1.9rem;
+        background: transparent url($base-sprite) no-repeat;
+        background-position: -14rem -24rem;
+        z-index: 15;
+    }
+
+    .banner-blurb {
+        padding: 2rem 1rem;
+
+        &.bottom {
+            bottom: 5rem;
+        }
+    }
+
+    .slides-item {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 11;
+        width: 100%;
+        height: auto;
+        opacity: 0;
+
+        &.showing {
+            @include transition(opacity 1s);
+            position: relative;
+            opacity: 1;
+            z-index: 12;
+        }
+
+        & > a img,
+        & > img {
+            width: 100%;
+        }
+    }
+
+    .slider-pager {
+        @include pagination-position(center);
+        position: absolute;
+        bottom: 1.5rem;
+        z-index: 15;
+    }
+
+    &.pagination-center .slider-pager {
+        @include pagination-position(center);
+    }
+
+    &.pagination-right .slider-pager {
+        @include pagination-position(right);
+    }
+
+    &.pagination-left .slider-pager {
+        @include pagination-position(left);
+    }
+
+    .pager-item {
+        @extend %hide-text;
+        @include box-sizing(content-box);
+        display: block;
+        width: 1.3rem;
+        height: 1.3rem;
+        margin: 0.2rem 0.6rem;
+        padding: 0;
+        float: left;
+        border-radius: 50%;
+        text-indent: -999.9rem;
+        background: $white;
+        cursor: pointer;
+
+        &.active,
+        .no-touch &:hover {
+            margin: 0 0.4rem;
+            border: 0.2rem solid $white;
+            background-color: #ed1c24;
+        }
+    }
+
+    .btn-prev,
+    .btn-next {
+        @include translateY(-50%);
+        position: absolute;
+        top: 50%;
+        left: 0.5rem;
+        z-index: 15;
+        width: 1.2rem;
+        font-size: 3.5rem;
+        color: #acacac;
+        cursor: pointer;
+        opacity: .53;
+
+        &:focus,
+        &:active,
+        &:hover {
+            outline: none;
+            opacity: 1;
+        }
+
+        @include media(">=tablet") {
+            left: 1rem;
+            width: 2.3rem;
+            font-size: 6.5rem;
+        }
+    }
+
+    .btn-next {
+        left: inherit;
+        right: 0.5rem;
+
+        @include media(">=tablet") {
+            right: 1rem;
+        }
+    }
+}

@@ -1,0 +1,41 @@
+// Adds "left/right" position property based on container gutters
+
+@mixin left-base-container-gutter() {
+    left: $container-gutter-mobile;
+
+    @include media(">=mobile-md") {
+        left: $container-gutter-mobile-md;
+    }
+
+    @include media(">=tablet") {
+        left: $container-gutter-tablet;
+    }
+
+    @include media(">=desktop") {
+        left: $container-gutter-desktop;
+    }
+
+    @include media(">=desktop-lg") {
+        left: $container-gutter-desktop-lg;
+    }
+}
+
+@mixin right-base-container-gutter() {
+    right: $container-gutter-mobile;
+
+    @include media(">=mobile-md") {
+        right: $container-gutter-mobile-md;
+    }
+
+    @include media(">=tablet") {
+        right: $container-gutter-tablet;
+    }
+
+    @include media(">=desktop") {
+        right: $container-gutter-desktop;
+    }
+
+    @include media(">=desktop-lg") {
+        right: $container-gutter-desktop-lg;
+    }
+}

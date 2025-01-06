@@ -1,0 +1,837 @@
+/* stylelint-disable */
+
+// clearfix
+%clearfix:before,
+%clearfix:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+%clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    @extend %clearfix;
+}
+
+.clear {
+    clear: both;
+}
+
+// hide text
+%hide-text {
+    border: 0;
+    background-color: transparent;
+    color: transparent;
+    font: 0;
+    text-shadow: none;
+}
+
+.hide-text {
+    @extend %hide-text;
+}
+
+%input-block-level {
+    @include box-sizing();
+    display: block;
+    width: 100%;
+    min-height: 26px;
+}
+
+.input-block-level {
+    @extend %input-block-level;
+}
+
+@-ms-viewport       {width: device-width;}
+
+// Floats
+.pull-left          {float: left;}
+.pull-right         {float: right;}
+
+// center block element
+.center-block {
+    margin-left: auto;
+    margin-right: auto;
+}
+// Display
+.block,
+.block.btn          {display: block;}
+.inline             {display: inline;}
+.inline-block       {display: inline-block;}
+.flex               {display: flex;}
+
+// Sizing
+.w-25               {width: 25%;}
+.w-50               {width: 50%;}
+.w-75               {width: 75%;}
+.w-100              {width: 100%;}
+
+// Hide element
+.hidden,
+[hidden] {
+    display: none;
+    visibility: hidden;
+}
+
+// Text Position
+.text-left          {text-align: left;}
+.text-right         {text-align: right;}
+.text-center        {text-align: center;}
+
+.text-align-left    {text-align: left;}
+.text-align-right   {text-align: right;}
+.text-align-center  {text-align: center;}
+
+// Text color
+.text-yellow        {color: $yellow;}
+.text-red           {color: $red;}
+.text-dark-red      {color: $dark-red;}
+.text-white         {color: $white;}
+.text-black         {color: $black;}
+.text-lightest-gray {color: $lightest-gray;}
+.text-light-gray    {color: $light-gray;}
+.text-gray          {color: $gray;}
+.text-dark-gray     {color: $dark-gray;}
+.text-light-gold    {color: $light-gold;}
+
+// Text Size
+.text-0 { font-size: 0px; }
+.text-10 { font-size: 10px; }
+.text-12 { font-size: 12px; }
+.text-14 { font-size: 14px; }
+.text-16 { font-size: 16px; }
+.text-18 { font-size: 18px; }
+.text-20 { font-size: 20px; }
+.text-24 { font-size: 24px; }
+.text-28 { font-size: 28px; }
+.text-32 { font-size: 32px; }
+.text-36 { font-size: 36px; }
+.text-48 { font-size: 48px; }
+.text-72 { font-size: 72px; }
+
+// Text/font weight
+.text-light     {font-weight: 300;}
+.text-regular   {font-weight: 400;}
+.text-semibold  {font-weight: 600;}
+.text-bold      {font-weight: 700;}
+.text-extrabold {font-weight: 800;}
+
+// Width
+.min-w-160 { min-width: 160px; }
+.min-w-180 { min-width: 180px; }
+.min-w-200 { min-width: 200px; }
+.min-w-220 { min-width: 220px; }
+.min-w-240 { min-width: 240px; }
+.min-w-260 { min-width: 260px; }
+.min-w-280 { min-width: 280px; }
+.min-w-300 { min-width: 300px; }
+.min-w-320 { min-width: 320px; }
+
+.max-w-160 { max-width: 160px; }
+.max-w-180 { max-width: 180px; }
+.max-w-200 { max-width: 200px; }
+.max-w-220 { max-width: 220px; }
+.max-w-240 { max-width: 240px; }
+.max-w-260 { max-width: 260px; }
+.max-w-280 { max-width: 280px; }
+.max-w-300 { max-width: 300px; }
+.max-w-320 { max-width: 320px; }
+
+// Style
+.text-underline {text-decoration: underline;}
+
+// Underline anchors on hover
+a.underline-hover,
+.underline-hover a {
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// Background color
+.bg-yellow          {background-color: $yellow;}
+.bg-red             {background-color: $red;}
+.bg-dark-red        {background-color: $dark-red;}
+.bg-white           {background-color: $white;}
+.bg-black           {background-color: $black;}
+.bg-lightest-gray   {background-color: $lightest-gray;}
+.bg-light-gray      {background-color: $light-gray;}
+.bg-gray            {background-color: $gray;}
+.bg-dark-gray       {background-color: $dark-gray;}
+
+// Text tranformation
+.text-lowercase     {text-transform: lowercase;}
+.text-uppercase     {text-transform: uppercase;}
+.text-capitalize    {text-transform: capitalize;}
+
+// Margins all viewports
+@include margin("m", "margin");
+@include margin("mt", "margin-top");
+@include margin("mb", "margin-bottom");
+@include margin("ml", "margin-left");
+@include margin("mr", "margin-right");
+
+// Margins - Mobile
+@include media("<tablet") {
+    @include margin("m-mobile", "margin");
+    @include margin('mt-mobile', 'margin-top');
+    @include margin('mb-mobile', 'margin-bottom');
+    @include margin('ml-mobile', 'margin-left');
+    @include margin('mr-mobile', 'margin-right');
+}
+
+// Margins - Tablet
+@include media(">=tablet", "<desktop") {
+    @include margin("m-tablet", "margin");
+    @include margin('mt-tablet', 'margin-top');
+    @include margin('mb-tablet', 'margin-bottom');
+    @include margin('ml-tablet', 'margin-left');
+    @include margin('mr-tablet', 'margin-right');
+}
+
+// Margins - Desktop
+@include media(">=desktop") {
+    @include margin("m-desktop", "margin");
+    @include margin('mt-desktop', 'margin-top');
+    @include margin('mb-desktop', 'margin-bottom');
+    @include margin('ml-desktop', 'margin-left');
+    @include margin('mr-desktop', 'margin-right');
+}
+
+// Padding all viewports
+@include padding("p", "padding");
+@include padding("pt", "padding-top");
+@include padding("pb", "padding-bottom");
+@include padding("pl", "padding-left");
+@include padding("pr", "padding-right");
+
+// Padding - Mobile
+@include media("<tablet") {
+    @include padding("p-mobile", "padding");
+    @include padding("pt-mobile", "padding-top");
+    @include padding("pb-mobile", "padding-bottom");
+}
+
+// Padding - Tablet
+@include media(">=tablet", "<desktop") {
+    @include padding("p-tablet", "padding");
+    @include padding("pt-tablet", "padding-top");
+    @include padding("pb-tablet", "padding-bottom");
+}
+
+// Padding - Tablet
+@include media(">=desktop") {
+    @include padding("p-desktop", "padding");
+    @include padding("pt-desktop", "padding-top");
+    @include padding("pb-desktop", "padding-bottom");
+}
+
+// Lazy loading effect
+%lazy-load {
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+%lazy-loaded {
+    opacity: 1;
+}
+
+.lazy-load {
+    @extend %lazy-load;
+}
+
+.lazy-loaded {
+    @extend %lazy-loaded;
+}
+
+// Icons
+[class^="icon-"],
+[class*=" icon-"] {
+    @include image-replacement(
+        $background-url: $base-default-image,
+        $x: center,
+        $y: center,
+        $width: 19px,
+        $height: 14px,
+        $line-height: 14px
+    )
+}
+
+.icon {
+
+    // header notification icon
+    &-notification {
+        background-size: 100%;
+
+        &.lazy-loaded {
+            @extend %lazy-loaded;
+            background-position: -360px 0;
+            background-size: auto;
+        }
+    }
+
+    // Rounded Exclamation/megaphone (used in annoucement bar)
+    &-rounded-exclamation,
+    &-rounded-megaphone {
+        width: 41px;
+        height: 41px;
+    }
+
+    &-rounded-exclamation.lazy-loaded {
+        @extend %lazy-loaded;
+        background-position: -240px -500px;
+    }
+
+    &-rounded-megaphone.lazy-loaded {
+        @extend %lazy-loaded;
+        background-position: -240px -440px;
+    }
+
+    // Social icons
+    &-facebook,
+    &-twitter,
+    &-google,
+    &-youtube,
+    &-linkedin,
+    &-telegram-full,
+    &-instagram {
+        width: 47px;
+        height: 47px;
+        margin: 0 2px;
+    }
+
+    &-facebook.lazy-loaded {
+        background-position: -400px 0;
+        @extend %lazy-loaded;
+
+        &:hover {
+            background-position: -460px 0;
+        }
+    }
+
+    &-twitter.lazy-loaded {
+        background-position: -400px -60px;
+        @extend %lazy-loaded;
+
+        &:hover {
+            background-position: -460px -60px;
+        }
+    }
+
+    &-google.lazy-loaded {
+        background-position: -400px -120px;
+        @extend %lazy-loaded;
+
+        &:hover {
+            background-position: -460px -120px;
+        }
+    }
+
+    &-youtube.lazy-loaded {
+        background-position: -400px -180px;
+        @extend %lazy-loaded;
+
+        &:hover {
+            background-position: -460px -180px;
+        }
+    }
+
+    &-linkedin.lazy-loaded {
+        background-position: -400px -240px;
+        @extend %lazy-loaded;
+
+        &:hover {
+            background-position: -460px -240px;
+        }
+    }
+
+    &-instagram.lazy-loaded {
+        background-position: -180px -280px;
+        @extend %lazy-loaded;
+
+        &:hover {
+            background-position: -180px -340px;
+        }
+    }
+
+    &-telegram-full.lazy-loaded {
+        background-position: -737px -576px;
+        @extend %lazy-loaded;
+
+        &:hover {
+            background-position: -794px -576px;
+        }
+    }
+
+    &-cashier.lazy-loaded {
+        background-position: -360px -200px;
+        width: 28px;
+        height: 23px;
+        @extend %lazy-loaded;
+    }
+
+    &-myaccount.lazy-loaded {
+        background-position: -360px -280px;
+        width: 26px;
+        height: 22px;
+        @extend %lazy-loaded;
+    }
+
+    &-inbox.lazy-loaded {
+        background-position: -360px -240px;
+        width: 26px;
+        height: 18px;
+        @extend %lazy-loaded;
+    }
+
+    &-login-error.lazy-loaded {
+        background-position: -360px -320px;
+        width: 18px;
+        height: 18px;
+        @extend %lazy-loaded;
+    }
+
+    &-warning.lazy-loaded {
+        background-position: -240px -120px;
+        width: 42px;
+        height: 42px;
+        @extend %lazy-loaded;
+    }
+
+    &-info.lazy-loaded {
+        background-position: -240px -180px;
+        width: 42px;
+        height: 42px;
+        @extend %lazy-loaded;
+    }
+
+    &-check-big {
+        background: url($sprite-responsive) -179px -400px;
+        width: 60px;
+        height: 60px;
+    }
+}
+
+// Images
+.img-responsive {
+    max-width: 100%; // Part 1: Set a maximum relative to the parent
+    height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+}
+
+// Alerts
+.alert {
+    padding: 20px;
+    margin: 0px 0px 20px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    background-color: $disabled-field-gray;
+    @extend .text-16;
+    @extend .text-center;
+}
+
+.alert,
+.alert h4 {
+    color: $alert-text-color;
+}
+
+.alert h4 {
+    margin: 0;
+}
+
+.alert-success {
+    color: $success-text-color;
+}
+
+.alert-success h4 {
+    color: $success-text-color;
+}
+
+.alert-danger,
+.alert-error {
+    color: $error-text-color;
+}
+
+.alert-danger h4,
+.alert-error h4 {
+    color: $error-text-color;
+}
+
+.alert-block {
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+.alert-block > p,
+.alert-block > ul {
+    margin-bottom: 0;
+}
+
+.alert-block p + p {
+    margin-top: 5px;
+}
+
+.word-wrap {
+    word-wrap: break-word;
+}
+
+.text-bold {
+    font-weight: 800;
+}
+
+.text-semibold {
+    font-weight: 600;
+}
+
+/*mobile*/
+@include media("<768px") {
+
+       // Font Sizes
+    .mobile-text-12 { font-size: 12px; }
+    .mobile-text-14 { font-size: 14px; }
+    .mobile-text-16 { font-size: 16px; }
+    .mobile-text-18 { font-size: 18px; }
+    .mobile-text-20 { font-size: 20px; }
+    .mobile-text-22 { font-size: 22px; }
+    .mobile-text-24 { font-size: 24px; }
+
+    // Paddings
+    @include padding("mobile-p", "padding");
+    @include padding("mobile-pt", "padding-top");
+    @include padding("mobile-pb", "padding-bottom");
+
+    // Buttons
+    .mobile-btn-small {
+        padding: 10px 20px !important;
+        font-size: 12px !important;
+        line-height: 12px !important;
+        border-radius: 3px;
+    }
+
+    .mobile-btn-medium {
+        padding: 10px 20px !important;
+        font-size: 20px !important;
+        line-height: 20px !important;
+        border-radius: 5px;
+    }
+}
+
+.text-yellow {
+    color: $yellow;
+}
+
+.text-black {
+    color: $black;
+}
+
+.text-red {
+    color: $red;
+}
+
+.text-dark-red {
+    color: $dark-red;
+}
+
+.text-white {
+    color: $white;
+}
+
+.text-lightest-gray {
+    color: $lightest-gray;
+}
+
+.text-light-gray {
+    color: $light-gray;
+}
+
+.text-gray {
+    color: $gray;
+}
+
+.text-dark-gray {
+    color: $dark-gray;
+}
+
+.text-darker-gray {
+    color: $darker-gray;
+}
+
+.text-darkest-gray {
+    color: $darkest-gray;
+}
+
+.text-light-gold {
+    color: $light-gold;
+}
+
+.text-hover-yellow:hover {
+    color: $yellow;
+}
+
+.text-hover-black:hover {
+    color: $black;
+}
+
+.text-hover-red:hover {
+    color: $red;
+}
+
+.text-hover-dark-red:hover {
+    color: $dark-red;
+}
+
+.text-hover-white:hover {
+    color: $white;
+}
+
+.text-hover-lightest-gray:hover {
+    color: $lightest-gray;
+}
+
+.text-hover-light-gray:hover {
+    color: $light-gray;
+}
+
+.text-hover-gray:hover {
+    color: $gray;
+}
+
+.text-hover-dark-gray:hover {
+    color: $dark-gray;
+}
+
+.text-hover-light-gold {
+    color: $light-gold;
+}
+
+.background-yellow {
+    background-color: $yellow;
+}
+
+.background-black {
+    background-color: $black;
+}
+
+.background-red {
+    background-color: $red;
+}
+
+.background-dark-red {
+    background-color: $dark-red;
+}
+
+.background-white {
+    background-color: $white;
+}
+
+.background-lightest-gray {
+    background-color: $lightest-gray;
+}
+
+.background-light-gray {
+    background-color: $light-gray;
+}
+
+.background-dark-gray {
+    background-color: $dark-gray;
+}
+
+.background-light-gold {
+    background-color: $light-gold;
+}
+
+.background-gray {
+    background-color: $gray;
+}
+
+@include media(">=768px") {
+
+    // Paddings
+    @include padding("desktop-p", "padding");
+    @include padding("desktop-pt", "padding-top");
+    @include padding("desktop-pb", "padding-bottom");
+}
+
+// Responsive Visibility Helpers
+.visible-mobile {
+    display: inherit !important;
+}
+
+.visible-tablet {
+    display: none !important;
+}
+
+.visible-desktop {
+    display: none !important;
+}
+
+.hidden-mobile {
+    display: none !important;
+}
+
+.hidden-tablet {
+    display: inherit !important;
+}
+
+.hidden-desktop {
+    display: inherit !important;
+}
+
+@include media(">=tablet", "<desktop") {
+    .visible-mobile {
+        display: none !important;
+    }
+
+    .visible-tablet {
+        display: inherit !important;
+    }
+
+    .visible-desktop {
+        display: none !important;
+    }
+
+    .hidden-mobile {
+        display: inherit !important;
+    }
+
+    .hidden-tablet {
+        display: none !important;
+    }
+
+    .hidden-desktop {
+        display: inherit !important;
+    }
+}
+
+@include media(">=desktop") {
+    .visible-mobile {
+        display: none !important;
+    }
+
+    .visible-tablet {
+        display: none !important;
+    }
+
+    .visible-desktop {
+        display: inherit !important;
+    }
+
+    .hidden-mobile {
+        display: inherit !important;
+    }
+
+    .hidden-tablet {
+        display: inherit !important;
+    }
+
+    .hidden-desktop {
+        display: none !important;
+    }
+}
+
+.visible-app,
+.hidden-app {
+    display: none !important;
+}
+
+.app {
+    .visible-app {
+        display: inherit !important;
+    }
+
+    .hidden-mobile,
+    .hidden-tablet,
+    .hidden-desktop,
+    .visible-desktop,
+    .visible-tablet,
+    .visible-mobile,
+    .visible-client {
+        display: none !important;
+    }
+}
+
+.visible-client,
+.hidden-client {
+    display: none !important;
+}
+
+.client {
+    .visible-client {
+        display: inherit !important;
+    }
+
+    .hidden-mobile,
+    .hidden-tablet,
+    .hidden-desktop,
+    .visible-desktop,
+    .visible-tablet,
+    .visible-mobile,
+    .visible-app {
+        display: none !important;
+    }
+}
+
+.br-1 {
+    border-radius: 1px !important;
+}
+
+.br-2 {
+    border-radius: 2px !important;
+}
+
+.br-3 {
+    border-radius: 3px !important;
+}
+
+.br-4 {
+    border-radius: 4px !important;
+}
+
+.br-6 {
+    border-radius: 6px !important;
+}
+
+.br-8 {
+    border-radius: 8px !important;
+}
+
+.br-12 {
+    border-radius: 12px !important;
+}
+
+.br-16 {
+    border-radius: 16px !important;
+}
+
+.br-20 {
+    border-radius: 20px !important;
+}
+
+.br-28 {
+    border-radius: 28px !important;
+}
+
+.br-36 {
+    border-radius: 36px !important;
+}
+
+.br-40 {
+    border-radius: 40px !important;
+}
+
+.br-48 {
+    border-radius: 48px !important;
+}
+@include media("<tablet") {
+    .mb-mobile-24 {
+        margin-bottom: 24px !important;
+    }
+    
+    .mb-mobile-36 {
+        margin-bottom: 36px !important;
+    }
+    
+    .mb-mobile-48 {
+        margin-bottom: 48px !important;
+    }
+}

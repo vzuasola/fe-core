@@ -1,0 +1,8 @@
+.navbar {
+    position: relative;
+    border-top: 2px solid $navbar-border-color;
+    background: $navbar-bg;
+    line-height: 40px;
+}
+
+@import "../components/main-menu";

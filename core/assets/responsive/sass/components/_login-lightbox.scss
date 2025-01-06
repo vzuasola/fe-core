@@ -1,0 +1,132 @@
+// Login Lightbox
+// Retained for casino gold.
+// Will be deprecated after the alignment.
+
+.login-lightbox {
+    .modal-content {
+        width: 420px;
+        padding: 52px 52px 40px;
+        border-radius: 5px;
+        background: $gray;
+    }
+
+    .modal-close-button {
+        width: 30px;
+        height: 30px;
+
+        &.lazy-loaded {
+            background-position: -280px -240px;
+        }
+    }
+}
+
+.login-lightbox-form {
+    width: 100%;
+    min-width: 100%;
+    margin-bottom: 0;
+
+    .loginform-textfield-wrapper {
+        display: block;
+        float: none;
+
+        .username-field-wrapper,
+        .password-field-wrapper {
+            position: relative;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            display: block;
+            width: 100%;
+            height: 52px;
+            margin-bottom: 20px;
+            padding: 0 15px 0 50px;
+            line-height: 52px;
+            font-size: 20px;
+            border-radius: 2px;
+            border: 0 none;
+        }
+
+        .username-icon,
+        .password-icon {
+            @include image-replacement(
+                $background-url: $base-default-image,
+                $x: center,
+                $y: center,
+                $width: 25px,
+                $height: 25px,
+                $line-height: 1
+            );
+            position: absolute;
+            top: 10px;
+            left: 10px;
+
+            &.lazy-loaded {
+                @extend %lazy-loaded;
+            }
+        }
+
+        .username-icon {
+            top: 15px;
+            width: 28px;
+            height: 24px;
+
+            &.lazy-loaded {
+                background-position: -240px -280px;
+            }
+        }
+
+        .password-icon {
+            width: 26px;
+            height: 30px;
+
+            &.lazy-loaded {
+                background-position: -280px -280px;
+            }
+        }
+    }
+
+    .loginform-button-wrapper {
+        button {
+            text-transform: uppercase;
+        }
+
+        .btn-links {
+            display: inline-block;
+            font-size: 20px;
+            color: $lightest-gray;
+        }
+
+        .login-lightbox-blurb {
+            font-size: 20px;
+            color: $lightest-gray;
+        }
+    }
+
+    .login-lightbox-error {
+        min-height: 30px;
+        margin-bottom: 10px;
+        color: $white;
+    }
+
+    hr {
+        border-top-color: $white;
+        margin: 35px -25px 20px;
+    }
+
+    .ie8_username_lightbox_placeholder,
+    .ie8_password_lightbox_placeholder {
+        position: absolute;
+        top: 0;
+        left: 50px;
+        z-index: 10;
+        width: 266px;
+        height: 52px;
+        padding: 15px 15px 15px 0;
+        font-size: 20px;
+        color: #999;
+        background: #fff;
+        cursor: text;
+        text-align: left;
+    }
+}

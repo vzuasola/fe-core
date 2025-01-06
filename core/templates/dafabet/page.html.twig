@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html class="{{ app.lang }}">
+<head>
+{# please do not remove this
+used for minifying the document #}
+{% spaceless %}
+    {% block favicon %}
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}"/>
+    {% endblock %}
+    {# Header scripts #}
+    {% block headerScript %}
+    {% endblock %}
+    {# Meta tags #}
+    {% block head %}
+        {{ include('@base/components/metatags/meta-tags.html.twig') }}
+    {% endblock %}
+
+    {# HMLT5 Shiv #}
+    <!--[if lte IE 8]>
+        <script src="{{ asset('js/html5shiv.min.js') }}"></script>
+        <script src="{{ asset('js/ie8-eventlistener.min.js') }}"></script>
+        <script src="{{ asset('js/ie8-normalizer.min.js') }}"></script>
+    <![endif]-->
+
+    {# Outdated browser #}
+    <script>
+        {{ include('@asset/js/outdated-browser.min.js') }}
+    </script>
+
+    {# Per page CSS #}
+    {% block css %}
+        <link href="{{ asset('css/page.css') }}" rel="stylesheet">
+    {% endblock %}
+
+{# please do not remove this
+used for minifying the document #}
+{% endspaceless %}
+</head>
+<body
+    class="{{ body_class }} {partner.matrix}"
+    style="{{ body_style }}"
+    data-geoip="{geoip}"
+    data-device-view="{device.view}"
+    data-device-os="{device.os}"
+>
+{# please do not remove this
+used for minifying the document #}
+{% spaceless %}
+
+{% block header %}
+    {{ include('@base/section/header.html.twig') }}
+{% endblock header %}
+
+{% block navbar %}
+    {% embed '@base/section/navbar.html.twig' %}{% endembed %}
+{% endblock navbar %}
+
+{% block annoucement %}
+    {% embed '@base/components/annoucement-bar.html.twig' %}{% endembed %}
+{% endblock annoucement %}
+
+{% block announcementLightbox %}
+    {% embed '@base/components/announcement-lightbox.html.twig' %}{% endembed %}
+{% endblock announcementLightbox %}
+
+{% block pushNotificationLightbox %}
+    {% embed '@base/components/push-notification-lightbox.html.twig' %}{% endembed %}
+    {% embed '@base/components/push-notification-dismiss-lightbox.html.twig' %}{% endembed %}
+{% endblock pushNotificationLightbox %}
+
+{% block geoIpLanguagePopup %}
+    {% embed '@base/components/geoip-language-popup.html.twig' %}{% endembed %}
+{% endblock geoIpLanguagePopup %}
+
+<main class="main"
+      style="{{ main_style }}"
+>
+    {% block body %}{% endblock body %}
+</main>
+
+{% block footer %}
+    {{ include('@base/section/footer.html.twig') }}
+{% endblock footer %}
+
+{{ include('@base/components/profiler.html.twig') }}
+
+{# ES5 Polyfill #}
+<script src="{{ asset('js/es5.min.js') }}"></script>
+
+{# ClassList Polyfill #}
+<!--[if lte IE 9]>
+    <script src="{{ asset('js/classList.min.js') }}"></script>
+<![endif]-->
+
+{# We use special tokens for the script tokens @see Middleware/Attachments #}
+{% block scriptAttachments %}
+{{ '<#SCRIPT#>' }}
+{{ '<#SCRIPT_INCLUDES#>' }}
+{% endblock %}
+
+{# Webpack manifest & vendor script #}
+{% block vendorScript %}
+    <script src="{{ asset('js/manifest.bundle.js') }}"></script>
+    <script src="{{ asset('js/vendor.bundle.js') }}"></script>
+{% endblock %}
+
+{# Default per page JS #}
+{% block script %}
+    <script src="{{ asset('js/page.bundle.js') }}"></script>
+{% endblock %}
+
+{# Footer scripts #}
+{% block footerScript %}
+{% endblock %}
+
+{# please do not remove this
+used for minifying the document #}
+{% endspaceless %}
+</body>
+</html>

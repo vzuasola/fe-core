@@ -1,0 +1,17 @@
+
+.partners-logo-curacao {
+    visibility: hidden;
+}
+
+#curacao-container {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+@include media("<tablet") {
+    #curacao-container {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}

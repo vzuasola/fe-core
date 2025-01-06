@@ -1,0 +1,23 @@
+.agent-player {
+    .pm-hide,
+    .vip-badge {
+        display: none !important;
+        pointer-events: none;
+        cursor: default !important;
+    }
+
+    .my-profile-link {
+        background: none !important;
+    }
+
+    .pm-disable,
+    .pm-disable a{
+        opacity: 0.5;
+        pointer-events: none;
+        cursor: default !important;
+    }
+
+    .pm-disable span.new-tag{
+        display: none !important;
+    }
+}

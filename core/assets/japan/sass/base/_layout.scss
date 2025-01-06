@@ -1,0 +1,65 @@
+.main {
+    // 
+    .container {
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+}
+
+// Layout Helpers ===================================
+
+// Add left/right line
+.side-line {
+    position: relative;
+    background: $tab-menu-link-hover-bg;
+
+    @include media(">=desktop") {
+        &:before, &:after {
+            @include gradient-three-color($d-side-border-top, $d-side-border-top, $d-side-border-middle, $d-side-border-bottom, 50%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 15;
+            width: 0.5rem;
+            height: 100%;
+            content: '';
+        }
+
+        &:after {
+            left: inherit;
+            right: 0;
+        }
+    }
+}
+
+// Side gradient background
+.gradient-left, .gradient-right {
+    position: absolute;
+    top: 0;
+    width: 10rem;
+    height: 100%;
+    content: '';
+    display: none;
+
+    @include media(">=desktop") {
+        display: block;
+    }
+}
+
+.gradient-left {
+    left: -10rem;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#012c00+0,021500+100 */
+    background: $d-side1-grad-left; /* Old browsers */
+    background: -moz-linear-gradient(top, $d-side1-grad-left 0%, $d-side1-grad-right 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, $d-side1-grad-left 0%,$d-side1-grad-right 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to top, $d-side1-grad-left 0%,$d-side1-grad-right 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.gradient-right {
+    right: -10rem;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#021500+0,012c00+100 */
+    background: $d-side2-grad-left; /* Old browsers */
+    background: -moz-linear-gradient(left, $d-side2-grad-left 0%, $d-side2-grad-right 60%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, $d-side2-grad-left 0%,$d-side2-grad-right 60%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, $d-side2-grad-left 0%,$d-side2-grad-right 60%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}

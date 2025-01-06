@@ -1,0 +1,289 @@
+.login-intro-border {
+    border-left: 2px dotted $white;
+    height: 60px;
+    margin: 9px 13px;
+    display: inline-block;
+}
+
+.account-section {
+    @include media(">=desktop") {
+        height: $header-height-desktop;
+    }
+    margin-bottom: 42px;
+    display: inline-block;
+
+    .player-balance,
+    .player-options {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .player-balance {
+        margin-top: 0;
+        margin-right: 0;
+
+	.welcome-text {
+		display: inline-block;
+		a {
+		    font-weight: 600;
+		    color: white;
+		    cursor: pointer;
+		}
+	}
+   
+        .vip-badge {
+            content: " ";
+            display: inline-block;
+            background-image: url($sprite-responsive);
+            vertical-align: middle;
+            width: 85px;
+            height: 41px;
+            background-repeat: no-repeat;
+    
+            &.vip-level-bronze {
+                background-position: -83px -752px;
+            }
+    
+            &.vip-level-silver {
+                background-position: -243px -752px;
+            }
+    
+            &.vip-level-gold {
+                background-position: -163px -752px;
+            }
+    
+            &.vip-level-platinum {
+                background-position: 4px -752px;
+            }
+    
+            &:hover > .tooltip-content {
+                display: block;
+            }
+        }
+    
+        .vip-tooltip {
+            background-color: $dark-red;
+            color: $white;
+            border-radius: 3px;
+    
+            &.tooltip-content {
+                display: none;
+                position: relative;
+                top: 58px;
+                width: 225px;
+                z-index: 9999;
+                padding: 5px 10px;
+                left: -73px;
+            }
+    
+            &:before {
+                @include triangle(top, 6px, $dark-red);
+                position: absolute;
+                top: 4px;
+                left: 50%;
+                content: "";
+            }
+        }
+    }
+
+    .player-options {  
+        margin-left: 0; 
+        ul {
+            padding: 0;
+        }
+
+        li {
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            background-color: transparent;
+            height: 42px;
+            color: $darkest-gray;
+            width: 34px;
+            height: 34px;
+            cursor: pointer;
+
+
+            @include media(">=desktop") {
+                margin-right: 0px; 
+            }
+
+            span {
+                position: absolute;
+                margin: auto;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+
+            &.last {
+                margin-right: 0;
+            }            
+        }
+
+        .li-border {
+            border-left: 2px dotted $white;    
+            height: 60px;
+            bottom: 3px;
+            border-radius: 0;
+            top: -35px;
+            margin-right: 13px;
+            width: 1px;
+        }
+    }
+
+    .tooltip {
+        &:hover > .tooltip-content {
+            display: block !important;
+        }
+    }
+    
+    .tooltip-content {
+        display: none;
+        position: absolute;
+        top: 43px;
+        right: -121px;
+        min-width: 100px;
+        z-index: 9999;
+        padding-top: 15px;
+
+        &:before {
+            content: "";
+            display: block;
+            height: 12px;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            margin-top: -10px;
+        }
+
+        ul {
+            list-style: none;
+
+            &:before {
+                @include triangle(top, 6px, $dark-red);
+                position: absolute;
+                top: 9px;
+                right: 161px;
+                content: "";
+            }
+
+            li {
+                display: block;
+                width: auto;
+                height: auto;
+                margin: 0;
+                white-space: nowrap;
+
+                &:first-child {
+                    a,
+                    span.balance-labels {
+                        border-top-left-radius: 3px;
+                        border-top-right-radius: 3px;
+                    }
+                }
+    
+                &:last-child {
+                    a,
+                    span.balance-labels {
+                        border-bottom-left-radius: 3px;
+                        border-bottom-right-radius: 3px;
+                    }
+                }
+
+                a,
+                span.balance-labels {
+                    display: block;
+                    height: 30px;
+                    padding: 0 10px;
+                    background: $dark-red;
+                    color: $white;
+                    line-height: 29px;
+
+                    &:hover {
+                        background: $red;
+                    }
+                }
+            }
+
+            .view-all {
+                a {
+                    background: $red;
+                    color: $yellow;
+                    line-height: 25px;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .tooltip-balance {
+        top: 21px;
+        right: 302px;
+        
+        ul {
+            padding: 5px 10px;
+            background: $dark-red;
+            border-radius: 3px;
+
+            li {
+                white-space: normal;
+            }
+        }
+    }
+
+    .balance-details {
+        display: table;
+        width: 330px;
+        margin: 0;
+        padding: 5px 0;
+        height: auto;
+        position: relative;
+
+        .label {
+            display: table-cell;
+            width: 130px;
+        }
+
+        .balance {
+            display: table-cell;
+            width: 180px;
+            text-align: right;
+            white-space: nowrap;
+        }
+    }
+}
+
+// Mobile/Table
+.mobile-balance {
+    position: absolute;
+    top: 6px;
+    right: $container-gutter-xs;
+    text-align: center;
+
+    a,
+    a:hover {
+        color: $white;
+    }
+
+    &-amount {
+        display: block;
+        margin-top: 4px;
+        font-size: 12px;
+    }
+
+    // icon
+    svg {
+        width: 24px;
+        vertical-align: middle;
+        fill: $white;
+    }
+
+    // loader 
+    &-loader {
+        width: 16px;
+        height: 15px;
+        margin-top: 10px;
+    }
+}

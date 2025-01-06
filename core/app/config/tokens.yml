@@ -1,0 +1,51 @@
+# Define token extensions herre
+# Token extensions are classes that extend the token manager by modifying
+# the list of available tokens
+extensions:
+  - App\Extensions\Token\DomainTokens
+
+# Define Lazy tokens here
+# Lazy tokens will not be cached, and will always be parsed dynamically
+lazy:
+  - tracking
+  - tracking.creferer
+  - tracking.token
+  - geoip
+  - device.view
+  - device.os
+  - partner.matrix
+
+# Define tokens here
+# Key value pair of token key and token class
+tokens:
+  # User
+  auth.token: App\Token\AuthToken
+  auth.credentials: App\Token\AuthCredentials
+  username: App\Token\Username
+  currency: App\Token\Currency
+  geoip: App\Token\GeoIp
+  device.view: App\Token\DeviceView
+  device.os: App\Token\DeviceSystem
+  cashier: App\Token\CashierToken
+  mcashier: App\Token\MobileCashierToken
+  partner.matrix: App\Token\PartnerMatrixToken
+
+  # Language
+  lang: App\Token\Language
+  product: App\Token\Product
+
+  legacy.credentials: App\Token\LegacyToken
+  credentials.params: App\Token\CredentialsToken
+  tracking: App\Token\TrackingToken
+  tracking.creferer: App\Token\TrackingCrefererToken
+
+  # Special Tokens
+  legacy.revamp.token: App\Token\LegacyRevampToken
+
+  # Legacy
+  # To be deprecated
+  legacy.params: App\Token\LegacyParamsToken
+
+  # Affiliates
+  # To be deprecated
+  tracking.token: App\Token\AffiliateToken

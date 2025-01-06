@@ -1,0 +1,102 @@
+.sponsors {
+    .footer-revamp {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        text-align: center;
+
+        li {
+            border: 1px solid #a2a2a3;
+            border-radius: 4px;
+            color: $gray;
+            text-align: center;
+            height: auto;
+            min-height: 65px;
+            @include media("<tablet") {
+                flex: 0 0 calc(30.33333333333333%);
+                padding: 2%;
+                margin: 1%;
+            }
+            @include media(">=tablet", "<desktop") {
+                align-items: center;
+                flex: 0 0 calc(23%);
+                margin: 5px !important;
+            }
+            @include media(">=desktop") {
+                flex: 0 0 calc(13.285714%);
+                margin: 4px !important;
+            }
+
+            @include media("<tablet") {
+                img {
+                    width: 50px;
+                }
+
+                p {
+                    max-width: none;
+                    margin: 10px 0 0;
+                    font-weight: 600;
+                }
+    
+                p, span {
+                    font-size: 12px;
+                    word-break: break-word;
+                }
+            }
+        }
+
+        @include media(">=tablet") {
+            .sponsor-desc {
+                align-content: center;
+                margin-left: 4px;
+
+                .sponsor-title,
+                .sponsor-subtitle {
+                    color: #5E5E5E;
+                    font-size: 11px;
+                    line-height: inherit;
+                    padding: 0;
+                    margin: 0;
+                    word-break: break-word;
+                }
+
+                .sponsor-title {
+                    font-weight: 600;
+                }
+            }
+
+            .sponsor-link {
+                a {
+                    display: grid;
+                    grid-template-columns: 50px auto;
+                    padding: 5px 4px;
+
+                    img {
+                        width: 50px;
+                    }
+                }
+            }
+    
+            .sponsor-no-link {
+                &-span {
+                    display: grid;
+                    grid-template-columns: 50px auto;
+                    padding: 5px 4px;
+
+                    img {
+                        width: 50px;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-revamp:first-child {
+        border: 0;
+    }
+}

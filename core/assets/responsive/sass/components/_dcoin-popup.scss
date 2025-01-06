@@ -1,0 +1,172 @@
+.dcoin-popup {
+    .modal-overlay {
+        z-index: 1009;
+    }
+
+    .modal-content {
+        border-radius: $modal-standard-radius;
+        overflow-x: hidden;
+        z-index: 1010;
+        padding-top: 3rem;
+    }
+
+    &-content {
+        color: $black;
+        padding: 0 2rem;
+        max-height: 45rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+        margin-bottom: 4rem;
+    }
+
+    .modal-body {
+        margin: 1.6rem 0;
+        h3 {
+            color: $light-gray;
+        }
+    }
+    // Heading text
+    h2 {
+        padding-bottom: 1rem;
+        border-bottom: 0.1rem solid $black;
+        color: $black;
+        text-indent: 1rem;
+        font-size: 1.6rem;
+        font-weight: 600;
+        text-align: left;
+    }
+    // Close Button
+    .modal-close-button {
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        outline: none;
+        border: 0;
+        border-radius: 0;
+        cursor: pointer;
+        z-index: 1025;
+
+        path {
+            fill: $black;
+        }
+
+        rect {
+            fill: #f7f7f7;
+            width: 100%;
+            height: 100%;
+            rx: 10.81;
+            ry: 10.81;
+        }
+    }
+
+    ul {
+        margin: 2rem 0 0 0;
+        padding: 0;
+        text-align: left;
+        z-index: 20;
+        list-style-type: none;
+
+        li {
+            display: grid;
+            grid-template-columns: 12% 88%;
+            padding: 0;
+            color: $black;
+            align-items: center;
+        }
+
+        li:before {
+            @include image-replacement($base-sprite, -28rem , -40rem, 3rem, 3rem);
+            margin-right: 0.2rem;
+            margin-bottom: 0.3rem;
+            content: "";
+        }
+    }
+
+    .popup-content-title {
+        font-weight: 600;
+        text-align: center;
+    }
+
+    // slider indicators
+    .indicators {
+        position: relative;
+
+        &-item {
+            width: 1rem;
+            height: 1rem;
+            margin: 0 0.3rem;
+            border: 0;
+            background-color: $light-gray;
+            outline: 0;
+            border-radius: 0.9rem;
+        }
+
+        &-item-active {
+            background: $gray;
+        }
+    }
+
+    // Controls
+    .slider-controls {
+        position: relative;
+        transition: opacity 0.5s;
+        width: 100%;
+        display: flex;
+        margin-bottom: 1rem;
+    }
+
+    .btn-prev,
+    .btn-next {
+        @include translateY(-75%);
+        position: absolute;
+        z-index: 15;
+        width: 1.5rem;
+        cursor: pointer;
+        top: 0;
+        bottom: -2.5rem;
+
+        svg {
+            margin: 0;
+
+            path {
+                fill: $black;
+            }
+        }
+
+
+        &:hover path,
+        &:active path {
+            fill: $black;
+        }
+    }
+
+    .btn-next {
+        right: 2.5rem;
+
+        svg {
+            transform: rotate(180deg);
+        }
+    }
+
+    &-first-page,
+    &-last-page.btn-next {
+        display: none;
+        visibility: hidden;
+    }
+
+    .modal-close.dcoin-popup-last {
+        position: absolute;
+        top: -2rem;
+        right: 0rem;
+        background: $yellow;
+        padding: 0.2rem 2rem;
+        color: $black;
+        border-radius: $modal-standard-radius;
+        line-height: 3.2rem;
+        font-weight: 600;
+        border: 0;
+        z-index: 15;
+    }
+}

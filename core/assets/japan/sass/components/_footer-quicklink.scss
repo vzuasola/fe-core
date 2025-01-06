@@ -1,0 +1,25 @@
+// Footer Quicklinks
+.quicklinks {
+    max-width: 84rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    @include media("<desktop") {
+        display: none;
+    }
+
+    .col {
+        margin-bottom: 2.8rem;
+    }
+
+    a {
+        color: $quicklink-color;
+        font-size: 1.8rem;
+        font-weight: bold;
+
+        &:hover {
+            color: $quicklink-hover-color;
+        }
+    }
+}

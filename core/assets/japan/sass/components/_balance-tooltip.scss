@@ -1,0 +1,147 @@
+.account-balance {
+    font-size: 1.3rem;
+    text-align: right;
+    position: relative;
+
+    &.tooltip {
+        display: block;
+    }
+
+    .loading {
+        img {
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+    .player-balance,
+    .product-balance {
+        line-height: 1.5rem;
+        font-weight: bold;
+    }
+
+    .product-balance {
+        display: none;
+    }
+
+    .player-balance {
+        .label {
+            display: none;
+        }
+
+        .balance-amount {
+            color: #ffff5b;
+        }
+    }
+
+    .refresh-balance {
+        cursor: pointer;
+        display: inline-block;
+    }
+
+    .tooltip-content {
+        position: absolute;
+        min-width: 100px;
+        z-index: 9999;
+        padding-top: 13px;
+        width: 100vw;
+        left: 0;
+        font-weight: bold;
+        display: none;
+
+        ul {
+            padding: 5px 10px;
+            background: #5b1c99;
+            border-radius: 0;
+            list-style: none;
+            margin: 0;
+
+            &::before {
+                display: block;
+                width: 0;
+                height: 0;
+                border-right: 6px solid transparent;
+                border-bottom: 6px solid #5b1c99;
+                border-left: 6px solid transparent;
+                position: absolute;
+                top: 9px;
+                right: 45px;
+                content: "";
+            }
+
+            li {
+                display: block;
+                width: auto;
+                height: auto;
+                margin: 0;
+                white-space: nowrap;
+
+                .balance-details {
+                    display: table;
+                    width: 100%;
+                    margin: 0;
+                    padding: 5px;
+                    height: auto;
+                    position: relative;
+
+                    .label {
+                        display: table-cell;
+                        width: 130px;
+                    }
+
+                    .balance {
+                        display: table-cell;
+                        width: 180px;
+                        text-align: right;
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#balance-control {
+    display: none;
+}
+
+@media (min-width: 1025px) {
+    .account-balance {
+        margin-top: 5px;
+
+        &:hover {
+            .tooltip-content {
+                display: block;
+            }
+        }
+
+        .product-balance {
+            display: block;
+        }
+
+        .player-balance {
+            .label {
+                display: inline;
+            }
+        }
+
+        #balance-tooltip {
+            width: auto;
+            left: 50%;
+            margin-left: -150px;
+
+            ul {
+                width: 300px;
+
+                &::before {
+                    left: 50%;
+                    margin-left: -6px;
+                }
+            }
+        }
+    }
+
+    #balance-control {
+        display: inline-block;
+    }
+}

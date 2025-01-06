@@ -1,0 +1,32 @@
+{% block logoSection %}
+    {{ include('@responsive/components/logo.html.twig') }}
+{% endblock %}
+
+{% block rightSideHeaderSection %}
+    <div class="pull-right header-right">
+        {% if app.player_session.getUsername() %}
+            {{ include('@responsive/components/header-notification.html.twig') }}
+        {% endif %}
+        {% block loginSection %}
+            {% if app.player_session.getUsername() %}
+                {{ include('@responsive/components/login/login-intro.html.twig') }}
+            {% else %}
+                {{ include('@responsive/components/login/login-form.html.twig') }}
+            {% endif %}
+        {% endblock %}
+        {% if not(languageSwitcherDisabled == true or header.language_disabled == true) %}
+            {{ include('@responsive/components/language-switcher.html.twig') }}
+        {% endif %}
+    </div>
+{% endblock rightSideHeaderSection %}
+{% if not app.player_session.getUsername() %}
+    <span class="mobile-action-button">
+        <a href="{{ header.login.mobile_login_url }}" class="btn btn-gray btn-small btn-mobile-login" data-login="lightbox">
+            <span class="visible-mobile">{{ header.login.mobile_login_button_label }}</span>
+            <span class="visible-tablet">{{ header.login.login_bottom_label }}</span>
+        </a>
+        <a href="{{ url(header.registration_link) }}" class="btn btn-yellow btn-small ml-5 btn-mobile-join-now">
+            {{ header.join_now_text }}
+        </a>
+    </span>
+{% endif %}

@@ -1,0 +1,13 @@
+<div class="quicklinks row">
+    {% for quicklink in footer.quicklinks %}
+        {% set urlAlias = quicklink.alias ? quicklink.alias : quicklink.uri %}
+        <div class="col">
+            <a class="{{ quicklink.attributes.class }}" href="{{ url(urlAlias) }}" 
+            target="{{ quicklink.attributes.target }}" title="{{ quicklink.attributes.title }}">{{ quicklink.title }}</a>
+        </div>
+        {% if loop.index % 3 == 0 %}
+            <div class="w-100"></div>
+        {% endif %}
+    {% endfor %}
+</div>
+	

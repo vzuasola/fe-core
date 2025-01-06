@@ -1,0 +1,25 @@
+// Post login header legacy
+.logout-link {
+    font-size: 13px;
+    color: $white;
+
+    &:hover {
+        color: $yellow;
+    }
+}
+
+.legacy-profile-link {
+    color: $white;
+    text-decoration: underline;
+
+    &:hover {
+        color: $yellow;
+        text-decoration: underline;
+    }
+}
+
+.btn-cashier {
+    min-width: 91px;
+    padding-left: 3px;
+    padding-right: 3px;
+}

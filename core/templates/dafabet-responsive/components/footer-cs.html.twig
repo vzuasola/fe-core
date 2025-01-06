@@ -1,0 +1,19 @@
+{% if footer.customer_support is not empty %}
+    <section class="cs-details visible-mobile">
+        {% if footer.customer_support|length %}
+            {% set count = footer.customer_support|length %}
+            <ul>
+                {% for item in footer.customer_support %}
+                    {% set target = item.attributes.target ? item.attributes.target : "_self" %}
+                    {% set class = item.attributes.class ? item.attributes.class : "" %}
+                    {% set urlAlias = item.alias ? item.alias : item.uri %}
+                    <li class="{{ class }} {% if item.isActive %}active{% endif %}">
+                        <a href="{{ url(urlAlias) }}" class="pull-left" target="{{ target }}" {% if target == "window" %}data-popup='true'{% endif %}>
+                        {{ item.title|raw }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </section>
+{% endif %}

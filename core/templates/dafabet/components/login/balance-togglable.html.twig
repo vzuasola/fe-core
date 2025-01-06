@@ -1,0 +1,20 @@
+<div class="player-balance">
+    {% if header.vip_level %}
+        <div class="vip-badge vip-level-{{ header.vip_level }}">
+            <div id="vip-tooltip" class="vip-tooltip tooltip-content text-center">{{ header.vip_tooltip_text }}</div>
+        </div>
+    {% endif %}
+    <p class="welcome-text mb-5 text-right">
+
+        <a data-popup="true" class="my-profile-link pm-disable" {{ header.profile_link is not null ? "href=" ~ url(header.profile_link) : null }}>
+            {{ header.welcome_text }}
+        </a>
+        <input type="checkbox" id="toggable-checkbox" checked>
+    </p>
+    <div class="account-balance mb-0 balance-wrappers tooltip">
+        <div id="product-balance"></div>
+        <span id="player-balance"></span>
+        <span id="balance-control"></span>
+        <div id="balance-tooltip" class="tooltip-content tooltip-balance text-left"></div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+.site-keyword {
+    line-height: 30px;
+
+    @include media("<desktop") {
+        line-height: normal;
+    }
+}
+.site-keyword-update {
+    padding: 0 10px !important;
+    .site-keyword {
+        @include media(">=desktop") {
+            font-size: 14px;
+            line-height: 30px !important;
+        }
+        @include media(">=tablet", "<desktop") {
+            font-size: 14px;
+            line-height: 30px !important;
+        }
+    }
+}

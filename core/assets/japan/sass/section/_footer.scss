@@ -1,0 +1,38 @@
+@import "../components/footer-language";
+@import "../components/footer-social-icon";
+@import "../components/footer-quicklink";
+@import "../components/footer-copyright";
+@import "../components/footer-partners";
+@import "../components/footer-keyword";
+
+.footer {
+    @include gradient($footer-grad, $footer-grad-top, $footer-grad-bottom);
+    position: relative;
+    padding-top: 2.5rem;
+
+    // Line bottom
+    &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        height: 0.3rem;
+        width: 100%;
+        content: '';
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a07e13+0,a07e13+33,ebdca5+34,ebdca5+66,a9a9a7+67,a9a9a7+100 */
+        background: #bf965e; /* Old browsers */
+        background: -moz-linear-gradient(top, $m-footer-border-top 0%, $m-footer-border-top 33%, $m-footer-border-middle 34%, $m-footer-border-middle 66%, $m-footer-border-bottom 67%, $m-footer-border-bottom 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, $m-footer-border-top 0%,$m-footer-border-top 33%,$m-footer-border-middle 34%,$m-footer-border-middle 66%,$m-footer-border-bottom 67%,$m-footer-border-bottom 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, $m-footer-border-top 0%,$m-footer-border-top 33%,$m-footer-border-middle 34%,$m-footer-border-middle 66%,$m-footer-border-bottom 67%,$m-footer-border-bottom 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+        @include media(">=desktop") {
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#9e7700+0,9e7700+14,b3912f+15,b3912f+28,ceb771+29,ceb771+42,f8f3d6+43,f8f3d6+70,ccb66d+71,ccb66d+84,b2902e+85,b2902e+100 */
+            background: #9e7700; /* Old browsers */
+            background: -moz-linear-gradient(top, $d-footer-border-top1 0%, $d-footer-border-top1 14%, $d-footer-border-top2 15%, $d-footer-border-top2 28%, $d-footer-border-top3 29%, $d-footer-border-top3 42%, $d-footer-border-middle 43%, $d-footer-border-middle 70%, $d-footer-border-bottom1 71%, $d-footer-border-bottom1 84%, $d-footer-border-bottom2 85%, $d-footer-border-bottom2 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top, $d-footer-border-top1 0%,$d-footer-border-top1 14%,$d-footer-border-top2 15%,$d-footer-border-top2 28%,$d-footer-border-top3 29%,$d-footer-border-top3 42%,$d-footer-border-middle 43%,$d-footer-border-middle 70%,$d-footer-border-bottom1 71%,$d-footer-border-bottom1 84%,$d-footer-border-bottom2 85%,$d-footer-border-bottom2 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom, $d-footer-border-top1 0%,$d-footer-border-top1 14%,$d-footer-border-top2 15%,$d-footer-border-top2 28%,$d-footer-border-top3 29%,$d-footer-border-top3 42%,$d-footer-border-middle 43%,$d-footer-border-middle 70%,$d-footer-border-bottom1 71%,$d-footer-border-bottom1 84%,$d-footer-border-bottom2 85%,$d-footer-border-bottom2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9e7700', endColorstr='#b2902e',GradientType=0 ); /* IE6-9 */
+            height: 0.8rem;
+        }
+    }
+}

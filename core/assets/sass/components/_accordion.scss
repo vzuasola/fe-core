@@ -1,0 +1,46 @@
+// CKEditior Accordion Styles
+
+.ckeditor-accordion {
+    .ckeditor-wrapper {
+        margin: 0 auto 3px;
+    }
+
+    dt {
+        position: relative;
+        padding: 15px 20px 15px 82px;
+        color: $dark-gray;
+        font-size: 20px;
+        font-weight: 600;
+        background: $light-gray;
+        cursor: pointer;
+
+        .arrow {
+            @include triangle(right, 10px, $dark-red);
+            position: absolute;
+            top: 19px;
+            left: 45px;
+            content: "";
+            border-left-width: 16px;
+        }
+
+        &.active .arrow {
+            top: 22px;
+            border-top: 10px solid #900000;
+            border-right: 10px solid transparent;
+            border-left: 10px solid transparent;
+            border-top-width: 16px;
+        }
+    }
+
+    dd {
+        margin: 0 auto;
+        color: $dark-gray;
+        background: transparent;
+
+        .dd_wrapper {
+            width: 100%;
+            padding: 40px 20px 40px 82px;
+            border: 0;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+@import "banner-slider";
+
+$slider-options-width : 13.125vw;
+
+// With Options
+.has-options {
+    .banner {
+        &-blurb {
+            right: $slider-options-width + 2.0833333333333335;
+
+            &.top,
+            &.bottom {
+                left: 0;
+                max-width: 83.59375vw;
+            }
+        }
+    }
+}

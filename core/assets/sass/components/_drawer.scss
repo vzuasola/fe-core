@@ -1,0 +1,110 @@
+$drawer-width: 600px;
+
+.drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1001;
+    width: $drawer-width;
+    height: 100%;
+    margin-right: -600px;
+    padding: 40px 15px;
+    background: rgba(0, 0, 0, 0.85);
+    color: $white;
+    overflow-y: auto;
+    transition: margin-right 0.3s ease-in-out;
+
+    // Content
+    &-blurb {
+        padding: 0 30px;
+        line-height: 28px;
+    }
+
+    // Title
+    &-title {
+        margin: 30px 0 15px;
+        text-transform: uppercase;
+        font-size: 20px;
+        color: $white;
+
+        span {
+            display: inline-block;
+            border-bottom: 1px solid $white;
+            padding: 0 40px 5px 0;
+        }
+    }
+
+    // close button
+    &-close-button {
+        @include image-replacement($base-sprite, -440px, -500px, 20px, 20px, 20px);
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        cursor: pointer;
+
+        &:hover {
+            @include image-replacement($base-sprite, -440px, -520px, 20px, 20px, 20px);
+        }
+    }
+
+    // Overlay
+    &-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        display: none;
+        width: 100%;
+        height: 100%;
+
+        .drawer-active & {
+            display: block;
+        }
+    }
+
+    // Loader
+    .loader {
+        margin-top: 50px;
+    }
+
+    // Video thumbnail
+    .modal-video {
+        position: relative;
+        display: block;
+
+        &:before,
+        &:after {
+            position: absolute;
+            display: block;
+            content: "";
+        }
+
+        // overlay
+        &:before {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        // play button
+        &:after {
+            top: 50%;
+            left: 50%;
+            margin: -31px 0 0 -31px;
+            width: 62px;
+            height: 62px;
+            background: url($base-sprite) -100px -320px;
+        }
+    }
+}
+
+// Modal inside drawer
+.modal-drawer.modal-transparent {
+    // Restyle close button w/o lazy-load class
+    .modal-close-button {
+        background-image: url($base-sprite);
+        background-position: -440px -500px;
+    }
+}

@@ -1,0 +1,24 @@
+{% block header %}
+    {% embed '@base/section/header.html.twig' %}
+        {% block rightSideHeaderSection %}
+            <div class="pull-right">
+                <div class="top-option text-right header-legacy">
+                    {% if (app.session.get('login')) %}
+                        {% set logout = url('logout', {'query': {'from': header.uri}}) %}
+                        <a class="logout-link mr-15" href="{{ logout }}">{{ header.profile_logout_text | default('Logout') }}</a>
+                    {% endif %}
+                    {% if (languageSwitcherDisabled == null or languageSwitcherDisabled == false) %}
+                        {{ include('@base/components/language-switcher.html.twig') }}
+                    {% endif %}
+                </div>
+                {% block loginSection %}
+                    {% if app.player_session.getUsername() %}
+                        {{ include('@base/components/login/login-intro-legacy.html.twig') }}
+                    {% else %}
+                        {{ include('@base/components/login/login-form.html.twig') }}
+                    {% endif %}
+                {% endblock %}
+            </div>
+        {% endblock rightSideHeaderSection %}
+    {% endembed %}
+{% endblock header %}

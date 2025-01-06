@@ -1,0 +1,46 @@
+@import "../banner-slider";
+
+.mega-menu {
+    .banner {
+        margin-top: -35px;
+        padding-top: 36px;
+
+        .banner-slides {
+            position: relative;
+        }
+
+        .banner-slides {
+            // temporarily expected empty block
+        }
+
+        .slides-item {
+            &.showing {
+                // temporarily expected empty block
+            }
+        }
+
+        .slider-pager {
+            -webkit-transform: translateX(0);
+            -moz-transform: translateX(0);
+            -ms-transform: translateX(0);
+            -o-transform: translateX(0);
+            transform: translateX(0);
+            top: 0;
+            right: 10px;
+            left: auto;
+            bottom: auto;
+        }
+
+        .pager-item {
+            width: 13px;
+            height: 13px;
+            border: none;
+            border-radius: 50%;
+            background: $red;
+
+            &.active {
+                background: $yellow;
+            }
+        }
+    }
+}

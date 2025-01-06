@@ -1,0 +1,9 @@
+{% import "@japan/components/metatags/metatag.macro.twig" as metatag %}
+
+{% if metatags is not empty %}
+    {% for item in metatags %}
+        {% if item.field_meta is not empty %}
+            <{{ item.field_tag.0.value is not empty ? item.field_tag.0.value : 'meta' }} {% for tag in item.field_meta %}{% if tag.field_use_dropdown.0.value == 1 %}{{ tag.field_select_name.0.value }} {% else %} {{ tag.field_meta_name.0.value }}{% endif %}="{{ tag.field_attribute_value.0.value }}"{% set hrefLang = tag.field_attribute_value.0.value %}{% if hrefLang == 'alternate' %} hreflang="{{ item.langcode.0.value }}"{% endif %} {% endfor %} >
+        {% endif %}
+    {% endfor %}
+{% endif %}

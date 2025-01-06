@@ -1,0 +1,21 @@
+<div class="footer-language mb-25">
+    {% set currentLang = "" %}
+
+    {% for lang in footer.language %}
+        {% if lang.prefix == app.lang %}
+            {% set currentLang =  lang.prefix %}
+        {% endif %}
+    {% endfor %}
+
+    <ul class="language-switcher" data-current-lang="{{ currentLang }}">
+        {% for key,lang in footer.language %}
+            {% set isActive = lang.prefix == app.lang ? "active" : "" %}
+
+            {% if key != 'default' %}
+                <li data-lang="{{ lang.prefix }}" class="{{ lang.id }} {{ isActive }}">
+                    <a class="footer-language-link {{ isActive }}">{{ lang.name }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>

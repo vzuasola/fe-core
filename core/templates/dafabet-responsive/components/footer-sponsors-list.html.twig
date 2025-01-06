@@ -1,0 +1,47 @@
+{% if item.field_res_sponsor_image and item.field_enable_sponsor == 1 %}
+    <li class="mb-mobile-15 mb-tablet-10 mb-desktop-10">
+        {% if item.field_res_sponsor_link is not empty %}
+            <a href="{{ item.field_res_sponsor_link }}" target="{{ item.field_res_sponsor_link_target }}">
+                <picture>
+                    <!--[if IE 9]><video style="display: none;"><![endif]-->
+                    {% if item.field_res_sponsor_mobile_logo is not empty %}
+                        <source media="(max-width: 767px)" srcset="{{ item.field_res_sponsor_mobile_logo }}">
+                    {% endif %}
+                    {% if item.field_res_sponsor_tablet_logo is not empty %}
+                        <source media="(max-width: 1023px)" srcset="{{ item.field_res_sponsor_tablet_logo }}">
+                    {% endif %}
+                    <!--[if IE 9]></video><![endif]-->
+
+                    <img src="{{ item.field_res_sponsor_image }}" alt="{{ item.field_sponsor_alternative_text }}">
+                </picture>
+                {% if item.field_mobile_sponsor_text %}
+                    <p class="sponsors-description" style="font-size: {{ footer.field_mobile_sponsor_text_font_size}}">{{ item.field_mobile_sponsor_text }}</p>
+                {% endif %}
+                {% if item.field_mobile_sponsor_subtext  and footer.enable_new_style == 1 %}
+                    <span class="sponsors-subtitle" style="font-size: {{ footer.field_mobile_sponsor_subtext_font_size}}">{{ item.field_mobile_sponsor_subtext }}</span>
+                {% endif %}
+            </a>
+        {% elseif item.field_res_sponsor_image is not empty %}
+            <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+                {% if item.field_res_sponsor_mobile_logo is not empty %}
+                    <source media="(max-width: 767px)" srcset="{{ item.field_res_sponsor_mobile_logo }}">
+                {% endif %}
+                {% if item.field_res_sponsor_tablet_logo is not empty %}
+                    <source media="(max-width: 1023px)" srcset="{{ item.field_res_sponsor_tablet_logo }}">
+                {% endif %}
+                <!--[if IE 9]></video><![endif]-->
+
+                <img src="{{ item.field_res_sponsor_image }}" alt="{{ item.field_sponsor_alternative_text }}">
+            </picture>
+            {% if item.field_mobile_sponsor_text %}
+                <p class="sponsors-description" style="font-size: {{ footer.field_mobile_sponsor_text_font_size}}">{{ item.field_mobile_sponsor_text }}</p>
+                {% if item.field_mobile_sponsor_subtext and footer.enable_new_style == 1 %}
+                    <span class="sponsors-subtitle" style="font-size: {{ footer.field_mobile_sponsor_subtext_font_size}}">{{ item.field_mobile_sponsor_subtext }}</span>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    </li>
+{% endif %}
+
+{# Note: IE condition is fix for IE9 #}

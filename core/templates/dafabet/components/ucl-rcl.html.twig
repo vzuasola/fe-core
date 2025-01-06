@@ -1,0 +1,16 @@
+<div id="game-ucl-lightbox" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">{{ ucl_rcl_config.ucl.unsupported_currencies_title}}</div>
+        <div class="modal-body">{{ ucl_rcl_config.ucl.unsupported_currencies_message.value|raw }}</div>
+        <span class="modal-close modal-close-button lazy-load" data-src="{{ asset('images/sprite.png') }}"></span>
+        <a class=" modal-close btn btn-yellow" >{{ ucl_rcl_config.ucl.unsupported_currencies_button }}  </a>
+    </div>
+</div>
+<div id="game-rcl-lightbox" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">{{ ucl_rcl_config.rcl.unsupported_country_title}}</div>
+        <div class="modal-body">{{ ucl_rcl_config.rcl.unsupported_country_message.value|raw }}</div>
+        <span class="modal-close modal-close-button lazy-load" data-src="{{ asset('images/sprite.png') }}"></span>
+        <a class=" modal-close btn btn-yellow" >{{ ucl_rcl_config.rcl.unsupported_country_button }}  </a>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<ul class="main-menu" id="main-menu">
+    {% for item in header.main_menu %}
+        {% set target = item.attributes.target ? item.attributes.target : "_self" %}
+        {% set class = item.attributes.class ? item.attributes.class : "" %}
+        <li class="main-menu-item  {{ class }} {% if item.active %}active{% endif %}">
+            {% if item.active is empty %}
+                <a href="{{ url(item.alias ? item.alias : item.uri) }}" class="main-menu-link">
+                    {{ item.title ? item.title : item.name }}
+                    {% if item.attributes.menuTag == "new" %}
+                        <span class="new-tag">
+                            <span>{{ header.product_menu_new_tag|default('NEW') }}</span>
+                        </span>
+                    {% endif %}
+                </a>
+            {% else %}
+                <a href="{{ url(item.alias ? item.alias : item.uri) }}" class="main-menu-link">
+                    {{ item.title ? item.title : item.name }}
+                    {% if item.attributes.menuTag == "new" %}
+                        <span class="new-tag">
+                            <span>{{ header.product_menu_new_tag|default('NEW') }}</span>
+                        </span>
+                    {% endif %}
+                </a>
+            {% endif %}
+
+
+            {% if item.below %}
+              <div class="sub-menu-wrapper {% if item.active is empty %}hidden{% endif %}">
+                <ul class="sub-menu">
+                    {% for subItem in item.below %}
+                        {% set subTarget = subItem.attributes.target ? subItem.attributes.target : "_self" %}
+                        {% set subClass = subItem.attributes.class ? subItem.attributes.class : "" %}
+                        <li class="sub-menu-item {{ subClass }} {% if subItem.active %}active{% endif %}">
+                            <a href="{{ url(subIstem.alias ? subItem.alias : subItem.uri) }}" class="sub-menu-link">
+                                {{ subItem.title }}
+                                {% if subItem.attributes.menuTag == "new" %}
+                                    <span class="new-tag">
+                                        <span>{{ header.product_menu_new_tag|default('NEW') }}</span>
+                                    </span>
+                                {% endif %}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

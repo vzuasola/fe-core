@@ -1,0 +1,25 @@
+<section class="navbar visible-desktop">
+    <div class="container clearfix">
+        <div class="pull-left">
+            <nav>
+                {% block navbarMain %}
+                    {% if header.main_menu %}
+                        {{ include('@responsive/components/main-menu.html.twig') }}
+                    {% endif %}
+                {% endblock navbarMain %}
+            </nav>
+        </div>
+
+        {% block navbarSub %}
+            {% if header.secondary_menu %}
+                {{ include('@responsive/components/secondary-menu.html.twig') }}
+            {% endif %}
+        {% endblock navbarSub %}
+    </div>
+</section>
+
+{% block mobileMenu %}
+    {% if app.player_session.getUsername() %}
+        {{ include('@responsive/components/mobile-menu.html.twig') }}
+    {% endif %}
+{% endblock %}

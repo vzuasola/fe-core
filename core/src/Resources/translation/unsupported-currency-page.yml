@@ -1,0 +1,101 @@
+default:
+  title: 'UNSUPPORTED CURRENCY'
+  apology_message: Sorry, your account currency is not supported.
+  offer_message: Please feel free to choose among the list of other Dafabet products that you can use.
+translations:
+  en:
+    title: 'UNSUPPORTED CURRENCY'
+    apology_message: Sorry, your account currency is not supported.
+    offer_message: Please feel free to choose among the list of other Dafabet products that you can use.
+  sc:
+    title: '不支持的货币'
+    apology_message: 沙巴体育暂不支持您所在国家/地区的货币
+    offer_message: 请选择您可以使用的其他大发产品。
+  ch:
+    title: '不支持的貨幣'
+    apology_message: 沙巴體育暫不支持您所在國家/地區的貨幣
+    offer_message: 請選擇您可以使用的其他大發產品。
+  th:
+    title: 'สกุลเงินไม่รองรับ'
+    apology_message: ขออภัยค่ะ สกุลเงินบัญชีของคุณไม่รองรับการใช้งาน
+    offer_message: กรุณาเลือกผลิตภัณฑ์ดาฟาเบทอื่นๆ ที่คุณสามารถใช้งานได้
+  vn:
+    title: 'TIỀN TỆ KHÔNG HỖ TRỢ'
+    apology_message: Xin lỗi, đơn vị tiền tệ tài khoản của bạn không được hỗ trợ.
+    offer_message: Vui lòng chọn các sản phẩm khác trong danh sách của Dafabet.
+  kr:
+    title: '지원되지 않는 통화'
+    apology_message: 죄송합니다. 회원님의 계정 통화가 지원되지 않습니다.
+    offer_message: 사용 가능한 다른 다파벳 제품 목록 중에서 자유롭게 선택해주시기 바랍니다.
+  id:
+    title: 'MATA UANG TIDAK DIDUKUNG'
+    apology_message: Maaf, mata uang akun Anda tidak didukung.
+    offer_message: Silakan pilih dari daftar produk Dafabet lainnya yang dapat Anda gunakan.
+  jp:
+    title: 'こちらの通貨はご利用いただけません'
+    apology_message: 申し訳ございませんが、お客様のアカウントの通貨ではご利用いただけません。
+    offer_message: ご利用可能なDafabetプロダクトをお選びください。
+  in:
+    title: 'UNSUPPORTED CURRENCY'
+    apology_message: Sorry, your account currency is not supported.
+    offer_message: Please feel free to choose among the list of other Dafabet products that you can use.
+  gr:
+    title: 'ΜΗ ΥΠΟΣΤΗΡΙΖΟΜΕΝΟ ΝΟΜΙΣΜΑ'
+    apology_message: Λυπούμαστε, το νόμισμα του λογαριασμού σας δεν υποστηρίζεται.
+    offer_message: Παρακαλούμε επιλέξετε ανάμεσα στη λίστα των άλλων προϊόντων Dafabet που μπορείτε να χρησιμοποιήσετε.
+  pl:
+    title: 'UNSUPPORTED CURRENCY'
+    apology_message: Sorry, your account currency is not supported.
+    offer_message: Please feel free to choose among the list of other Dafabet products that you can use.
+  es:
+    title: 'MONEDA NO APOYADA'
+    apology_message: Lo sentimos, la moneda de su cuenta no es compatible.
+    offer_message: Por favor, siéntase libre de elegir entre la lista de otros productos de Dafabet que puede usar.
+  pt:
+    title: 'MOEDA NÃO SUPORTADA'
+    apology_message: Desculpe, a moeda da sua conta não é suportada.
+    offer_message: Por favor, sinta-se livre para escolher entre a lista de outros produtos Dafabet que você pode usar.
+  bn:
+    title: 'UNSUPPORTED CURRENCY'
+    apology_message: Sorry, your account currency is not supported.
+    offer_message: Please feel free to choose among the list of other Dafabet products that you can use.
+  pk:
+    title: 'UNSUPPORTED CURRENCY'
+    apology_message: Sorry, your account currency is not supported.
+    offer_message: Please feel free to choose among the list of other Dafabet products that you can use.
+  bg:
+    title: 'অসমর্থিত মুদ্রা'
+    apology_message: দুঃখিত, আপনার অ্যাকাউন্টের মুদ্রা সমর্থিত নয়।
+    offer_message: আপনি ব্যবহার করতে পারেন এমন অন্যান্য Dafabet পণ্যের তালিকা থেকে নির্দ্বিধায় বেছে নিন।
+  bd:
+    title: 'অসমর্থিত মুদ্রা'
+    apology_message: দুঃখিত, আপনার অ্যাকাউন্টের মুদ্রা সমর্থিত নয়।
+    offer_message: আপনি ব্যবহার করতে পারেন এমন অন্যান্য Dafabet পণ্যের তালিকা থেকে নির্দ্বিধায় বেছে নিন।
+  hi:
+    title: 'UNSUPPORTED CURRENCY'
+    apology_message: क्षमा करें, आपकी खाता मुद्रा समर्थित नहीं है।
+    offer_message: कृपया अन्य Dafabet उत्पादों की सूची का चयन करने के लिए स्वतंत्र महसूस करें जिनका आप उपयोग कर सकते हैं।
+  te:
+    title: 'మద్దతు లేని కరెన్సీ'
+    apology_message: క్షమించండి, మీ ఖాతా కరెన్సీకి మద్దతు లేదు
+    offer_message: దయచేసి మీరు ఉపయోగించగల ఇతర డాఫాబెట్ ఉత్పత్తుల జాబితాలో ఎంచుకోవడానికి సంకోచించకండి
+  lo:
+    title: 'ສະກຸນເງິນທີ່ບໍ່ຮອງຮັບ'
+    apology_message: ຂໍອະໄພ, ສະກຸນເງິນໃນບັນຊີຂອງທ່ານບໍ່ສະຫນັບສະຫນຸນ.
+    offer_message: ກະລຸນາຮູ້ສຶກວ່າບໍ່ເສຍຄ່າເພື່ອເລືອກເອົາລະຫວ່າງບັນຊີລາຍຊື່ຂອງຜະລິດຕະພັນ Dafabet ອື່ນໆທີ່ທ່ານສາມາດນໍາໃຊ້ໄດ້.
+  bu:
+    title: 'ေငြေၾကးေထာက္ပံမႈမရွိပါ'
+    apology_message: ေတာင္းပန္ပါတယ္--သင္၏အေကာက္သည္ေငြေၾကးေထာက္ပံမႈမရွိပါ။
+    offer_message: သင္အသုံးျပဳႏိူင္သည့္အျခား Dafabet ထုတ္ကုန္မ်ားစာရင္းပမာဏတြင္ေက်းဇူျပဳ၍လြတ္လပ္စြာေ႐ြးပါ။
+  km:
+    title: 'រូបិយប័ណ្ណដែលមិនបានគាំទ្រ'
+    apology_message: សូមអភ័យទោសរូបិយប័ណ្ណគណនីរបស់អ្នកមិនត្រូវបានគាំទ្រ។
+    offer_message: សូមមានអារម្មណ៍សេរីដើម្បីជ្រើសក្នុងចំណោមបញ្ជីនៃផលិតផល Dafabet ផ្សេងទៀតដែលអ្នកអាចប្រើបាន។
+  kz:
+    title: 'QOLDAW JOQ VALYuTA'
+    apology_message: Кешіріңіз, есептік жазбаңыздың валютасына қолдау көрсетілмейді.
+    offer_message: Қолдануға болатын басқа Dafabet өнімдерінің тізімінен таңдауды ұмытпаңыз.
+  ru:
+    title: 'НЕПОДДЕРЖИВАЕМАЯ ВАЛЮТА'
+    apology_message: Извините, валюта вашего счета не поддерживается.
+    offer_message: Пожалуйста, не стесняйтесь выбирать из списка других продуктов Dafabet, которые вы можете использовать.

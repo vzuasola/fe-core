@@ -1,0 +1,56 @@
+{% if header %}
+    <div id="loginForm">
+    {{ form_start(header.login_form, {'attr': {'class': 'login-form mt-10 mb-0', 'id': 'login-form'}}) }}
+        <div class="loginform-textfield-wrapper">
+
+        {% set username = header.login.username_placeholder|default('Username') %}
+        {% set password = header.login.password_placeholder|default('Password') %}
+
+        <span class="username-field-wrapper">
+            <label class="ie8_username_placeholder hidden">{{ username }}</label>
+            <span class="username-icon lazy-load" data-src="{{ asset('images/sprite.png') }}"></span>
+            {{ form_widget(header.login_form.username, {'attr': {'class': 'field', 'placeholder': username }}) }}
+        </span>
+        <span class="password-field-wrapper">
+            <label class="ie8_password_placeholder hidden">{{ password }}</label>
+            <span class="password-icon lazy-load" data-src="{{ asset('images/sprite.png') }}"></span>
+            {% set capsLockClass = header.caps_lock_toggle ? " caps-lock-enabled" : "" %}
+            {% set passwordClasse = header.password_mask_toggle ? " password-mask-enabled" : "" %}
+            {{ form_widget(header.login_form.password, {'attr': {'class': 'field' ~ passwordClasse ~ capsLockClass, 'placeholder': password }}) }}
+        </span>
+            {% if app.session.hasFlash('login.error') %}
+                <div class="login-error">
+                    {{ app.session.getFlash('login.error') }}
+                </div>
+            {% endif %}
+      </div>
+
+      <div class="loginform-button-wrapper">
+        {{ form_widget(header.login_form.submit, {'attr': {'class': 'btn btn-gray btn-small', 'value': 'Login'}, "label": header.login.login_bottom_label|default('Submit') }) }}
+        <hr class="hidden">
+        <a data-popup="true"
+           data-popup-position="center"
+           data-popup-width="820"
+           data-popup-height="810"
+           href={{ url(header.login_issue_link) }}
+           class="login-issue btn-links">{{ header.login_issue_text }}</a>
+        <div class="login-form-lightbox-blurb hidden mb-20">{{ header.login.lightbox_blurb|default('Not yet a Dafabet member?') }}</div>
+        <a href={{ url(header.registration_link) }} class="btn btn-yellow btn-small join-now">{{ header.join_now_text }}</a>
+      </div>
+
+    {{ form_end(header.login_form) }}
+    </div>
+{% endif %}
+
+{% if not app.session.get('login') %}
+<div id="loginFormLightBox" class="modal login-form-lightbox">
+    <div class="modal-content">
+        <div class="login-logo">
+            {{ include('@base/components/logo-image.html.twig') }}
+        </div>
+        <div class="modal-body">
+        </div>
+        <a href="#" class="modal-close modal-close-button lazy-load" data-src="{{ asset('images/sprite.png') }}"></a>
+    </div>
+</div>
+{% endif %}

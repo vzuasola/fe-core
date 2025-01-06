@@ -1,0 +1,11 @@
+{% import "@base/macro/sitemap.html.twig" as macros %}
+
+<div class="sitemap">
+    <h1 class="sitemap--title">{{ sitemap.config.sitemap_title|raw }}</h1>
+    <div class="sitemap--blurb">{{ sitemap.config.sitemap_content.value|raw }}</div>
+    <ul>
+        {% if sitemap.links is not empty %}
+            {{ macros.sitemap(sitemap.links) }}
+        {% endif %}
+    </ul>
+</div>

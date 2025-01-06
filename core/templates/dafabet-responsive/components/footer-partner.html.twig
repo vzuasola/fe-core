@@ -1,0 +1,35 @@
+{% if footer.sponsorship is not empty %}
+    <div class="sponsors">
+        <ul class="mb-0">
+            {% for item in footer.partners[0].field_responsive_partners %}
+                {% if item.field_res_sponsor_image[0] is not empty  %}
+                    <li class="mb-10 desktop-mb-20">
+                        {% if item.field_res_sponsor_link[0] is not empty %}
+                            <a href="{{ url(item.field_res_sponsor_link[0].value) }}" target="{{ item.field_link_target[0].value }}">
+                                <picture>
+                                    {% if item.field_res_sponsor_mobile_logo[0] is not empty %}
+                                        <source media="(max-width: 767px)" srcset="{{ item.field_res_sponsor_mobile_logo[0].url }}">
+                                    {% endif %}
+                                    {% if item.field_res_sponsor_tablet_logo[0] is not empty %}
+                                        <source media="(max-width: 1023px)" srcset="{{ item.field_res_sponsor_tablet_logo[0].url }}">
+                                    {% endif %}
+                                    <img data-src="{{ item.field_res_sponsor_image[0].url }}" src="{{ asset('images/default_image.png') }}" class="lazy-load">
+                                </picture>
+                            </a>
+                        {% elseif item.field_res_sponsor_image[0] is not empty %}
+                            <picture>
+                                {% if item.field_res_sponsor_mobile_logo[0] is not empty %}
+                                    <source media="(max-width: 767px)" srcset="{{ item.field_res_sponsor_mobile_logo[0].url }}">
+                                {% endif %}
+                                {% if item.field_res_sponsor_tablet_logo[0] is not empty %}
+                                    <source media="(max-width: 1023px)" srcset="{{ item.field_res_sponsor_tablet_logo[0].url }}">
+                                {% endif %}
+                                <img data-src="{{ item.field_res_sponsor_image[0].url }}" src="{{ asset('images/default_image.png') }}" class="lazy-load">
+                            </picture>
+                        {% endif %}
+                    </li>
+                    {% endif %}
+            {%  endfor %}
+        </ul>
+    </div> 
+{% endif %}

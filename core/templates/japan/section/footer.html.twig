@@ -1,0 +1,15 @@
+<footer class="footer">
+    {% if (footer.footer_config.backtotop_checkbox == 1) %}
+    <a class="back-to-top enable-mobile hide"></a>
+    {% else %}
+    <a class="back-to-top hide"></a>
+    {% endif %}
+    <div class="container">
+        {% include '@japan/components/footer/language.html.twig' %}
+        {% include '@japan/components/footer/social-icon.html.twig' %}
+        {% include '@japan/components/footer/quicklink.html.twig' %}
+        {% include '@japan/components/footer/partner.html.twig' %}
+        {% include '@japan/components/footer/keyword.html.twig' %}
+    </div>
+    {% include '@site/components/footer/copyright.html.twig' %}
+</footer>

@@ -1,0 +1,168 @@
+@import "../../core/core/assets/sass/components/scrollbar";
+
+.pushnx-lightbox {
+    .modal-content {
+        width: 660px;
+        max-width: 660px;
+        max-height: 538px;
+        padding: 0;
+        overflow: hidden;
+        border-radius: 10px;
+        color: $pushnx-color;
+        background-color: $pushnx-bg;
+    }
+}
+
+#push-notification {
+    .title {
+        height: 52px;
+        margin-bottom: 0;
+        padding: 10px;
+        text-align: center;
+        letter-spacing: 1px;
+        font-size: 24px;
+        font-weight: normal;
+        color: $pushnx-title-color;
+        background-color: $pushnx-title-bg;
+    }
+
+    .line {
+        height: 1px;
+        background: $pushnx-title-border-bg;
+    }
+
+    .messages {
+        max-height: 450px;
+        margin: 25px 0 10px 30px;
+        overflow: auto;
+    }
+
+    .message {
+        position: relative;
+        max-width: 595px;
+        padding: 10px 5px 10px 0;
+        border-top: $pushnx-msg-border-top;
+
+        &:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        &:first-child {
+            border: none;
+            padding-top: 0;
+        }
+
+        .content {
+            margin: 0 0 7px 25px;
+            overflow: auto;
+            text-align: left;
+
+            &:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+        }
+
+        .actions {
+            float: right;
+            display: block;
+        }
+
+        .action {
+            float: left;
+            min-width: 55px;
+            margin: 0 5px;
+            padding: 8px 12px;
+            text-align: center;
+            border: $pushnx-action-border;
+            border-radius: 3px;
+            font-size: 13px;
+            color: $pushnx-action-color;
+            background-color: $pushnx-action-bg;
+        }
+
+        .action:hover {
+            color: $pushnx-action-hover-color;
+            background: $pushnx-action-hover-bg;
+        }
+
+        .expired {
+            color: $pushnx-action-expired-color;
+            font-size: 12px;
+        }
+
+        ul,
+        ol {
+            padding-left: 25px;
+        }
+    }
+
+    .circle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        margin: 7px 0 0;
+        border-radius: 50%;
+        background: $pushnx-msg-bullet-bg;
+    }
+
+    .content p {
+        margin: 0;
+        line-height: normal;
+        font-size: 12px;
+
+        &:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    }
+
+    .time {
+        margin: 25px 0 0 10px;
+        text-align: left;
+        font-style: italic;
+        font-size: 10px;
+        font-weight: bold;
+        color: $pushnx-time-color;
+    }
+
+    .debug-expired {
+        color: red;
+    }
+
+    .debug-active {
+        color: green;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .tooltip {
+        background-color: $red;
+        color: $white;
+        text-align: center;
+        border-radius: 6px;
+        padding: 4px;
+        position: absolute;
+        margin-left: 15px;
+        margin-top: -2px;
+    }
+
+    .tooltip::after {
+        @include triangle(left, 10px, $red);
+        content: "";
+        position: absolute;
+        top: 9%;
+        right: 99%;
+    }
+}
+
+.hide-top-border {
+    border-top: 0;
+}

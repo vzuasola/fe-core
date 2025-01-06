@@ -1,0 +1,48 @@
+{% set lightbox_title = login_config.change_pass_form_title|raw %}
+{% set current_password = login_config.change_pass_current_password|raw %}
+{% set new_password = login_config.change_pass_new_password|raw %}
+{% set confirm_new_password = login_config.change_pass_confirm_new_password|raw %}
+{% set submit = login_config.change_pass_submit|raw %}
+
+<div id="change-pass" class="modal cp-lightbox-form">
+    <div class="modal-content">
+        <div class="modal-header">{{ lightbox_title }}</div>
+        <div class="modal-body">
+            {% if change_pass %}
+                {{ form_start(change_pass, {'attr': {'class': 'pure-form form-vertical form-cp text-14', 'id': 'cp-form'}}) }}
+
+                    <div class="form-item">
+                        <div class="form-field field-password">
+                            <label class="password">{{ current_password }}</label>
+                            {{ form_widget(change_pass.old_password, {'attr': {'class': 'field form-text'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-field field-new-password">
+                            <label class="new-password">{{ new_password }}</label>
+                            {{ form_widget(change_pass.password, {'attr': {'class': 'field form-text'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-field field-confirm-new-password">
+                            <label class="confirm-new-password">{{ confirm_new_password }}</label>
+                            {{ form_widget(change_pass.confirm_password, {'attr': {'class': 'field form-text'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-field error-message">
+                            <span class="change-pass-error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-item">
+                        <div class="form-field field-submit">
+                            {{ form_widget(change_pass.submit, {'attr': {'class': 'form-submit btn btn-small', 'value': 'Login'}, "label": submit|default('Submit') }) }}
+                        </div>
+                    </div>
+                    {{ form_widget(change_pass.destination) }}
+                {{ form_end(change_pass) }}
+            {% endif %}
+        </div>
+    </div>
+</div>

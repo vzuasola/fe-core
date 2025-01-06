@@ -1,0 +1,15 @@
+{% if announcement_lightbox is not empty %}
+<div id="announcementLightbox" class="modal modal-outer announcement--lightbox">
+    <div class="modal-content">
+        <div class="modal-header">{{ announcement_lightbox.title }}</div>
+        <div class="modal-body">
+            <div class="announcement--container scrollbot hidden">
+            </div>
+            <div class="announcement--default-message">
+                {{ announcement_lightbox.default_message | raw }}
+            </div>
+        </div>
+        <span class="modal-close modal-close-button lazy-load" data-src="{{ asset('images/sprite.png') }}"></span>
+    </div>
+</div>
+{% endif %}

@@ -1,0 +1,13 @@
+<div class="grid grid-gap-20 mb-0">
+    {% for item in widgets %}
+        <div class="menu-dropdown-widget">
+            {{ item.markup|raw }}
+
+            {% if item.script %}
+                <script>
+                    {{ item.script|raw }}
+                </script>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>

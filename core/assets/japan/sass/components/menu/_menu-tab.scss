@@ -1,0 +1,138 @@
+// Menu Tab style (main menu for desktop)
+.menu-tab {
+    .main-menu {
+        display: flex;
+        justify-content: center;
+        clear: both;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+
+    }
+
+    // List
+    .main-menu-item {
+        position: static;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border: 0.2rem solid transparent;
+        border-bottom: none;
+        border-radius: 0.8rem 0.8rem 0 0;
+        z-index: 99;
+
+        @include media(">=desktop-lg") {
+            font-size: 1.5rem;
+        }
+
+        &:hover .sub-menu-wrapper {
+            display: block;
+        }
+    }
+
+    // Hover/active state
+    .main-menu-item.active,
+    .main-menu-item:hover {
+        border-color: $tab-menu-link-hover-border-color;
+        border-bottom: 0.2rem solid $tab-menu-link-hover-bg;
+        background-color: $tab-menu-link-hover-bg;
+        color: $tab-menu-link-hover-color;
+    }
+
+    // Anchor
+    .main-menu-link {
+        position: relative;
+        display: block;
+        height: 4.4rem;
+        line-height: 4.7rem;
+        padding: 0 1.4rem 0;
+        background-color: $tab-menu-link-bg;
+        color: $tab-menu-link-color;
+        white-space: nowrap;
+
+        @include media(">=desktop") {
+            font-size: 1.8rem;
+        }
+
+        // Hide icon in desktop
+        .fa {
+            display: none;
+        }
+    }
+
+    .sub-menu-wrapper {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        background: grey;
+        border-bottom: 0.2rem solid #f0e3af;
+        @include gradient-three-color($header-grad, $header-grad-top, $header-grad-middle, $header-grad-bottom, 50%);
+    }
+
+    .main-menu-item:hover .sub-menu-wrapper {
+        z-index: 999;
+    }
+
+    .sub-menu {
+        list-style: none;
+        max-width: 128rem;
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 0;
+        padding: 2rem 8rem;
+    }
+
+    .sub-menu-item {
+        float: left;
+        margin-right: 2.6rem;
+        width: 9%;
+
+        // Hover state
+        &.active .sub-menu-link:after,
+        &:hover .sub-menu-link:after {
+            display: block;
+        }
+
+        span {
+            display: block;
+            text-align: center;
+            color: $submenu-link-color;
+            margin-top: 1.5rem;
+            width: 100%;
+
+            @include media(">=desktop") {
+                font-size: 12px;
+            }
+        }
+    }
+
+    .sub-menu-link {
+        position: relative;
+        display: block;
+
+        &:after {
+            display: none;
+            width: 94%;
+            height: 98%;
+            content: '';
+            -webkit-box-shadow: 0 0 3.1rem 0.6rem #baabaa;
+            -moz-box-shadow: 0 0 3.1rem 0.6rem #baabaa;
+            box-shadow: 0 0 3.1rem 0.6rem #baabaa;
+            border-radius: 1.2rem;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            z-index: 10;
+        }
+
+        img {
+            position: relative;
+            z-index: 20;
+        }
+    }
+}

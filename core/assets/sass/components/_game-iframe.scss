@@ -1,0 +1,80 @@
+
+.header {
+    .top-option {
+        display: none;
+    }
+
+    .account-section {
+        padding-top: 15px;
+
+        .player-balance {
+            margin-right: 30px;
+        }
+
+        .vip-badge {
+            display: none;
+        }
+    }
+
+    .tooltip-balance {
+        ul {
+            display: none;
+        }
+    }
+}
+
+.toggable {
+    .player-balance {
+        margin-top: 8px;
+    }
+}
+
+.toggable:not(.hide-balance) {
+    .player-balance {
+        margin-top: -12px !important;
+    }
+}
+
+#loginForm {
+    .loginform-textfield-wrapper {
+        display: none;
+    }
+
+    .loginform-button-wrapper {
+        float: right;
+
+        #LoginForm_submit {
+            display: none;
+        }
+
+        .login-issue {
+            display: none;
+        }
+
+        .join-now {
+            float: right;
+            display: none;
+            margin-top: 34px;
+        }
+    }
+}
+
+.iframe-container {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    min-height: 500px;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        border: 0;
+        width: 100%;
+    }
+}
+
+.account-section .player-options .myaccount-tooltip {
+    display: none;
+}

@@ -1,0 +1,87 @@
+.navbar {
+    position: relative;
+    border-top: 2px solid $navbar-border-color;
+    background: $navbar-bg;
+    line-height: 20px;
+    white-space: nowrap;
+    .container {
+    	padding: 0;
+    }
+    @include media(">=1024px") {
+        background: $darkest-gray-desktop;
+        border-top: none;
+        height: 34px;
+        .container {
+            height: 34px;
+            padding: 0;
+        }
+    }
+}
+
+.main-menu {
+    margin: 0;
+    padding-left: 0;
+    list-style-type: none;
+
+    &.pull-right {
+        .main-menu-item:last-child {
+            .main-menu-link {
+                padding-right: 0;
+            }
+        }
+
+        @include media(">=desktop") {
+            white-space: nowrap; 
+            width: inherit;
+            margin-top: -2px;
+        }
+    }
+}
+
+.main-menu-link {
+    position: relative;
+    display: inline-block;
+    height: 34px;
+    padding: 0 20px;
+    color: $mainmenu-link-color;
+    font-size: $mainmenu-font-size;
+    line-height: 34px;
+    background: $mainmenu-link-bg;
+    text-decoration: none;
+
+    // Active state
+    .active > & {
+        background: $mainmenu-link-active-bg;
+        color: $mainmenu-link-hover-color;
+    }
+
+    // Promotion menu seperator
+    .promotion-item.active > &,
+    .mobile-item.active > & {
+        background: transparent;
+        color: $mainmenu-link-hover-color;
+    }
+}
+
+@include media(">=1024px") {
+	.navbar {
+	    line-height: 34px;
+
+	    .container {
+		white-space: nowrap; 
+		padding: 0 100px;
+		    
+		.pull-left {
+		    margin-top: -1px;
+		}
+	    }
+	}
+}
+
+@include media(">=768px", "<1024px") {
+        .extra-nav {
+            padding-right: 20px;
+        }
+}
+
+@import "../components/main-menu";

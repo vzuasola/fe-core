@@ -1,0 +1,120 @@
+.download-table {
+    padding: 0 100px;
+
+    table {
+        width: 100%;
+        height: 100%;
+    }
+
+    th {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: black;
+        padding: 15px 10px;
+        text-transform: uppercase;
+    }
+
+    td {
+        position: relative;
+        vertical-align: top;
+
+        .content-wrapper {
+            padding: 10px;
+            background-color: $light-gray;
+        }
+    }
+
+    .step-column {
+        width: 10%;
+        background: transparent;
+        text-align: center;
+        border-bottom: 15pt solid #e6e7e8;
+
+        &:before {
+            content: " ";
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            top: 30px;
+            background-color: $red;
+        }
+
+        .indicator-line {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    tr {
+        padding: 10px 50px;
+
+        &:last-child {
+            .step-column {
+                &:before {
+                    content: " ";
+                    width: 0;
+                    height: 0;
+                }
+            }
+        }
+    }
+
+    .client-column,
+    .mobile-column {
+        width: 45%;
+        border-bottom: 15pt solid $lightest-gray;
+
+        table {
+            td {
+                vertical-align: middle;
+            }
+        }
+    }
+
+    .client-column {
+        &:after {
+            content: " ";
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 20px solid $light-gray;
+            position: absolute;
+            right: -19px;
+            top: 30px;
+            z-index: 1;
+        }
+    }
+
+    .mobile-column {
+        &:before {
+            content: " ";
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 20px solid $light-gray;
+            position: absolute;
+            left: -19px;
+            top: 30px;
+            z-index: 1;
+        }
+    }
+
+    .poker-chip {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+        background: url("../../core/core/assets/images/download/chip.png");
+        padding-top: 18px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+    }
+}

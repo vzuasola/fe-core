@@ -1,0 +1,11 @@
+<div id="game-unsupported-currency-lightbox" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">{{ unsupported_currency.title }}</div>
+        <div class="modal-body">
+        	<div class="unsupported-currency-content">{{ unsupported_currency.content|raw }}</div>
+        	<div class="unsupported-currency-btn"><a class="btn btn-yellow">{{ unsupported_currency.button }}</a></div>
+        </div>
+        <span class="modal-close modal-close-button lazy-load" data-src="{{ asset('images/sprite.png') }}"></span>
+    </div>
+    <iframe id="ucl-fake-iframe" src="about:blank" style="border: none;"></iframe>
+</div>

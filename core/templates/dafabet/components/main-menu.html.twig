@@ -1,0 +1,61 @@
+<ul class="main-menu" id="main-menu">
+    {% for item in header.main_menu %}
+        {% set target = item.attributes.target ? item.attributes.target : "_self" %}
+        {% set class = item.attributes.class ? item.attributes.class : "" %}
+
+        <li class="main-menu-item {{ class }} {% if not item.attributes.isAgentPlayer %}pm-disable{% endif %}">
+            {% if item.active is empty %}
+                <a href="{{ url(item.alias ? item.alias : item.uri) }}"
+                    class="main-menu-link {% if not item.attributes.isAgentPlayer %}pm-disable{% endif %}"
+
+                    {% if item.attributes.dropDownMenu %}
+                        data-drop-down-menu-url="{{ url(item.attributes.dropDownMenu) }}"
+                    {% endif %}
+                >
+                    {{ item.title ? item.title : item.name }}
+                    {% if item.attributes.menuTag == "new" %}
+                        <span class="new-tag {% if not item.attributes.isAgentPlayer %}pm-hide{% endif %}">
+                            <span>{{ header.product_menu_new_tag|default('NEW') }}</span>
+                        </span>
+                    {% endif %}
+                </a>
+            {% else %}
+                <a href="{{ url(item.alias ? item.alias : item.uri) }}"
+                   class="main-menu-link {% if not item.attributes.isAgentPlayer %}pm-disable{% endif %}">
+                    {{ item.title ? item.title : item.name }}
+                    {% if item.attributes.menuTag == "new" %}
+                        <span class="new-tag {% if not item.attributes.isAgentPlayer %}pm-hide{% endif %}">
+                            <span>{{ header.product_menu_new_tag|default('NEW') }}</span>
+                        </span>
+                    {% endif %}
+                </a>
+            {% endif %}
+
+            {% if item.attributes.dropDownMenu %}
+                {{ include('@base/components/mega-menu/mega-menu.html.twig') }}
+            {% endif %}
+
+            {% if item.below %}
+              <div class="sub-menu-wrapper">
+                <ul class="sub-menu">
+                    {% for subItem in item.below %}
+                        {% set subTarget = subItem.attributes.target ? subItem.attributes.target : "_self" %}
+                        {% set subClass = subItem.attributes.class ? subItem.attributes.class : "" %}
+                        <li class="sub-menu-item {{ subClass }} {% if subItem.active %}active{% endif %}">
+                            <a href="{{ url(subIstem.alias ? subItem.alias : subItem.uri) }}"
+                               class="sub-menu-link {% if not item.attributes.isAgentPlayer %}pm-disable{% endif %}">
+                                {{ subItem.title }}
+                                {% if subItem.attributes.menuTag == "new" %}
+                                    <span class="new-tag">
+                                        <span>{{ header.product_menu_new_tag|default('NEW') }}</span>
+                                    </span>
+                                {% endif %}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

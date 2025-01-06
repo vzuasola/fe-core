@@ -1,0 +1,55 @@
+{% if (app.session.get('login')) %}
+<div class="mt-20 account-section text-right{% if header.balance_toggle %} toggable{% endif %}">
+    {% if header.balance_toggle %}
+        {{ include('@base/components/login/balance-togglable.html.twig') }}
+    {% else %}
+        {{ include('@base/components/login/balance.html.twig') }}
+    {% endif %}
+    <div class="player-options hide-text">
+        <ul class="mb-0">
+            <li class="cashier-tooltip tooltip">
+                {% if header.balance_toggle %}
+                    <a data-popup="true" href="{{ header.cashier_link }}" class="cashier-label">{{ header.cashier_icon_hover_text }}</a>
+                {% else %}
+                    <span class="icon-cashier lazy-load" data-src="{{ asset('images/sprite.png') }}" title="{{ header.cashier_icon_hover_text }}"></span>
+                {% endif %}
+
+                {% if header.cashier_menu is not null %}
+                <div class="tooltip-content text-center">
+                    <ul>
+                        {% for menu in header.cashier_menu %}
+                            <li class="{{ menu.attributes.class }} {% if not menu.attributes.isAgentPlayer %}pm-hide{% endif %}"><a data-popup="true" href="{{ url(menu.uri) }}">{{ menu.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </li>
+            {# Note: Inbox will be enabled back once the feature is implemented. #}
+            {# <li class="inbox-tooltip tooltip">
+                <span class="icon-inbox lazy-load" data-src="{{ asset('images/sprite.png') }}" title="Inbox"></span>
+                <div class="tooltip-content text-center">
+                    <ul>
+                        <li><a href="#">New Season Giveaway</a></li>
+                        <li><a href="#">Sports Promo Winners</a></li>
+                        <li><a href="#">Dafabet FC: Your Loyal...</a></li>
+                        <li class="view-all"><a href="#">View all</a></li>
+                    </ul>
+                </div>
+            </li> #}
+            <li class="myaccount-tooltip tooltip last">
+                <span class="icon-myaccount lazy-load" data-src="{{ asset('images/sprite.png') }}" title="{{ header.profile_icon_hover_text }}"></span>
+                <div class="tooltip-content text-center">
+                    <ul>
+                        {% if header.profile_menu is not null %}
+                            {% for menu in header.profile_menu %}
+                                <li><a class="{{ menu.attributes.class }} {% if not menu.attributes.isAgentPlayer %}pm-hide{% endif %}" data-popup="true" href="{{ url(menu.uri) }}">{{ menu.title }}</a></li>
+                            {% endfor %}
+                        {% endif %}
+                        <li><a class="btn-logout" href="{{ url('logout', {'query': {'from': header.uri}}) }}">{{ header.profile_logout_text | default('Logout') }}</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endif %}

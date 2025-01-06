@@ -1,0 +1,17 @@
+{% if footer.partners is not empty %}
+    <div class="footer-partners mb-10 text-center">
+        {% for partner in footer.partners %}
+            {% if partner.raw_and_image and partner.field_logo[0].url %}
+                {{ partner.raw|raw }}
+                <img alt="{{ partner.field_logo[0].alt }}" class="lazy-load ml-5 mr-5 partners-logo-{{partner.field_id[0].value}}" src="{{ asset('images/default_image.png') }}" data-src="{{ asset(partner.field_logo[0].url) }}">
+            {% elseif partner.raw %}
+                {{ partner.raw|raw }}
+            {% elseif partner.field_link[0].value %}
+                <a class="link" onclick="window.open('{{ partner.field_link[0].value }}', {{ partner.field_redirect_behavior[0].value }});">
+                <img class="lazy-load partners-logo-{{partner.field_id[0].value}}" src="{{ asset('images/default_image.png') }}" alt="{{ partner.field_logo[0].alt }}" data-src="{{ asset(partner.field_logo[0].url) }}"></a>
+            {% else %}
+                <a><img class="lazy-load partners-logo-{{partner.field_id[0].value}}" src="{{ asset('images/default_image.png') }}" alt="{{ partner.field_logo[0].alt }}" data-src="{{ asset(partner.field_logo[0].url) }}"></a>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}

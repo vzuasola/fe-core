@@ -1,0 +1,5 @@
+{% set logoTag = is_front ? 'h1' : 'p' %}
+
+<{{logoTag}} class="{% if header.dafacoin_balance_toggle == 1 %}coin-logo {% else %}logo{% endif %} {{ app.lang }}">
+    {{ include('@responsive/components/logo-link.html.twig') }}
+</{{logoTag}}>

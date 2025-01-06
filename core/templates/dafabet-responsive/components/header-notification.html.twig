@@ -1,0 +1,14 @@
+<div class="header-notification">
+    <span id="time_ticker"></span>
+    {% if (headerNotificationDisabled == null or headerNotificationDisabled == false) %}
+        <div class="notification-wrapper visible-desktop visible-tablet">
+            <span class="icon icon-notification lazy-load" data-src="{{ asset('images/sprite-responsive.png') }}"></span>
+            <span class="notification-counter"></span>
+        </div>
+    {% endif %}
+    {% if app.player_session.getUsername() == false %}
+        <div class="login-form-border visible-desktop"></div>
+    {% else %}
+        <div class="login-intro-border visible-desktop"></div>    
+    {% endif %}
+</div>

@@ -1,0 +1,223 @@
+// Main Menu ==============================================================================
+.main-menu {
+    @extend %clearfix;
+    margin: 0;
+    padding-left: 0;
+    list-style-type: none;
+
+    &.pull-right {
+        .main-menu-item:last-child {
+            .main-menu-link {
+                padding-right: 0;
+            }
+        }
+        @include media(">=desktop") {
+            list-style-type: none;
+            white-space: nowrap; 
+            width: inherit;
+        }
+    }
+}
+
+.main-menu-item {
+    height: 34px;
+    display: inline-block;
+
+    .main-menu-link {
+        line-height: 34px;
+        background: transparent;
+    }
+
+    > a {
+        &.is-open,
+        &.active,
+        &:hover {
+            @include media(">=desktop") {
+                margin-top: -1px;
+            }
+            line-height: 34px;
+            background: #af0000;
+            background-color: #af0000;
+            color: $mainmenu-link-hover-color;         
+        }
+    }
+
+    &.promotion-svg,
+    &.vip-svg,
+    &.mobile-svg {            
+        > a {
+            &.is-open,
+            &.active,
+            &:hover {
+                background: transparent;
+                background-color: transparent;
+            }
+        }
+    }
+    //desktop 
+    &.promotion-item,
+    &.promotion-svg {
+        a:before {
+            @include image-replacement($sprite-responsive, -267px, -720px, 24px, 24px);
+            margin-right: 4px;
+            content: " ";
+        }
+
+        &.active a:before,
+        a:hover:before {
+            background-position: -295px -720px;
+        }
+    }
+
+    &.vip-item,
+    &.vip-svg {
+        a:before {
+            @include image-replacement($sprite-responsive, -326px, -722px, 24px, 24px);
+            margin-right: 8px;
+            content: " ";
+        }
+
+        &.active a:before,
+        a:hover:before {
+            background-position: -354px -722px;
+        }
+    }
+    
+    &.mobile-item,
+    &.mobile-svg {
+        a:before {
+            @include image-replacement($sprite-responsive, -377px, -720px, 24px, 24px);            
+            margin-right: 1px;
+            content: " ";
+        }
+
+        &.active a:before,
+        a:hover:before {
+            background-position: -398px -720px;
+        }
+    }
+}
+
+.main-menu-link {
+    position: relative;
+    z-index: 16;
+    display: inline-block;
+    height: 34px;
+    padding: 0 20px;
+    color: $mainmenu-link-color;
+    font-size: $mainmenu-font-size;
+    line-height: 34px;
+    background: $mainmenu-link-bg;
+    text-decoration: none;
+
+    // Hover/Active state
+    &:hover,
+    .active > & {
+        height: 34px;
+        line-height: 34px;
+        background: $mainmenu-link-active-bg;
+        color: $mainmenu-link-hover-color;
+    }
+
+    // Promotion menu seperator
+    .promotion-item > &:hover,
+    .mobile-item > &:hover,
+    .vip-item > &:hover,
+    .news-item > &:hover,
+    .promotion-item.active > &,
+    .mobile-item.active > &,
+    .vip-item.active > &,
+    .news-item.active > & {
+        background: transparent;
+        color: $mainmenu-link-hover-color;
+    }
+}
+
+.news-item {
+    a:before {
+        width: 30px;
+        background-position: -480px -340px;
+    }
+
+    &.active a:before,
+    a:hover:before {
+        background-position: -480px -382px;
+    }
+}
+
+// New product indicator
+.new-tag {
+    position: absolute;
+    top: -10px;
+    right: 5px;
+    display: block;
+    height: 15px;
+    padding-left: 5px;
+    line-height: 15px;
+    background-image: url("../../core/core/assets/images/new_indicator.png");
+    background-position: 0 3px;
+    background-repeat: no-repeat;
+
+    span {
+        padding: 0 3px;
+        font-size: 10px;
+        font-weight: bold;
+        background: $yellow;
+        color: $red;
+    }
+}
+
+// Separator (adds vertical line to the right of this link, should be applied on <li>)
+.separator a {
+    border-right: 2px dotted $mainmenu-separator-color;
+}
+
+// Sub Menu ==============================================================================
+.sub-menu-wrapper {
+    position: absolute;
+    top: 34px;
+    left: 0;
+    background: $submenu-wrapper-bg;
+}
+
+.sub-menu {
+    // @extend %container;
+    list-style-type: none;
+}
+
+.sub-menu-item {
+    float: left;
+}
+
+.sub-menu-link {
+    position: relative;
+    float: left;
+    display: inline-block;
+    height: 34px;
+    padding: 0 25px;
+    color: $submenu-link-color;
+    font-size: $submenu-font-size;
+    line-height: 34px;
+    background: $submenu-link-bg;
+    text-decoration: none;
+
+    // Hover state
+    &:hover {
+        color: $submenu-link-hover-color;
+    }
+
+    // Active state
+    .active > & {
+        color: $submenu-link-active-color;
+    }
+}
+
+@include media(">=desktop") {
+    .js-priorityNav {
+        font-size: $mainmenu-font-size;
+       
+        .priority-nav__dropdown {
+            background: $mainmenu-link-bg;
+        }
+    }
+}

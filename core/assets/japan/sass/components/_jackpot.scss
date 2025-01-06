@@ -1,0 +1,280 @@
+.ticker-holder {
+    min-width: 25rem;
+}
+//Jackpot Lobby
+.jackpot-category-item {
+    padding-top: 2rem;
+    margin-bottom: 0.1rem;
+
+    @include media(">=tablet") {
+        padding-top: 2.5rem;
+    }
+
+    @include media(">=desktop") {
+        padding-top: 3rem;
+    }
+
+    .more-link {
+        float: right;
+        color: white;
+    }
+}
+
+//Jackpot List per Category
+.jackpot-page {
+    padding-bottom: 2rem;
+
+    @include media(">=tablet") {
+        padding-bottom: 5.5rem;
+    }
+
+    @include media(">=desktop") {
+        padding-bottom: 7rem;
+    }
+}
+
+.jackpot-category-title {
+    font-size: 2.6rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: #ffb600;
+    font-weight: bold;
+    padding: 2rem 0 1rem;
+
+    @include media(">=tablet") {
+        padding: 3rem 0 1rem;
+    }
+
+    @include media(">=desktop") {
+        padding: 5rem 0 1rem;
+    }
+}
+
+.jackpot-list-item,
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+
+    .game-listing-row {
+        display: inline-block;
+        width: 42%;
+        margin: 1rem;
+        position: relative;
+        box-sizing: border-box;
+        border: 0.2rem solid #363636;
+        border-radius: 0.5rem;
+        background: #fff;
+        padding: 1.5rem;
+        text-align: center;
+
+        @include media(">=tablet") {
+            width: 20%;
+        }
+
+        @include media(">=desktop") {
+            width: 20%;
+            margin: 2rem;
+        }
+
+        .jackpot-wrapper {
+            img {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    .jackpot-graph-wrapper {
+        height: 3rem;
+        line-height: 3rem;
+        padding-left: 0.4rem;
+        background-color: #000;
+
+        @include media(">=desktop") {
+            height: 4rem;
+            line-height: 4rem;
+            padding-left: 1rem;
+        }
+
+        .jackpot-hits {
+            color: #ffc600;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: left;
+
+            @include media(">=tablet") {
+                font-size: 1.2rem;
+            }
+
+            @include media(">=desktop") {
+                font-size: 1.5rem;
+            }
+        }
+
+        .ticker-icon {
+            @include gradient-three-color($ticker-icon-grad-top, $ticker-icon-grad-top, $ticker-icon-grad-middle, $ticker-icon-grad-bottom);
+            position: absolute;
+            top: 0.4rem;
+            right: 0.6rem;
+            display: inline-block;
+            width: 3rem;
+            height: 3rem;
+            line-height: 3rem;
+            margin-left: 0.5rem;
+            border: 0.1rem solid #c62e00;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 0.5rem;
+
+            .fa {
+                font-size: 1.8rem;
+            }
+        }
+    }
+}
+
+.jackpot-footer {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+
+    @include media(">=tablet") {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    @include media(">=desktop") {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
+
+    .jackpot-button {
+        background: linear-gradient(to bottom, red 0%, #810000 100%);
+        color: $white;
+        border-radius: 1rem;
+        display: inline-block;
+        font-weight: bold;
+        border: 0.2rem solid #361f1f;
+        font-size: 1.6rem;
+        padding: 1rem;
+        min-width: 25rem;
+
+        @include media(">=tablet") {
+            font-size: 2.2rem;
+            padding: 1.2rem 3rem;
+            min-width: 20rem;
+        }
+
+        @include media(">=desktop") {
+            font-size: 2.5rem;
+            padding: 1.4rem 5rem;
+            min-width: 25rem;
+        }
+
+        a {
+            color: $white;
+        }
+    }
+}
+
+.jackpot-graph {
+
+    .hits {
+        h3 {
+            margin-top: 1.8rem;
+        }
+
+        @include media(">=tablet") {
+            margin-left: 0rem;
+            margin-top: 1.8rem;
+        }
+
+        @include media(">=desktop") {
+            margin-left: 0rem;
+            margin-top: 1.8rem;
+        }
+    }
+
+    .modal-content {
+        max-height: 90%;
+        max-width: 90%;
+        color: #000;
+        background-color: #fff9ed;
+        width: 100%;
+        padding: 2rem;
+
+        @include media(">=tablet") {
+            width: 100%;
+            padding: 2rem 8rem;
+        }
+
+        @include media(">=desktop") {
+            width: 89%;
+            max-width: 100rem;
+            padding: 2rem 8rem;
+        }
+    }
+
+    small {
+        font-size: 70%;
+    }
+
+    h2 {
+        color: #000;
+        font-size: 1.6rem;
+        margin: 1.4rem 0 0;
+        text-align: left;
+
+        @include media(">=tablet") {
+            font-size: 1.7rem;
+        }
+
+        @include media(">=desktop") {
+            font-size: 3.1rem;
+        }
+    }
+
+    h3 {
+        color: #000;
+        font-size: 1.7rem;
+
+        @include media(">=tablet") {
+            font-size: 1.7rem;
+        }
+
+        @include media(">=desktop") {
+            font-size: 2.5rem;
+        }
+    }
+
+    .col-6 {
+        max-width: 100%;
+        font-weight: bold;
+
+        @include media(">=tablet") {
+            max-width: 50%;
+            float: left;
+        }
+
+        @include media(">=desktop") {
+            max-width: 50%;
+            float: left;
+        }
+    }
+
+    .modal-close-button.lazy-loaded {
+        background-position: -240px -240px;
+    }
+
+    .jackpot-hits {
+        display: block;
+        font-size: 1.2rem;
+        padding: 0;
+
+        li {
+            list-style: none;
+        }
+    }
+}

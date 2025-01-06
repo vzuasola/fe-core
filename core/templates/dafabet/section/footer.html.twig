@@ -1,0 +1,14 @@
+<footer class="footer">
+{% if footer.back_to_top == TRUE %}
+	<a class="back-to-top hide"></a>
+{% endif %}
+    <div class="container">
+        {{ include('@base/components/footer-cookie-notification.html.twig') }}
+        {{ include('@base/components/footer-sponsor.html.twig') }}
+        <div class="grid">
+            {{ include('@base/components/footer-site-keyword.html.twig') }}
+            {{ include('@base/components/footer-socials.html.twig') }}
+        </div>
+    </div>
+    {{ include('@base/components/footer-copyright.html.twig') }}
+</footer>

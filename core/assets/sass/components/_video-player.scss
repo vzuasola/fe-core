@@ -1,0 +1,230 @@
+$control-left-width: 50px;
+$control-right-width: 103px;
+
+.media-container {
+    position: relative;
+
+    // Remove outline when button is focused
+    button:focus {
+        outline: none;
+    }
+
+    // Video Tag
+    video {
+        // 
+    }
+
+    &:hover .media-control {
+        opacity: 1;
+    }
+
+    .media-control {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        height: 50px;
+        padding: 0 ($control-right-width + 30) 0 ($control-left-width + 10);
+        background: $dark-gray;
+        opacity: 0;
+        transition: opacity 0.3s;
+        text-align: left;
+
+        &-left {
+            position: absolute;
+            top: 14px;
+            left: 10px;
+        }
+
+        &-progress {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            height: 10px;
+            border-radius: 10px;
+            background: #0e0e0e;
+        }
+
+        &-right {
+            position: absolute;
+            top: 14px;
+            right: 20px;
+        }
+
+        button,
+        .media-control-progress-indicator {
+            display: inline-block;
+        }
+
+        button {
+            @include image-replacement(
+                $background-url: $base-sprite,
+                $x: center,
+                $y: center,
+                $width: 26px,
+                $height: 28px,
+                $line-height: 28px
+            );
+            border: none;
+            background-color: transparent;
+        }
+
+        .media-control-play-pause {
+            &.play {
+                width: 20px;
+                height: 22px;
+                background-position: -100px -160px;
+            }
+
+            &.pause {
+                width: 20px;
+                height: 22px;
+                background-position: -160px -160px;
+            }
+        }
+
+        .media-control-play {
+            display: none;
+            width: 20px;
+            height: 22px;
+            background-position: -100px -160px;
+        }
+
+        .media-control-pause {
+            display: none;
+            width: 20px;
+            height: 22px;
+            background-position: -160px -160px;
+        }
+
+        .media-control-stop {
+            width: 20px;
+            height: 22px;
+            background-position: -120px -160px;
+        }
+
+        .media-control-progress-indicator {
+            position: relative;
+            float: left;
+            height: 100%;
+            border: none;
+            background: #007ee5;
+
+            // &:before {
+            //     position: absolute;
+            //     top: -4px;
+            //     right: -14px;
+            //     width: 18px;
+            //     height: 18px;
+            //     border-radius: 50%;
+            //     background: $white;
+            //     border: 1px solid $black;
+            //     content: "";
+            // }
+        }
+
+        .media-control-mute {
+            margin-top: -3px;
+
+            &.mute {
+                width: 27px;
+                height: 28px;
+                background-position: -100px -240px;
+            }
+
+            &.unmute {
+                width: 27px;
+                height: 28px;
+                background-position: -180px -200px;
+            }
+        }
+
+        .media-control-volume-up {
+            width: 22px;
+            height: 22px;
+            margin-top: -3px;
+            background-position: -100px -200px;
+        }
+
+        .media-control-volume-down {
+            margin-top: -1px;
+            width: 22px;
+            height: 8px;
+            background-position: -140px -200px;
+        }
+
+        .media-control-fullscreen {
+            width: 20px;
+            height: 20px;
+            margin-top: -3px;
+            background-position: -200px -160px;
+        }
+    }
+
+    // PlayBox
+    .playbox {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 5;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: opacity 0.3s;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: none;
+            width: 80px;
+            height: 80px;
+            margin: -40px 0 0 -40px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.3);
+            color: $white;
+
+            &.pause {
+                &:before {
+                    width: 30px;
+                    margin: -11px 0 0 1px;
+                    border: none;
+                    content: "▐ ▌";
+                    font-size: 22px;
+                }
+            }
+
+            &.play {
+                &:before {
+                    @include triangle(right, 15px, $white);
+                    margin: 2px 0 0 25px;
+                    display: block;
+                    border-left-width: 25px;
+                    content: "";
+                }
+            }
+        }
+    }
+}
+
+// Video Player modal/ligthbox
+.modal-video-ligthbox {
+    .modal-content {
+        padding: 0;
+        border-radius: 0;
+        overflow: hidden;
+    }
+
+    // Video tag inside ligthbox
+    .media-container {
+        margin: 0 auto;
+    }
+}

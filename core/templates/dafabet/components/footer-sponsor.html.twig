@@ -1,0 +1,35 @@
+{%
+    set footerSponsor = footer.sponsorship[0].field_sponsor_cmi
+%}
+
+{% if footerSponsor is not empty %}
+<div class="sponsors">
+    <ul class="mb-25">
+        {% for item in footerSponsor %}
+            {% if item.field_sponsor_cmi_logo[0] is not empty %}
+                <li class="mb-40">
+                    {% if item.field_sponsor_cmi_link[0] is empty %}
+                        <span>
+                            <img 
+                                alt="{{ item.field_sponsor_cmi_logo.alt }}"
+                                src="{{ asset('images/default_image.png') }}"
+                                data-src="{{ asset(item.field_sponsor_cmi_logo[0].url) }}"
+                                class="lazy-load"
+                            >
+                        </span>
+                    {% else %}
+                        <a href="{{ url(item.field_sponsor_cmi_link[0].value) }}" target="{{ item.field_sponsor_cmi_link_target[0].value }}">
+                            <img
+                                alt="{{ item.field_sponsor_cmi_logo.alt }}"
+                                src="{{ asset('images/default_image.png') }}"
+                                data-src="{{ asset(item.field_sponsor_cmi_logo[0].url) }}"
+                                class="lazy-load"
+                            >
+                        </a>
+                    {% endif %}
+                </li>
+            {% endif %}
+        {%  endfor %}
+    </ul>
+</div>
+{% endif %}

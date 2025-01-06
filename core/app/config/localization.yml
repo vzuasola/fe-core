@@ -1,0 +1,4 @@
+geoip:
+  es: [MX, PE, CL, AR]
+currency:
+  es: [MXN, PEN, CLP, ARS]

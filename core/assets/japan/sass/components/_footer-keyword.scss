@@ -1,0 +1,7 @@
+.keyword {
+    font-size: 1.3rem;
+
+    @include media(">=desktop") {
+        font-size: 1.6rem;
+    }
+}

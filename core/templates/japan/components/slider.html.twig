@@ -1,0 +1,33 @@
+<div class="pl-desktop-50 pr-desktop-50">
+    <div class="container pl-mobile-0 pr-mobile-0 pl-tablet-0 pr-tablet-0 side-line">
+        <section class="banner slider pagination-right" id="casino-main-banner">
+            <div class="banner-slides">
+                {% for item in header.slider %}
+                    {% if item.field_status[0].value == 1 %}
+                        {% if app.player_session.isLogin() == NULL %}
+                            {% if item.field_log_in_state[0].value == 0 %}
+                                {% set bannerLink = item.field_banner_link ? item.field_banner_link[0].uri : '#' %}
+                                <div class="banner-slides-item">
+                                    <a href="{{ url(bannerLink) }}" target="{{ item.field_banner_link_target[0].value }}">
+                                        <img src="{{ asset(item.field_banner_image[0].url) }}" width="393" height="112">
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% else %}
+                            {% if (item.field_log_in_state[1].value == 1) or (item.field_log_in_state[0].value == 1) %}
+                                {% set bannerLink = item.field_post_banner_link ? item.field_post_banner_link[0].uri : '#' %}
+                                <div class="banner-slides-item">
+                                    <a href="{{ url(bannerLink) }}" target="{{ item.field_post_banner_link_target[0].value }}">
+                                        <img src="{{ asset(item.field_post_banner_image[0].url) }}" width="393" height="112">
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+        <div class="gradient-left"></div>
+        <div class="gradient-right"></div>
+    </div>
+</div>

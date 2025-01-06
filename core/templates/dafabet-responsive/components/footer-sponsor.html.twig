@@ -1,0 +1,16 @@
+{% if footer.sponsorformat is not empty %}
+    <div class="sponsors mb-35 pb-20 pt-10 mb-20 {% if footer.enable_new_style == 1 %}container{% endif %}">
+        <ul class="mb-0 {% if footer.enable_new_style == 1 %}footer-revamp mt-20{% endif %}">
+            {% for item in footer.sponsorformat[0].field_responsive_sponsor %}
+                {% include('@responsive/components/footer-sponsors-list.html.twig') with item %}
+            {%  endfor %}
+        {% if footer.enable_new_style != 1 %}</ul>
+
+        <ul class="mb-10 mt-10">{% endif %}
+            {% for item in footer.sponsorformat[1].field_responsive_sponsor %}
+                {% include('@responsive/components/footer-sponsors-list.html.twig') with item %}
+            {%  endfor %}
+        </ul>
+    </div>
+{% endif %}
+

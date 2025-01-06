@@ -1,0 +1,37 @@
+{% if footer.enable_new_style == 1 %}
+    {{ include('@responsive/section/footer-revamp.html.twig') }}
+{% else %}
+    <footer class="footer pt-80 pt-tablet-15 pt-mobile-25 {{theme.theme_code}}">
+        {% if footer.back_to_top == TRUE %}
+        <a class="back-to-top hide"></a>
+        {% endif %}
+        {{ include('@responsive/components/footer-sponsor.html.twig') }}
+        <div class="container">
+            {{ include('@base/components/footer-cookie-notification.html.twig') }}
+
+            <div class="row hidden-mobile mb-desktop-30">
+                <div class="col-sm-4 pb-20">
+                    {{ include('@responsive/components/footer-site-keyword.html.twig') }}
+                </div>
+                <div class="col-sm-4 pb-20">
+                    {{ include('@responsive/components/footer-brand-ambassador.html.twig') }}
+                </div>
+                <div class="visible-mobile">
+                    {{ include('@responsive/components/footer-quicklinks-revamp.html.twig') }}
+                </div>
+                <div class="col-sm-4">
+                    {{ include('@responsive/components/footer-socials.html.twig') }}
+                    <div class="partner-tablet-container visible-tablet mb-tablet-20 text-center">
+                        {{ include('@responsive/components/footer-partners.html.twig') }}
+                    </div>
+                    {{ include('@responsive/components/footer-cs.html.twig') }}
+                </div>
+                <div class="hidden-mobile">
+                    {{ include('@responsive/components/footer-quicklinks-revamp.html.twig') }}
+                </div>
+            </div>
+        </div>
+        {{ include('@responsive/components/footer-mobile-menu.html.twig') }}
+        {{ include('@base/components/footer-copyright.html.twig') }}
+    </footer>
+{% endif %}

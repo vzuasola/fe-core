@@ -1,0 +1,42 @@
+{% if footer.partners is not empty %}
+    <div class="partners-logo">
+        {% for item in footer.partners %}
+            {% if item.field_res_partner_mobile_logo[0].url %}
+                {{ item.raw|raw }}
+                {% if lazy_load == 'off' %}
+                    <img
+                        alt="{{ item.field_partner_alternative_text[0].value }}"
+                        class="partners-logo-{{item.field_id[0].value}}"
+                        src="{{ asset(item.field_res_partner_mobile_logo[0].url) }}"
+                    >
+                {% else %}
+                    <img
+                        alt="{{ item.field_partner_alternative_text[0].value }}"
+                        class="lazy-load partners-logo-{{item.field_id[0].value}}"
+                        src="{{ asset('images/default_image.png') }}"
+                        data-src="{{ asset(item.field_res_partner_mobile_logo[0].url) }}"
+                    >
+                {% endif %}
+            {% elseif item.field_id[0].value == 'curacao' %}
+                {% if curacao.gcb_feature_flag %}
+                    <div id="curacao-container" class="hidden">
+                        <a href="#" target="_blank"><img src="{{ curacao.gcb_image_url }}" width="70" height="40"/></a>
+                    </div>
+                {% endif %}
+            {% elseif item.field_res_partner_mobile_logo[0].url %}
+                {% if lazy_load == 'off' %}
+                        <img
+                            alt="{{ item.field_partner_alternative_text[0].value }}"
+                            src="{{ asset(item.field_res_partner_mobile_logo[0].url) }}"
+                        >
+                    {% else %}
+                        <img
+                            alt="{{ item.field_partner_alternative_text[0].value }}"
+                            src="{{ asset('images/default_image.png') }}"
+                            data-src="{{ asset(item.field_res_partner_mobile_logo[0].url) }}"
+                        >
+                    {% endif %}
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}

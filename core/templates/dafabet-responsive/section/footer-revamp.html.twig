@@ -1,0 +1,29 @@
+<footer class="footer pt-80 pt-tablet-15 pt-mobile-25 {{theme.theme_code}} footer-update">
+    {% if footer.back_to_top == TRUE %}
+	<a class="back-to-top hide"></a>
+    {% endif %}
+    {{ include('@responsive/components/footer-sponsor-revamp.html.twig') }}
+    <div class="container">
+        {{ include('@base/components/footer-cookie-notification.html.twig') }}
+
+        <div class="row mb-desktop-30">
+            <div class="mb-30 site-keyword-update">
+                {{ include('@responsive/components/footer-site-keyword.html.twig') }}
+            </div>
+            <div class="col-sm-4 pb-20">
+                {{ include('@responsive/components/footer-brand-ambassador.html.twig') }}
+            </div>
+            <div class="col-sm-4 quicklinks-update">
+                {{ include('@responsive/components/footer-quicklinks-revamp.html.twig') }}
+            </div>
+            <div class="col-sm-4">
+                {{ include('@responsive/components/footer-socials.html.twig') }}
+                <div class="partner-tablet-container visible-tablet mb-tablet-20 text-center">
+                    {{ include('@responsive/components/footer-partners.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ include('@responsive/components/footer-gambling-restriction.html.twig') }}
+    {{ include('@base/components/footer-copyright.html.twig') }}
+</footer>

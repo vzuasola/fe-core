@@ -1,0 +1,11 @@
+@import "./../../../sass/components/floating-banner";
+
+.floating-banner {
+    display: none;
+}
+
+@include media(">=1024px") {
+    .floating-banner {
+        display: block;
+    }
+}

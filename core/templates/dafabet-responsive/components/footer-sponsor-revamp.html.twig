@@ -1,0 +1,10 @@
+{% if footer.sponsorformat is not empty %}
+    <div class="sponsors mb-35 pb-20 pt-10 mb-20 container">
+        <ul class="mb-0 footer-revamp mt-20">
+            {% for item in footer.sponsorformat[0].field_responsive_sponsor %}
+                {% include('@responsive/components/footer-sponsors-list-revamp.html.twig') with item %}
+            {%  endfor %}
+        </ul>
+    </div>
+{% endif %}
+

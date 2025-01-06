@@ -1,0 +1,106 @@
+{{#if field_drawer_media }}
+<section class="banner slider pagination-right" id="main-banner">
+    <div class="banner-slides">
+        {{#each field_drawer_media as |sliderItem|}}
+            <div class="banner-slides-item">
+                {{#if sliderItem.field_drawer_video}}
+                    <a href="#modal-{{ sliderItem.field_drawer_video.target_id }}" class="modal-trigger modal-video">
+                        <img
+                            src="{{ sliderItem.field_drawer_image.0.url }}"
+                            {{#if sliderItem.field_drawer_thumb.0.url }}
+                                data-thumb="{{ sliderItem.field_drawer_thumb.0.url }}"
+                            {{/if}}
+                            alt="{{ sliderItem.field_drawer_image.alt }}"
+                            class="w-100"
+                            data-thumbnail="{{ sliderItem.field_drawer_thumb.alt }}"
+                        >
+                    </a>
+                {{else}}
+                    <img
+                        src="{{ sliderItem.field_drawer_image.0.url }}"
+                        {{#if sliderItem.field_drawer_thumb.0.url }}
+                            data-thumb="{{ sliderItem.field_drawer_thumb.0.url }}"
+                        {{/if}}
+                        alt="{{ sliderItem.field_drawer_image.alt }}"
+                        class="w-100"
+                        data-thumbnail="{{ sliderItem.field_drawer_thumb.alt }}"
+                    >
+                {{/if}}
+            </div>
+        {{/each}}
+    </div>
+</section>
+{{/if}}
+
+<div class="drawer-blurb">
+    <h2 class="drawer-title">
+        <span>{{ field_drawer_title.0.value }}</span>
+    </h2>
+    {{{ field_drawer_summary.0.value }}}
+    {{#if field_drawer_button.0.uri }}
+        <p class="text-center"><a href="{{ field_drawer_button.0.uri }}" class="btn btn-medium text-uppercase">{{ field_drawer_button.0.title }}</a></p>
+    {{/if}}
+</div>
+
+{{#if field_drawer_media }}
+    {{#each field_drawer_media as |sliderItem|}}
+        {{#if sliderItem.field_drawer_video}}
+            <div id="modal-{{ sliderItem.field_drawer_video.target_id }}" class="modal modal-transparent modal-drawer">
+                <a href="#" class="modal-close modal-close-button">X</a>
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <figure class="media-container">
+                            <video
+                                {{!-- class="video" --}}
+                                width="560"
+                                height="320"
+                                src="{{ sliderItem.field_drawer_video.0.url }}"
+                                {{!-- data-player-playbox --}}
+                                {{!-- controls --}}
+                                loop
+                                {{!-- autoplay --}}
+                                preload="metadata"
+                                poster="{{ sliderItem.field_drawer_image.0.url }}"
+                            >
+
+                                {{!-- IE8 fallback with flash installed --}}
+                                <object type="application/x-shockwave-flash" data="{{ sliderItem.field_drawer_video_fallback.0.url }}" width="560" height="320">
+                                    <param name="movie" value="{{ sliderItem.field_drawer_video_fallback.0.url }}">
+                                    <param name="allowfullscreen" value="true" />
+                                    <param name="play" value="true" />
+                                    <param name="loop" value="false" />
+                                    <param name="menu" value="true" />
+                                    <param name="quality" value="high" />
+                                    <param name="wmode" value="transparent" />
+                                    <param name="scale" value="noborder" />
+
+                                    {{!-- IE8 fallback w/o flash install --}}
+                                    <img alt="alt text" src="{{ sliderItem.field_drawer_image.0.url }}" width="560" height="320" title="No video playback possible, please download the video from the link below" />
+                                </object>
+                            </video>
+
+                            {{!-- Custom controls --}}
+                            <div id="media-control" class="media-control hidden">
+                                <div class="media-control-left">
+                                    <button class="media-control-play-pause">Play</button>
+                                    <button class="media-control-stop">Stop</button>
+                                </div>
+                                <span class="media-control-progress">
+                                    <span class="media-control-progress-indicator"></span>
+                                </span>
+                                <div class="media-control-right">
+                                    <button class="media-control-mute">Mute</button>
+                                    <button class="media-control-volume-up">Vol+</button>
+                                    <button class="media-control-volume-down">Vol-</button>
+                                    <button class="media-control-fullscreen">Fullscreen</button>
+                                    <button class="media-control-play">Play</button>
+                                    <button class="media-control-pause">pause</button>
+                                </div>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+    {{/each}}
+{{/if}}

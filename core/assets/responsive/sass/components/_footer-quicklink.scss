@@ -1,0 +1,143 @@
+.quicklinks-revamp {
+    .table {
+        display: table;
+        margin: 0 auto;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    li {
+        display: inline;
+    }
+
+    a {
+        color: $gray;
+        font-size: 14px;
+        line-height: 36px;
+        padding: 0px 12px;
+
+        &:hover {
+            color: $dark-gray;
+        }
+    }
+}
+
+.quicklinks-update {
+    h4 {
+        text-align: left;
+    }
+
+    .table, ul, a {
+            @include media(">=tablet", "<desktop") {
+                display: block;
+                padding: 0;
+                margin: 0;
+            }
+            @include media(">=desktop") {
+                display: block;
+                padding: 0;
+                margin: 0;
+            }
+        }
+
+        ul {
+            @include media(">=tablet", "<desktop") {
+                columns: 2;
+                line-height: normal;
+            }
+            @include media(">=desktop") {
+                columns: 2;
+                line-height: normal;
+            }
+        }
+
+        @include media(">=tablet", "<desktop") {
+            .footer-quicklinks-small {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(6, auto);
+                grid-auto-flow: column;
+                margin: 0 4px;
+            }
+    
+            .footer-quicklinks-large {
+                columns: 2
+            }
+        }
+
+        @include media(">=desktop") {
+            .footer-quicklinks-small {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(6, auto);
+                grid-auto-flow: column;
+                margin: 0 4px;
+            }
+    
+            .footer-quicklinks-large {
+                columns: 2
+            }
+        }
+}
+
+.quicklinks-mobile-revamp {
+    padding: 1rem 0;
+    h4 {
+        font-size: 1.2rem;
+        text-align: left;
+    }
+
+    .table {
+        display: table;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    li {
+        display: block;
+    }
+
+    a {
+        color: $gray;
+        font-size: 12px;
+        line-height: 32px;
+        padding: 0px 1.2px;
+
+        &:hover {
+            color: $dark-gray;
+        }
+    }
+}
+
+@include media("<tablet") {
+    .quicklinks-revamp {
+        h4 {
+            text-align: left;
+            margin-bottom: 16px;
+        }
+        .table {
+            margin: 0;
+        }
+        ul {
+            padding: 0;
+            margin-bottom: 32px;
+        }
+
+        li {
+            display: block;
+            padding: 8px 0;
+        }
+    
+        a {
+            color: $gray !important;
+            font-size: 12px;
+            line-height: 32px;
+            padding: 12px 0;
+        }
+    }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html class="{{ app.lang }}">
+    <head>
+        <title>Dafabet  Game Loader</title>
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}"/>
+
+        {# HMLT5 Shiv #}
+        <!--[if lte IE 8]>
+            <script src="{{ asset('js/html5shiv.min.js') }}"></script>
+            <script src="{{ asset('js/ie8-eventlistener.min.js') }}"></script>
+            <script src="{{ asset('js/ie8-normalizer.min.js') }}"></script>
+        <![endif]-->
+
+        {# Outdated browser #}
+        <script src="{{ asset('js/outdated-browser.min.js') }}"></script>
+        <link href="{{ asset('css/loader.css') }}" rel="stylesheet">
+    </head>
+    <body>
+        {% if games_opus_provider is not empty %}
+            <div class="loader-container">
+                <p><img class="lazy-load" src="{{ asset('images/default_image.png') }}" data-src="{{ asset('images/dafabet_logo.png') }}" height="56" width="289" alt="Dafabet"></p>
+                <div id="loader">
+                    <div class="loader" id="loader-0"></div>
+                    <div class="loader" id="loader-1"></div>
+                    <div class="loader" id="loader-2"></div>
+                    <div class="loader" id="loader-3"></div>
+                    <div class="loader" id="loader-4"></div>
+                    <div class="loader" id="loader-5"></div>
+                    <div class="loader" id="loader-6"></div>
+                    <div class="loader" id="loader-7"></div>
+                    <div class="loader" id="loader-8"></div>
+                    <div class="loader" id="loader-9"></div>
+                </div>
+                <div id="alt-loader">
+                    <img class="lazy-load" src="{{ asset('images/default_image.png') }}" data-src="{{ asset('images/loading-circles.gif') }}">
+                </div>
+                <div class="loader-message">
+                    {{ games_opus_provider.opus_game_loader_content.value | raw}}
+                </div>
+            </div>
+        {% endif %}
+
+        {# ES5 Polyfill #}
+        <script src="{{ asset('js/es5.min.js') }}"></script>
+
+        {# We use special tokens for the script tokens @see Middleware/Attachments #}
+        {{ '<#SCRIPT#>' }}
+        {{ '<#SCRIPT_INCLUDES#>' }}
+
+        {# Webpack manifest & vendor script #}
+        <script src="{{ asset('js/manifest.bundle.js') }}"></script>
+        <script src="{{ asset('js/vendor.bundle.js') }}"></script>
+
+        {# Webpack page specific script #}
+        <script src="{{ asset('js/loader.bundle.js') }}"></script>
+    </body>
+</html>

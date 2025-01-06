@@ -1,0 +1,23 @@
+{% import "@japan/components/metatags/metatag.macro.twig" as metatag %}
+
+{% set meta_data = meta(data) %}
+
+<title>{{ meta_data.title|default(title)}}</title>
+
+{% if meta_data.meta is not empty %}
+    {{ metatag.meta(null, 'description', meta_data.meta.description) }}
+    {{ metatag.meta(null, 'keywords', meta_data.meta.keywords) }}
+    {{ metatag.meta(null, 'abstract', meta_data.meta.abstract) }}
+
+    {# Advanced #}
+    {{ metatag.meta(null, 'robots', meta_data.meta.robots) }}
+    {{ metatag.meta(null, 'generator', meta_data.meta.generator) }}
+    {{ metatag.link('shortlink', meta_data.meta.shortlink) }}
+
+    {# Open Graph #}
+    {{ metatag.meta('property', 'og:title', meta_data.meta.og_title) }}
+    {{ metatag.meta('property', 'og:description', meta_data.meta.og_description) }}
+    {{ metatag.meta('property', 'og:type', meta_data.meta.og_type) }}
+    {{ metatag.meta('property', 'og:url', meta_data.meta.og_url) }}
+    {{ metatag.meta('property', 'og:image', meta_data.meta.og_image) }}
+{% endif %}

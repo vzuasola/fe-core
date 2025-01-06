@@ -1,0 +1,156 @@
+.registration-container {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    background: $background-color;
+    border: 1px solid $black;
+
+    .registration-steps {
+        position: relative;
+        height: 47px;
+        margin: 0;
+        padding-left: 0;
+        background: $white;
+        border-bottom: 1px solid $black;
+        font-size: 20px;
+        list-style: none;
+        text-transform: uppercase;
+    }
+}
+
+.registration-steps {
+    li {
+        position: absolute;
+        top: 0;
+        width: 498px;
+        margin-left: 0;
+        color: $black;
+        line-height: 46px;
+
+        .counter {
+            display: inline-block;
+            width: 49px;
+            background: $dark-gray;
+            color: $white;
+        }
+
+        .pointer {
+            position: absolute;
+            left: 0;
+            top: 14px;
+            @include triangle(right, 10px, $white);
+            overflow: hidden;
+        }
+
+        &.create-account {
+            z-index: 3;
+        }
+
+        &.make-a-deposit {
+            left: 500px;
+            z-index: 2;
+        }
+
+        &.active {
+            background: $red;
+            color: $white;
+
+            span {
+                background: $dark-red;
+                color: $white;
+            }
+        }
+    }
+}
+
+.registration-main-body {
+    .general-message {
+        border: 1px solid #3ab677;
+        color: #3ab677;
+        padding: 10px;
+        margin: 17px 20px;
+        font-size: 17px;
+        font-weight: bold;
+    }
+
+    .registration-background {
+        position: relative;
+        min-height: 500px;
+
+        .registration-content {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            padding-top: 100px;
+            padding-right: 20px;
+            color: $white;
+
+            .skip-button {
+                display: inline-block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                height: 20px;
+                padding: 0 5px;
+                background: $white;
+                border-radius: 3px;
+                color: $dark-gray;
+                cursor: pointer;
+                font-size: 13px;
+                line-height: 20px;
+                vertical-align: middle;
+                zoom: 1;
+
+                .skip-arrow {
+                    @include triangle(right, 5px, $dark-gray);
+                    display: inline-block;
+                    border-left-width: 8px;
+                }
+            }
+
+            h2 {
+                color: $white;
+                font-size: 21px;
+                font-weight: bold;
+            }
+
+            &.width-100 {
+                width: 100%;
+                padding-right: 0;
+            }
+
+            .col-6 {
+                padding: 0 60px;
+            }
+        }
+    }
+}
+
+.reg-step2-list {
+    list-style: none;
+
+    li {
+        display: table;
+        margin-bottom: 30px;
+
+        .img-icon {
+            display: table-cell;
+            vertical-align: middle;
+            width: 80px;
+            text-align: center;
+
+            img {
+                max-width: 80px;
+            }
+        }
+
+        p {
+            display: table-cell;
+            vertical-align: middle;
+            width: 250px;
+            margin-bottom: 0;
+            padding-left: 30px;
+        }
+    }
+}

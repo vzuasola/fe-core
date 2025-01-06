@@ -1,0 +1,29 @@
+{% if announcement is not empty %}
+    <div class="container">
+        
+        {# Critical Annoucement #}
+        {% if announcement.critical_announcement %}
+            <div class="annoucement-bar mt-20 mb-20 text-white">
+                <div class="annoucement-bar-object">
+                    <span class="icon-rounded-exclamation lazy-load" data-src="{{ asset('images/sprite.png') }}"></span>
+                </div>
+                <div class="annoucement-bar-body">
+                    {{ announcement.critical_announcement_content | raw }}
+                </div>
+            </div>
+        {% endif %}
+
+        {# News Annoucement #}
+        {% if announcement.news_announcement %}
+            <div class="annoucement-bar mt-20 mb-20 text-white">
+                <div class="annoucement-bar-object">
+                    <span class="icon-rounded-megaphone lazy-load" data-src="{{ asset('images/sprite.png') }}"></span>
+                </div>
+                <div class="annoucement-bar-body">
+                    {{ announcement.news_announcement_content | raw }}
+                </div>
+            </div>
+        {% endif %}
+
+    </div>
+{% endif %}

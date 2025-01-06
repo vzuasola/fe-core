@@ -1,0 +1,50 @@
+{% if not app.session.get('login') %}
+<div id="loginLightbox" class="modal login-lightbox">
+    <div class="modal-content">
+        <div class="modal-body">
+            {% if header.LoginLightboxForm %}
+                {{ form_start(header.LoginLightboxForm, {'attr': {'class': 'login-lightbox-form', 'id' : 'login-lightbox-form'}}) }}
+                    <div class="loginform-textfield-wrapper loginLightbox">
+
+                        {% set username = header.login.username_placeholder|default('Username') %}
+                        {% set password = header.login.password_placeholder|default('Password') %}
+
+                        <div class="username-field-wrapper">
+                            <label class="ie8_username_lightbox_placeholder hidden">{{ username }}</label>
+                            <span class="username-icon lazy-load" data-src="{{ asset('images/sprite.png') }}"></span>
+                            {{ form_widget(header.LoginLightboxForm.username, {'attr': {'class': 'field', 'placeholder': username }}) }}
+                        </div>
+
+                        <div class="password-field-wrapper">
+                            <label class="ie8_password_lightbox_placeholder hidden">{{ password }}</label>
+                            <span class="password-icon lazy-load" data-src="{{ asset('images/sprite.png') }}"></span>
+                            {{ form_widget(header.LoginLightboxForm.password, {'attr': {'class': 'field', 'placeholder': password }}) }}
+                        </div>
+
+                        {% spaceless %}
+                        <div class="login-lightbox-error">
+                            {% if app.session.hasFlash('login.error') %}
+                                {{ app.session.getFlash('login.error') }}
+                            {% endif %}
+                        </div>
+                        {% endspaceless %}
+
+                    </div>
+
+                    <div class="loginform-button-wrapper">
+                        {{ form_widget(header.LoginLightboxForm.submit, {'attr': {'class': 'btn btn-gray btn-block mb-20', 'value': 'Login'}, "label" : header.login.login_bottom_label|default('Submit') }) }}
+                        <hr>
+                            {% if header %}
+                                <a href={{ url(header.login_issue_link) }} class="btn-links login-issue mb-5" target="window">{{ header.login_issue_text }}</a>
+                                <div class="login-lightbox-blurb mb-20 clear">{{ header.login.lightbox_blurb|default('Not yet a Dafabet member?') }}</div>
+                                <a href={{ url(header.registration_link) }} class="btn btn-yellow btn-block">{{ header.join_now_text }}</a>
+                            {% endif %}
+                    </div>
+                {{ form_end(header.LoginLightboxForm) }}
+
+            {% endif %}
+        </div>
+        <a href="#" class="modal-close modal-close-button lazy-load" data-src="{{ asset('images/sprite.png') }}"></a>
+    </div>
+</div>
+{% endif %}

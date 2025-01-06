@@ -1,0 +1,233 @@
+.language-switcher {
+    display: inline-block;
+    position: relative;
+
+    ul {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 170px;
+        padding: 0;
+        background: $dark-red;
+        text-align: left;
+        z-index: 20;
+        list-style-type: none;
+        font-size: 14px;
+        white-space: nowrap;
+        margin-top: 10px;
+
+        &.switcher-cols-2 {
+            column-count: 2;
+            width: 360px;
+
+            li {
+                display: block;
+                height: 40px;
+                -webkit-column-break-inside: avoid;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            a {
+                text-align: left;
+
+                .language-name {
+                    text-align: left;
+                    margin: -23px 0px 0px 40px;
+                }
+            }
+        }
+
+    }
+
+    li {
+        display: inline;
+    }
+
+    a {
+        display: block;
+        padding: 4px 6px;
+        color: $white;
+        cursor: pointer;
+        padding: 0 15px;
+        text-align: right;
+        height: 40px;
+
+        &:hover {
+            background: $lang-switcher-hover-bg;
+            color: $lang-switcher-hover-color;
+        }
+    }
+
+    a:before {
+        @include image-replacement($sprite-responsive, -14px, -634px, 30px, 30px);
+        border-radius: 50%;
+        margin-top: 5px;
+        content: "";
+    }
+
+    .eu a:before,
+    a.eu:before {
+        background-position: -75px -634px;
+    }
+
+    .zh-hans a:before,
+    a.zh-hans:before {
+        background-position: -141px -634px;
+    }
+
+    .zh-hant a:before,
+    a.zh-hant:before {
+        background-position: -200px -634px;
+    }
+
+    .th a:before,
+    a.th:before {
+        background-position: -252px -634px;
+    }
+
+    .vi a:before,
+    a.vi:before {
+        background-position: -324px -635px;
+    }
+
+    .id a:before,
+    a.id:before {
+        background-position: -371px -631px;
+    }
+
+    .ja a:before,
+    a.ja:before {
+        background-position: -449px -634px;
+    }
+
+    .ko a:before,
+    a.ko:before {
+        background-position: -13px -673px;
+    }
+
+    .hi a:before,
+    a.hi:before {
+        background-position: -75px -672px;
+    }
+
+    .te a:before,
+    a.te:before {
+        background-position: -75px -672px;
+    }
+
+    .in a:before,
+    a.in:before {
+        background-position: -75px -672px;
+    }
+
+    .el a:before,
+    a.el:before {
+        background-position: -124px -672px;
+    }
+
+    .pl a:before,
+    a.pl:before {
+        background-position: -186px -672px;
+    }
+
+    .es a:before,
+    a.es:before {
+        background-position: -248px -672px;
+    }
+
+    .pt-br a:before,
+    a.pt-br:before {
+        background-position: -285px -675px;
+    }
+
+    .lo a:before,
+    a.lo:before {
+        background-position: -361px -674px;
+    }
+
+    .bu a:before,
+    a.bu:before {
+        background-position: -324px -674px;
+    }
+
+    .km a:before,
+    a.km:before {
+        background-position: -397px -673px;
+    }
+
+    .bn a:before,
+    a.bn:before {
+        background-position: -567px -640px;
+    }
+
+    .pk a:before,
+    a.pk:before {
+        background-position: -628px -640px;
+    }
+
+    .bg a:before,
+    a.bg:before {
+        background-position: -75px -672px;
+    }
+
+    .bd a:before,
+    a.bd:before {
+        background-position: -567px -640px;
+    }
+
+    .kk a:before,
+    a.kk:before {
+        background-position: -440px -672px;
+    }
+
+    .ru a:before,
+    a.ru:before {
+        background-position: -440px -672px;
+    }
+
+    > a {
+        border: 0;
+        border-radius: 0 0 3px 3px;
+        padding: 10px 0px 10px 10px;
+        z-index: 5002;
+        background-color: transparent;
+
+        &:before {
+            margin-right: 0;
+        }
+        &:after {
+            @include triangle(bottom, 12px, $darkest-red);
+            display: inline-block;
+            border-right-width: 7px;
+            border-left-width: 7px;
+            content: "";
+            margin-bottom: 3px;
+        }
+
+        &:hover {
+            margin-bottom: 3px;
+            margin-right: 0;
+            margin-top: 5px;
+        }
+    }
+
+    li:last-child,
+    li:last-child a {
+        border-bottom: 0;
+    }
+
+    .language-name {
+        text-align: right;
+        margin: -23px 40px 0px 0px;
+        font-size: 12px;
+    }
+}
+
+.language-switcher {
+    bottom: 35px;
+}
+
+.account-section + .language-switcher {
+    bottom: 38px;
+}

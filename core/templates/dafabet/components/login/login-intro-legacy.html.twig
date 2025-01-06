@@ -1,0 +1,29 @@
+{% if (app.session.get('login')) %}
+    <div class="mt-20">
+        <a 
+            data-popup="true"
+            data-popup-title="AccountCashier"
+            data-popup-position="center"
+            data-popup-width="820"
+            data-popup-height="700"
+            class="legacy-profile-link" {{ header.profile_link is not null ? "href=" ~ url(header.profile_link) : null }}
+        >
+            {{- header.welcome_text -}}
+        </a>
+        {% if header.cashier_menu is not null %}
+            {% for menu in header.cashier_menu %}
+                <a 
+                    data-popup="true"
+                    data-popup-title="AccountCashier"
+                    data-popup-position="center"
+                    data-popup-width="820"
+                    data-popup-height="700"
+                    href="{{ url(menu.uri) }}"
+                    class="btn btn-yellow btn-small ml-20 text-uppercase btn-cashier"
+                >
+                    {{ menu.title }}
+                </a>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endif %}
